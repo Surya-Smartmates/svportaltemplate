@@ -1,0 +1,570 @@
+@media (max-width: 1500px) {  
+    
+    .header-wrapper {
+        padding: 0px 15px 0px 15px;
+    }
+    .content-wrapper {
+        padding-right: 30px;
+        padding-left: 30px;
+    }
+    .happenig-items {
+        grid-gap: 14px;
+    }
+    .hapent-cotnet p {
+        font-size: 16px;
+        line-height: 1.1;
+    }
+    .st-img img {
+        height: 58px;
+        width: 58px;
+    }
+    .studets-content-grid {
+        grid-gap: 80px 50px;
+    }
+    .contact-id input {
+        width: 100%;
+    }
+    .btn.btn-save.js-save {
+        padding: 12px 20px;
+    }
+
+    .program-img img {
+        max-width: 80%;
+    }
+    .program-descrip-wrap .activities-items {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .single-happen {
+        min-height: 243px;
+    }
+    .contact-id span {
+        font-size: 14px;
+    }
+    .contact-id a {
+        font-size: 14px;
+    }
+    .st-name-list a {
+        font-size: 15px;
+    }
+
+
+
+}
+@media (min-width: 1200px) and (max-width: 1300px) {  
+    .single-happen {
+        min-height: 282px;
+        padding: 10px 19px;
+    }
+    .happen-count-text {
+        font-size: 63px;
+    }
+
+    .contact-box.white-box.theme-box {
+        padding: 30px 28px;
+    }
+    .st-img img {
+        height: 50px;
+        width: 50px;
+    }
+    .studets-content-grid {
+        grid-gap: 80px 36px;
+    }
+    .card-block-area {
+        grid-gap: 15px;
+    }
+    .apply-grid-box {
+        grid-template-columns: 2fr 1fr;
+    }
+
+
+    /* student-lsit-right */
+    .profile-tab-right {
+        position: fixed;
+        right: -252px;
+        top: 80px;
+        width: 252px;
+        transition: .3s;
+        background-color: #fff;
+        height: 100%;
+        padding: 30px 0px 30px 30px;
+        border-left: 1px solid #121F28;
+        z-index: 1111;
+    }
+    .profile-grid-support {
+        grid-template-columns: 1fr;
+    }
+    .profile-tab-right.active{
+        right: 0px;
+    }
+    .profile-tab-right .single-student-list{
+        margin-bottom: 2px;
+    }
+    .profile-tab-right .single-student-list .st-list-img img{
+        width: 50px;
+        height: 50px;
+    }
+    .profile-tab-right .single-student-list .st-name-list a {
+        font-size: 12px;
+    }
+
+    /* student-lsit-right */
+
+
+}
+@media (min-width: 992px) and (max-width: 1050px) {  
+    .contact-icon img {
+        width: auto;
+        max-width: 31px;
+    }
+    .contact-icon {
+        width: 15%;
+        min-width: 54px;
+        margin-right: 2%;
+    }
+
+    .contact-id span {
+        font-size: 12px;
+    }
+    .btn {
+        padding: 12px 25px;
+    }
+    .btn.btn-save.js-save {
+        padding: 12px 20px;
+    }
+
+    .single-sidebar {
+        padding: 23px 15px;
+    }
+
+
+}
+
+
+@media (max-width: 1199px) {  
+    .white-box {
+        padding: 22px 30px;
+    }
+    .card-block-area {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .happenig-items {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .contact-box.white-box.theme-box {
+        padding: 30px 28px;
+        flex-wrap: wrap;
+    }
+    .theme-box .contact-list ul li {
+        color: #fff;
+        font-size: 12px;
+    }
+    .studets-content-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .apply-grid-box {
+        grid-template-columns: 2fr 1fr;
+    }
+
+    /* student-lsit-right */
+    .profile-tab-right {
+        position: fixed;
+        right: -252px;
+        top: 80px;
+        width: 252px;
+        transition: .3s;
+        background-color: #fff;
+        height: 100%;
+        padding: 10px 15px 26px 10px;
+        border-left: 1px solid #121F28;
+        z-index: 11111;
+    }
+    .profile-grid-support {
+        grid-template-columns: 1fr;
+    }
+    .profile-tab-right.active{
+        right: 0px;
+    }
+    .profile-tab-right .single-student-list{
+        margin-bottom: 2px;
+    }
+    .profile-tab-right .single-student-list .st-list-img img{
+        width: 50px;
+        height: 50px;
+    }
+    .profile-tab-right .single-student-list .st-name-list a {
+        font-size: 12px;
+    }
+
+    /* student-lsit-right */
+
+    .cover-phot {
+        height: 235px;
+    }
+    .profile-img.abs-img {
+        height: 145px;
+        width: 145px;
+    }
+    .program-descrip-wrap .activities-items {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .more-info-wrapper {
+        grid-template-columns: 1fr;
+    }
+    .contact-heade p {
+        font-size: 13px;
+    }
+
+
+
+}
+
+@media (max-width: 991px) {  
+    .user-btn-text {
+        display: none;
+    }
+    .user-profile-img {
+        margin-right: 0px;
+        margin-bottom: 15px;
+    }
+    .user-menu.dropdown-menu{
+        width: 180px;
+       transform: translate(-65%, 47px) !important;
+       -webkit-transform: translate(-65%, 47px) !important;
+       -moz-transform: translate(-65%, 47px) !important;
+       -ms-transform: translate(-65%, 47px) !important;
+       -o-transform: translate(-65%, 47px) !important;
+    }
+    .card-block-area {
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 20px;
+    }
+    .happenig-items {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .leads-wrapper {
+        grid-row-start: 2;
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+    .cf-comission {
+        margin-top: 80px;
+    }
+    .st-img img {
+        height: 50px;
+        width: 50px;
+    }
+    .st-img {
+        margin-right: 12px;
+    }
+    .studets-details h6 {
+        font-size: 14px;
+    }
+    .studets-content-grid {
+        grid-gap: 70px 15px;
+    }
+    .st-hover-details {
+        left: -62px;
+        top: 33px;
+    }
+    .resource-left-content {
+        padding-right: 0px;
+        padding-bottom: 30px;
+    }
+    .activitis-area {
+        grid-template-columns: 1fr;
+    }
+    .apply-grid-box {
+        grid-template-columns: 1fr;
+    }
+    .profile-left-tab ul li button {
+        font-size: 15px;
+        padding: 10px 16px;
+    }
+
+    .user-page-sidebar {
+        width: max-content;
+        margin: 0 auto;
+        margin-top: 30px;
+    }
+    .doc-name {
+        width: 232px;
+    }
+    .program-descrip-wrap .activities-items {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .single-sldie-outline button.btn {
+        padding: 12px 20px;
+    }
+
+    .contact-heade p {
+        font-size: 12px;
+    }
+
+    .content-wrapper {
+        padding-right: 30px;
+        padding-left: 30px;
+    }
+}
+
+@media (max-width: 767px) {  
+    .sidebar-menu {
+        width: 60px;
+        padding: 0px;
+        left: -60px;
+        top: 60px;
+        height: calc(100vh - 60px);
+        transition: .3s;
+        -webkit-transition: .3s;
+        -moz-transition: .3s;
+        -ms-transition: .3s;
+        -o-transition: .3s;
+    }
+    .main-menu ul li a {
+        font-size: 20px;
+    }
+    .logo-area a h3 {
+        font-size: 18px;
+    }
+    .search-area {
+        display: none;
+    }
+    .main-content {
+        margin-left: 0px;
+        padding-top: 60px;
+        padding-bottom: 40px;
+    }
+    .header-wrapper {
+        height: 60px;
+    }
+    .notifiation-area {
+        height: 60px;;
+    }
+    .user-img {
+        margin-right: 0px;
+    }
+    .notifiation-area {
+        height: 60px;
+        width: 50px;
+    }
+    .notification-icon i {
+        font-size: 17px;
+    }
+    .user-btn-area {
+        margin-left: 10px;
+    }
+    .logo-area a img {
+        width: 148px;
+    }
+    .hover-menu-wrapper {
+        padding: 25px 20px;
+    }
+    .hover-menu-wrapper ul li a {
+        padding-bottom: 47px;
+    }
+
+    .white-box {
+        padding: 30px 15px;
+    }
+    .content-wrapper {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+
+    .card-block-area {
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 20px;
+    }
+    .happenig-items {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .register-lead-area {
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 15px;
+    }
+    .leads-wrapper {
+        grid-row-start: inherit;
+        grid-column-start: inherit;
+        grid-column-end: inherit;
+    }
+
+    .happen-count-text {
+        font-size: 60px;
+    }
+    .single-happen {
+        min-height: 245px;
+        padding: 10px 18px;
+    }
+    label {
+        font-size: 12px;
+    }
+    .studets-content-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .st-img img {
+        height: 45px;
+        width: 45px;
+    }
+    .studets-content-grid {
+        grid-gap: 54px 12px;
+    }
+    .st-hover-details ul li a {
+        font-size: 10px;
+    }
+    .single-st-contact:hover .st-hover-details {
+        z-index: 11;
+    }
+    .studets-details h6 {
+        font-size: 13px;
+    }
+    #imagePreview {
+        height: 170px;
+    }
+
+    .profile-img.abs-img {
+        left: 15px;
+    }
+    .user-cover-image {
+        margin-bottom: 85px;
+    }
+    .user-content-text-wrapper {
+        padding: 0px 15px 20px 15px;
+    }
+    .profile-img.abs-img {
+        height: 130px;
+        width: 130px;
+    }
+    .laguage-ab {
+        flex-wrap: wrap;
+    }
+    .menu-icon {
+        width: 12%;
+    }
+    .register-text {
+        flex: 0 0 auto;
+        width: 80%;
+    }
+
+    .profile-img-area {
+        height: 120px;
+        width: 120px;
+        bottom: -60px;
+        left: 15px;
+    }
+    .calender-wrapp #calendari {
+        margin: 0px 0px;
+        position: relative;
+        overflow: hidden;
+        height: 350px;
+        width: 270px;
+    }
+    .calender-wrapp table {
+        width: 99%;
+    }
+    .calender-wrapp td {
+        padding: 18px 18px;
+    }
+    .calender-wrapper {
+        height: auto;
+        max-width: 580px;
+    }
+    .tab_content {
+        padding: 12px 0px;
+    }
+    .user-page-sidebar {
+        width: 100%;    
+    }
+    .tab_content {
+        padding: 12px 0px;
+        background-color: transparent;
+    }
+
+    .profile-left-tab .nav {
+        flex-wrap: nowrap !important;
+        overflow-x: scroll;
+        scrollbar-width: none;  
+    }
+    .profile-left-tab .nav .nav-item {
+        width: max-content;
+        flex: 0 0 auto;
+    }
+    .doc-name {
+        flex: 0 0 auto;
+        width: 117px;
+    }
+    .single-check {
+        margin-bottom: 15px;
+        margin-right: 14px;
+    }
+    .single-check label p {
+        font-size: 10px;
+    }
+    .program-descrip-wrap .activities-items {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .modulebtn {
+        width: 290px;
+        padding: 12px 0px;
+        margin-right: 10px;
+    }
+    .progrum-desc-wrapper .happenig-items .single-happen .happen-count-text {
+        min-height: 70px;
+    }
+
+    .progrum-desc-wrapper .happenig-items .single-happen .happen-count-text img {
+        max-width: 112px;
+        width: 40px;
+    }
+    .single-happen {
+        min-height: 208px;
+        padding: 10px 15px;
+    }
+    .happenig-items {
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 15px;
+    }
+    .outline-slide-active .owl-item.active.center {
+        transform: scale(1);
+        top: 0px;
+    }
+    .outline-slide-active .owl-stage-outer {
+        padding-top: 0px;
+        padding-bottom: 0px;
+    }
+    .info-items {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .profile-tab-right {
+        top: 60px;
+    }
+
+
+
+
+
+}
+
+@media (max-width: 575px) { 
+    .card-block-area {
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 15px;
+    }
+
+    .lang-left {
+        margin-right: 25px;
+        margin-bottom: 15px;
+    }
+    .happenig-items {
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 15px;
+    }
+    .progrum-desc-wrapper .happenig-items .single-happen .hapent-cotnet h4 {
+        font-size: 14px;
+    }
+
+}
+
+
+
+
+

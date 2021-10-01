@@ -1,0 +1,70 @@
+.widget-component{
+    text-align: center;
+    width: 100%;
+    height: 100vh;
+    margin-bottom: 5%
+    
+}
+
+.widget-button{
+    background-color: #406cdc;
+    border: 1px solid #406cdc;
+    border-radius: 5px;
+    margin-top: 10px;
+    width: 100px;
+    height: 40px;
+    color: white;
+}
+.widget-section-header{
+    font-weight: 300;
+    font-size: 1.5em;
+}
+.widget-section{
+    width: 100%;
+    flex-wrap: wrap;
+    float: left;
+}
+.widget-row{
+    display: flex;
+    flex-wrap: wrap;
+    width: 33%;
+    float: left;
+}
+
+.widget-row-content{
+    display: flex;
+    flex-wrap: wrap;
+    width: 33%;
+    float: left;
+    margin-bottom: 5%
+}
+.widget-header{
+    font-weight: 100;
+    font-size: 3.5em;
+    margin-bottom: 50px
+
+}
+.widget-text{
+    width: 100%;
+    height: 200px;
+    margin-top: 30px;
+    float: left;
+}
+.monitor-student-section{
+    float: left;
+}
+
+.widget-dropdown{
+    width: 50%;
+    text-align: center
+}
+
+.widget-spacer{
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.row-group{
+    padding-top: 10px;
+    padding-bottom:50px
+}
