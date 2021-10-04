@@ -112,7 +112,7 @@ const Navbar = ({ profileUserName, topbarLinks, imgSrc }) => {
                                 <li>
                                     <button
                                         type='button'
-                                        class='btn btn-primary'
+                                        className='btn btn-primary'
                                         onClick={() => signOut()}
                                         style={{ width: "100%" }}>
                                         Logout

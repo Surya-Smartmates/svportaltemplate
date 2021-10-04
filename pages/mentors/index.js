@@ -136,7 +136,7 @@ const SupportHome = ({
   return (
     <>
       <Navbar profileUserName={profileUserName} topbarLinks={topbarLinks} />
-      <div class="main-root">
+      <div className="main-root">
         <Sidebar />
         <div className="main-content">
           <div className="content-wrapper">
