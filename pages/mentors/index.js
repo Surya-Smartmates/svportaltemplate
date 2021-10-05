@@ -379,7 +379,7 @@ export async function getServerSideProps(context) {
 
   const parsedCookies = cookie.parse(context.req.headers.cookie || "");
 
-  // if seesion not found then navigate him to the login
+  // if session not found then navigate him to the login
   if (!session) {
     return {
       redirect: {

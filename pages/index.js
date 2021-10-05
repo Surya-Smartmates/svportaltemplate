@@ -114,13 +114,13 @@ export async function getServerSideProps(context) {
   }
   //* Everyting is now OK, do your additional Code Here
   let portalUserResp = {};
-  let parentsResp = [];
-  let studentsResp = [];
-  let enrolmentsResp = [];
-  let surveysResp = [];
-  let svTasksResp = [];
-  let studentSupportersResp = [];
-  let agentsResp = [];
+  // let parentsResp = [];
+  // let studentsResp = [];
+  // let enrolmentsResp = [];
+  // let surveysResp = [];
+  // let svTasksResp = [];
+  // let studentSupportersResp = [];
+  // let agentsResp = [];
   const {
     data: { access_token: accessToken },
   } = await axios.get(process.env.ACCESSTOKEN_URL);

@@ -24,7 +24,7 @@ const Home = () => {
     return (
         <>
             <Navbar />
-            <div class='main-root'>
+            <div className='main-root'>
                 <Sidebar />
                 {!!userProfile && <Home__Content userProfile={userProfile} />}
             </div>
