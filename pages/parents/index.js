@@ -208,7 +208,7 @@ export async function getServerSideProps(context) {
     }
 
     // //todo Fetching Enrollments of All Students
-
+/*
     for (const studentResp of studentsResp) {
         const { data: enrResp } = await axios.post(
             `${process.env.NEXTAUTH_URL}/api/getZohoData`,
@@ -242,7 +242,7 @@ export async function getServerSideProps(context) {
             console.log("Error SV Tasks : ", errorCode);
         }
     }
-
+*/
     //todo Fetch Parrents Meeting from Portal Assets
 
     try {
@@ -260,7 +260,7 @@ export async function getServerSideProps(context) {
     let splitedName = _.split(enrolmentsResp?.[0]?.Life_Cycle_Stage, "(")?.[1];
     splitedName = _.split(splitedName, ")")?.[0];
 
-    try {
+    /*try {
         const resp = await axios.get(
             `https://www.zohoapis.com/crm/v2/Portal_Assets/search?criteria=(Name:equals:${splitedName}%20Details)`,
             { headers: { Authorization: accessToken } }
@@ -270,7 +270,7 @@ export async function getServerSideProps(context) {
     } catch (error) {
         const errorCode = error?.response?.data?.code;
         console.log("Error Portal Assets : ", errorCode);
-    }
+    }*/
 
     try {
         const resp = await axios.get(

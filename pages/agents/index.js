@@ -13,6 +13,10 @@ import trash from "../../assets/agents/img/trash.svg";
 import xlfile from "../../assets/agents/img/xl.svg";
 import question from "../../assets/agents/img/question.svg";
 import social from "../../assets/agents/img/social-group.svg";
+import fb from "../../assets/img/facebook-fix-green.svg"
+import yt from "../../assets/img/youtube-green.svg"
+import ig from "../../assets/img/instagram-fix-green.svg"
+import lkin from "../../assets/img/linkedin-fix-green.svg"
 import feedback from "../../assets/agents/img/feedback.svg";
 import Image from "next/image";
 import { useRouter } from "next/router";
@@ -50,7 +54,24 @@ const AgentDashboard = ({
     router.pathname.split("/")?.[1] ||
     state?.portalUserResp?.User_Type?.toLowerCase() ||
     "";
+//Smartmates Code
+  async function submitNewRecord (data){
+    const submittedData = {
+      name: data.target.name.value,
+      pref_contact: data.target.pref_contact.value,
+      course: data.target.course.value,
+      institution: data.target.institution.value,
+      program: data.target.program.value,
+      city: data.target.city.value,
+      agency: data.target.agency.value,
+      date: data.target.date.value
+    }
 
+    const addRecordResponse = await axios.post()
+    console.log(data.target.program.value)
+    console.log(submittedData)
+    data.preventDefault()
+  }
   const profileUserName = `${state?.agentsResp?.[0]?.Agency_Name || ""}`;
   return (
     <>
@@ -190,40 +211,40 @@ const AgentDashboard = ({
 
             {/* register-area */}
             <div className="register-lead-area d-grid">
-              <div className="rgister-lead-form white-box">
+              {/**//*<div className="rgister-lead-form white-box">
                 <h4>Register a Lead</h4>
-                <form action>
+                <form  onSubmit = {submitNewRecord} >
                   <div className="single-input-wrap">
-                    <label htmlFor>Name and Surname</label>
-                    <input type="text" />
+                    <label htmlFor="name">Name and Surname</label>
+                    <input id = "name" type="text" />
                   </div>
                   <div className="single-input-wrap">
                     <label htmlFor>Preferred Contact</label>
-                    <input type="text" />
+                    <input id = "pref_contact" type="text" />
                   </div>
                   <div className="single-input-wrap">
                     <label htmlFor>Intended Course of Study</label>
-                    <input type="text" />
+                    <input id = "course" type="text" />
                   </div>
                   <div className="single-input-wrap">
                     <label htmlFor>Intended Institution</label>
-                    <input type="text" />
+                    <input id = "institution" type="text" />
                   </div>
                   <div className="single-input-wrap">
                     <label htmlFor>Location City/County</label>
-                    <input type="text" />
+                    <input id = "city" type="text" />
                   </div>
                   <div className="single-input-wrap">
                     <label htmlFor>Your Agency</label>
-                    <input type="text" />
+                    <input id = "agency" type="text" />
                   </div>
                   <div className="single-input-wrap">
                     <label htmlFor>StudyVillage Program (If Known)</label>
-                    <input type="text" />
+                    <input id = "program" type="text" />
                   </div>
                   <div className="single-input-wrap">
                     <label htmlFor>Date (DD/MM/YYYY)</label>
-                    <input type="text" />
+                    <input id = "date" type="text" />
                   </div>
                   <div className="register-btn pt-3">
                     <button type="submit" className="btn">
@@ -231,7 +252,13 @@ const AgentDashboard = ({
                     </button>
                   </div>
                 </form>
-              </div>
+              </div>*/}
+              <iframe
+              frameborder="0"
+              style={{height:"500px",width:"99%",border:"none"}}
+              src='https://forms.zohopublic.com/studyvillage/form/StudyVillageStudentapplication/formperma/VxlbWTQPjYGlaz5mGMd0VmV2TweAHD0K-bPOZ1giPig'>
+
+              </iframe>
               <div className="leads-wrapper white-box">
                 <h4>Leads</h4>
                 <div className="registerd-items">
@@ -352,13 +379,12 @@ const AgentDashboard = ({
               {/* single-card */}
               {/* single-card */}
               <div className="single-card-block white-box text-center">
-                <div className="card-icon">
-                  <Image
-                    width={150}
-                    height={150}
-                    src={social}
-                    alt="social icons"
-                  />
+              <div className= 'student-card-icon'>
+                    {/*<Image width={100} height={100} src={social} alt='' width={20} height={20}/>*/}
+                    <a href = "https://www.facebook.com/105113841330878" target = "_blank" rel="noreferrer noopener"><Image className = "socmed-image"  src={fb} alt=''/></a>
+                    <a href = "https://www.youtube.com/channel/UCbzNF9F-uZDotmUWL_p8vhQ" target = "_blank" rel="noreferrer noopener"><Image className = "socmed-image-yt" src={yt} alt=''/></a>
+                    <a href = "https://www.linkedin.com/company/69714823" target = "_blank" rel="noreferrer noopener"><Image  className = "socmed-image" src={lkin} alt=''/></a>
+                    <a href = "https://instagram.com/study_village" target = "_blank" rel="noreferrer noopener"><Image className = "socmed-image" src={ig} alt=''/></a>
                 </div>
                 <div className="card-text">
                   <h4>Follow Us</h4>
@@ -472,7 +498,7 @@ export async function getServerSideProps(context) {
     }
   );
   portalUserResp = portResp?.data?.[0];
-
+ /*
   // //todo FetchingAgents Details
   const { data: agentResp } = await axios.post(
     `${process.env.NEXTAUTH_URL}/api/getZohoData`,
@@ -493,6 +519,7 @@ export async function getServerSideProps(context) {
   // leadsResp = leadResp?.data;
 
   // //todo Fetching Agent's Students Details
+ 
   const { data: stuResp } = await axios.post(
     `${process.env.NEXTAUTH_URL}/api/getZohoData`,
     {
@@ -502,7 +529,7 @@ export async function getServerSideProps(context) {
   );
   studentsResp = stuResp?.data;
   console.log({ studentsResp });
-
+*/
   return {
     props: {
       portalUserResp,

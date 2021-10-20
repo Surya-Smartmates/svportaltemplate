@@ -3,6 +3,10 @@ import Link from "next/link";
 import question from "../../assets/img/question.svg";
 import social from "../../assets/img/social-group.svg";
 import book from "../../assets/img/book-2.jpg";
+import fb from "../../assets/img/facebook-fix-green.svg"
+import yt from "../../assets/img/youtube-green.svg"
+import ig from "../../assets/img/instagram-fix-green.svg"
+import lkin from "../../assets/img/linkedin-fix-green.svg"
 import line from "../../assets/img/line-o.svg";
 import Image from "next/image";
 import useTrackedStore from "../../store/useTrackedStore";
@@ -40,10 +44,14 @@ const CardArea = () => {
                 </div>
             </div>
             {/* <!-- single-card -->
-                  <!-- single-card --> */}
+                  <!-- single-card --> 'card-icon'*/}
             <div className='single-card-block white-box text-center'>
-                <div className='card-icon'>
-                    <Image width={100} height={100} src={social} alt='' />
+                <div className= 'student-card-icon'>
+                    {/*<Image width={100} height={100} src={social} alt='' width={20} height={20}/>*/}
+                    <a href = "https://www.facebook.com/105113841330878" target = "_blank" rel="noreferrer noopener"><Image className = "socmed-image"  src={fb} alt=''/></a>
+                    <a href = "https://www.youtube.com/channel/UCbzNF9F-uZDotmUWL_p8vhQ"><Image className = "socmed-image-yt" src={yt} alt=''/></a>
+                    <a href = "https://www.linkedin.com/company/69714823" target = "_blank" rel="noreferrer noopener"><Image  className = "socmed-image" src={lkin} alt=''/></a>
+                    <a href = "https://instagram.com/study_village" target = "_blank" rel="noreferrer noopener"><Image className = "socmed-image" src={ig} alt=''/></a>
                 </div>
                 <div className='card-text'>
                     <h4>Follow Us</h4>

@@ -22,10 +22,19 @@ import "../assets/css/responsive.css";
 import "../assets/agents/css/responsive.css";
 import "../assets/agents/css/style.css";
 import "../assets/mentors/style.css";
-import '../components/ss-task-monitor/SsTaskMonitor.css'
+import "swiper/css"
+import "swiper/css/navigation"
+import "swiper/css/pagination"
 // import "../styles/globals.css";
 
 import createEmotionCache from "../src/createEmotionCache";
+
+
+//Smartmates Development
+import "../components/ss-task-monitor/SsTaskMonitor.css"
+import "../components/PDF_Carousel/PDFCarousel.css"
+import "@madzadev/image-slider/dist/index.css";
+
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();

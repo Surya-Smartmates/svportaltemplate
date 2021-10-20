@@ -18,8 +18,10 @@ const Program__Content = ({ quickLink, events }) => {
     )?.[1];
     splitedName = _.split(splitedName, ")")?.[0];
     const [heading, setHeading] = useState("");
-    // console.log({ heading }, state?.allAssets);
     const [selectedAsset, setSelectedAsset] = useState({});
+
+    // console.log({ heading }, state?.allAssets);
+    
     useEffect(() => {
         const selAsset = state?.allAssets?.filter((asset) => {
             return asset?.Name?.toLowerCase() === heading?.toLowerCase();

@@ -45,6 +45,7 @@ const Login = () => {
   const [loading, setLoading] = useState(false);
   const router = useRouter();
 
+  //Empty Email and Password field when there's an error
   useEffect(() => {
     setValue("email", "");
     setValue("password", "");
@@ -104,6 +105,7 @@ const Login = () => {
           record_id: response.data.record_id,
           remember: data.remember,
         });
+        console.log(data.remember)
       }
     }
   };

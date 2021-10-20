@@ -5,6 +5,7 @@ export default async function handler(req, res) {
             data: { access_token: accessToken },
         } = await axios.get(process.env.ACCESSTOKEN_URL);
         const { moduleApiName = "", criteria = "", fields = "" } = req.body;
+        console.log(req.body.moduleApiName);
         if (moduleApiName === "") {
             res.json({
                 status: "error",

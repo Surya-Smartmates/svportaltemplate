@@ -451,18 +451,36 @@ textarea:focus {
     grid-gap: 50px;
     margin-top: 40px;
 }
+
+.student-card-icon{
+    width: 200px;
+    height: 150px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.socmed-image{
+    width: 70px;
+    height: 70px;
+}
+.socmed-image-yt{
+    width: 70px;
+    height: 70px;
+    margin-top: -20px
+}
+
 .card-icon i {
     font-size: 100px;
     color: var(--primary-color);
 }
 .card-icon {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 .single-card-block {
     min-height: 352px;
 }
 .card-icon img {
-    height: 100px;
+    height: 50px;
 }
 .btn.contact-btn {
     width: 177px;
@@ -1486,4 +1504,13 @@ form.is-readonly textarea[disabled] {
 }
 .rbc-toolbar-label {
     text-align: center !important;
+}
+
+.click-highlight{
+    cursor: pointer;
+}
+
+.student-highlight{
+    background-color: rgba(50,100,150, 0.2);
+    color: white
 }

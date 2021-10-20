@@ -162,7 +162,7 @@ const InteractionReport = () => {
                                                         Activities
                                                     </h4>
                                                     <div className='apply-form-wrapp'>
-                                                        <form action=''>
+                                                        <form action>
                                                             <div className='single-input-wrap'>
                                                                 <label htmlFor>
                                                                     Which

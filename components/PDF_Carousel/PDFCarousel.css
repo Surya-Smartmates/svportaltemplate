@@ -1,0 +1,42 @@
+.slider{
+    position: relative;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-view{
+    margin-top: 5%;
+    border: 1px solid #000000;
+}
+
+.image-slider{
+    width: 100%;
+    opacity: 0;
+    transition-duration: 0.5s;
+}
+
+.image-slider.active{
+    opacity: 1;
+    transition-duration: 0.5s;
+    transform: scale(1.08);
+}
+.right-arrow{
+    position: absolute;
+    top: 40%;
+    right: 32px;
+    font-size: 3rem;
+    z-index: 10;
+    user-select: none;
+    cursor: pointer;
+}
+.left-arrow{
+    position: absolute;
+    top: 40%;
+    left: 32px;
+    font-size: 3rem;
+    z-index: 10;
+    user-select: none;
+    cursor: pointer;
+}

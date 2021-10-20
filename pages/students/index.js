@@ -32,7 +32,7 @@ export default function App({
     const state = useTrackedStore();
     const router = useRouter();
     let time;
-
+    
     useEffect(() => {
         //todo Setting all data to the State for Reuse
         state.setEnrolmentsResp(enrolmentsResp);
@@ -47,6 +47,7 @@ export default function App({
         state.setParentsMeetingDescriptions(parentsMeetingDescriptions);
         state.setLifecycleDetails(lifecycleDetails);
         state.setAllAssets(allAssets);
+        console.log(enrolmentsResp?.[0])
         if (!!session && session.remember === false) {
             time = setInterval(async () => {
                 Cookies.set("expiredTime", Date.now() + 2 * 10000);
@@ -173,6 +174,7 @@ export async function getServerSideProps(context) {
     let parentsMeetingDescriptions = [];
     let lifecycleDetails = [];
     let allAssets = [];
+    
     const {
         data: { access_token: accessToken },
     } = await axios.get(process.env.ACCESSTOKEN_URL);
@@ -237,6 +239,7 @@ export async function getServerSideProps(context) {
             console.log("Error Enrolments Resp : ", errorCode);
         }
     }
+  
     // //todo Fetching SV Tasks of All Students
     for (const studentResp of studentsResp) {
         try {
@@ -306,7 +309,7 @@ export async function getServerSideProps(context) {
         enrolmentsResp?.[0]?.Product_Options?.split("(")?.[1]?.split(
             ")"
         )?.[0] ||
-        "";
+        "";/*
     //todo Fetch Portal Assets for Portal Options
     if (productOptions !== "") {
         try {
@@ -335,10 +338,11 @@ export async function getServerSideProps(context) {
         const errorCode = error?.response?.data?.code;
         console.log("Error Portal Assets : ", errorCode);
     }
-
+*/
     let splitedName = _.split(enrolmentsResp?.[0]?.Life_Cycle_Stage, "(")?.[1];
     splitedName = _.split(splitedName, ")")?.[0];
-
+    console.log(splitedName)
+/*
     try {
         const resp = await axios.get(
             `https://www.zohoapis.com/crm/v2/Portal_Assets/search?criteria=(Name:equals:${splitedName}%20Details)`,
@@ -362,7 +366,7 @@ export async function getServerSideProps(context) {
         const errorCode = error?.response?.data?.code;
         console.log("Error Portal Assets : ", errorCode);
     }
-
+*/
     /////////////////////////////////////
 
     // //todo Fetch Portal Assets for Portal Options
