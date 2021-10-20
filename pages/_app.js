@@ -33,6 +33,7 @@ import createEmotionCache from "../src/createEmotionCache";
 //Smartmates Development
 import "keen-slider/keen-slider.min.css"
 import "../components/ss-task-monitor/SsTaskMonitor.css"
+import "../components/pdf-slider/PdfSlider.css"
 import "../components/PDF_Carousel/PDFCarousel.css"
 import "@madzadev/image-slider/dist/index.css";
 

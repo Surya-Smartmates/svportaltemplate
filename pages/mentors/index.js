@@ -393,7 +393,7 @@ const SupportHome = ({
               <div className="your-students white-box">
                 <h4>Your Students</h4>
                 <div className="studetnt-list">
-                  {state?.studentsResp?.map((student, index) => {
+                  {(state?.studentsResp !== undefined || state?.studentsResp !== null) ? state?.studentsResp?.map((student, index) => {
                     return (
                       <div
                         className="single-student-list d-flex align-items-center"
@@ -407,7 +407,7 @@ const SupportHome = ({
                         </div>
                       </div>
                     );
-                  })}
+                  }) : <div></div>}
                   
                   {/* student?.Full_Name*/}
                   {/* st-inner-title */}
@@ -627,7 +627,7 @@ export async function getServerSideProps(context) {
     }
   );
  
-  studentsResp = stuResp?.data;
+  studentsResp = stuResp.data !== undefined  ? stuResp?.data : [];
   console.log({stuResp})
 /**/
   return {

@@ -7,6 +7,8 @@ import cliniko from "../../assets/mentors/img/Cliniko.jpg";
 import Link from "next/link";
 import Image from "next/image";
 
+import PdfSlider from "../../components/pdf-slider/PdfSlider";
+
 const InteractionReport = () => {
     const router = useRouter();
     const state = useTrackedStore();
@@ -140,6 +142,7 @@ const InteractionReport = () => {
                                                             Student’s Profiles
                                                             &gt;&gt;
                                                         </a>
+                                                        <PdfSlider/>
                                                     </div>
                                                     <div className='previous-report'>
                                                         <h5>
