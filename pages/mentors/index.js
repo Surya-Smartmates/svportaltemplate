@@ -176,10 +176,11 @@ const SupportHome = ({
   }
 
   async function CloseSVTask(){
+    console.log("test")
     let completeTask = {...specificTask};
     console.log(completeTask.task.id)
-    let confirmUpdate = confirm(`CLOSE THIS TASK?:\n ${completeTask.task?.Enrollment?.name}`)
-    completeTask.task.Task_Status = "Completed"
+    //let confirmUpdate = confirm(`CLOSE THIS TASK?:\n ${completeTask.task?.Enrollment?.name}`)
+    //completeTask.task.Task_Status = "Completed"
 
     if(confirmUpdate === true){//${process.env.NEXTAUTH_URL}
       const updateTaskinCRM = await axios.put(`/api/updateRecord`, {
@@ -195,6 +196,7 @@ const SupportHome = ({
       })
       console.log(updateTaskinCRM) 
     }
+    window.refresh()
   }
   async function OpenTaskPopup (){
     setShowPopup(!showPopup)
@@ -280,7 +282,7 @@ const SupportHome = ({
       <div class="main-root">
         <Sidebar />
         <div className="main-content">
-        <ConfirmPopup CloseSVTask = {()=>{CloseSVTask}} CurrentRecord = {specificTask} toggle = {()=>setShowPopup(false)} isOpen = {showPopup}/> 
+        <ConfirmPopup CloseSVTask = {()=>{CloseSVTask()}} CurrentRecord = {specificTask} toggle = {()=>setShowPopup(false)} isOpen = {showPopup}/> 
           <div className="content-wrapper">
             {/* hapaning-items */}
             <div className="happening-wrapper">
