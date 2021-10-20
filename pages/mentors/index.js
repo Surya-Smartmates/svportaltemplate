@@ -37,7 +37,7 @@ import Link from "next/link";
 //Smartmates add Panel
 import ConfirmPopup from "../../components/ss-task-monitor/ConfirmPopup"
 import SsTaskMonitor from "../../components/ss-task-monitor/SsTaskMonitor";
-import PdfSlider from "../../components/pdf-Slider/PdfSlider";
+//import PdfSlider from "../../components/pdf-Slider/PdfSlider";
 import { CarouselData } from "../../components/PDF_Carousel/CarouselData";
 
 //import { Navigation } from "swiper";
