@@ -284,11 +284,11 @@ const Program__Content = ({ quickLink, events }) => {
 
                             <div className='calender-wrapper mt-3 mt-lg-4'>
                                 <div className='calender-wrapp'>
-                                    <My__Calendar events={events} />
+                                   <My__Calendar  events={events} /> 
                                 </div>
                             </div>
 
-                            <div className='calender-bottom mt-3 mt-lg-4'>
+                            <div style={{ marginTop: "20px" }} className='calender-bottom mt-3 mt-lg-4'>
                                 <p>
                                     Your next meeting will be on the{" "}
                                     {

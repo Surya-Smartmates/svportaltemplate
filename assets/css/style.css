@@ -1514,3 +1514,41 @@ form.is-readonly textarea[disabled] {
     background-color: rgba(50,100,150, 0.2);
     color: white
 }
+
+.guide-section-header{
+    font-weight: bold;
+    font-size: 1.2em;
+    height: 50px
+    
+}
+
+.guide-section-lists{
+    list-style-type: disc;
+    margin-bottom: 30px;
+
+}
+
+.guide-accordion{
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    outline: none;
+    transition: 0.3s;
+}
+
+.guide-panel{
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+    display: none;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+
+.show-acc{
+    display: inline;
+}
+
+.hide-acc{
+    display: none;
+}

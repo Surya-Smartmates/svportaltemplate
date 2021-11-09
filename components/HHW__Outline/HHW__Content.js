@@ -18,6 +18,9 @@ import need__4 from "../../assets/img/need-4.jpg";
 import Link from "next/link";
 import Image from "next/image";
 
+//add Report Slider
+import PdfSlider from "../pdf-slider/PdfSlider"
+
 const HHW__Content = () => {
   const state = useTrackedStore();
   const responsive = {
@@ -203,7 +206,11 @@ const HHW__Content = () => {
                 Prepared by {state?.studentSupportersResp?.[0]?.Vendor_Name} on{" "}
                 {state?.enrolmentsResp?.[0]?.Report_Date}
               </span>
-
+              <h4 style = {{ marginTop: "20px", marginBottom:"20px" }}>
+                All of {state?.studentsResp?.[0]?.Full_Name}’s Interaction
+                Report{" "}
+              </h4>
+              <div><PdfSlider/></div>
               <p>{state?.enrolmentsResp?.[0]?.Latest_Interaction_Report}</p>
               {/* <p>
                                 Consequat nisl vel pretium lectus quam id.
@@ -236,7 +243,7 @@ const HHW__Content = () => {
                                 phasellus faucibus scelerisque eleifend donec
                                 pretium
                             </p> */}
-
+                        
               <Link
                 href={`${state.portalUserResp.User_Type?.toLowerCase()}/contact`}
                 className="btn"

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import { Calendar, momentLocalizer, views } from "react-big-calendar";
 import moment from "moment";
 import events from "./events";
@@ -10,6 +10,8 @@ import useTrackedStore from "../../store/useTrackedStore";
 
 const localizer = momentLocalizer(moment);
 
+
+
 const ColoredDateCellWrapper = ({ children }) =>
     React.cloneElement(React.Children.only(children), {
         style: {
@@ -17,8 +19,9 @@ const ColoredDateCellWrapper = ({ children }) =>
         },
     });
 
-const My__Calendar = ({ events }) => {
+const My__Calendar = ({ events, formatDate }) => {
     const state = useTrackedStore();
+    
     // console.log({
     //     title: "Meeting with Parents",
     //     start: state?.enrolmentsResp?.[0]?.Parent_s_Meeting_Date,
@@ -33,6 +36,7 @@ const My__Calendar = ({ events }) => {
     //     up_down_ind: "N",
     //   },
     // ];
+    
     return (
         <div>
             {console.log(events)}
@@ -43,6 +47,7 @@ const My__Calendar = ({ events }) => {
                     timeSlotWrapper: ColoredDateCellWrapper,
                     toolbar: CustomToolbar,
                 }}
+                onSelectEvent = {(event)=>{formatDate(event)}}
                 startAccessor='start'
                 endAccessor='end'
                 views={{
@@ -50,6 +55,7 @@ const My__Calendar = ({ events }) => {
                 }}
                 style={{ height: 500, width: "100%" }}
             />
+            
         </div>
     );
 };

@@ -74,6 +74,8 @@ export default NextAuth({
 			// }
 
 			if (token) {
+				console.log(token)
+				console.log(token.exp)
 				session.exp = token.expire
 				// session.credentials = token.credentials
 				session.user.record_id = token.record_id

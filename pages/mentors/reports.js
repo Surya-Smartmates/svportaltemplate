@@ -1,28 +1,149 @@
 import { useRouter } from "next/router";
-import React from "react";
+import React, {useState, useEffect} from "react";
 import Navbar from "../../components/Shared/Navbar/Navbar";
 import Sidebar from "../../components/Shared/Sidebar/Sidebar";
 import useTrackedStore from "../../store/useTrackedStore";
 import cliniko from "../../assets/mentors/img/Cliniko.jpg";
 import Link from "next/link";
 import Image from "next/image";
-
+import axios from 'axios';
 import PdfSlider from "../../components/pdf-slider/PdfSlider";
 
 const InteractionReport = () => {
     const router = useRouter();
     const state = useTrackedStore();
+
+    const [studentEmail, setStudentEmail] = useState("")
+    const [programName, setProgramName] = useState("Settling In")
+    const [meetingType, setMeetingType] = useState("")
+    const [survey_ID, setSurvey_ID] = useState("")
+    const [reportContent, setReportContent] = useState("")
+
     const topbarLinks = [
         {
             href: "/mentor",
             label: `View Profile`,
         },
     ];
+    
+    const studentsList = state?.studentsResp
 
+    const base_url = axios.create({
+        baseURL: `${process.env.NEXTAUTH_URL}`
+    })
+
+    async function getStudentEmail(data){
+        console.log(data)
+        setStudentEmail(data)
+        const SurveyID = await base_url.post(
+            "/api/getZohoData",{
+            moduleApiName:"Student_Surveys",
+            criteria:`(Email:equals:${data})`
+        }).then(resp=>resp.data).then(data => data.data)
+        setSurvey_ID(SurveyID[0].id)
+        console.log(survey_ID)
+        /*const StudentData = await base_url.post(
+            "/api/getZohoData",{
+                moduleApiName: "Contacts",
+                criteria:`(Crm_ID:equals:${data.Contact_Name.id})`
+        }).then(res=>res.data).then(data => data.data) 
+        */
+        //StudentData !== null? setStudentEmail(StudentData[0].Email) : setStudentEmail("")
+        //console.log(StudentData[0].Email)
+    }
+
+    useEffect(()=>{
+        console.log(programName)
+    },[programName])
+
+
+    useEffect(()=>{
+        console.log(reportContent)
+    }, [reportContent])
+    const checkModule = (data) =>{
+        setProgramName(data)
+        
+    }
+
+    const handleReportChange=(e)=>{
+        setReportContent(e.target.value)
+    }
+    async function reportSubmitHandler(){
+        if(survey_ID ===  ""){
+            alert("please pick the Student for the report")
+        }
+
+        const dataToSubmit = {
+            id: survey_ID
+        }
+
+        const dataToSubmit_Enrollment = {
+            id: studentsList.id
+        }
+        
+        switch(programName){
+            
+            case "Consolidating Studies":
+                dataToSubmit["Meeting_Note_Consolidating_Studies"] = reportContent
+                dataToSubmit_Enrollment["Latest_Interaction_Report"] = reportContent
+                break
+            case "Goal Setting":
+                dataToSubmit["Meeting_Note_Goal_Setting"] = reportContent
+                dataToSubmit_Enrollment["Latest_Interaction_Report"] = reportContent
+                break
+            case "Tracking Progress":
+                dataToSubmit["Meeting_Note_Tracking_Progress"] = reportContent
+                dataToSubmit_Enrollment["Latest_Interaction_Report"] = reportContent
+                break
+            case "Transition":
+                dataToSubmit["Meeting_Note_Transition"] = reportContent
+                dataToSubmit_Enrollment["Latest_Interaction_Report"] = reportContent
+                break
+            default:
+                dataToSubmit["Meeting_Note"] = reportContent
+                dataToSubmit_Enrollment["Latest_Interaction_Report"] = reportContent
+        }
+
+
+        console.log(dataToSubmit)
+
+        const updateCRMSurvey = await axios.post(
+            `${process.env.NEXTAUTH_URL}/api/updateRecord`,{
+                moduleName:"Student_Surveys",
+                updated_data :{
+                    "data": [
+                        dataToSubmit
+                    ]
+                }
+            }
+
+        )
+
+        const update_enrollment_latest_interaction_report = await axios.post(
+            `${process.env.NEXTAUTH_URL}/api/updateRecord`,{
+                moduleName:"Deals",
+                updated_data :{
+                    "data": [
+                        dataToSubmit_Enrollment
+                    ]
+                }
+            }
+
+        )
+        console.log(updateCRMSurvey)
+        console.log(update_enrollment_latest_interaction_report)
+    }
     const profile =
         router.pathname.split("/")?.[1] ||
         state?.portalUserResp?.User_Type?.toLowerCase() ||
         "";
+
+    const moduleList = [
+        //"M1", "M2", "M3", "M4", "M5", "M6", "M7", "M8", "M9", "ELICOS A", "ELICOS B", "ELICOS C", "ELICOS D", "ELICOS E"
+        "Settling In", "Consolidating Studies", "Tracking Progress", "Goal Setting", "Goal Tracking", "Transition"
+    ] 
+
+    
 
     const profileUserName = `${state?.studentsResp?.[0]?.Full_Name || ""}`;
     return (
@@ -49,22 +170,31 @@ const InteractionReport = () => {
                                                     Interaction Report.
                                                 </p>
                                                 <div className='apply-form-wrapp'>
-                                                    <form action>
+                                                    <form>
                                                         <div className='single-input-wrap'>
                                                             <label htmlFor>
                                                                 Students Name
                                                             </label>
-                                                            <input type='text' />
+                                                            <select className = "nice-select">
+                                                            <option value = "select Student for report" disabled selected></option>
+                                                            {studentsList.map((student)=>{
+                                                                return(
+                                                                    <option onClick = {()=>{getStudentEmail(student.Cont_Email)}}>{student.Contact_Name.name}</option>
+                                                                )
+                                                                
+                                                            })}
+                                                            </select>
                                                         </div>
                                                         <div className='single-input-wrap'>
                                                             <label htmlFor>
                                                                 Module Number
-                                                                and Name (eg, M2
-                                                                Consolidating
-                                                                Studies or
-                                                                ELICOS C)
+                                                                and Name
                                                             </label>
-                                                            <input type='text' />
+                                                            <select className = "nice-select">
+                                                            {moduleList.map((mod)=>{
+                                                                return(<option onClick = {()=>{checkModule(mod)}}>{mod}</option>)
+                                                            })}
+                                                            </select>{/*map modules here */}
                                                         </div>
                                                         <div className='single-input-wrap'>
                                                             <label htmlFor>
@@ -82,6 +212,12 @@ const InteractionReport = () => {
                                                                     Parents
                                                                 </option>
                                                             </select>
+                                                        </div>
+                                                        <div className='single-input-wrap'>
+                                                            <label htmlFor>
+                                                                Student's Email
+                                                            </label>
+                                                            <input type='text' value={studentEmail} />
                                                         </div>
                                                         <div className='single-input-wrap'>
                                                             <label htmlFor>
@@ -113,6 +249,7 @@ const InteractionReport = () => {
                                                                 Your Report
                                                             </label>
                                                             <textarea
+                                                            onChange={handleReportChange}
                                                                 name
                                                                 id
                                                                 cols={30}
@@ -123,13 +260,14 @@ const InteractionReport = () => {
                                                             />
                                                         </div>
                                                         <div className='register-btn pt-3'>
-                                                            <button
-                                                                type='submit'
+                                                            
+                                                        </div>
+                                                    </form>
+                                                    <button
+                                                                onClick = {()=>{reportSubmitHandler()}}
                                                                 className='btn'>
                                                                 Submit
                                                             </button>
-                                                        </div>
-                                                    </form>
                                                 </div>
                                                 {/* previous-report */}
                                                 <div className='previous-report-wrapper pt-4 pt-lg-5'>
@@ -150,7 +288,7 @@ const InteractionReport = () => {
                                                             Writing Your
                                                             Interaction Report
                                                         </h5>
-                                                        <a href>
+                                                        <a href = "/mentors/guidelines">
                                                             Learning Materials
                                                             &gt;&gt;
                                                         </a>

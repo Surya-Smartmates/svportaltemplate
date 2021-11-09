@@ -105,7 +105,7 @@ const Login = () => {
           record_id: response.data.record_id,
           remember: data.remember,
         });
-        console.log(data.remember)
+        console.log("this is " + data.remember)
       }
     }
   };

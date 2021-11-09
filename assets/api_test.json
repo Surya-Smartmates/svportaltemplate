@@ -1,0 +1,300 @@
+{
+    "secret": "<<<<< YOU NEED TO INSERT THE API SECRET HERE >>>>>>>",
+    "student": {
+        "student_name": "Britt Eklund",
+        "student_number": "123456789",
+        "university": "Deakin University",
+        "university_campus": "Melbourne",
+        "semester": "Semester 1",
+        "student_avatar_url": "https://www.dropbox.com/s/awxwexrr7xmrrod/britt_ekland_2048x2048.jpg?dl=1",
+        "supporter_name": "Roger Moore",
+        "supporter_about": "          I'm an experienced counsellor with 8 years in a community organisation looking after high school and university students.\r\n\r\n          I love cats and dogs.\r\n        ",
+        "supporter_avatar_url": "https://www.dropbox.com/s/j9g1rqit1nagxbe/james_bond_590x590.jpg?dl=1"
+    },
+    "report": {
+        "meetings": [
+            {
+                "meeting_date": "12th of January 2021",
+                "meeting_protocol": "        We met.\r\n\r\n        Then we talked.\r\n\r\n        We had coffee.\r\n      "
+            }
+        ],
+        "report_sections": [
+            {
+                "section_sort_order": 1,
+                "title": "Safety",
+                "questions": [
+                    {
+                        "question_type": "PERC",
+                        "question_title": "Overall safety",
+                        "question_perc_answer": "95",
+                        "question_extra_attribute1_name": "MEDIAN",
+                        "question_extra_attribute1_value": "90",
+                        "question_sort_order": 1
+                    },
+                    {
+                        "question_type": "PERC",
+                        "question_title": "Safety on campus",
+                        "question_perc_answer": "95",
+                        "question_extra_attribute1_name": "MEDIAN",
+                        "question_extra_attribute1_value": "83",
+                        "question_sort_order": 2
+                    },
+                    {
+                        "question_type": "PERC",
+                        "question_title": "Safety travelling to and from home to university",
+                        "question_perc_answer": "95",
+                        "question_extra_attribute1_name": "MEDIAN",
+                        "question_extra_attribute1_value": "61",
+                        "question_sort_order": 3
+                    },
+                    {
+                        "question_type": "PERC",
+                        "question_title": "Safety at  place of residence",
+                        "question_perc_answer": "95",
+                        "question_extra_attribute1_name": "MEDIAN",
+                        "question_extra_attribute1_value": "95",
+                        "question_sort_order": 4
+                    },
+                    {
+                        "question_type": "PERC",
+                        "question_title": "Safety travelling to and from work",
+                        "question_perc_answer": "75",
+                        "question_extra_attribute1_name": "MEDIAN",
+                        "question_extra_attribute1_value": "63",
+                        "question_sort_order": 5
+                    }
+                ]
+            },
+            {
+                "section_sort_order": 2,
+                "title": "Study habits",
+                "questions": [
+                    {
+                        "question_type": "PERC",
+                        "question_title": "Making time for study",
+                        "question_perc_answer": "95",
+                        "question_extra_attribute1_name": "MEDIAN",
+                        "question_extra_attribute1_value": "70",
+                        "question_sort_order": 1
+                    },
+                    {
+                        "question_type": "PERC",
+                        "question_title": "On track to achieve study goals",
+                        "question_perc_answer": "95",
+                        "question_extra_attribute1_name": "MEDIAN",
+                        "question_extra_attribute1_value": "81",
+                        "question_sort_order": 2
+                    },
+                    {
+                        "question_type": "PERC",
+                        "question_title": "Accessing adequate university academic support",
+                        "question_perc_answer": "75",
+                        "question_extra_attribute1_name": "MEDIAN",
+                        "question_extra_attribute1_value": "48",
+                        "question_sort_order": 3
+                    },
+                    {
+                        "question_type": "PERC",
+                        "question_title": "Study suitable for  career ambitions?",
+                        "question_perc_answer": "95",
+                        "question_extra_attribute1_name": "MEDIAN",
+                        "question_extra_attribute1_value": "92",
+                        "question_sort_order": 4
+                    },
+                    {
+                        "question_type": "PERC",
+                        "question_title": "Confidence in completing degree",
+                        "question_perc_answer": "75",
+                        "question_extra_attribute1_name": "MEDIAN",
+                        "question_extra_attribute1_value": "64",
+                        "question_sort_order": 5
+                    }
+                ]
+            },
+            {
+                "section_sort_order": 3,
+                "title": "Home life",
+                "questions": [
+                    {
+                        "question_type": "PERC",
+                        "question_title": "Satisfaction with living arrangements",
+                        "question_perc_answer": "95",
+                        "question_extra_attribute1_name": "MEDIAN",
+                        "question_extra_attribute1_value": "66",
+                        "question_sort_order": 1
+                    },
+                    {
+                        "question_type": "PERC",
+                        "question_title": "Contentment with room-mates",
+                        "question_perc_answer": "65",
+                        "question_extra_attribute1_name": "MEDIAN",
+                        "question_extra_attribute1_value": "40",
+                        "question_sort_order": 2
+                    },
+                    {
+                        "question_type": "PERC",
+                        "question_title": "Safety at home",
+                        "question_perc_answer": "95",
+                        "question_extra_attribute1_name": "MEDIAN",
+                        "question_extra_attribute1_value": "67",
+                        "question_sort_order": 3
+                    },
+                    {
+                        "question_type": "PERC",
+                        "question_title": "Living arrangements conducive to study",
+                        "question_perc_answer": "95",
+                        "question_extra_attribute1_name": "MEDIAN",
+                        "question_extra_attribute1_value": "63",
+                        "question_sort_order": 4
+                    },
+                    {
+                        "question_type": "PERC",
+                        "question_title": "Financial sustainability of living arrangements",
+                        "question_perc_answer": "65",
+                        "question_extra_attribute1_name": "MEDIAN",
+                        "question_extra_attribute1_value": "46",
+                        "question_sort_order": 5
+                    }
+                ]
+            },
+            {
+                "section_sort_order": 4,
+                "title": "People and friendships",
+                "questions": [
+                    {
+                        "question_type": "PERC",
+                        "question_title": "Active social life",
+                        "question_perc_answer": "95",
+                        "question_extra_attribute1_name": "MEDIAN",
+                        "question_extra_attribute1_value": "95",
+                        "question_sort_order": 1
+                    },
+                    {
+                        "question_type": "PERC",
+                        "question_title": "Enjoy genuine friendships",
+                        "question_perc_answer": "95",
+                        "question_extra_attribute1_name": "MEDIAN",
+                        "question_extra_attribute1_value": "95",
+                        "question_sort_order": 2
+                    },
+                    {
+                        "question_type": "PERC",
+                        "question_title": "Organised social activities at university",
+                        "question_perc_answer": "75",
+                        "question_extra_attribute1_name": "MEDIAN",
+                        "question_extra_attribute1_value": "54",
+                        "question_sort_order": 3
+                    },
+                    {
+                        "question_type": "PERC",
+                        "question_title": "Avoiding loneliness",
+                        "question_perc_answer": "75",
+                        "question_extra_attribute1_name": "MEDIAN",
+                        "question_extra_attribute1_value": "75",
+                        "question_sort_order": 4
+                    },
+                    {
+                        "question_type": "PERC",
+                        "question_title": "Aware of social opportunities at university",
+                        "question_perc_answer": "95",
+                        "question_extra_attribute1_name": "MEDIAN",
+                        "question_extra_attribute1_value": "68",
+                        "question_sort_order": 5
+                    }
+                ]
+            },
+            {
+                "section_sort_order": 5,
+                "title": "English language",
+                "questions": [
+                    {
+                        "question_type": "PERC",
+                        "question_title": "English language ability OK for study",
+                        "question_perc_answer": "95",
+                        "question_extra_attribute1_name": "MEDIAN",
+                        "question_extra_attribute1_value": "67",
+                        "question_sort_order": 1
+                    },
+                    {
+                        "question_type": "PERC",
+                        "question_title": "Access to  English language support",
+                        "question_perc_answer": "95",
+                        "question_extra_attribute1_name": "MEDIAN",
+                        "question_extra_attribute1_value": "94",
+                        "question_sort_order": 2
+                    },
+                    {
+                        "question_type": "PERC",
+                        "question_title": "English language ability OK for life in Australia",
+                        "question_perc_answer": "50",
+                        "question_extra_attribute1_name": "MEDIAN",
+                        "question_extra_attribute1_value": "49",
+                        "question_sort_order": 3
+                    },
+                    {
+                        "question_type": "PERC",
+                        "question_title": "English language ability OK for post-study employment",
+                        "question_perc_answer": "95",
+                        "question_extra_attribute1_name": "MEDIAN",
+                        "question_extra_attribute1_value": "69",
+                        "question_sort_order": 4
+                    },
+                    {
+                        "question_type": "PERC",
+                        "question_title": "Currently improving English language ability",
+                        "question_perc_answer": "75",
+                        "question_extra_attribute1_name": "MEDIAN",
+                        "question_extra_attribute1_value": "48",
+                        "question_sort_order": 5
+                    }
+                ]
+            },
+            {
+                "section_sort_order": 6,
+                "title": "Mental and physical health",
+                "questions": [
+                    {
+                        "question_type": "PERC",
+                        "question_title": "Understanding of risks associated with sexual harrassment and assault",
+                        "question_perc_answer": "95",
+                        "question_extra_attribute1_name": "MEDIAN",
+                        "question_extra_attribute1_value": "89",
+                        "question_sort_order": 1
+                    },
+                    {
+                        "question_type": "PERC",
+                        "question_title": "Avoiding stress, anxiety and/or depression",
+                        "question_perc_answer": "95",
+                        "question_extra_attribute1_name": "MEDIAN",
+                        "question_extra_attribute1_value": "95",
+                        "question_sort_order": 2
+                    },
+                    {
+                        "question_type": "PERC",
+                        "question_title": "Awareness of accessable mental health services",
+                        "question_perc_answer": "75",
+                        "question_extra_attribute1_name": "MEDIAN",
+                        "question_extra_attribute1_value": "58",
+                        "question_sort_order": 3
+                    },
+                    {
+                        "question_type": "PERC",
+                        "question_title": "Maintaining good physical health",
+                        "question_perc_answer": "95",
+                        "question_extra_attribute1_name": "MEDIAN",
+                        "question_extra_attribute1_value": "91",
+                        "question_sort_order": 4
+                    },
+                    {
+                        "question_type": "PERC",
+                        "question_title": "Awareness of accessable physical health services",
+                        "question_perc_answer": "75",
+                        "question_extra_attribute1_name": "MEDIAN",
+                        "question_extra_attribute1_value": "54",
+                        "question_sort_order": 5
+                    }
+                ]
+            }
+        ]
+    }
+}

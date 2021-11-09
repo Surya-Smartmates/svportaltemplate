@@ -37,6 +37,7 @@ import Link from "next/link";
 //Smartmates add Panel
 import ConfirmPopup from "../../components/ss-task-monitor/ConfirmPopup"
 import SsTaskMonitor from "../../components/ss-task-monitor/SsTaskMonitor";
+import Router from "next/router"
 import PdfSlider from "../../components/pdf-slider/PdfSlider";
 import { CarouselData } from "../../components/PDF_Carousel/CarouselData";
 
@@ -150,12 +151,12 @@ const SupportHome = ({
     }
     
     
-    const TaskData = ListTaskName.length !== 0 ? ListTaskName[0] : {task: {Enrollment:{name:""}, Task:"", Student:{name:""}, Student_Supporter:{name:""}, Task_Assigned_Date:"", Task_Due_Date:"", Task_Status:""}}
+    const TaskData = ListTaskName.length !== 0 ? ListTaskName[0] : {task: {Enrollment:{name:""}, Task:"", Student:{name:""}, Student_Supporter:{name:""}, Task_Assigned_Date:"", Task_Due_Date:"", Task_Status:"", id:""}}
     if(TaskData !== undefined){
       setSpecificTask(TaskData)
       console.log("successfully set Specific Task")
     }else{
-      setSpecificTask({task: {Enrollment:{name:""}, Task:"", Student:{name:""}, Student_Supporter:{name:""}, Task_Assigned_Date:"", Task_Due_Date:"", Task_Status:""}}) 
+      setSpecificTask({task: {Enrollment:{name:""}, Task:"", Student:{name:""}, Student_Supporter:{name:""}, Task_Assigned_Date:"", Task_Due_Date:"", Task_Status:"", id:""}}) 
     }
     setEnableCloseTask(false)
     console.log(specificTask)
@@ -178,8 +179,10 @@ const SupportHome = ({
   async function CloseSVTask(){
     console.log("test")
     let completeTask = {...specificTask};
+    console.log("this is the task")
+    console.log(completeTask)
     console.log(completeTask.task.id)
-    //let confirmUpdate = confirm(`CLOSE THIS TASK?:\n ${completeTask.task?.Enrollment?.name}`)
+    let confirmUpdate = confirm(`CLOSE THIS TASK?:\n ${completeTask.task?.Enrollment?.name}`)
     //completeTask.task.Task_Status = "Completed"
 
     if(confirmUpdate === true){//${process.env.NEXTAUTH_URL}
@@ -189,25 +192,26 @@ const SupportHome = ({
           "data": [
             {
               "id":completeTask.task.id.toString(),
-              "Task_Status": completeTask.task.Task_Status
+              "Task_Status": "Completed"//completeTask.task.Task_Status
             }
           ]
         }
       })
       console.log(updateTaskinCRM) 
     }
-    window.refresh()
+    //Router.reload(window.location.pathname)
   }
   async function OpenTaskPopup (){
     setShowPopup(!showPopup)
   }
 
-  const [specificTask, setSpecificTask] = useState({task: {Enrollment:{name:""}, Task:"", Student:{name:""}, Student_Supporter:{name:""}, Task_Assigned_Date:"", Task_Due_Date:"", Task_Status:""}})
+  const [specificTask, setSpecificTask] = useState({task: {Enrollment:{name:""}, Task:"", Student:{name:""}, Student_Supporter:{name:""}, Task_Assigned_Date:"", Task_Due_Date:"", Task_Status:"", id:""}})
   const [showPopup, setShowPopup] = useState(false)
   const [popupTitle, setPopupTitle] = useState("")
   const [highlightStu, setHighlightStu] = useState("")
   const [enableCloseTask, setEnableCloseTask] = useState(true)
-  const [showModal, setShowModal] = useState(false)
+  const [calendarHighlight, setCalendarHighlight] = useState({state})
+  const [hgEvent, setHgEvent] = useState({title:"test", start:new Date().toString(), end:new Date().toString(), student_name: ""})
   //Embla Carousel Properties
 
   
@@ -219,7 +223,8 @@ const SupportHome = ({
   const profileUserName = `${studentSupportersResp?.[0]?.Vendor_Name || ""}`;
   let nextEvent = {};
   console.log("Today ", moment());
-  const CalEvents = (svTasksResp !== null && svTasksResp !== undefined) ? svTasksResp?.map((task) => { //Add avoidance to null value
+  
+  /*const CalEvents = (svTasksResp !== null && svTasksResp !== undefined) ? svTasksResp?.map((task) => { //Add avoidance to null value
     if (
       nextEvent?.Task_Assigned_Date === undefined &&
       moment().isSameOrBefore(task.Task_Assigned_Date)
@@ -244,7 +249,15 @@ const SupportHome = ({
       //Smartmates Code for checking Student Supporter Email
       up_down_ind: "N",
     };
-  }) : null;
+  }) : null;*/
+
+  const formatDate = (dd) =>{
+    let ClickedEvent = {...dd}
+    ClickedEvent.start = ClickedEvent.start.toString()
+    ClickedEvent.end = ClickedEvent.end.toString()
+    setHgEvent(ClickedEvent)
+    }
+
   const events =  (svTasksResp !== null && svTasksResp !== undefined) ? svTasksResp?.map((task) => { //Add avoidance to null value
     if (
       nextEvent?.Task_Assigned_Date === undefined &&
@@ -273,6 +286,17 @@ const SupportHome = ({
     };
   }) : null;
   console.log({ nextEvent });
+
+  const CalEvents = (events !== null && events !== undefined) ? 
+  events?.map((event)=>{
+    let eventsList = {
+      title: event.Task,
+      start:event.Task_Assigned_Date,
+      end:event.Task_Due_Date
+    }
+    return 
+
+  }): []
 
   
 
@@ -369,12 +393,18 @@ const SupportHome = ({
                 <div className="calender-title">
                   <h4>Your Calendar</h4>
                   <span>Friday, October 17th</span>
-                  <MyCalendar style = {{zIndex: 5}} onSelectEvent = {event => console.log(event)/*openPopup(event)*/} events={CalEvents} />
+                  <MyCalendar formatDate ={formatDate} style = {{zIndex: 20}} events={events} />
+                  <div style = {{ marginBottom: "20px" }}>
+                  <div>Event Name: {hgEvent.title}</div>
+                  <div>Student's Name: {hgEvent.student_name}</div>
+                  <div>Start Date: {hgEvent.start}</div>
+                  <div>End Date: {hgEvent.end}</div>
+                  </div>
                   <div className="calender-bottom mt-3 mt-lg-4">
                   <CalendarModal EventTitle = {popupTitle} trigger = {showPopup}/>
                     <div className="activits-text">
                       <h5>
-                        Next Up:{nextEvent?.Task} with {nextEvent?.Student_Name}
+                        Next Up:{/*nextEvent?.Task*/} with {/*nextEvent?.Student_Name*/}
                       </h5>
                       {/* <p>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit,
@@ -454,7 +484,7 @@ const SupportHome = ({
             <div>
                   <div>
                   <SsTaskMonitor disButton = {enableCloseTask}  CheckTask = {()=>{OpenTaskPopup()}} TaskDetails = {specificTask} />
-                  <PdfSlider/>   
+                     
                   </div>
             </div>
             {/* calender-blok-area */}
@@ -608,6 +638,8 @@ export async function getServerSideProps(context) {
   studentSupportersResp = mentorResp?.data;
   console.log({ studentSupportersResp}  + "check if this is the data");
   console.log(studentSupportersResp?.[0]?.id)
+
+  /*
   // //todo Fetching SV Tasks for that Mentors
   const { data: svTasks } = await axios.post(
     `${process.env.NEXTAUTH_URL}/api/getZohoData`,
@@ -619,7 +651,7 @@ export async function getServerSideProps(context) {
   // and(Task_Status:equals:Not%20Completed)
   svTasksResp = svTasks.data !== undefined ? svTasks?.data : [];
   console.log({ svTasksResp });
-
+*/
   // //todo Fetching Agent's Students Details
   const { data: stuResp } = await axios.post(
     `${process.env.NEXTAUTH_URL}/api/getZohoData`,

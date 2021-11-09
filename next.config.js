@@ -6,9 +6,9 @@ module.exports ={
   images: {
     domains: ["i.ibb.co"],
   },
-  /*env:{
+  env:{
     NEXTAUTH_URL:'http://localhost:3000'
-  }*/
+  }
   // webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
   //     // Note: we provide webpack above so you should not `require` it
   //     // Perform customizations to webpack config

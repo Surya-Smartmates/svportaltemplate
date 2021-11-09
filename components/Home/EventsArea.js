@@ -8,6 +8,9 @@ const EventsArea = ({ events, userName, parentsMeetingDescription }) => {
   const profile = state?.portalUserResp?.User_Type?.toLowerCase();
 
   const [selectedEventIndex, setSelectedEventIndex] = useState(0);
+  const [eventImage, setEventImage] = useState("")
+
+
   return (
     <div className="events-area">
       <div className="event-box-wrapper white-box">
@@ -26,13 +29,13 @@ const EventsArea = ({ events, userName, parentsMeetingDescription }) => {
                     onClick={() => setSelectedEventIndex(index)}
                   >
                     <div className="event-icons">
-                      <Image
+                      {event.imgSrc /*!== undefined || event.imgSrc!== null ? <Image
                         // layout='responsive'
                         height={50}
                         width={50}
                         src={event.imgSrc}
                         alt=""
-                      />
+                      /> : <div></div>*/}
                     </div>
                     <div className="event-text">
                       <h5>{event.name}</h5>
