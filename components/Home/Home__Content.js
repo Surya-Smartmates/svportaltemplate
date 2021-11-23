@@ -55,7 +55,7 @@ const Home__Content = ({ quickLinks, subTitle }) => {
                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur magni excepturi sint totam nulla veritatis nesciunt suscipit eveniet iusto porro nihil esse dolorem perferendis, repudiandae blanditiis vel delectus molestias saepe?",
         };
     }) : [{name: "No Modules", imgSrc:"No Image"}];
-
+    console.log(events);
     return (
         <div className='main-content'>
             <div className='content-wrapper'>

@@ -47,9 +47,10 @@ const SsTaskMonitor =({TaskDetails, disButton, CheckTask}) =>{
         </div>
         <div className = "col-sm-4 task-data"></div>
         <div className = "col-sm-4">
-        <PdfSlider/>
+        
         <button disabled = {disButton}  onClick = {()=>{CheckTask()}} style = {{marginTop: '100px'}}className = "btn btn-primary task-btn">CLOSE AND PROCEED TO NEXT TASK</button>
         </div>
+        
         
 
         

@@ -9,7 +9,11 @@ import Image from "next/image";
 import axios from 'axios';
 import PdfSlider from "../../components/pdf-slider/PdfSlider";
 
-const InteractionReport = () => {
+
+import * as cookie from 'cookie'
+import {getSession} from "next-auth/client"
+
+const InteractionReport = ({studentSupportersResp}) => {
     const router = useRouter();
     const state = useTrackedStore();
 
@@ -27,6 +31,7 @@ const InteractionReport = () => {
     ];
     
     const studentsList = state?.studentsResp
+    
 
     const base_url = axios.create({
         baseURL: `${process.env.NEXTAUTH_URL}`
@@ -40,7 +45,7 @@ const InteractionReport = () => {
             moduleApiName:"Student_Surveys",
             criteria:`(Email:equals:${data})`
         }).then(resp=>resp.data).then(data => data.data)
-        setSurvey_ID(SurveyID[0].id)
+        SurveyID !== undefined ? setSurvey_ID(SurveyID[0].id) : alert("Student's Survey isn't prepared yet")
         console.log(survey_ID)
         /*const StudentData = await base_url.post(
             "/api/getZohoData",{
@@ -51,6 +56,8 @@ const InteractionReport = () => {
         //StudentData !== null? setStudentEmail(StudentData[0].Email) : setStudentEmail("")
         //console.log(StudentData[0].Email)
     }
+
+    state.setStudentSupportersResp(studentSupportersResp)
 
     useEffect(()=>{
         console.log(programName)
@@ -105,19 +112,25 @@ const InteractionReport = () => {
         }
 
 
+        let updateCRMSurvey
         console.log(dataToSubmit)
 
-        const updateCRMSurvey = await axios.post(
-            `${process.env.NEXTAUTH_URL}/api/updateRecord`,{
-                moduleName:"Student_Surveys",
-                updated_data :{
-                    "data": [
-                        dataToSubmit
-                    ]
+        if(reportContent === ""){
+            alert("Please fill in the report")
+        } else{
+            updateCRMSurvey = await axios.post(
+                `${process.env.NEXTAUTH_URL}/api/updateRecord`,{
+                    moduleName:"Student_Surveys",
+                    updated_data :{
+                        "data": [
+                            dataToSubmit
+                        ]
+                    }
                 }
-            }
-
-        )
+    
+            )
+        }
+        
 
         const update_enrollment_latest_interaction_report = await axios.post(
             `${process.env.NEXTAUTH_URL}/api/updateRecord`,{
@@ -145,7 +158,7 @@ const InteractionReport = () => {
 
     
 
-    const profileUserName = `${state?.studentsResp?.[0]?.Full_Name || ""}`;
+    const profileUserName = `${studentSupportersResp?.[0]?.Vendor_Name || ""}`;
     return (
         <>
             <Navbar
@@ -276,12 +289,18 @@ const InteractionReport = () => {
                                                             View Your Previous
                                                             Reports
                                                         </h5>
-                                                        <a href>
+                                                        <a href = "/mentors/rep-list">
                                                             Student’s Profiles
                                                             &gt;&gt;
                                                         </a>
-                                                        <PdfSlider/>
+                                                        <div style = {{ width: "30%" }}>
+                                                        
+                                                        </div>
+                                                            
+                                                        
+                                                        
                                                     </div>
+                                                   
                                                     <div className='previous-report'>
                                                         <h5>
                                                             For Guidelines on
@@ -295,7 +314,9 @@ const InteractionReport = () => {
                                                     </div>
                                                 </div>
                                                 {/* previous-report */}
+                                               
                                             </div>
+                                            
                                             <div className='check-active-sidebar'>
                                                 <div className='others-active white-box'>
                                                     <h4>
@@ -421,3 +442,81 @@ const InteractionReport = () => {
 };
 
 export default InteractionReport;
+
+export async function getServerSideProps(context) {
+    const session = await getSession(context)
+
+    console.log(session);
+    const parsedCookies = cookie.parse(context.req.headers.cookie || "");
+
+  // if seesion not found then navigate him to the login
+  if (!session) {
+    return {
+      redirect: {
+        destination: "/login",
+      },
+      props: {
+        session: null,
+      },
+    };
+  }
+
+  if (session && session.remember === false) {
+    // when the user signin first time, remember variable in cookie will be empty but session variable will contain exp thats why we have to check it first
+    let expired = Date.now() > (parsedCookies.expiredTime ?? session.exp);
+
+    if (expired) {
+      //remove remember from cookie
+      if (parsedCookies.expiredTime) {
+        context.res.setHeader(
+          "Set-Cookie",
+          cookie.serialize("expiredTime", String(parsedCookies.expiredTime), {
+            httpOnly: true,
+            maxAge: 0,
+          })
+        );
+      }
+      return {
+        redirect: {
+          destination: "/login",
+        },
+        props: {
+          session: null,
+        },
+      };
+    }
+  }
+
+  let studentSupportersResp = [];
+  let studentsResp = [];
+
+  const {
+    data: { access_token: accessToken },
+  } = await axios.get(process.env.ACCESSTOKEN_URL);
+
+  //get SS data from CRM
+  const { data: mentorResp } = await axios.post(
+    `${process.env.NEXTAUTH_URL}/api/getZohoData`,
+    {
+      moduleApiName: "Vendors",
+      criteria: `(Email:equals:${session?.user?.email})`,
+    }
+  );
+  studentSupportersResp = mentorResp?.data;
+  const { data: stuResp } = await axios.post(
+    `${process.env.NEXTAUTH_URL}/api/getZohoData`,
+    {
+        moduleApiName: "Deals",
+        criteria: `(Assigned_Student_Supporters:equals:${studentSupportersResp?.[0]?.id})`
+    }
+  );
+studentsResp = stuResp?.data
+  //set SS data to Zustand
+
+  return{
+      props:{
+        studentSupportersResp,
+        studentsResp
+      }
+  }
+}

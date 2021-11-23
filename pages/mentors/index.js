@@ -134,8 +134,7 @@ const SupportHome = ({
   const highlightTask = (data) =>{
    
     //Add enrollment data to section
-    console.log("event list below")
-    console.log(events)
+    console.log(data)
     let ListTaskName = [];
 
     console.log("Student Name is " + data.Contact_Name.name)
@@ -199,7 +198,7 @@ const SupportHome = ({
       })
       console.log(updateTaskinCRM) 
     }
-    //Router.reload(window.location.pathname)
+    Router.reload(window.location.pathname)
   }
   async function OpenTaskPopup (){
     setShowPopup(!showPopup)
@@ -215,7 +214,7 @@ const SupportHome = ({
   //Embla Carousel Properties
 
   
-  //Smartmates code ends here
+  
   const profile =
     router.pathname.split("/")?.[1] ||
     state?.portalUserResp?.User_Type?.toLowerCase() ||
@@ -223,6 +222,11 @@ const SupportHome = ({
   const profileUserName = `${studentSupportersResp?.[0]?.Vendor_Name || ""}`;
   let nextEvent = {};
   console.log("Today ", moment());
+
+  useEffect(()=>{
+    state.setSvTasksResp(svTasksResp);
+
+  }, [])
   
   /*const CalEvents = (svTasksResp !== null && svTasksResp !== undefined) ? svTasksResp?.map((task) => { //Add avoidance to null value
     if (
@@ -294,7 +298,7 @@ const SupportHome = ({
       start:event.Task_Assigned_Date,
       end:event.Task_Due_Date
     }
-    return 
+    return eventsList
 
   }): []
 
@@ -393,7 +397,7 @@ const SupportHome = ({
                 <div className="calender-title">
                   <h4>Your Calendar</h4>
                   <span>Friday, October 17th</span>
-                  <MyCalendar formatDate ={formatDate} style = {{zIndex: 20}} events={events} />
+                  <MyCalendar formatDate ={formatDate} style = {{zIndex: 20}} events={CalEvents} />
                   <div style = {{ marginBottom: "20px" }}>
                   <div>Event Name: {hgEvent.title}</div>
                   <div>Student's Name: {hgEvent.student_name}</div>
@@ -426,7 +430,7 @@ const SupportHome = ({
                 <h4>Your Students</h4>
                 <div className="studetnt-list">
                   {(state?.studentsResp !== undefined || state?.studentsResp !== null) ? state?.studentsResp?.map((student, index) => {
-                    return (
+                    return ( student.Stage !== "Closed Won" ? 
                       <div
                         className="single-student-list d-flex align-items-center"
                         key={index}
@@ -438,7 +442,7 @@ const SupportHome = ({
                           <a onClick = {()=>{highlightTask(student)}}href>{student?.Contact_Name?.name}</a>
                         </div>
                       </div>
-                    );
+                     : <div></div>);
                   }) : <div></div>}
                   
                   {/* student?.Full_Name*/}
@@ -636,10 +640,11 @@ export async function getServerSideProps(context) {
     }
   );
   studentSupportersResp = mentorResp?.data;
-  console.log({ studentSupportersResp}  + "check if this is the data");
+  console.log("check if this is the data")
+  console.log({ studentSupportersResp});
   console.log(studentSupportersResp?.[0]?.id)
 
-  /*
+  
   // //todo Fetching SV Tasks for that Mentors
   const { data: svTasks } = await axios.post(
     `${process.env.NEXTAUTH_URL}/api/getZohoData`,
@@ -651,7 +656,7 @@ export async function getServerSideProps(context) {
   // and(Task_Status:equals:Not%20Completed)
   svTasksResp = svTasks.data !== undefined ? svTasks?.data : [];
   console.log({ svTasksResp });
-*/
+
   // //todo Fetching Agent's Students Details
   const { data: stuResp } = await axios.post(
     `${process.env.NEXTAUTH_URL}/api/getZohoData`,

@@ -65,7 +65,7 @@ const SupportCalendar = () => {
                   </div>
                   <MyCalendar events={events} />
                 </div>
-                <div className="row">
+                {/*<div className="row">
                   <div className="col-lg-7">
                     <div className="apply-wrapper white-box mt-4 mt-lg-5">
                       <h4>Add Event or Pending Action</h4>
@@ -113,7 +113,7 @@ const SupportCalendar = () => {
                       </div>
                     </div>
                   </div>
-                </div>
+                </div>*/}
               </div>
             </div>
             {/* apply-wrapper_End */}

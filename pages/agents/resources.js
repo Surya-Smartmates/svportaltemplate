@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import Navbar from "../../components/Shared/Navbar/Navbar";
 import Sidebar from "../../components/Shared/Sidebar/Sidebar";
 
@@ -18,12 +18,18 @@ import useTrackedStore from "../../store/useTrackedStore";
 const Resources = () => {
   const router = useRouter();
   const state = useTrackedStore();
+
+  const [profName, setProfName] = useState("")
   const topbarLinks = [
     {
       href: "/profile",
       label: `View Profile`,
     },
   ];
+
+  useEffect(()=>{
+    setProfName(state?.agentsResp?.[0]?.Agency_Name)
+  }, [])
 
   const profile =
     router.pathname.split("/")?.[1] ||
@@ -33,7 +39,7 @@ const Resources = () => {
   const profileUserName = `${state?.agentsResp?.[0]?.Agency_Name || ""}`;
   return (
     <>
-      <Navbar profileUserName={profileUserName} topbarLinks={topbarLinks} />
+      <Navbar profileUserName={profName} topbarLinks={topbarLinks} />
       <div class="main-root">
         <Sidebar />
         <div className="main-content">
@@ -65,7 +71,7 @@ const Resources = () => {
                           src={resource1}
                           alt="resource picture"
                         />
-                        <a href className="btn download-res">
+                        <a onClick = {()=>{console.log(state.agentsResp)}}href className="btn download-res">
                           Download (EN)
                         </a>
                       </div>

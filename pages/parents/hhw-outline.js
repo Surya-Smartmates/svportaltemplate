@@ -6,6 +6,8 @@ import dynamic from "next/dynamic";
 import useTrackedStore from "../../store/useTrackedStore";
 import { useRouter } from "next/router";
 
+import PdfSlider from "../../components/pdf-slider/PdfSlider";
+
 const HhwOutline = () => {
   const router = useRouter();
   const state = useTrackedStore();
@@ -40,7 +42,21 @@ const HhwOutline = () => {
       <Navbar topbarLinks={topbarLinks} profileUserName={profileUserName} />
       <div class="main-root">
         <Sidebar />
-        <HHW__Content />
+        <HHW__Content>
+          <ul style = {{ listStyleType: "disc" }}>
+              <li>ELICOS A</li>
+              <li>ELICOS B</li>
+              <li>ELICOS C</li>
+              <li>ELICOS D</li>
+              <li>ELICOS E</li>
+              <li>M1</li>
+              <li>M2</li>
+              <li>M3</li>
+              <li>M4</li>
+              <li>M5</li>
+              
+          </ul>
+        </HHW__Content>
       </div>
     </>
   );

@@ -259,44 +259,9 @@ const AgentDashboard = ({
               src='https://forms.zohopublic.com/studyvillage/form/StudyVillageStudentapplication/formperma/VxlbWTQPjYGlaz5mGMd0VmV2TweAHD0K-bPOZ1giPig'>
 
               </iframe>
-              <div className="leads-wrapper white-box">
+              {/*<div className="leads-wrapper white-box">
                 <h4>Leads</h4>
                 <div className="registerd-items">
-                  <div className="single-resgisterd d-flex align-items-start justify-content-between">
-                    <div className="menu-icon">
-                      <Image width={150} height={150} src={men} alt="icon" />
-                    </div>
-                    <div className="register-text">
-                      Joey Ramos, <a href>joeyramos@gmail.com</a>, Master Degree
-                      in UK, Award Program on 21/09/2021
-                    </div>
-                    <button type="button">
-                      <Image
-                        width={150}
-                        height={150}
-                        src={trash}
-                        alt="trash icon"
-                      />
-                    </button>
-                  </div>
-                  <div className="single-resgisterd d-flex align-items-start justify-content-between">
-                    <div className="menu-icon">
-                      <Image width={150} height={150} src={men} alt="icon" />
-                    </div>
-                    <div className="register-text">
-                      Quito Darion Dimakuta Vitug,{" "}
-                      <a href>quidario@gmail.com</a>, Bachelor Degree in Nursing
-                      in Australia, Award Program on 23/09/2021
-                    </div>
-                    <button type="button">
-                      <Image
-                        width={150}
-                        height={150}
-                        src={trash}
-                        alt="trash icon"
-                      />
-                    </button>
-                  </div>
                   <div className="single-resgisterd d-flex align-items-start justify-content-between">
                     <div className="menu-icon">
                       <Image width={150} height={150} src={men} alt="icon" />
@@ -314,7 +279,7 @@ const AgentDashboard = ({
                       />
                     </button>
                   </div>
-                </div>
+                </div>*/}
                 {/* commissions */}
                 {/* <div className="cf-comission">
                   <h6>Follow up for the chance to earn a commission of:</h6>
@@ -322,7 +287,7 @@ const AgentDashboard = ({
                   <span>*Commission is quoted in USD</span>
                 </div> */}
                 {/* commissions */}
-              </div>
+              {/*</div>*/}
               {/* <div className="bulk-lead white-box">
                 <h4>Bulk Leads</h4>
                 <p>
@@ -498,7 +463,7 @@ export async function getServerSideProps(context) {
     }
   );
   portalUserResp = portResp?.data?.[0];
- /*
+ 
   // //todo FetchingAgents Details
   const { data: agentResp } = await axios.post(
     `${process.env.NEXTAUTH_URL}/api/getZohoData`,
@@ -519,7 +484,7 @@ export async function getServerSideProps(context) {
   // leadsResp = leadResp?.data;
 
   // //todo Fetching Agent's Students Details
- 
+ /*
   const { data: stuResp } = await axios.post(
     `${process.env.NEXTAUTH_URL}/api/getZohoData`,
     {

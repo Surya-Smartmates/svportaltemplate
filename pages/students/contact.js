@@ -11,7 +11,7 @@ const Contact = () => {
       label: `View Profile`,
     },
   ];
-  const profileUserName = `${state?.studentsResp?.[0]?.Full_Name || ""}`;
+  const profileUserName = `${state?.studentsResp?.[0]?.First_Name +" " +  state?.studentsResp?.[0]?.Last_Name || ""}`;
   return (
     <>
       <Navbar profileUserName={profileUserName} topbarLinks={topbarLinks} />

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 // import "../../../assets/css/style.css";
 import logo from "../../../assets/img/SVLogo.svg";
 import user from "../../../assets/img/user.jpg";
@@ -19,7 +19,11 @@ const Navbar = ({ profileUserName, topbarLinks, imgSrc }) => {
         router.pathname.split("/")?.[1] ||
         state?.portalUserResp?.User_Type?.toLowerCase() ||
         "";
-    return (
+    useEffect(()=>{
+        console.log("check topbarLinks")
+        console.log(topbarLinks)
+    },[])
+        return (
         <header className='header-area'>
             <div className='header-wrapper d-flex align-items-center justify-content-between'>
                 <div className='logo-area'>

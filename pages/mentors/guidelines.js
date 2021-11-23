@@ -9,13 +9,10 @@ import {getSession} from 'next-auth/client'
 const Guidelines = ({portalUserResp}) =>{
 
     const viewAccordion = (data) =>{
-        console.log("click")
         if(data.class === "hide-acc"){
             data.class = "show-acc"
-            console.log(data.class)
         }else if(data.class === "show-acc"){
             data.class = "hide-acc"
-            console.log(data.class)
         }
     }
     let backgroundSectionList = {

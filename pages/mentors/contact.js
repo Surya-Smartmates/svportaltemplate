@@ -9,7 +9,11 @@ import useTrackedStore from "../../store/useTrackedStore";
 import Navbar from "../../components/Shared/Navbar/Navbar";
 import Sidebar from "../../components/Shared/Sidebar/Sidebar";
 
-const SupportContact = () => {
+import {getSession} from "next-auth/client"
+import * as cookie from 'cookie'
+import axios from 'axios'
+
+const SupportContact = ({studentSupportersResp}) => {
     const router = useRouter();
     const state = useTrackedStore();
     const topbarLinks = [
@@ -23,8 +27,9 @@ const SupportContact = () => {
         router.pathname.split("/")?.[1] ||
         state?.portalUserResp?.User_Type?.toLowerCase() ||
         "";
-
-    const profileUserName = `${state?.studentsResp?.[0]?.Full_Name || ""}`;
+    
+    state.setStudentSupportersResp(studentSupportersResp)
+    const profileUserName = `${studentSupportersResp?.[0]?.Vendor_Name || ""}`;
     return (
         <>
             <Navbar
@@ -141,3 +146,81 @@ const SupportContact = () => {
 };
 
 export default SupportContact;
+
+export async function getServerSideProps(context) {
+    const session = await getSession(context)
+
+    console.log(session);
+    const parsedCookies = cookie.parse(context.req.headers.cookie || "");
+
+  // if seesion not found then navigate him to the login
+  if (!session) {
+    return {
+      redirect: {
+        destination: "/login",
+      },
+      props: {
+        session: null,
+      },
+    };
+  }
+
+  if (session && session.remember === false) {
+    // when the user signin first time, remember variable in cookie will be empty but session variable will contain exp thats why we have to check it first
+    let expired = Date.now() > (parsedCookies.expiredTime ?? session.exp);
+
+    if (expired) {
+      //remove remember from cookie
+      if (parsedCookies.expiredTime) {
+        context.res.setHeader(
+          "Set-Cookie",
+          cookie.serialize("expiredTime", String(parsedCookies.expiredTime), {
+            httpOnly: true,
+            maxAge: 0,
+          })
+        );
+      }
+      return {
+        redirect: {
+          destination: "/login",
+        },
+        props: {
+          session: null,
+        },
+      };
+    }
+  }
+
+  let studentSupportersResp = [];
+  let studentsResp = [];
+
+  const {
+    data: { access_token: accessToken },
+  } = await axios.get(process.env.ACCESSTOKEN_URL);
+
+  //get SS data from CRM
+  const { data: mentorResp } = await axios.post(
+    `${process.env.NEXTAUTH_URL}/api/getZohoData`,
+    {
+      moduleApiName: "Vendors",
+      criteria: `(Email:equals:${session?.user?.email})`,
+    }
+  );
+  studentSupportersResp = mentorResp?.data;
+  const { data: stuResp } = await axios.post(
+    `${process.env.NEXTAUTH_URL}/api/getZohoData`,
+    {
+        moduleApiName: "Deals",
+        criteria: `(Assigned_Student_Supporters:equals:${studentSupportersResp?.[0]?.id})`
+    }
+  );
+studentsResp = stuResp?.data
+  //set SS data to Zustand
+
+  return{
+      props:{
+        studentSupportersResp,
+        studentsResp
+      }
+  }
+}

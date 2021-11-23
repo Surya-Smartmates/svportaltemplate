@@ -29,11 +29,11 @@ const EventsArea = ({ events, userName, parentsMeetingDescription }) => {
                     onClick={() => setSelectedEventIndex(index)}
                   >
                     <div className="event-icons">
-                      {event.imgSrc /*!== undefined || event.imgSrc!== null ? <Image
+                      {/*event.imgSrc !== undefined || event.imgSrc!== null ? <Image
                         // layout='responsive'
                         height={50}
                         width={50}
-                        src={event.imgSrc}
+                        src={event.imgSrc.src}
                         alt=""
                       /> : <div></div>*/}
                     </div>

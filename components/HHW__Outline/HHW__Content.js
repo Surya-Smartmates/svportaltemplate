@@ -21,7 +21,7 @@ import Image from "next/image";
 //add Report Slider
 import PdfSlider from "../pdf-slider/PdfSlider"
 
-const HHW__Content = () => {
+const HHW__Content = ({children}) => {
   const state = useTrackedStore();
   const responsive = {
     0: {
@@ -38,7 +38,7 @@ const HHW__Content = () => {
         <div className="outline-area">
           <div className="white-box">
             <div className="outline-content-box">
-              <h4>{state?.studentsResp?.[0]?.Full_Name}’s Modules Outlines</h4>
+              <h4>{state?.studentsResp?.[0]?.First_Name + state?.studentsResp?.[0]?.Last_Name}’s Modules Outlines</h4>
               {/* <OwlCarousel
                 className="outline-slide-active"
                 center
@@ -210,7 +210,7 @@ const HHW__Content = () => {
                 All of {state?.studentsResp?.[0]?.Full_Name}’s Interaction
                 Report{" "}
               </h4>
-              <div><PdfSlider/></div>
+              <div style = {{ width: "100%" }}>{children}</div>
               <p>{state?.enrolmentsResp?.[0]?.Latest_Interaction_Report}</p>
               {/* <p>
                                 Consequat nisl vel pretium lectus quam id.

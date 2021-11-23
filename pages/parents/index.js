@@ -193,7 +193,7 @@ export async function getServerSideProps(context) {
     );
     parentsResp = pResps?.data;
     console.log({ parentsResp });
-/*
+
     // //todo Fetching Students based on Parents
 
     for (const parentResp of parentsResp) {
@@ -208,7 +208,8 @@ export async function getServerSideProps(context) {
     }
 
     // //todo Fetching Enrollments of All Students
-/*
+    
+
     for (const studentResp of studentsResp) {
         const { data: enrResp } = await axios.post(
             `${process.env.NEXTAUTH_URL}/api/getZohoData`,
@@ -259,7 +260,7 @@ export async function getServerSideProps(context) {
 
     let splitedName = _.split(enrolmentsResp?.[0]?.Life_Cycle_Stage, "(")?.[1];
     splitedName = _.split(splitedName, ")")?.[0];
-*/
+//*/
     /*try {
         const resp = await axios.get(
             `https://www.zohoapis.com/crm/v2/Portal_Assets/search?criteria=(Name:equals:${splitedName}%20Details)`,

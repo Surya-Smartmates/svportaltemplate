@@ -356,6 +356,7 @@ textarea:focus {
 .modulebtn {
     width: 300px;
     border: none;
+    text-decoration: none;
 }
 .modulebtn.active {
     background: linear-gradient(to right, #582128, #e95449);
@@ -1551,4 +1552,64 @@ form.is-readonly textarea[disabled] {
 
 .hide-acc{
     display: none;
+}
+
+/*section for PDF Slider Dots*/
+.dots {
+    display: flex;
+    padding: 10px 0;
+    height: 100px;
+    justify-content: center;
+  }
+  
+  .dot {
+    border: none;
+    width: 10px;
+    height: 10px;
+    background: #c5c5c5;
+    border-radius: 50%;
+    margin: 0 5px;
+    padding: 5px;
+    cursor: pointer;
+  }
+  
+  .dot:focus {
+    outline: none;
+  }
+  
+  .dot.active {
+    background: #000;
+  }
+
+.disabled{/*}.keen-arrow{
+    width: 30px;
+  height: 30px;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  fill: #fff;
+  cursor: pointer;
+}
+
+.keen-arrow--left{
+    right: 50px;
+}
+
+.keen-arrow--right{
+    right: auto;
+    left: 50px;
+}*/}
+
+.positioned-pdf{
+    margin-left: 10%;   
+}
+
+.none{
+border: 1px solid rgba(0,0,0,0.5);
+padding-left: 5%;
+}
+
+.slider-limiter{
+    width: 50%
 }

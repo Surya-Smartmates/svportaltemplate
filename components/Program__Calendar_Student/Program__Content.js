@@ -114,7 +114,7 @@ const Program__Content = ({ quickLink, events }) => {
                                                             <Link
                                                                 href='/'
                                                                 className='btn modulebtn'>
-                                                                {stage}
+                                                                {stage.toUpperCase()}
                                                             </Link>
                                                         </div>
 

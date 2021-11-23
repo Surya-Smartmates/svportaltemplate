@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 
-export default function Accordion({title, content}){
+export default function Accordion({title, content, children}){
     
     const [isShowing, setIsShowing] = useState(false)
 
@@ -28,15 +28,15 @@ return(
          }}
          onClick = { ()=>{toggle()}}
          type = "button">
-         {title.toUpperCase()}
+         {title ? title.toUpperCase() : ""}
         </button>
         <div
         style = {{ display: isShowing ? "block" : "none",
                          padding: "5px" }} 
         >
-        <iframe className = "accordion-body" src={content} scrolling="no" frameborder="0" allowfullscreen="true" width="100%" height="400" ></iframe>
+        { content ? <iframe className = "accordion-body" src={content} scrolling="no" frameborder="0" allowfullscreen="true" width="100%" height="400" ></iframe>:<></>}
+        {children ? children : <div></div>}
         </div>
-        
         </div>
     </div>
 )
