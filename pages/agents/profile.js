@@ -249,11 +249,11 @@ const AgentProfile = () => {
                         <tbody>
                         <tr  className = "table-secondary">
                             <td>Company Principal</td>
-                            <td>{state.agentsResp[0].Managing_Principal}</td>
+                            <td>{state?.agentsResp?.[0]?.Managing_Principal}</td>
                         </tr>
                         <tr style = {{ backgroundColor: "#aaaaaa" }}>
                             <td>Key Contact</td>
-                            <td>{state.agentsResp[0].Name}</td>
+                            <td>{state?.agentsResp?.[0]?.Name}</td>
                         </tr>
                         <tr  className = "table-secondary">
                             <td>Key Contact Email Address</td>
@@ -265,11 +265,11 @@ const AgentProfile = () => {
                         </tr>
                         <tr className = "table-secondary">
                             <td>Phone Number</td>
-                            <td>{state.agentsResp[0].Phone}</td>
+                            <td>{state?.agentsResp?.[0]?.Phone}</td>
                         </tr>
                         <tr style = {{ backgroundColor: "#aaaaaa" }}>
                             <td>Website</td>
-                            <td>{state.agentsResp[0].Company_Website}</td>
+                            <td>{state?.agentsResp?.[0]?.Company_Website}</td>
                         </tr>
                         <tr  className = "table-secondary">
                             <td>Branch Office Address</td>
