@@ -36,6 +36,7 @@ import "../components/ss-task-monitor/SsTaskMonitor.css"
 import "../components/pdf-slider/PdfSlider.css"
 import "../components/PDF_Carousel/PDFCarousel.css"
 import "@madzadev/image-slider/dist/index.css";
+import "./agents/profile.css"
 
 
 // Client-side cache, shared for the whole session of the user in the browser.

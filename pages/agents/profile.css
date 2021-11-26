@@ -1,0 +1,12 @@
+/*table-special{
+    background-color: #aaaaaa;
+}*/
+
+.bg-gradation{
+    background-image: linear-gradient(to bottom right, #c0db5a ,#a3bf3b);
+    padding-top: 5%;
+    padding-left: 5%;
+    padding-bottom: 5%;
+    padding-right: 5%;
+    border-radius: 20px;
+}

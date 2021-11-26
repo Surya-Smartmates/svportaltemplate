@@ -46,8 +46,56 @@ const Resources = () => {
           <div className="content-wrapper">
             {/* marketing-resources */}
             <div className="marketing-res white-box">
+            <h4>StudyVillage Representatives Promotional Resources</h4>
+
+            <p>The following material will assist you to promote StudyVillage programs and build your business</p>
+            <div className = "col-sm-6">
+            <table className = "table table-striped table-bordered">
+                        <thead>
+                          <tr className = "table-dark">
+                            <td>Promotional Item</td>
+                          </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                        <td>Student Guide</td>
+                        </tr>
+                        <tr>
+                        <td>StudyVillage Brochure</td>
+                        </tr>
+                        <tr>
+                        <td>UKPREP</td>
+                        </tr>
+                        <tr>
+                        <td>AustraliaPREP</td>
+                        </tr>
+                        <tr>
+                        <td>CanadaPREP</td>
+                        </tr>
+                        <tr>
+                        <td>Resolve Magazine</td>
+                        </tr>
+                        <tr>
+                        <td>StudyVillage Poster 1</td>
+                        </tr>
+                        <tr>
+                        <td>StudyVillage Poster 2</td>
+                        </tr>
+                        <tr>
+                        <td>StartStudyVillage Portal</td>
+                        </tr>
+                        <tr>
+                        <td>StudyVillage Video Overview for Parents</td>
+                        </tr>
+                        <tr>
+                        <td>StudyVillage Banner Art</td>
+                        </tr>
+                        </tbody>   
+                  </table>
+            </div>
+            
               {/* resources-title */}
-              <div className="res-title pb-lg-4 pb-3">
+              {/*<div className="res-title pb-lg-4 pb-3">
                 <h4>Marketing Resources</h4>
                 <p>
                   <i>
@@ -56,10 +104,10 @@ const Resources = () => {
                     we add resources regularly
                   </i>
                 </p>
-              </div>
+              </div>*/}
               {/* resources-title */}
               {/* single-marketing-resource */}
-              <div className="single-resource">
+              {/*<div className="single-resource">
                 <div className="row">
                   <div className="col-lg-5">
                     <div className="resource-left-content">
@@ -128,10 +176,9 @@ const Resources = () => {
                     </div>
                   </div>
                 </div>
-              </div>
-              {/* single-marketing-resource */}
-              {/* single-marketing-resource */}
-              <div className="single-resource">
+              </div>*/}
+              
+              {/*<div className="single-resource">
                 <div className="row">
                   <div className="col-lg-5">
                     <div className="resource-left-content">
@@ -175,10 +222,9 @@ const Resources = () => {
                     </div>
                   </div>
                 </div>
-              </div>
-              {/* single-marketing-resource */}
-              {/* single-marketing-resource */}
-              <div className="single-resource">
+              </div>*/}
+              
+              {/*<div className="single-resource">
                 <div className="row">
                   <div className="col-lg-5">
                     <div className="resource-left-content text-center">
@@ -218,25 +264,18 @@ const Resources = () => {
                     </div>
                   </div>
                 </div>
-              </div>
+              </div>*/}
               {/* single-marketing-resource */}
             </div>
             {/* marketing-resources */}
             {/* Learning-resources */}
-            <div className="learning-res white-box">
+            {/*<div className="learning-res white-box">*/}
               {/* resources-title */}
-              <div className="res-title pb-lg-4 pb-5">
-                <h4>Learning Resources</h4>
-                <p>
-                  <i>
-                    These resources will help you learn more about StudyVillage
-                    and how to assist your enrolled students if required.
-                  </i>
-                </p>
-              </div>
+              {/*<div className="res-title pb-lg-4 pb-5">               
+              </div>*/}
               {/* resources-title */}
               {/* single-marketing-resource */}
-              <div className="single-resource">
+              {/*<div className="single-resource">
                 <div className="row">
                   <div className="col-lg-5">
                     <div className="resource-left-content">
@@ -274,10 +313,10 @@ const Resources = () => {
                     </div>
                   </div>
                 </div>
-              </div>
+              </div>*/}
               {/* single-marketing-resource */}
               {/* single-marketing-resource */}
-              <div className="single-resource">
+              {/*<div className="single-resource">
                 <div className="row">
                   <div className="col-lg-5">
                     <div className="resource-left-content text-center">
@@ -318,9 +357,9 @@ const Resources = () => {
                     </div>
                   </div>
                 </div>
-              </div>
+              </div>*/}
               {/* single-marketing-resource */}
-            </div>
+            {/*</div>*/}
             {/* Learning-resources */}
           </div>
         </div>

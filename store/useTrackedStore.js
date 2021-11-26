@@ -102,17 +102,23 @@ const store = (set) => ({
         imgSrc: home,
         selectedImgSrc: homeSelected,
       },
-      // {
-      //     href: "/apply-page",
-      //     label: "Apply for SV Program",
-      //     imgSrc: laptop,
-      //     selectedImgSrc: laptopSelected,
-      // },
+       {
+           href: "/profile",
+           label: "Representatives",
+           imgSrc: user,
+           selectedImgSrc: userSelected,
+       },
+       {
+        href: "/reports",
+        label: "Reports",
+        imgSrc: file,
+        selectedImgSrc: fileSelected,
+    },
       {
         href: "/resources",
         label: "Resources",
-        imgSrc: file,
-        selectedImgSrc: fileSelected,
+        imgSrc: laptop,
+        selectedImgSrc: laptopSelected,
       },
       // {
       //     href: "/profile",

@@ -121,7 +121,7 @@ const AgentContact = () => {
             </div>
 
             <div className="contact-students">
-              <div className="sec-title pb-3 pb-lg-4">
+              {/*<div className="sec-title pb-3 pb-lg-4">
                 <h4>Contact Your StudyVillage Students</h4>
               </div>
               <div className="studets-content-grid">
@@ -173,11 +173,11 @@ const AgentContact = () => {
                     </div>
                   );
                 })}
-              </div>
+              </div>*/}
             </div>
 
             <div className="feedback-area">
-              <div className="row">
+              {/*<div className="row">
                 <div className="col-lg-6">
                   <div className="feedback-content-wrapper white-box">
                     <h4>Contact StudyVillage Head Office</h4>
@@ -222,7 +222,7 @@ const AgentContact = () => {
                     </form>
                   </div>
                 </div>
-              </div>
+              </div>*/}
             </div>
           </div>
         </div>

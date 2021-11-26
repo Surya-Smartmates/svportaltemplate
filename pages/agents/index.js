@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import dynamic from "next/dynamic";
 // import AgentHome from "./components/AgentHome/AgentHome";
 import Navbar from "../../components/Shared/Navbar/Navbar";
@@ -12,6 +12,9 @@ import men from "../../assets/agents/img/men-black.svg";
 import trash from "../../assets/agents/img/trash.svg";
 import xlfile from "../../assets/agents/img/xl.svg";
 import question from "../../assets/agents/img/question.svg";
+
+import filewhite from "../../assets/img/file-white.svg"
+
 import social from "../../assets/agents/img/social-group.svg";
 import fb from "../../assets/img/facebook-fix-green.svg"
 import yt from "../../assets/img/youtube-green.svg"
@@ -55,6 +58,10 @@ const AgentDashboard = ({
     state?.portalUserResp?.User_Type?.toLowerCase() ||
     "";
 //Smartmates Code
+
+useEffect(()=>{
+  console.log(state.studentsResp)
+},[])
   async function submitNewRecord (data){
     const submittedData = {
       name: data.target.name.value,
@@ -168,30 +175,33 @@ const AgentDashboard = ({
 
             {/* Apply Studies-items */}
             <div className="content-title">
-              <h4>Apply for StudyVillage</h4>
+              <h4>Launch a StudyVillage Application</h4>
             </div>
             <div className="card-block-area">
               {/* single-card */}
 
               <div className="single-card-block white-box text-center">
+              <div className = "bg-gradation">
                 <div className="card-icon">
-                  <Image
-                    width={150}
-                    height={150}
-                    src={question}
-                    alt="question icon"
-                  />
-                </div>
-                <div className="card-text">
-                  <h4>Apply</h4>
-                  <p>
-                    Click on the button bellow to access the StudyVillage
-                    Appication Form
-                  </p>
-                </div>
-                <a href="/agents/apply-page" className="btn contact-btn">
-                  Apply
-                </a>
+                    <Image
+                      width={150}
+                      height={150}
+                      src={filewhite}
+                      alt="file-white icon"
+                    />
+                  </div>
+                  <div className="card-text">
+                    <h4>Apply</h4>
+                    <p>
+                      Click on the button bellow to access the StudyVillage
+                      Application Form
+                    </p>
+                  </div>
+                  <a href="https://zfrmz.com/YzahjvtI8WrqBTj7Unz3" target = "_blank" rel="noreferrer noopener" className="btn contact-btn">
+                    Apply
+                  </a>
+              </div>
+                
               </div>
               {/* single-card */}
             </div>
@@ -211,6 +221,10 @@ const AgentDashboard = ({
 
             {/* register-area */}
             <div className="register-lead-area d-grid">
+            <h4>
+              StudyVillage News Feed
+            </h4>
+            
               {/**//*<div className="rgister-lead-form white-box">
                 <h4>Register a Lead</h4>
                 <form  onSubmit = {submitNewRecord} >
@@ -253,7 +267,6 @@ const AgentDashboard = ({
                   </div>
                 </form>
               </div>*/}
-              <iframe frameborder="0" style={{height:'500px',width:'99%',border:'none'}} src='https://forms.zohopublic.com/studyvillage/form/C1Oka/formperma/_qIW7okiSKMnvFKK0cj44O1Hxgg1fHIlhlARyWtv1AE'></iframe>
               {/*<div className="leads-wrapper white-box">
                 <h4>Leads</h4>
                 <div className="registerd-items">
@@ -313,6 +326,44 @@ const AgentDashboard = ({
               </div>
              */}
             </div>
+            <p style ={{ fontSize: "1.2em" }}>
+              This section will provide news feed to the agents
+            </p>
+             <h4>Current Students</h4>
+            <table className = "table table-striped table-bordered">
+                        <thead>
+                          <tr className = "table-dark">
+                            <td>Name</td>
+                            <td>Country</td>
+                            <td>University</td>
+                            <td>Start Date</td>
+                            <td>End Date</td>
+                            <td>Total Semesters</td>
+                            <td>Email Address</td>
+                            <td>Contact Number</td>
+                          </tr>
+                        </thead>
+                        <tbody>
+                        {
+                          state?.studentsResp.map((student)=>{
+                            return(
+                              <tr className = "table-secondary">
+                            <td>{student.Full_Name}</td>
+                            <td></td>
+                            <td>{student.Institution}</td>
+                            <td>{student.Institution_Semester_start_date}</td>
+                            <td></td>
+                            <td>{student.How_many_total_semesters_will_this_course_take_to}</td>
+                            <td>{student.Email}</td>
+                            <td>{student.Phone}</td>
+                        </tr>
+                            )
+                            
+                          })
+                        }
+                        
+                        </tbody>   
+                  </table>
             {/* register-area_End */}
             <div className="card-block-area">
               {/* single-card */}
@@ -479,7 +530,7 @@ export async function getServerSideProps(context) {
   // leadsResp = leadResp?.data;
 
   // //todo Fetching Agent's Students Details
- /*
+ 
   const { data: stuResp } = await axios.post(
     `${process.env.NEXTAUTH_URL}/api/getZohoData`,
     {
@@ -489,7 +540,7 @@ export async function getServerSideProps(context) {
   );
   studentsResp = stuResp?.data;
   console.log({ studentsResp });
-*/
+
   return {
     props: {
       portalUserResp,
