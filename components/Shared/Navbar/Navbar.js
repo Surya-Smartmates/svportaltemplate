@@ -12,7 +12,7 @@ import { signOut } from "next-auth/client";
 import { useRouter } from "next/router";
 
 const Navbar = ({ profileUserName, topbarLinks, imgSrc }) => {
-    console.log({ imgSrc });
+    //console.log({ imgSrc });
     const state = useTrackedStore();
     const router = useRouter();
     const profile =
@@ -20,8 +20,8 @@ const Navbar = ({ profileUserName, topbarLinks, imgSrc }) => {
         state?.portalUserResp?.User_Type?.toLowerCase() ||
         "";
     useEffect(()=>{
-        console.log("check topbarLinks")
-        console.log(topbarLinks)
+        //console.log("check topbarLinks")
+        //console.log(topbarLinks)
     },[])
         return (
         <header className='header-area'>

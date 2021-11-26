@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import tortoise from "../../assets/agents/img/tortoyes.jpg";
@@ -18,6 +18,10 @@ import Sidebar from "../../components/Shared/Sidebar/Sidebar";
 const AgentProfile = () => {
   const router = useRouter();
   const state = useTrackedStore();
+
+  useEffect(()=>{
+    console.log(state.agentsResp)
+  },[])
   const topbarLinks = [
     {
       href: "/profile",

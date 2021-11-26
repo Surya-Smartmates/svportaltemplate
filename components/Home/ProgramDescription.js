@@ -10,7 +10,7 @@ const ProgramDescription = ({
   modules,
   quickLinks,
 }) => {
-  console.log("Quick Links", { quickLinks });
+  //console.log("Quick Links", { quickLinks });
   return (
     <div className="progrum-desc-wrapper">
       <div className="white-box">

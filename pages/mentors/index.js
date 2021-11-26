@@ -209,7 +209,6 @@ const SupportHome = ({
   const [popupTitle, setPopupTitle] = useState("")
   const [highlightStu, setHighlightStu] = useState("")
   const [enableCloseTask, setEnableCloseTask] = useState(true)
-  const [calendarHighlight, setCalendarHighlight] = useState({state})
   const [hgEvent, setHgEvent] = useState({title:"test", start:new Date().toString(), end:new Date().toString(), student_name: ""})
   //Embla Carousel Properties
 
@@ -259,15 +258,23 @@ const SupportHome = ({
     let ClickedEvent = {...dd}
     ClickedEvent.start = ClickedEvent.start.toString()
     ClickedEvent.end = ClickedEvent.end.toString()
+    ClickedEvent.student_name = dd.student_name
     setHgEvent(ClickedEvent)
     }
 
+
+  const CalEvents = []
   const events =  (svTasksResp !== null && svTasksResp !== undefined) ? svTasksResp?.map((task) => { //Add avoidance to null value
+    let start = task.Task_Assigned_Date
+    let end = task.Task_Due_Date
+    let title = task.Task
+    let student_name = task.Student.name
     if (
       nextEvent?.Task_Assigned_Date === undefined &&
       moment().isSameOrBefore(task.Task_Assigned_Date)
     ) {
       nextEvent = task;
+      CalEvents.push({start: start, end: end, title: title, student_name: student_name})
     } else if (
       nextEvent?.Task_Assigned_Date !== undefined &&
       moment().isSameOrBefore(task.Task_Assigned_Date) &&
@@ -291,18 +298,11 @@ const SupportHome = ({
   }) : null;
   console.log({ nextEvent });
 
-  const CalEvents = (events !== null && events !== undefined) ? 
-  events?.map((event)=>{
-    let eventsList = {
-      title: event.Task,
-      start:event.Task_Assigned_Date,
-      end:event.Task_Due_Date
-    }
-    return eventsList
-
-  }): []
-
   
+
+  useEffect(()=>{
+    console.log(events)
+  })
 
   return (
     <>

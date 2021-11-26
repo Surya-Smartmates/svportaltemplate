@@ -189,7 +189,7 @@ const AgentDashboard = ({
                     Appication Form
                   </p>
                 </div>
-                <a href="page-5.html" className="btn contact-btn">
+                <a href="/agents/apply-page" className="btn contact-btn">
                   Apply
                 </a>
               </div>
@@ -253,12 +253,7 @@ const AgentDashboard = ({
                   </div>
                 </form>
               </div>*/}
-              <iframe
-              frameborder="0"
-              style={{height:"500px",width:"99%",border:"none"}}
-              src='https://forms.zohopublic.com/studyvillage/form/StudyVillageStudentapplication/formperma/VxlbWTQPjYGlaz5mGMd0VmV2TweAHD0K-bPOZ1giPig'>
-
-              </iframe>
+              <iframe frameborder="0" style={{height:'500px',width:'99%',border:'none'}} src='https://forms.zohopublic.com/studyvillage/form/C1Oka/formperma/_qIW7okiSKMnvFKK0cj44O1Hxgg1fHIlhlARyWtv1AE'></iframe>
               {/*<div className="leads-wrapper white-box">
                 <h4>Leads</h4>
                 <div className="registerd-items">
@@ -337,7 +332,7 @@ const AgentDashboard = ({
                     below for all contact details.
                   </p>
                 </div>
-                <a href="page-5.html" className="btn contact-btn">
+                <a href="/agents/contact" className="btn contact-btn">
                   Contact us
                 </a>
               </div>

@@ -12,6 +12,7 @@ import PdfSlider from "../../components/pdf-slider/PdfSlider";
 
 import * as cookie from 'cookie'
 import {getSession} from "next-auth/client"
+import Router from 'next/router'
 
 const InteractionReport = ({studentSupportersResp}) => {
     const router = useRouter();
@@ -47,14 +48,7 @@ const InteractionReport = ({studentSupportersResp}) => {
         }).then(resp=>resp.data).then(data => data.data)
         SurveyID !== undefined ? setSurvey_ID(SurveyID[0].id) : alert("Student's Survey isn't prepared yet")
         console.log(survey_ID)
-        /*const StudentData = await base_url.post(
-            "/api/getZohoData",{
-                moduleApiName: "Contacts",
-                criteria:`(Crm_ID:equals:${data.Contact_Name.id})`
-        }).then(res=>res.data).then(data => data.data) 
-        */
-        //StudentData !== null? setStudentEmail(StudentData[0].Email) : setStudentEmail("")
-        //console.log(StudentData[0].Email)
+        
     }
 
     state.setStudentSupportersResp(studentSupportersResp)
@@ -111,7 +105,7 @@ const InteractionReport = ({studentSupportersResp}) => {
                 dataToSubmit_Enrollment["Latest_Interaction_Report"] = reportContent
         }
 
-
+        
         let updateCRMSurvey
         console.log(dataToSubmit)
 
@@ -129,6 +123,7 @@ const InteractionReport = ({studentSupportersResp}) => {
                 }
     
             )
+            Router.reload(window.location.pathname)
         }
         
 
@@ -143,8 +138,7 @@ const InteractionReport = ({studentSupportersResp}) => {
             }
 
         )
-        console.log(updateCRMSurvey)
-        console.log(update_enrollment_latest_interaction_report)
+        
     }
     const profile =
         router.pathname.split("/")?.[1] ||
@@ -317,7 +311,7 @@ const InteractionReport = ({studentSupportersResp}) => {
                                                
                                             </div>
                                             
-                                            <div className='check-active-sidebar'>
+                                            {/*<div className='check-active-sidebar'>
                                                 <div className='others-active white-box'>
                                                     <h4>
                                                         Check In Other
@@ -427,7 +421,7 @@ const InteractionReport = ({studentSupportersResp}) => {
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div>*/}
                                         </div>
                                     </div>
                                 </div>

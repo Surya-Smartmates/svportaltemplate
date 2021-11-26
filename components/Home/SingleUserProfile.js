@@ -1,6 +1,8 @@
-import React from "react";
+import React , {useState, useEffect} from "react";
 import Link from "next/link";
 import Image from "next/image";
+
+import useTrackedStore from "../../store/useTrackedStore"
 
 const SingleUserProfile = ({
     imgSrc,
@@ -8,9 +10,33 @@ const SingleUserProfile = ({
     details,
     course,
     university,
+    stuData,
     btnName = "View Details",
     btnLink,
 }) => {
+    const state = useTrackedStore()
+
+    useEffect(()=>{
+        console.log("check student data")
+        console.log(stuData)
+    }, [])
+
+
+    useEffect(()=>{
+        return()=>{
+            state.setStudentsResp(stuData)
+            /*
+            console.log(imgSrc)
+            console.log(name)
+            console.log(details)
+            console.log(course)
+            console.log(university)
+            console.log(stuData)*/
+        }
+        
+    },[])
+
+    
     return (
         <div className='single-profile d-flex align-items-center white-box'>
             <div className='user-profile-img'>

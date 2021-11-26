@@ -135,7 +135,7 @@ const Contact__Content = () => {
                     <div className='row'>
                         <div className='col-lg-6'>
                             <div className='feedback-content-wrapper white-box'>
-                                <h4>Have a Feedback?</h4>
+                               {/* <h4>Have a Feedback?</h4>
                                 <span>Complete the form below</span>
                                 <form action=''>
                                     <div className='single-input-wrap'>
@@ -171,7 +171,7 @@ const Contact__Content = () => {
                                     <button className='btn' type='submit'>
                                         Send
                                     </button>
-                                </form>
+                                </form>*/}
                             </div>
                         </div>
                     </div>

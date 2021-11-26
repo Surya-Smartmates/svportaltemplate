@@ -26,6 +26,11 @@ const Home__Content = ({ quickLinks, subTitle }) => {
         "";
     const [studentsResp, setStudentsResp] = useState([]);
 
+    useEffect(()=>{
+        setStudentsResp(state?.studentsResp)
+    }, [])
+
+
     const modules = state?.enrolmentsResp?.[0]?.Life_Cycle_Stages_String?.split(
         ","
     )?.map((stage) => {
@@ -36,7 +41,7 @@ const Home__Content = ({ quickLinks, subTitle }) => {
                 _.upperCase(stage),
         };
     });
-    console.log("Modules ", { modules });
+    //console.log("Modules ", { modules });
     const events = state?.enrolmentsResp?.[0]?.Life_Cycle_Stages_String !== undefined ?
     state?.enrolmentsResp?.[0]?.Life_Cycle_Stages_String?.split(
         ","
@@ -55,16 +60,18 @@ const Home__Content = ({ quickLinks, subTitle }) => {
                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur magni excepturi sint totam nulla veritatis nesciunt suscipit eveniet iusto porro nihil esse dolorem perferendis, repudiandae blanditiis vel delectus molestias saepe?",
         };
     }) : [{name: "No Modules", imgSrc:"No Image"}];
-    console.log(events);
+    //console.log(events);
     return (
         <div className='main-content'>
             <div className='content-wrapper'>
                 <div className='user-profile'>
                     {state?.studentsResp?.map((student) => {
+                        
                         return (
                             <SingleUserProfile
                                 key={student.ID}
                                 imgSrc={profile2}
+                                stuData = {student}
                                 name={`${student.Full_Name}`}
                                 details={subTitle || "Your Child"}
                                 course={student.Award_type}

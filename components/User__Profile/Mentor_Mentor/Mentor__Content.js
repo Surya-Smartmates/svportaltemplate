@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import banner from "../../../assets/img/banner-bg.jpg";
 import profile__1 from "../../../assets/img/profile-1.jpg";
 import phone from "../../../assets/img/phone-green.svg";
@@ -23,6 +23,13 @@ const Mentor__Content = () => {
         router.pathname.split("/")?.[1] ||
         state?.portalUserResp?.User_Type?.toLowerCase() ||
         "";
+
+    useEffect(()=>{
+        console.log(state?.studentSupportersResp?.[0]
+            ?.Vendor_Name)
+        console.log(state?.studentsResp[0])
+    },[])
+    
     return (
         <div className='main-content'>
             <div className='content-wrapper'>
@@ -59,7 +66,7 @@ const Mentor__Content = () => {
                                     }
                                 </h4>
                                 <span>
-                                    {`${state?.studentsResp?.[0]?.Full_Name}’s Student Supporter in ${state?.studentsResp?.[0]?.Mailing_State}, ${state?.studentsResp?.[0]?.Mailing_Country}`}
+                                    {`${state?.studentsResp?.[0]?.Contact_Name?.name}’s Student Supporter in ${state?.studentsResp?.[0]?.Mailing_State}, ${state?.studentsResp?.[0]?.Country}`}
                                 </span>
 
                                 <div className='user-details-wrapper'>

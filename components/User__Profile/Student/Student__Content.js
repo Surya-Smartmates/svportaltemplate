@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import banner from "../../../assets/img/banner-2.jpg";
 import profile from "../../../assets/img/profile-2.jpg";
 import gray from "../../../assets/img/gray-file.svg";
@@ -27,8 +27,12 @@ import line from "../../../assets/img/line-o.svg";
 import Image from "next/image";
 import useTrackedStore from "../../../store/useTrackedStore";
 
-const Student__Content = () => {
+const Student__Content = ({stuDetails}) => {
     const state = useTrackedStore();
+
+    useEffect(()=>{
+        console.log(stuDetails)
+    })
     return (
         <div className='main-content'>
             <div className='content-wrapper'>
@@ -58,15 +62,15 @@ const Student__Content = () => {
                             {/* <!-- user-iamge-area --> */}
 
                             <div className='user-content-text-wrapper'>
-                                <h4>{state?.studentsResp?.[0]?.Full_Name}</h4>
+                                <h4>{stuDetails?.[0]?.Full_Name}</h4>
                                 <span>
-                                    {`Studying a ${state?.studentsResp?.[0]?.Award_type} at ${state?.studentsResp?.[0]?.Institution}, ${state?.studentsResp?.[0]?.Campus}, ${state?.studentsResp?.[0]?.Country_Region}`}
+                                    {`Studying a ${stuDetails?.[0]?.Award_type} at ${stuDetails?.[0]?.Institution}, ${stuDetails?.[0]?.Campus}, ${stuDetails?.[0]?.Country_Region}`}
                                 </span>
                                 <div className='user-details-wrapper'>
                                     {/* <!-- user-single-details-wrapper --> */}
                                     <div className='user-single-details'>
                                         <h5>From:</h5>
-                                        <p>{`${state?.studentsResp?.[0]?.Mailing_State}, ${state?.studentsResp?.[0]?.Mailing_Country}`}</p>
+                                        <p>{`${stuDetails?.[0]?.Mailing_State}, ${stuDetails?.[0]?.Mailing_Country}`}</p>
                                     </div>
                                     {/* <!-- user-single-details-wrapper -->
 
@@ -75,7 +79,7 @@ const Student__Content = () => {
                                         <h5>Languages:</h5>
                                         <p>
                                             {
-                                                state?.studentsResp?.[0]
+                                                stuDetails?.[0]
                                                     ?.Languages
                                             }
                                         </p>
@@ -87,7 +91,7 @@ const Student__Content = () => {
                                         <h5>Previous Education:</h5>
                                         <p>
                                             {
-                                                state?.studentsResp?.[0]
+                                                stuDetails?.[0]
                                                     ?.Previous_Education
                                             }
                                         </p>
@@ -99,7 +103,7 @@ const Student__Content = () => {
                                         <h5>About myself</h5>
                                         <p>
                                             {
-                                                state?.studentsResp?.[0]
+                                                stuDetails?.[0]
                                                     ?.About_myself
                                             }
                                         </p>
@@ -109,7 +113,7 @@ const Student__Content = () => {
 
                                     {/* <!-- user-single-details-wrapper --> */}
                                     <div className='user-single-details'>
-                                        <h5>Angelica’s Documents</h5>
+                                        <h5>{stuDetails?.[0]?.Full_Name}’s Documents</h5>
                                         <p>
                                             These are documents Agelica uploaded
                                             about herself and her studies
@@ -138,7 +142,7 @@ const Student__Content = () => {
                                                     </div>
                                                     <div className='file-text'>
                                                         <p>
-                                                            AngelicaResume_082020
+                                                            {stuDetails?.[0]?.Full_Name}'s Resume 08 2020
                                                         </p>
                                                     </div>
                                                 </div>
@@ -202,7 +206,7 @@ const Student__Content = () => {
                                   <!-- user-single-details-wrapper --> */}
                                     <div className='user-single-details pt-4 pt-lg-4'>
                                         <h5>
-                                            Angelica’s Preferred Communication
+                                            {stuDetails?.[0]?.Full_Name}'s ' Preferred Communication
                                             Mediums
                                         </h5>
 
@@ -634,7 +638,7 @@ const Student__Content = () => {
                         <div className='user-page-sidebar'>
                             <div className='single-sidebar contact-widget'>
                                 <h4>
-                                    {state?.studentsResp?.[0]?.Full_Name}’s
+                                    {stuDetails?.[0]?.Full_Name}’s
                                     Contact Details
                                 </h4>
                                 <div className='contact-items'>
@@ -652,7 +656,7 @@ const Student__Content = () => {
                                             <a
                                                 href={`tel:${state?.studentsResp?.[0]?.Mobile}`}>
                                                 {
-                                                    state?.studentsResp?.[0]
+                                                    stuDetails?.[0]
                                                         ?.Mobile
                                                 }
                                             </a>
@@ -673,7 +677,7 @@ const Student__Content = () => {
                                             <a
                                                 href={`mailto:${state?.studentsResp?.[0]?.Email}`}>
                                                 {
-                                                    state?.studentsResp?.[0]
+                                                    stuDetails?.[0]
                                                         ?.Email
                                                 }
                                             </a>
@@ -693,7 +697,7 @@ const Student__Content = () => {
                                             <span>Messenger (preferred):</span>
                                             <a href=''>
                                                 {
-                                                    state?.studentsResp?.[0]
+                                                    stuDetails?.[0]
                                                         ?.Messenger
                                                 }
                                             </a>
@@ -713,7 +717,7 @@ const Student__Content = () => {
                                             <span>Skyper:</span>
                                             <a href=''>
                                                 {
-                                                    state?.studentsResp?.[0]
+                                                    stuDetails?.[0]
                                                         ?.Skype
                                                 }
                                             </a>
@@ -733,7 +737,7 @@ const Student__Content = () => {
                                             <span>Instagram:</span>
                                             <a href=''>
                                                 {
-                                                    state?.studentsResp?.[0]
+                                                    stuDetails?.[0]
                                                         ?.Instagram
                                                 }
                                             </a>
@@ -744,7 +748,7 @@ const Student__Content = () => {
 
                             <div className='single-sidebar interest-widget'>
                                 <h4>
-                                    {state?.studentsResp?.[0]?.Full_Name}’s
+                                    {stuDetails?.[0]?.Full_Name}’s
                                     Interests
                                 </h4>
                                 <div className='interest-items'>
