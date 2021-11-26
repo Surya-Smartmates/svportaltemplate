@@ -315,12 +315,12 @@ const AgentProfile = () => {
                         {/* user-single-details-wrapper */}
                         <div className="edit-btn-area mt-4 mt-lg-5">
                           
-                          <a
+                          {/*<a
                             href="javascript:void(0)"
                             className="btn btn-save js-save"
                           >
                             Save Your Profile Info
-                          </a>
+                          </a>*/}
                         </div>
                       </div>
                     </div>
