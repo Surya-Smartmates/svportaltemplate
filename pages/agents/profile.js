@@ -242,7 +242,7 @@ const AgentProfile = () => {
                       <table className = "table table-striped table-bordered">
                         <thead>
                           <tr className = "table-dark">
-                            <td style = {{ width: "50%" }}>{state.agentsResp[0].Agency_Name}</td>
+                            <td style = {{ width: "50%" }}>{state?.agentsResp?.[0]?.Agency_Name}</td>
                             <td>Details</td>
                           </tr>
                         </thead>
