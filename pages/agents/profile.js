@@ -188,7 +188,7 @@ const AgentProfile = () => {
             <div className="row">
               <div className="col-lg-6">
                 <div className="user-content-page-wrapper">
-                  <form action className="is-readonly">
+                  {/*<form action className="is-readonly">*/}
                   
                     {/* user-iamge-area */}
                     {/*<div className="user-cover-image position-relative">*/}
@@ -324,7 +324,7 @@ const AgentProfile = () => {
                         </div>
                       </div>
                     </div>
-                  </form>
+                  {/*</form>*/}
                 </div>
               </div>
               <div className="col-lg-6">
