@@ -13,7 +13,7 @@ import trash from "../../assets/agents/img/trash.svg";
 import xlfile from "../../assets/agents/img/xl.svg";
 import question from "../../assets/agents/img/question.svg";
 
-import filewhite from "../../assets/img/file-white.svg"
+import filegreen from "../../assets/img/file-green.svg"
 
 import social from "../../assets/agents/img/social-group.svg";
 import fb from "../../assets/img/facebook-fix-green.svg"
@@ -186,7 +186,7 @@ useEffect(()=>{
                     <Image
                       width={150}
                       height={150}
-                      src={filewhite}
+                      src={filegreen}
                       alt="file-white icon"
                     />
                   </div>
