@@ -15,10 +15,394 @@ import _ from "lodash";
 import Navbar from "../../components/Shared/Navbar/Navbar";
 import Sidebar from "../../components/Shared/Sidebar/Sidebar";
 
+import axios from 'axios';
+
 const AgentProfile = () => {
   const router = useRouter();
   const state = useTrackedStore();
-  const [agencyData, setAgencyData] = useState(
+  const [BranchOffice, setBranchOffice] = useState([])
+  
+  const [editContacts, setEditContacts] = useState(false)
+async function checkSubForm(){
+  const subformData =  await axios.post(
+    `${process.env.NEXTAUTH_URL}/api/getZohoData`,
+    {
+      moduleApiName: "Branch_Office",
+      criteria: ``,
+    }
+  )
+
+  console.log(subformData.data.data)
+  let subFormArray = subformData.data.data
+  let branchOfficeList = [];
+  for (let branch of subFormArray){
+    if(!!branch?.Parent_Id){
+      if(branch.Parent_Id.id === state.agentsResp[0].id){
+        branchOfficeList.push(branch);
+      }
+    }
+    console.log(branch)
+  }
+  console.log(branchOfficeList)
+  await setBranchOffice(branchOfficeList)
+}
+
+  useEffect(()=>{
+    console.log(state.agentsResp)
+    checkSubForm();
+    /*if("Branch_Office" in state.agentsResp[0]){
+      console.log("Branch Office exist")
+    }else{
+      console.log("Branch Office doesn't exist")
+    }
+    
+*/
+
+  },[])
+  const topbarLinks = [
+    {
+      href: "/profile",
+      label: `View Profile`,
+    },
+  ];
+
+  const profile =
+    router.pathname.split("/")?.[1] ||
+    state?.portalUserResp?.User_Type?.toLowerCase() ||
+    "";
+
+  const profileUserName = `${state?.agentsResp?.[0]?.Agency_Name || ""}`;
+  return (
+    <>
+      <Navbar profileUserName={profileUserName} topbarLinks={topbarLinks} />
+      <div class="main-root">
+        <Sidebar />
+        <div className="main-content">
+          <div className="content-wrapper">
+            <div className="row">
+              <div className="col-lg-6">
+                <div className="user-content-page-wrapper">
+                  {/*<form action className="is-readonly">*/}
+                  
+                    {/* user-iamge-area */}
+                    {/*<div className="user-cover-image position-relative">*/}
+                      {/*<div className="cover-photo-wrapper position-relative">*/}
+                        {/*<div className="photo-edit-btn">
+                          <input
+                            type="file"
+                            id="imageUpload"
+                            accept=".png, .jpg, .jpeg"
+                            disabled
+                          />
+                          <label htmlFor="imageUpload">
+                            <FontAwesomeIcon icon={faPencilAlt} />
+                          </label>
+                        </div>*/}
+                        {/*<div className="cover-photo-wrap">
+                          <div
+                            id="imagePreview"
+                            style={{
+                              backgroundImage: `url(${tortoise.src})`,
+                            }}
+                          />
+                        </div>*/}
+                      {/*</div>*/}
+                      {/*<div
+                        className="profile-img-area"
+                        id="imagePreviewTwo"
+                        style={{
+                          backgroundImage: `url(${agent.src})`,
+                        }}
+                      >
+                        <input type="file" id="profile-img" disabled />
+                        <label htmlFor="profile-img">
+                          <i className="fas fa-pencil" />
+                        </label>
+                      </div>*/}
+                    {/*</div>*/}
+                    {/* user-iamge-area */}
+                    <div className="user-content-text-wrapper">
+                    {/*state?.agentsResp?.[0]?.Name*/}
+                    
+                      <h4>Study Village Representative Contact Page</h4>
+                      <p style = {{ marginTop: "2%", fontWeight: 750 }}>The following materials allow you to keep your Company details up to date</p>
+                      {/*<input
+                        type="text"
+                        defaultValue={state?.agentsResp?.[0]?.Title}
+                        disabled
+                      />*/}
+                      <div className="user-details-wrapper">
+                      <div className = "col-md-10">
+                      <table className = "table table-striped table-bordered">
+                        <thead>
+                          <tr className = "table-dark">
+                            <td style = {{ width: "50%" }}>{state?.agentsResp?.[0]?.Agency_Name}</td>
+                            <td>Details</td>
+                          </tr>
+                        </thead>
+                        <tbody>
+                        <tr  className = "table-secondary">
+                            <td>Company Principal</td>
+                            <td><input value = {state?.agentsResp?.[0]?.Managing_Principal}></input></td>
+                        </tr>
+                        <tr style = {{ backgroundColor: "#aaaaaa" }}>
+                            <td>Key Contact</td>
+                            <td>{state?.agentsResp?.[0]?.Key_Contact1}</td>
+                        </tr>
+                        <tr  className = "table-secondary">
+                            <td>Key Contact Email Address</td>
+                            <td></td>
+                        </tr>
+                        <tr style = {{ backgroundColor: "#aaaaaa" }}>
+                            <td>Company Address</td>
+                            <td>{state?.agentsResp?.[0]?.Street_Address}, {state?.agentsResp?.[0]?.City}</td>
+                        </tr>
+                        <tr className = "table-secondary">
+                            <td>Phone Number</td>
+                            <td>{state?.agentsResp?.[0]?.Phone}</td>
+                        </tr>
+                        <tr style = {{ backgroundColor: "#aaaaaa" }}>
+                            <td>Website</td>
+                            <td>{state?.agentsResp?.[0]?.Company_Website}</td>
+                        </tr>
+                        <tr  className = "table-secondary">
+                            <td>Branch Office Address</td>
+                            <td>{BranchOffice[0]?.Address}</td>
+                        </tr>
+                        <tr style = {{ backgroundColor: "#aaaaaa" }}>
+                            <td>Branch Office Phone Number</td>
+                            <td>{BranchOffice[0]?.Phone_Number}</td>
+                        </tr>
+                        <tr  className = "table-secondary">
+                            <td>Key Contact at Branch Office</td>
+                            <td>{BranchOffice[0]?.Person_managing_this_branch}</td>
+                        </tr>
+                        <tr style = {{ backgroundColor: "#aaaaaa" }}>
+                            <td>Key Contact at Branch Office Email</td>
+                            <td>{BranchOffice[0]?.Email}</td>
+                        </tr>
+                        </tbody>   
+                  </table>
+                      </div>
+                      
+                  <button className = "btn btn-primary">EDIT</button>
+                        {/* user-single-details-wrapper */}
+                        
+                        {/* user-single-details-wrapper */}
+                        {/* user-single-details-wrapper */}
+                        
+                        {/* user-single-details-wrapper */}
+                        {/* user-single-details-wrapper */}
+                        
+                        {/* user-single-details-wrapper */}
+                        <hr />
+                        {/* user-single-details-wrapper */}
+                        
+                        {/* user-single-details-wrapper */}
+                        <hr />
+                        {/* user-single-details-wrapper */}
+                        <div className="user-single-details about-input">
+                          
+                          
+                          
+                        </div>
+                        {/* user-single-details-wrapper */}
+                        <div className="edit-btn-area mt-4 mt-lg-5">
+                          
+                          {/*<a
+                            href="javascript:void(0)"
+                            className="btn btn-save js-save"
+                          >
+                            Save Your Profile Info
+                          </a>*/}
+                        </div>
+                      </div>
+                    </div>
+                  {/*</form>*/}
+                </div>
+              </div>
+              <div className="col-lg-6">
+                <div className="user-page-sidebar">
+                {/* single-sidebar contact-widget*/}
+                  <div style= {{ boxShadow: "0px 3px 3px rgba(0, 0, 0, 0.1)", padding: "30px", paddingTop: "110px"}} className="">
+                    <div className="contact-items">
+                      <form action className="is-readonly">
+                      <table className = "table table-striped table-bordered">
+                        <thead>
+                          <tr className = "table-dark">
+                            <td style = {{ width: "50%" }}>Australian Manager</td>
+                            <td>Details</td>
+                          </tr>
+                        </thead>
+                        <tbody>
+                        <tr  className = "table-secondary">
+                            <td>Counsellor Name</td>
+                            <td>{state?.agentsResp?.[0]?.First_Name_AU} {state?.agentsResp?.[0]?.Last_Name_AU}</td>
+                        </tr>
+                        <tr style = {{ backgroundColor: "#aaaaaa" }}>
+                            <td>Counsellor Email</td>
+                            <td>{state?.agentsResp?.[0]?.Email_AU}</td>
+                        </tr>
+                        <tr  className = "table-secondary">
+                            <td>Counsellor Phone Number/Whatsapp</td>
+                            <td>{state?.agentsResp?.[0]?.Phone_AU}</td>
+                        </tr>
+                        <tr style = {{ backgroundColor: "#aaaaaa" }}>
+                            <td>LinkedIn Profile</td>
+                            <td>{state?.agentsResp?.[0]?.LinkedIN_Profile_AU}</td>
+                        </tr>
+                        <tr className = "table-secondary">
+                            <td>Photo</td>
+                            <td></td>
+                        </tr>
+                        </tbody>   
+                  </table>
+                  <table className = "table table-striped table-bordered">
+                        <thead>
+                          <tr className = "table-dark">
+                            <td style = {{ width: "50%" }}>UK Manager</td>
+                            <td>Details</td>
+                          </tr>
+                        </thead>
+                        <tbody>
+                        <tr  className = "table-secondary">
+                            <td>Counsellor Name</td>
+                            <td>{state?.agentsResp?.[0]?.First_Name_UK} {state?.agentsResp?.[0]?.Last_Name_UK}</td>
+                        </tr>
+                        <tr style = {{ backgroundColor: "#aaaaaa" }}>
+                            <td>Counsellor Email</td>
+                            <td>{state?.agentsResp?.[0]?.Email_UK}</td>
+                        </tr>
+                        <tr  className = "table-secondary">
+                            <td>Counsellor Phone Number/Whatsapp</td>
+                            <td>{state?.agentsResp?.[0]?.Phone_UK}</td>
+                        </tr>
+                        <tr style = {{ backgroundColor: "#aaaaaa" }}>
+                            <td>LinkedIn Profile</td>
+                            <td>{state?.agentsResp?.[0]?.LinkedIN_Profile_UK}</td>
+                        </tr>
+                        <tr className = "table-secondary">
+                            <td>Photo</td>
+                            <td></td>
+                        </tr>
+                        </tbody>   
+                  </table>
+                  <table className = "table table-striped table-bordered">
+                        <thead>
+                          <tr className = "table-dark">
+                            <td style = {{ width: "50%" }}>Canada Manager</td>
+                            <td>Details</td>
+                          </tr>
+                        </thead>
+                        <tbody>
+                        <tr  className = "table-secondary">
+                            <td>Counsellor Name</td>
+                            <td>{state?.agentsResp?.[0]?.First_Name_AU} {state?.agentsResp?.[0]?.Last_Name_AU}</td>
+                        </tr>
+                        <tr style = {{ backgroundColor: "#aaaaaa" }}>
+                            <td>Counsellor Email</td>
+                            <td>{state?.agentsResp?.[0]?.Email_AU}</td>
+                        </tr>
+                        <tr  className = "table-secondary">
+                            <td>Counsellor Phone Number/Whatsapp</td>
+                            <td>{state?.agentsResp?.[0]?.Phone_UK}</td>
+                        </tr>
+                        <tr style = {{ backgroundColor: "#aaaaaa" }}>
+                            <td>LinkedIn Profile</td>
+                            <td>{state?.agentsResp?.[0]?.LinkedIN_Profile_UK}</td>
+                        </tr>
+                        <tr className = "table-secondary">
+                            <td>Photo</td>
+                            <td></td>
+                        </tr>
+                        </tbody>   
+                  </table>
+                        <div className="single-contact-item d-flex align-items-center">
+                        </div>
+                        {/*<div className="single-contact-item d-flex align-items-center">
+                          <div className="contact-icon">
+                            <Image
+                              width={50}
+                              height={50}
+                              src={laptop}
+                              alt="icon"
+                            />
+                          </div>
+                          <div className="contact-id">
+                            <span>Email:</span>
+                            <input
+                              type="text"
+                              defaultValue={state?.agentsResp?.[0]?.Email}
+                              disabled
+                            />
+                          </div>
+                        </div>*/}
+                        {/*<div className="single-contact-item d-flex align-items-center">
+                          <div className="contact-icon">
+                            <Image
+                              width={50}
+                              height={50}
+                              src={messanger}
+                              alt="icon"
+                            />
+                          </div>
+                          <div className="contact-id">
+                            <span>Messenger (preferred):</span>
+                            <input
+                              type="text"
+                              defaultValue={state?.agentsResp?.[0]?.Messenger}
+                              disabled
+                            />
+                          </div>
+                        </div>*/}
+                        {/*<div className="single-contact-item d-flex align-items-center">
+                          <div className="contact-icon">
+                            <Image
+                              width={50}
+                              height={50}
+                              src={skype}
+                              alt="icon"
+                            />
+                          </div>
+                          <div className="contact-id">
+                            <span>Skyper:</span>
+                            <input
+                              type="text"
+                              defaultValue={state?.agentsResp?.[0]?.Skype}
+                              disabled
+                            />
+                          </div>
+                        </div>*/}
+                        <div className="edit-btn-area mt-3 mt-lg-4">
+                          <a
+                            href="javascript:void(0)"
+                            className="btn btn-edit js-edit"
+                          >
+                            Edit Your Contact Details
+                          </a>
+                          <a
+                            href="javascript:void(0)"
+                            className="btn btn-save js-save"
+                          >
+                            Save Your Contact Details
+                          </a>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default AgentProfile;
+
+/*const [agencyData, setAgencyData] = useState(
     {
       "Email_UK": null,
       "Managing_Principal": "",
@@ -150,360 +534,4 @@ const AgentProfile = () => {
       "Earned_Commission_Payed": null,
       "$approval_state": ""
     }
-  )
-
-
-
-  useEffect(()=>{
-    console.log(state.agentsResp)
-    if("Branch_Office" in state.agentsResp[0]){
-      console.log("Branch Office exist")
-    }else{
-      console.log("Branch Office doesn't exist")
-    }
-    
-
-
-  },[])
-  const topbarLinks = [
-    {
-      href: "/profile",
-      label: `View Profile`,
-    },
-  ];
-
-  const profile =
-    router.pathname.split("/")?.[1] ||
-    state?.portalUserResp?.User_Type?.toLowerCase() ||
-    "";
-
-  const profileUserName = `${state?.agentsResp?.[0]?.Agency_Name || ""}`;
-  return (
-    <>
-      <Navbar profileUserName={profileUserName} topbarLinks={topbarLinks} />
-      <div class="main-root">
-        <Sidebar />
-        <div className="main-content">
-          <div className="content-wrapper">
-            <div className="row">
-              <div className="col-lg-6">
-                <div className="user-content-page-wrapper">
-                  {/*<form action className="is-readonly">*/}
-                  
-                    {/* user-iamge-area */}
-                    {/*<div className="user-cover-image position-relative">*/}
-                      {/*<div className="cover-photo-wrapper position-relative">*/}
-                        {/*<div className="photo-edit-btn">
-                          <input
-                            type="file"
-                            id="imageUpload"
-                            accept=".png, .jpg, .jpeg"
-                            disabled
-                          />
-                          <label htmlFor="imageUpload">
-                            <FontAwesomeIcon icon={faPencilAlt} />
-                          </label>
-                        </div>*/}
-                        {/*<div className="cover-photo-wrap">
-                          <div
-                            id="imagePreview"
-                            style={{
-                              backgroundImage: `url(${tortoise.src})`,
-                            }}
-                          />
-                        </div>*/}
-                      {/*</div>*/}
-                      {/*<div
-                        className="profile-img-area"
-                        id="imagePreviewTwo"
-                        style={{
-                          backgroundImage: `url(${agent.src})`,
-                        }}
-                      >
-                        <input type="file" id="profile-img" disabled />
-                        <label htmlFor="profile-img">
-                          <i className="fas fa-pencil" />
-                        </label>
-                      </div>*/}
-                    {/*</div>*/}
-                    {/* user-iamge-area */}
-                    <div className="user-content-text-wrapper">
-                    {/*state?.agentsResp?.[0]?.Name*/}
-                    
-                      <h4>Study Village Representative Contact Page</h4>
-                      <p style = {{ marginTop: "2%", fontWeight: 750 }}>The following materials allow you to keep your Company details up to date</p>
-                      {/*<input
-                        type="text"
-                        defaultValue={state?.agentsResp?.[0]?.Title}
-                        disabled
-                      />*/}
-                      <div className="user-details-wrapper">
-                      <div className = "col-md-10">
-                      <table className = "table table-striped table-bordered">
-                        <thead>
-                          <tr className = "table-dark">
-                            <td style = {{ width: "50%" }}>{state?.agentsResp?.[0]?.Agency_Name}</td>
-                            <td>Details</td>
-                          </tr>
-                        </thead>
-                        <tbody>
-                        <tr  className = "table-secondary">
-                            <td>Company Principal</td>
-                            <td>{state?.agentsResp?.[0]?.Managing_Principal}</td>
-                        </tr>
-                        <tr style = {{ backgroundColor: "#aaaaaa" }}>
-                            <td>Key Contact</td>
-                            <td>{state?.agentsResp?.[0]?.Name}</td>
-                        </tr>
-                        <tr  className = "table-secondary">
-                            <td>Key Contact Email Address</td>
-                            <td></td>
-                        </tr>
-                        <tr style = {{ backgroundColor: "#aaaaaa" }}>
-                            <td>Company Address</td>
-                            <td></td>
-                        </tr>
-                        <tr className = "table-secondary">
-                            <td>Phone Number</td>
-                            <td>{state?.agentsResp?.[0]?.Phone}</td>
-                        </tr>
-                        <tr style = {{ backgroundColor: "#aaaaaa" }}>
-                            <td>Website</td>
-                            <td>{state?.agentsResp?.[0]?.Company_Website}</td>
-                        </tr>
-                        <tr  className = "table-secondary">
-                            <td>Branch Office Address</td>
-                            <td></td>
-                        </tr>
-                        <tr style = {{ backgroundColor: "#aaaaaa" }}>
-                            <td>Branch Office Phone Number</td>
-                            <td></td>
-                        </tr>
-                        <tr  className = "table-secondary">
-                            <td>Key Contact at Branch Office</td>
-                            <td></td>
-                        </tr>
-                        <tr style = {{ backgroundColor: "#aaaaaa" }}>
-                            <td>Key Contact at Branch Office Email</td>
-                            <td></td>
-                        </tr>
-                        </tbody>   
-                  </table>
-                      </div>
-                      
-                  <button className = "btn btn-primary">EDIT</button>
-                        {/* user-single-details-wrapper */}
-                        
-                        {/* user-single-details-wrapper */}
-                        {/* user-single-details-wrapper */}
-                        
-                        {/* user-single-details-wrapper */}
-                        {/* user-single-details-wrapper */}
-                        
-                        {/* user-single-details-wrapper */}
-                        <hr />
-                        {/* user-single-details-wrapper */}
-                        
-                        {/* user-single-details-wrapper */}
-                        <hr />
-                        {/* user-single-details-wrapper */}
-                        <div className="user-single-details about-input">
-                          
-                          
-                          
-                        </div>
-                        {/* user-single-details-wrapper */}
-                        <div className="edit-btn-area mt-4 mt-lg-5">
-                          
-                          {/*<a
-                            href="javascript:void(0)"
-                            className="btn btn-save js-save"
-                          >
-                            Save Your Profile Info
-                          </a>*/}
-                        </div>
-                      </div>
-                    </div>
-                  {/*</form>*/}
-                </div>
-              </div>
-              <div className="col-lg-6">
-                <div className="user-page-sidebar">
-                {/* single-sidebar contact-widget*/}
-                  <div style= {{ boxShadow: "0px 3px 3px rgba(0, 0, 0, 0.1)", padding: "30px", paddingTop: "110px"}} className="">
-                    <div className="contact-items">
-                      <form action className="is-readonly">
-                      <table className = "table table-striped table-bordered">
-                        <thead>
-                          <tr className = "table-dark">
-                            <td style = {{ width: "50%" }}>Australian Manager</td>
-                            <td>Details</td>
-                          </tr>
-                        </thead>
-                        <tbody>
-                        <tr  className = "table-secondary">
-                            <td>Counsellor Name</td>
-                            <td></td>
-                        </tr>
-                        <tr style = {{ backgroundColor: "#aaaaaa" }}>
-                            <td>Counsellor Email</td>
-                            <td></td>
-                        </tr>
-                        <tr  className = "table-secondary">
-                            <td>Counsellor Phone Number/Whatsapp</td>
-                            <td></td>
-                        </tr>
-                        <tr style = {{ backgroundColor: "#aaaaaa" }}>
-                            <td>Skype Address</td>
-                            <td></td>
-                        </tr>
-                        <tr className = "table-secondary">
-                            <td>Photo</td>
-                            <td></td>
-                        </tr>
-                        </tbody>   
-                  </table>
-                  <table className = "table table-striped table-bordered">
-                        <thead>
-                          <tr className = "table-dark">
-                            <td style = {{ width: "50%" }}>Australian Manager</td>
-                            <td>Details</td>
-                          </tr>
-                        </thead>
-                        <tbody>
-                        <tr  className = "table-secondary">
-                            <td>Counsellor Name</td>
-                            <td></td>
-                        </tr>
-                        <tr style = {{ backgroundColor: "#aaaaaa" }}>
-                            <td>Counsellor Email</td>
-                            <td></td>
-                        </tr>
-                        <tr  className = "table-secondary">
-                            <td>Counsellor Phone Number/Whatsapp</td>
-                            <td></td>
-                        </tr>
-                        <tr style = {{ backgroundColor: "#aaaaaa" }}>
-                            <td>Skype Address</td>
-                            <td></td>
-                        </tr>
-                        <tr className = "table-secondary">
-                            <td>Photo</td>
-                            <td></td>
-                        </tr>
-                        </tbody>   
-                  </table>
-                  <table className = "table table-striped table-bordered">
-                        <thead>
-                          <tr className = "table-dark">
-                            <td style = {{ width: "50%" }}>Australian Manager</td>
-                            <td>Details</td>
-                          </tr>
-                        </thead>
-                        <tbody>
-                        <tr  className = "table-secondary">
-                            <td>Counsellor Name</td>
-                            <td></td>
-                        </tr>
-                        <tr style = {{ backgroundColor: "#aaaaaa" }}>
-                            <td>Counsellor Email</td>
-                            <td></td>
-                        </tr>
-                        <tr  className = "table-secondary">
-                            <td>Counsellor Phone Number/Whatsapp</td>
-                            <td></td>
-                        </tr>
-                        <tr style = {{ backgroundColor: "#aaaaaa" }}>
-                            <td>Skype Address</td>
-                            <td></td>
-                        </tr>
-                        <tr className = "table-secondary">
-                            <td>Photo</td>
-                            <td></td>
-                        </tr>
-                        </tbody>   
-                  </table>
-                        <div className="single-contact-item d-flex align-items-center">
-                        </div>
-                        {/*<div className="single-contact-item d-flex align-items-center">
-                          <div className="contact-icon">
-                            <Image
-                              width={50}
-                              height={50}
-                              src={laptop}
-                              alt="icon"
-                            />
-                          </div>
-                          <div className="contact-id">
-                            <span>Email:</span>
-                            <input
-                              type="text"
-                              defaultValue={state?.agentsResp?.[0]?.Email}
-                              disabled
-                            />
-                          </div>
-                        </div>*/}
-                        {/*<div className="single-contact-item d-flex align-items-center">
-                          <div className="contact-icon">
-                            <Image
-                              width={50}
-                              height={50}
-                              src={messanger}
-                              alt="icon"
-                            />
-                          </div>
-                          <div className="contact-id">
-                            <span>Messenger (preferred):</span>
-                            <input
-                              type="text"
-                              defaultValue={state?.agentsResp?.[0]?.Messenger}
-                              disabled
-                            />
-                          </div>
-                        </div>*/}
-                        {/*<div className="single-contact-item d-flex align-items-center">
-                          <div className="contact-icon">
-                            <Image
-                              width={50}
-                              height={50}
-                              src={skype}
-                              alt="icon"
-                            />
-                          </div>
-                          <div className="contact-id">
-                            <span>Skyper:</span>
-                            <input
-                              type="text"
-                              defaultValue={state?.agentsResp?.[0]?.Skype}
-                              disabled
-                            />
-                          </div>
-                        </div>*/}
-                        <div className="edit-btn-area mt-3 mt-lg-4">
-                          <a
-                            href="javascript:void(0)"
-                            className="btn btn-edit js-edit"
-                          >
-                            Edit Your Contact Details
-                          </a>
-                          <a
-                            href="javascript:void(0)"
-                            className="btn btn-save js-save"
-                          >
-                            Save Your Contact Details
-                          </a>
-                        </div>
-                      </form>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </>
-  );
-};
-
-export default AgentProfile;
+  ) */
