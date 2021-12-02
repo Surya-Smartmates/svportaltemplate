@@ -7,7 +7,7 @@ module.exports ={
     domains: ["i.ibb.co"],
   },
   env:{
-    NEXTAUTH_URL:'http://localhost:3000'
+    NEXTAUTH_URL:'https://svportaltemplate.vercel.app'
   }
   ,
    webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
