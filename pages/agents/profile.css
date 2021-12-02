@@ -10,3 +10,7 @@
     padding-right: 5%;
     border-radius: 20px;
 }
+
+.input-cell{
+    background-color: rgba(0,0,0,0.1);
+}

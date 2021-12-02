@@ -22,7 +22,49 @@ const AgentProfile = () => {
   const state = useTrackedStore();
   const [BranchOffice, setBranchOffice] = useState([])
   
+  const [agentDetails, setAgentDetails] = useState(
+    {
+      Agency_Name:"",
+      Managing_Principal:"",
+      Key_Contact1:"",
+      Street_Address:"",
+      City:"",
+      Phone:"",
+      Company_Website:"",
+      First_Name_AU:"",
+      Last_Name_AU:"",
+      Email_AU:"",
+      Phone_AU:"",
+      LinkedIN_Profile_AU:"",
+      First_Name_UK:"",
+      Last_Name_UK:"",
+      Email_UK:"",
+      Phone_UK:"",
+      LinkedIN_Profile_UK:"",
+      First_Name_CA:"",
+      Last_Name_CA:"",
+      Email_CA:"",
+      Phone_CA:"",
+      LinkedIN_Profile_CA:"",
+
+    }
+  )
+
+  const [branchDetails, setBranchDetails] = useState({
+    Address:"",
+    Phone_Number:"",
+    Person_managing_this_branch:"",
+    Email:""
+  })
+  //Main Table Edit Enabler
   const [editContacts, setEditContacts] = useState(false)
+  //Branch Table Edit Enabler
+  const [editAUManager, setEditAUManager] = useState(false)
+  const [editUKManager, setEditUKManager] = useState(false)
+  const [editCAManager, setEditCAManager] = useState(false)
+
+    //Edit Button Text
+  const [actionButton, setActionButton] = useState("EDIT")
 async function checkSubForm(){
   const subformData =  await axios.post(
     `${process.env.NEXTAUTH_URL}/api/getZohoData`,
@@ -31,21 +73,182 @@ async function checkSubForm(){
       criteria: ``,
     }
   )
-
   console.log(subformData.data.data)
   let subFormArray = subformData.data.data
   let branchOfficeList = [];
   for (let branch of subFormArray){
     if(!!branch?.Parent_Id){
-      if(branch.Parent_Id.id === state.agentsResp[0].id){
+      if(branch.Parent_Id.id === state?.agentsResp?.[0]?.id){
         branchOfficeList.push(branch);
       }
     }
-    console.log(branch)
   }
-  console.log(branchOfficeList)
+  let agDetBuffer = {
+    Agency_Name:"",
+    Managing_Principal:"",
+    Key_Contact1:"",
+    Email:"",
+    Street_Address:"",
+    City:"",
+    Phone:"",
+    Company_Website:"",
+    First_Name_AU:"",
+    Last_Name_AU:"",
+    Email_AU:"",
+    Phone_AU:"",
+    LinkedIN_Profile_AU:"",
+    First_Name_UK:"",
+    Last_Name_UK:"",
+    Email_UK:"",
+    Phone_UK:"",
+    LinkedIN_Profile_UK:"",
+    First_Name_CA:"",
+    Last_Name_CA:"",
+    Email_CA:"",
+    Phone_CA:"",
+    LinkedIN_Profile_CA:"",
+
+  }
+
+  agDetBuffer.Agency_Name = state?.agentsResp?.[0]?.Agency_Name,
+  agDetBuffer.Managing_Principal = state?.agentsResp?.[0]?.Managing_Principal,
+  agDetBuffer.Key_Contact1 = state?.agentsResp?.[0]?.Key_Contact1,
+  agDetBuffer.Street_Address= state?.agentsResp?.[0]?.Street_Address,
+  agDetBuffer.City = state?.agentsResp?.[0]?.City,
+  agDetBuffer.Email = state?.agentsResp?.[0]?.Email,
+  agDetBuffer.Phone = state?.agentsResp?.[0]?.Phone,
+  agDetBuffer.Company_Website = state?.agentsResp?.[0]?.Company_Website,
+  agDetBuffer.First_Name_AU = state?.agentsResp?.[0]?.First_Name_AU,
+  agDetBuffer.Last_Name_AU = state?.agentsResp?.[0]?.Last_Name_AU,
+  agDetBuffer.Email_AU = state?.agentsResp?.[0]?.Email_AU,
+  agDetBuffer.Phone_AU = state?.agentsResp?.[0]?.Phone_AU,
+  agDetBuffer.LinkedIN_Profile_AU = state?.agentsResp?.[0]?.LinkedIN_Profile_AU,
+  agDetBuffer.First_Name_UK = state?.agentsResp?.[0]?.First_Name_UK,
+  agDetBuffer.Last_Name_UK = state?.agentsResp?.[0]?.Last_Name_UK,
+  agDetBuffer.Email_UK = state?.agentsResp?.[0]?.Email_UK,
+  agDetBuffer.Phone_UK = state?.agentsResp?.[0]?.Phone_UK,
+  agDetBuffer.LinkedIN_Profile_UK= state?.agentsResp?.[0]?.LinkedIN_Profile_UK,
+  agDetBuffer.First_Name_CA = state?.agentsResp?.[0]?.First_Name_CA,
+  agDetBuffer.Last_Name_CA = state?.agentsResp?.[0]?.Last_Name_CA,
+  agDetBuffer.Email_CA = state?.agentsResp?.[0]?.Email_CA,
+  agDetBuffer.Phone_CA = state?.agentsResp?.[0]?.Phone_CA,
+  agDetBuffer.LinkedIN_Profile_CA = state?.agentsResp?.[0]?.LinkedIN_Profile_CA
+
+  await setAgentDetails(agDetBuffer)
+
+  
   await setBranchOffice(branchOfficeList)
 }
+
+const editToggle = () =>{
+  
+  if(actionButton ===  "EDIT"){
+    setActionButton("SAVE")
+    setEditContacts(true)
+  }else{
+    setActionButton("EDIT")
+    setEditContacts(false)
+  }
+}
+
+const updateProfile= async (e)=>{
+  let bufferAgDet = {...agentDetails}
+  switch (e.target.id){
+    case "Managing_Principal":
+      bufferAgDet.Managing_Principal = e.target.value
+      await setAgentDetails(bufferAgDet)
+      break
+    case "Key_Contact1":
+      bufferAgDet.Key_Contact1 = e.target.value
+      await setAgentDetails(bufferAgDet)
+      break
+    case "Street_Address":
+      bufferAgDet.Street_Address = e.target.value
+      await setAgentDetails(bufferAgDet)
+      break
+    case "City":
+      bufferAgDet.City = e.target.value
+      await setAgentDetails(bufferAgDet)
+      break
+    case "Company_Website":
+      bufferAgDet.Company_Website = e.target.value
+      await setAgentDetails(bufferAgDet)
+    break
+      case "First_Name_AU":
+      bufferAgDet.First_Name_AU = e.target.value
+      await setAgentDetails(bufferAgDet)
+      break
+    case "Last_Name_AU":
+      bufferAgDet.Last_Name_AU = e.target.value
+      await setAgentDetails(bufferAgDet)
+      break
+    case "Email_AU":
+      bufferAgDet.Email_AU = e.target.value
+      await setAgentDetails(bufferAgDet)
+      break
+  case "Phone_AU":
+      bufferAgDet.Phone_AU = e.target.value
+      await setAgentDetails(bufferAgDet)
+      break
+  case "LinkedIN_Profile_AU":
+      bufferAgDet.LinkedIN_Profile_AU = e.target.value
+      await setAgentDetails(bufferAgDet)
+      break
+  case "First_Name_UK":
+      bufferAgDet.First_Name_UK = e.target.value
+      await setAgentDetails(bufferAgDet)
+      break
+  case "Last_Name_UK":
+      bufferAgDet.Last_Name_UK = e.target.value
+      await setAgentDetails(bufferAgDet)
+      break
+  case "Email_UK":
+      bufferAgDet.Email_UK = e.target.value
+      await setAgentDetails(bufferAgDet)
+      break
+  case "Phone_UK":
+      bufferAgDet.Phone_UK = e.target.value
+      await setAgentDetails(bufferAgDet)
+      break
+  case "LinkedIN_Profile_UK":
+      bufferAgDet.LinkedIN_Profile_UK = e.target.value
+      await setAgentDetails(bufferAgDet)
+      break
+  case "First_Name_CA":
+      bufferAgDet.First_Name_CA = e.target.value
+      await setAgentDetails(bufferAgDet)
+      break
+  case "Last_Name_CA":
+      bufferAgDet.Last_Name_CA = e.target.value
+      await setAgentDetails(bufferAgDet)
+      break
+  case "Email_CA":
+      bufferAgDet.Email_CA = e.target.value
+      await setAgentDetails(bufferAgDet)
+      break
+  case "Phone_CA":
+      bufferAgDet.Phone_CA = e.target.value
+      await setAgentDetails(bufferAgDet)
+      break
+  case "LinkedIN_Profile_CA":
+      bufferAgDet.LinkedIN_Profile_CA = e.target.value
+      await setAgentDetails(bufferAgDet)
+      break
+    default:
+      console.log("nope")
+  }
+  
+  console.log(e.target.id)
+  console.log(agentDetails)
+  console.log(bufferAgDet)
+
+}
+
+useEffect(()=>{
+  console.log("check when there's a change in agentDetails")
+  console.log(agentDetails)
+},[agentDetails])
+
 
   useEffect(()=>{
     console.log(state.agentsResp)
@@ -143,27 +346,27 @@ async function checkSubForm(){
                         <tbody>
                         <tr  className = "table-secondary">
                             <td>Company Principal</td>
-                            <td><input value = {state?.agentsResp?.[0]?.Managing_Principal}></input></td>
+                            <td><input className = "input-cell" id = "Managing_Principal" onChange={updateProfile} style = {{ border: 0 }} disabled = {editContacts ? "" : "disabled"} value = {/*state?.agentsResp?.[0]?*/agentDetails.Managing_Principal}/></td>
                         </tr>
                         <tr style = {{ backgroundColor: "#aaaaaa" }}>
                             <td>Key Contact</td>
-                            <td>{state?.agentsResp?.[0]?.Key_Contact1}</td>
+                            <td><input className = "input-cell" id = "Key_Contact1" onChange={updateProfile} style = {{ border: 0 }} disabled = {editContacts ? "" : "disabled"} value = {/*state?.agentsResp?.[0]?*/agentDetails.Key_Contact1}/></td>
                         </tr>
                         <tr  className = "table-secondary">
                             <td>Key Contact Email Address</td>
-                            <td></td>
+                            <td><input className = "input-cell" id = "Email" onChange={updateProfile} style = {{ border: 0 }} disabled = {editContacts ? "" : "disabled"} value = {/*state?.agentsResp?.[0]?*/agentDetails.Email}/></td>
                         </tr>
                         <tr style = {{ backgroundColor: "#aaaaaa" }}>
                             <td>Company Address</td>
-                            <td>{state?.agentsResp?.[0]?.Street_Address}, {state?.agentsResp?.[0]?.City}</td>
+                            <td><input className = "input-cell" id = "Street_Address" onChange={updateProfile} style = {{ border: 0 }} disabled = {editContacts ? "" : "disabled"} value = {/*state?.agentsResp?.[0]?*/agentDetails.Street_Address}/>,<input id = "City" onChange={updateProfile} style = {{ border: 0 }} disabled = {editContacts ? "" : "disabled"} value = {/*state?.agentsResp?.[0]?*/agentDetails.City}/></td>
                         </tr>
                         <tr className = "table-secondary">
                             <td>Phone Number</td>
-                            <td>{state?.agentsResp?.[0]?.Phone}</td>
+                            <td><input className = "input-cell" onChange={updateProfile} style = {{ border: 0 }} disabled = {editContacts ? "" : "disabled"} value = {/*state?.agentsResp?.[0]?*/agentDetails.Phone}/></td>
                         </tr>
                         <tr style = {{ backgroundColor: "#aaaaaa" }}>
                             <td>Website</td>
-                            <td>{state?.agentsResp?.[0]?.Company_Website}</td>
+                            <td><input className = "input-cell" id = "Company_Website" onChange={updateProfile} style = {{ border: 0 }} disabled = {editContacts ? "" : "disabled"} value = {/*state?.agentsResp?.[0]?*/agentDetails.Company_Website}/></td>
                         </tr>
                         <tr  className = "table-secondary">
                             <td>Branch Office Address</td>
@@ -185,7 +388,7 @@ async function checkSubForm(){
                   </table>
                       </div>
                       
-                  <button className = "btn btn-primary">EDIT</button>
+                  <button className = "btn btn-primary" onClick = {()=>{editToggle()}}>{actionButton}</button>
                         {/* user-single-details-wrapper */}
                         
                         {/* user-single-details-wrapper */}
@@ -226,7 +429,7 @@ async function checkSubForm(){
                 {/* single-sidebar contact-widget*/}
                   <div style= {{ boxShadow: "0px 3px 3px rgba(0, 0, 0, 0.1)", padding: "30px", paddingTop: "110px"}} className="">
                     <div className="contact-items">
-                      <form action className="is-readonly">
+                      {/*<form action className="is-readonly">*/}
                       <table className = "table table-striped table-bordered">
                         <thead>
                           <tr className = "table-dark">
@@ -237,24 +440,26 @@ async function checkSubForm(){
                         <tbody>
                         <tr  className = "table-secondary">
                             <td>Counsellor Name</td>
-                            <td>{state?.agentsResp?.[0]?.First_Name_AU} {state?.agentsResp?.[0]?.Last_Name_AU}</td>
+                            <td><input className = "input-cell" id = "First_Name_AU" onChange={updateProfile} style = {{ border: 0 }} disabled = {editAUManager ? "" : "disabled"} value = {/*state?.agentsResp?.[0]?*/agentDetails.First_Name_AU}/>
+                            <input className = "input-cell" id = "Last_Name_AU" onChange={updateProfile} style = {{ border: 0 }} disabled = {editAUManager ? "" : "disabled"} value = {/*state?.agentsResp?.[0]?*/agentDetails.Last_Name_AU}/></td>
                         </tr>
                         <tr style = {{ backgroundColor: "#aaaaaa" }}>
                             <td>Counsellor Email</td>
-                            <td>{state?.agentsResp?.[0]?.Email_AU}</td>
+                            <td><input className = "input-cell" id = "Email_AU" onChange={updateProfile} style = {{ border: 0 }} disabled = {editAUManager ? "" : "disabled"} value = {/*state?.agentsResp?.[0]?*/agentDetails.Email_AU}/></td>
                         </tr>
                         <tr  className = "table-secondary">
                             <td>Counsellor Phone Number/Whatsapp</td>
-                            <td>{state?.agentsResp?.[0]?.Phone_AU}</td>
+                            <td><input className = "input-cell" id = "Phone_AU" onChange={updateProfile} style = {{ border: 0 }} disabled = {editAUManager ? "" : "disabled"} value = {/*state?.agentsResp?.[0]?*/agentDetails.Phone_AU}/></td>
                         </tr>
                         <tr style = {{ backgroundColor: "#aaaaaa" }}>
                             <td>LinkedIn Profile</td>
-                            <td>{state?.agentsResp?.[0]?.LinkedIN_Profile_AU}</td>
+                            <td><input className = "input-cell" id = "LinkedIN_Profile_AU" onChange={updateProfile} style = {{ border: 0 }} disabled = {editAUManager ? "" : "disabled"} value = {/*state?.agentsResp?.[0]?*/agentDetails.LinkedIN_Profile_AU}/></td>
                         </tr>
                         <tr className = "table-secondary">
                             <td>Photo</td>
                             <td></td>
                         </tr>
+                        <button className = "btn btn-primary" onClick = {()=>{setEditAUManager(true)}}>EDIT</button>
                         </tbody>   
                   </table>
                   <table className = "table table-striped table-bordered">
@@ -267,19 +472,20 @@ async function checkSubForm(){
                         <tbody>
                         <tr  className = "table-secondary">
                             <td>Counsellor Name</td>
-                            <td>{state?.agentsResp?.[0]?.First_Name_UK} {state?.agentsResp?.[0]?.Last_Name_UK}</td>
+                            <td><input className = "input-cell" id = "First_Name_UK" onChange={updateProfile} style = {{ border: 0 }} disabled = {editUKManager ? "" : "disabled"} value = {/*state?.agentsResp?.[0]?*/agentDetails.First_Name_UK}/>
+                            <input className = "input-cell" id = "Last_Name_UK" onChange={updateProfile} style = {{ border: 0 }} disabled = {editUKManager ? "" : "disabled"} value = {/*state?.agentsResp?.[0]?*/agentDetails.Last_Name_UK}/></td>
                         </tr>
                         <tr style = {{ backgroundColor: "#aaaaaa" }}>
                             <td>Counsellor Email</td>
-                            <td>{state?.agentsResp?.[0]?.Email_UK}</td>
+                            <td><input className = "input-cell" id = "Email_UK" onChange={updateProfile} style = {{ border: 0 }} disabled = {editUKManager ? "" : "disabled"} value = {/*state?.agentsResp?.[0]?*/agentDetails.Email_UK}/></td>
                         </tr>
                         <tr  className = "table-secondary">
                             <td>Counsellor Phone Number/Whatsapp</td>
-                            <td>{state?.agentsResp?.[0]?.Phone_UK}</td>
+                            <td><input className = "input-cell" id = "Phone_UK" onChange={updateProfile} style = {{ border: 0 }} disabled = {editUKManager ? "" : "disabled"} value = {/*state?.agentsResp?.[0]?*/agentDetails.Phone_UK}/></td>
                         </tr>
                         <tr style = {{ backgroundColor: "#aaaaaa" }}>
                             <td>LinkedIn Profile</td>
-                            <td>{state?.agentsResp?.[0]?.LinkedIN_Profile_UK}</td>
+                            <td><input className = "input-cell" id = "LinkedIN_Profile_UK" onChange={updateProfile} style = {{ border: 0 }} disabled = {editUKManager ? "" : "disabled"} value = {/*state?.agentsResp?.[0]?*/agentDetails.LinkedIN_Profile_UK}/></td>
                         </tr>
                         <tr className = "table-secondary">
                             <td>Photo</td>
@@ -287,6 +493,7 @@ async function checkSubForm(){
                         </tr>
                         </tbody>   
                   </table>
+                  <button className = "btn btn-primary" onClick = {()=>{setEditUKManager(true)}}>EDIT</button>
                   <table className = "table table-striped table-bordered">
                         <thead>
                           <tr className = "table-dark">
@@ -297,19 +504,20 @@ async function checkSubForm(){
                         <tbody>
                         <tr  className = "table-secondary">
                             <td>Counsellor Name</td>
-                            <td>{state?.agentsResp?.[0]?.First_Name_AU} {state?.agentsResp?.[0]?.Last_Name_AU}</td>
+                            <td><input className = "input-cell" id = "First_Name_CA" onChange={updateProfile} style = {{ border: 0 }} disabled = {editCAManager ? "" : "disabled"} value = {/*state?.agentsResp?.[0]?*/agentDetails.First_Name_CA}/>
+                            <input className = "input-cell" id = "Last_Name_CA" onChange={updateProfile} style = {{ border: 0 }} disabled = {editCAManager ? "" : "disabled"} value = {/*state?.agentsResp?.[0]?*/agentDetails.Last_Name_CA}/></td>
                         </tr>
                         <tr style = {{ backgroundColor: "#aaaaaa" }}>
                             <td>Counsellor Email</td>
-                            <td>{state?.agentsResp?.[0]?.Email_AU}</td>
+                            <td><input className = "input-cell" id = "Email_CA" onChange={updateProfile} style = {{ border: 0 }} disabled = {editCAManager ? "" : "disabled"} value = {/*state?.agentsResp?.[0]?*/agentDetails.Email_CA}/></td>
                         </tr>
                         <tr  className = "table-secondary">
                             <td>Counsellor Phone Number/Whatsapp</td>
-                            <td>{state?.agentsResp?.[0]?.Phone_UK}</td>
+                            <td><input className = "input-cell" id = "Phone_CA" onChange={updateProfile} style = {{ border: 0 }} disabled = {editCAManager ? "" : "disabled"} value = {/*state?.agentsResp?.[0]?*/agentDetails.Phone_CA}/></td>
                         </tr>
                         <tr style = {{ backgroundColor: "#aaaaaa" }}>
                             <td>LinkedIn Profile</td>
-                            <td>{state?.agentsResp?.[0]?.LinkedIN_Profile_UK}</td>
+                            <td><input className = "input-cell" id = "LinkedIN_Profile_CA" onChange={updateProfile} style = {{ border: 0 }} disabled = {editCAManager ? "" : "disabled"} value = {/*state?.agentsResp?.[0]?*/agentDetails.LinkedIN_Profile_CA}/></td>
                         </tr>
                         <tr className = "table-secondary">
                             <td>Photo</td>
@@ -317,6 +525,7 @@ async function checkSubForm(){
                         </tr>
                         </tbody>   
                   </table>
+                  <button className = "btn btn-primary" onClick = {()=>{setEditCAManager(true)}}>EDIT</button>
                         <div className="single-contact-item d-flex align-items-center">
                         </div>
                         {/*<div className="single-contact-item d-flex align-items-center">
@@ -387,7 +596,7 @@ async function checkSubForm(){
                             Save Your Contact Details
                           </a>
                         </div>
-                      </form>
+                      {/*</form>*/}
                     </div>
                   </div>
                 </div>
