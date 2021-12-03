@@ -108,6 +108,12 @@ const store = (set) => ({
            imgSrc: user,
            selectedImgSrc: userSelected,
        },
+       {
+        href: "/outline",
+        label: "Outlines",
+        imgSrc: file,
+        selectedImgSrc: fileSelected,
+    },
       /* {
         href: "/reports",
         label: "Reports",

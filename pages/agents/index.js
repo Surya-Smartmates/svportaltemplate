@@ -15,12 +15,18 @@ import question from "../../assets/agents/img/question.svg";
 
 import filegreen from "../../assets/img/file-green.svg"
 
+import apply from "../../assets/img/apply-icon.png"
+import applyimg from "../../assets/img/agent-apply-img.png"
+
 import social from "../../assets/agents/img/social-group.svg";
 import fb from "../../assets/img/facebook-fix-green.svg"
 import yt from "../../assets/img/youtube-green.svg"
 import ig from "../../assets/img/instagram-fix-green.svg"
 import lkin from "../../assets/img/linkedin-fix-green.svg"
 import feedback from "../../assets/agents/img/feedback.svg";
+
+import book from "../../assets/mentors/img/book-2.jpg";
+
 import Image from "next/image";
 import { useRouter } from "next/router";
 import useTrackedStore from "../../store/useTrackedStore";
@@ -88,12 +94,12 @@ useEffect(()=>{
         <div className="main-content">
           <div className="content-wrapper">
             {/* hapaning-items */}
-            <div className="happening-wrapper">
+            {/*<div className="happening-wrapper">
               <div className="content-title">
                 <h4>What’s Happening</h4>
               </div>
               <div className="happenig-items d-grid">
-                {/* single-happening-items */}
+                
                 <div
                   className="single-happen d-flex align-items-center justify-content-center"
                   style={{
@@ -111,8 +117,8 @@ useEffect(()=>{
                     </p>
                   </div>
                 </div>
-                {/* single-happening-items */}
-                {/* single-happening-items */}
+                
+                {single-happening-items}
                 <div
                   className="single-happen d-flex align-items-center justify-content-center"
                   style={{
@@ -131,8 +137,8 @@ useEffect(()=>{
                     </p>
                   </div>
                 </div>
-                {/* single-happening-items */}
-                {/* single-happening-items */}
+                {single-happening-items}
+                
                 <div
                   className="single-happen d-flex align-items-center justify-content-center"
                   style={{
@@ -151,8 +157,7 @@ useEffect(()=>{
                     </p>
                   </div>
                 </div>
-                {/* single-happening-items */}
-                {/* single-happening-items */}
+                
                 <div
                   className="single-happen d-flex align-items-center justify-content-center"
                   style={{
@@ -168,47 +173,70 @@ useEffect(()=>{
                     </p>
                   </div>
                 </div>
-                {/* single-happening-items */}
+                 single-happening-items 
               </div>
-            </div>
+            </div>*/}
             {/* hapaning-items_End */}
 
             {/* Apply Studies-items */}
             <div className="content-title">
               <h4>Launch a StudyVillage Application</h4>
             </div>
-            <div className="card-block-area">
-              {/* single-card */}
-
-              <div className="single-card-block white-box text-center">
-              <div className = "bg-gradation">
-                <div className="card-icon">
-                    <Image
-                      width={150}
-                      height={150}
-                      src={filegreen}
-                      alt="file-white icon"
-                    />
-                  </div>
-                  <div className="card-text">
-                    <h4>Apply</h4>
-                    <p>
-                      Click on the button bellow to access the StudyVillage
-                      Application Form
-                    </p>
-                  </div>
-                  <a href="https://zfrmz.com/YzahjvtI8WrqBTj7Unz3" target = "_blank" rel="noreferrer noopener" className="btn contact-btn">
-                    Apply
-                  </a>
+            <div className = "row" style = {{ marginTop:"5%" }}>
+              <div className = "col-md-4">
+              <Image
+                    style = {{ position: "relative" }}
+                    width={350}
+                    height={350}
+                    src={applyimg}
+                    alt="file-white icon"
+                  />
+                  
+              </div><div className = "col-md-6">
+              <h4>
+              StudyVillage News Feed
+            </h4>
+            <p>
+            <b>December 2021</b><br/>
+            StudyVillage is expanding beyond its pilot group of agents and now has representatives in 9 countries throughout the world.  
+            We are working with a number of institutional partners, including the Sri Lankan government, to drastically improve the international student experience.
+            Watch this space, your portal will be regularly updated with a series of new tools to improve the student experience.  We'll inform of you of key updates via email.  
+            </p>
               </div>
+              <div style={{ zIndex: 1}} className = "bg-gradation">
                 
-              </div>
+                <div style = {{positon: "absolute", zIndex: 1, marginTop:"-21%"}} className="card-text">
+                  <h4 style = {{ marginLeft: "6.5%"}}>Apply</h4>
+                  <p style = {{ width: "20%", textAlign: "center", marginLeft: "0%"}}>
+                    Click on the button bellow to access the StudyVillage
+                    Application Form
+                  </p>
+                </div>
+                <a style = {{ marginTop: "-20px", marginLeft: "2%"}} 
+                href="https://forms.zohopublic.com/studyvillage/form/C1StudyVillageprogramapplicationforAgentPortal/formperma/avLZwfvjgtvfVp_2V4H7S9qlY2W2IGwI4OwlVVStMfs" 
+                target = "_blank" 
+                rel="noreferrer noopener" 
+                className="btn contact-btn">
+                  Apply
+                </a>
+            </div>
+              
+            </div>
+            <div className="card-block-area">
+           
               {/* single-card */}
+             {/**single-card-block white-box text-center */}
+              
+              {/* single-card */}
+              <div style = {{ width: "200%" }}>
+              
+              </div>
+             
             </div>
             {/* Apply Studies-items_END */}
 
             {/* commition-pipline */}
-            <div className="commission-area white-box">
+            {/*<div className="commission-area white-box">
               <div className="sec-title">
                 <h4>Commission Pipeline</h4>
               </div>
@@ -216,15 +244,10 @@ useEffect(()=>{
               <div className="pipline-cart-area">
                 <Chart />
               </div>
-            </div>
+            </div>*/}
             {/* commition-pipline */}
-
             {/* register-area */}
-            <div className="register-lead-area d-grid">
-            <h4>
-              StudyVillage News Feed
-            </h4>
-            
+            <div className="register-lead-area d-grid">     
               {/**//*<div className="rgister-lead-form white-box">
                 <h4>Register a Lead</h4>
                 <form  onSubmit = {submitNewRecord} >
@@ -326,9 +349,7 @@ useEffect(()=>{
               </div>
              */}
             </div>
-            <p style ={{ fontSize: "1.2em" }}>
-              This section will provide news feed to the agents
-            </p>
+            
              <h4>Current Students</h4>
             <table className = "table table-striped table-bordered">
                         <thead>
@@ -367,26 +388,7 @@ useEffect(()=>{
             {/* register-area_End */}
             <div className="card-block-area">
               {/* single-card */}
-              <div className="single-card-block white-box text-center">
-                <div className="card-icon">
-                  <Image
-                    width={150}
-                    height={150}
-                    src={question}
-                    alt="question icon"
-                  />
-                </div>
-                <div className="card-text">
-                  <h4>Need Help?</h4>
-                  <p>
-                    ou can contact your Agent or StudyVillage directly. Click
-                    below for all contact details.
-                  </p>
-                </div>
-                <a href="/agents/contact" className="btn contact-btn">
-                  Contact us
-                </a>
-              </div>
+              
               {/* single-card */}
               {/* single-card */}
               <div className="single-card-block white-box text-center">
@@ -404,6 +406,26 @@ useEffect(()=>{
                     help students in their studies and personal growth journey..
                   </p>
                 </div>
+              </div>
+              <div className="single-card-block white-box text-center">
+                <div className="card-icon">
+                  <Image
+                    width={150}
+                    height={150}
+                    src={book}
+                    alt="resolve icon"
+                  />
+                </div>
+                <div className="card-text">
+                  <h4>Resolve</h4>
+                  <p>
+                  Our journal talks in depth about the challenges of studying
+                    overseas, in an accessible, practical and light-hearted way.
+                  </p>
+                </div>
+                <a href="https://workdrive.zohoexternal.com/external/458badae3822df664be86e1bbed71af95c7f747cca5db3573c84177c846407d0" target="_blank" rel="noreferrer noopener" className="btn contact-btn">
+                  Read
+                </a>
               </div>
               {/* single-card */}
               {/* single-card */}

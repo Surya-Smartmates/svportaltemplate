@@ -65,6 +65,7 @@ const AgentProfile = () => {
 
     //Edit Button Text
   const [actionButton, setActionButton] = useState("EDIT")
+
 async function checkSubForm(){
   const subformData =  await axios.post(
     `${process.env.NEXTAUTH_URL}/api/getZohoData`,
@@ -134,14 +135,13 @@ async function checkSubForm(){
   agDetBuffer.Phone_CA = state?.agentsResp?.[0]?.Phone_CA,
   agDetBuffer.LinkedIN_Profile_CA = state?.agentsResp?.[0]?.LinkedIN_Profile_CA
 
+  
   await setAgentDetails(agDetBuffer)
 
-  
   await setBranchOffice(branchOfficeList)
 }
 
 const editToggle = () =>{
-  
   if(actionButton ===  "EDIT"){
     setActionButton("SAVE")
     setEditContacts(true)

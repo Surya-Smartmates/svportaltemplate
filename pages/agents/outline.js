@@ -8,17 +8,13 @@ import resource3 from "../../assets/agents/img/resoerce-3.jpg";
 import resource4 from "../../assets/agents/img/resorce-4.jpeg";
 import resource5 from "../../assets/agents/img/resorce-5.jpg";
 
-import vietnam from "../../assets/agents/img/lang.jpg";
-import xlfile from "../../assets/agents/img/xl.svg";
-
 import Carousel from 'react-bootstrap/Carousel'
 
 import Image from "next/image";
 import { useRouter } from "next/router";
 import useTrackedStore from "../../store/useTrackedStore";
 
-const Resources = () => {
-  const router = useRouter();
+const Outline = () => {
   const state = useTrackedStore();
 
   const [profName, setProfName] = useState("")
@@ -33,12 +29,6 @@ const Resources = () => {
     setProfName(state?.agentsResp?.[0]?.Agency_Name)
   }, [])
 
-  const profile =
-    router.pathname.split("/")?.[1] ||
-    state?.portalUserResp?.User_Type?.toLowerCase() ||
-    "";
-
-  const profileUserName = `${state?.agentsResp?.[0]?.Agency_Name || ""}`;
   return (
     <>
       <Navbar profileUserName={profName} topbarLinks={topbarLinks} />
@@ -49,168 +39,66 @@ const Resources = () => {
           
             {/* marketing-resources */}
             <div className="marketing-res white-box">
-            <h4>StudyVillage Representatives Promotional Resources</h4>
+            <h4>Your Modules Outlines</h4>
 
             <p>The following material will assist you to promote StudyVillage programs and build your business</p>
-            <div className = "col-sm-10">
-            <table className = "table-res table table-striped table-bordered">
-            <colgroup>
-              <col colspan="1" style = {{ width: "30%" }}></col>
-              <col colspan="1" style = {{ width: "30%" }}></col>
-              <col span="1" style = {{ width: "30%" }}></col>
-            </colgroup>
-                        <thead>
-                          <tr className = "table-dark">
-                            <td style = {{ width: "35%" }}>Promotional Tools</td>
-                            <td>Instructional Guides for Students & Agents</td>
-                            <td>Agent Resources</td>
-                          </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                        <td  style = {{ width: "35%" }}>Parents Brochure<br/><i>PDF Format for sharing with Parents</i></td>
-                        <td>Happy, Healthy & Wise Overview Video<br/><i>A quick overview/program explainer on video</i></td>
-                        <td>Counsellor Training<br/><i>Certificate course for counsellors to become StudyVillage experts!</i></td>
-                        </tr>
-                        <tr>
-                        <td  style = {{ width: "35%" }}>Parents Video Explainer<br/><i>Video format for sharing with parents</i></td>
-                        <td>StudyVillage Student Guide<br/><i>Everything a student needs to know about their StudyVillage Program –  A handy reference in PDF format</i></td>
-                        <td>Agent FAQs<br/><i>Questions you may have about working with us answered</i></td>
-                        </tr>
-                        <tr>
-                        <td  style = {{ width: "35%" }}>Sales Kit & FAQs<br/><i>Scripts and guides to talking about StudyVillage</i></td>
-                        <td>Your Student Supporter<br/><i>A quick video explainer</i></td>
-                        <td>Interacting with StudyVillage<br/><i>A quick guide to the portal and working with the team</i></td>
-                        </tr>
-                        <tr>
-                        <td  style = {{ width: "35%" }}>Resolve Magazine<br/><i>PDF format for sharing with student & parents</i></td>
-                        <td>Open Hours<br/><i>A quick video explainer</i></td>
-                        <td >Meeting the Family<br/><i>A training video explaining the Meeting the Family component to each module</i></td>
-                        </tr>
-                        <tr>
-                        <td  style = {{ width: "35%" }}>Australia PREP<br/><i>Free Pre-departure courseware for your Australia-bound student</i></td>
-                        <td>Connectivity & Independence<br/><i>A quick video explainer</i></td>
-                        <td></td>
-                        </tr>
-                        <tr>
-                        <td  style = {{ width: "35%" }}>UK PREP<br/><i>Free Pre-departure coursewarefor your UK-bound student</i></td>
-                        <td>Self-surveys<br/><i>A quick video explainer</i></td>
-                        <td></td>
-                        </tr>
-                        <tr >
-                        <td  style = {{ width: "35%" }}>Canada PREP<br/><i>Free Pre-departure coursewarefor your Canada-bound student</i></td>
-                        <td>Settling In<br/><i>A quick video explainer</i></td>
-                        <td></td>
-                        </tr>
-                        <tr>
-                        <td  style = {{ width: "35%" }}>StudyVillage Banner<br/><i>Free Pre-departure coursewarefor your Australia-bound student</i></td>
-                        <td>Consolidating Studies<br/><i>A quick video explainer</i></td>
-                        <td></td>
-                        </tr>
-                        <tr>
-                        <td  style = {{ width: "35%" }}>StudyVillage Poster<br/><i>PDF format for printing</i></td>
-                        <td>Tracking Progress<br/><i>A quick video explainer</i></td>
-                        <td></td>
-                        </tr>
-                        <tr>
-                        <td  style = {{ width: "35%" }}>StudyVillage Slidedeck<br/><i>Powerpoint Slides for Student/Parents</i></td>
-                        <td>Goal Setting<br/><i>A quick video explainer</i></td>
-                        <td></td>
-                        </tr>
-                        <tr>
-                        <td  style = {{ width: "35%" }}>Sample Modules<br/><i>Consolidating studies explained in a 5 minute video</i></td>
-                        <td>Goal Setting B<br/><i>A quick video explainer</i></td>
-                        <td></td>
-                        </tr>
-                        <tr>
-                        <td  style = {{ width: "35%" }}>The “Why File” <br/><i>A new model to deal with an enduring challenge – a quick explainer</i></td>
-                        <td>Goaltracking<br/><i>A quick video explainer</i></td>
-                        <td></td>
-                        </tr>
-                        <tr>
-                        <td  style = {{ width: "35%" }}>The StudyVillage Backstory<br/><i>How we came to be</i></td>
-                        <td>Transition<br/><i>A quick video explainer</i></td>
-                        <td></td>
-                        </tr>
-                        <tr>
-                          <td></td>
-                          <td>Accelerator A<br/><i>A quick video explainer</i></td>
-                          <td></td>
-                        </tr>
-                        <tr>
-                          <td></td>
-                          <td>Accelerator B<br/><i>A quick video explainer</i></td>
-                          <td></td>
-                        </tr>
-                        <tr>
-                          <td></td>
-                          <td>ELICOS A<br/><i>A quick video explainer</i></td>
-                          <td></td>
-                        </tr>
-                        <tr>
-                          <td></td>
-                          <td>ELICOS B<br/><i>A quick video explainer</i></td>
-                          <td></td>
-                        </tr>
-                        <tr>
-                          <td></td>
-                          <td>ELICOS C<br/><i>A quick video explainer</i></td>
-                          <td></td>
-                        </tr>
-                        <tr>
-                          <td></td>
-                          <td>ELICOS D<br/><i>A quick video explainer</i></td>
-                          <td></td>
-                        </tr>
-                        <tr>
-                          <td></td>
-                          <td>ELICOS E<br/><i>A quick video explainer</i></td>
-                          <td></td>
-                        </tr>
-                        </tbody>   
-                  </table>
-            </div>
-            <Carousel style = {{width: "50%"}} prevIcon={<span className="carousel-control-prev-icon bg-dark"></span>} nextIcon = {<span className = "carousel-control-next-icon bg-dark"></span>}>
-          <Carousel.Item style = {{ marginLeft:"20%" }}>
-    <Image
-      
-      width ={300}
-      height = {300}
-      src={resource1}
-      alt="First Slide"
-    />
-    <Carousel.Caption style = {{ position: "absolute", textAlign: "center" }}>
-      <h3>First slide label</h3>
-      <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-    </Carousel.Caption>
-  </Carousel.Item>
-  <Carousel.Item style = {{ marginLeft:"30%" }}>
-    <Image
-    className = "d-block w-100"
-      width ={300}
-      height = {300}
-      src={resource1}
-      alt="First Slide"
-    />
-    <Carousel.Caption>
-      <h3>First slide label</h3>
-      <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-    </Carousel.Caption>
-  </Carousel.Item>
-  <Carousel.Item style = {{ marginLeft:"30%" }}>
-    <Image
-    className = "d-block w-100"
-      width ={300}
-      height = {300}
-      src={resource1}
-      alt="First Slide"
-    />
-    <Carousel.Caption>
-      <h3>First slide label</h3>
-      <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-    </Carousel.Caption>
-  </Carousel.Item>
+            <div className = "row">
+                <div className = "col-sm-2">
+
+                </div>
+                <div className = "col-sm-8">
+                <Carousel prevIcon={<span className="carousel-control-prev-icon bg-dark"></span>} nextIcon = {<span className = "carousel-control-next-icon bg-dark"></span>}>
+                    <Carousel.Item style = {{ marginLeft: "30%"}}>
+                    <div className = "">
+
+                    </div>
+                        <Image
+                        style = {{zIndex: 300, marginLeft:"20%" }}
+                        width ={300}
+                        height = {300}
+                        src={resource1}
+                        alt="First Slide"
+                        />
+                        <button className = "btn btn-primary" style = {{ zIndex: 1, marginLeft: "-10%" }}>Watch Instructional Video</button>
+                        <Carousel.Caption>
+                        <h3>First slide label</h3>
+                        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                        </Carousel.Caption>
+                    </Carousel.Item>
+                    <Carousel.Item  style = {{ marginLeft: "30%"}}>
+                        <Image
+                            style = {{ marginLeft:"20%" }}
+                            width ={300}
+                            height = {300}
+                            src={resource1}
+                            alt="First Slide"
+                        />
+                        <Carousel.Caption >
+                            <h3 style = {{ marginLeft: "-10%"}}>First slide label</h3>
+                            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                        </Carousel.Caption>
+                    </Carousel.Item>
+                    <Carousel.Item  style = {{ marginLeft: "30%"}}>
+                        <Image
+                        
+                        style = {{ marginLeft:"20%" }}
+                        width ={300}
+                        height = {300}
+                        src={resource1}
+                        alt="First Slide"
+                        />
+                        <Carousel.Caption>
+                            <h3>First slide label</h3>
+                            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                        </Carousel.Caption>
+                    </Carousel.Item>
   </Carousel>
+                </div>
+                <div className = "col-sm-2">
+                    
+                </div>
+            </div>
+            
               {/* resources-title */}
               {/*<div className="res-title pb-lg-4 pb-3">
                 <h4>Marketing Resources</h4>
@@ -485,4 +373,4 @@ const Resources = () => {
   );
 };
 
-export default Resources;
+export default Outline;
