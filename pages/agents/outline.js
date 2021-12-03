@@ -10,6 +10,9 @@ import resource5 from "../../assets/agents/img/resorce-5.jpg";
 
 import Carousel from 'react-bootstrap/Carousel'
 
+import M1 from '../../assets/img/M1-Settling-In.png'
+import M2 from '../../assets/img/M2-Consolidating-Studies.png'
+
 import Image from "next/image";
 import { useRouter } from "next/router";
 import useTrackedStore from "../../store/useTrackedStore";
@@ -47,7 +50,7 @@ const Outline = () => {
 
                 </div>
                 <div className = "col-sm-8">
-                <Carousel prevIcon={<span className="carousel-control-prev-icon bg-dark"></span>} nextIcon = {<span className = "carousel-control-next-icon bg-dark"></span>}>
+                <Carousel prevIcon={<span className="carousel-control-prev-icon bg-dark"></span>} nextIcon = {<span className = "carousel-control-next-icon bg-dark"></span>} style={{ height: "40vh", marginTop: "10%", marginBottom: "15%" }}>
                     <Carousel.Item style = {{ marginLeft: "30%"}}>
                     <div className = "">
 
@@ -55,30 +58,24 @@ const Outline = () => {
                         <Image
                         style = {{zIndex: 300, marginLeft:"20%" }}
                         width ={300}
-                        height = {300}
-                        src={resource1}
+                        height = {400}
+                        src={M1}
                         alt="First Slide"
                         />
-                        <button className = "btn btn-primary" style = {{ zIndex: 1, marginLeft: "-10%" }}>Watch Instructional Video</button>
-                        <Carousel.Caption>
-                        <h3>First slide label</h3>
-                        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                        </Carousel.Caption>
+                        {/*<button className = "btn btn-primary" style = {{ zIndex: 1, marginLeft: "-10%" }}>Watch Instructional Video</button>*/}
+                        
                     </Carousel.Item>
                     <Carousel.Item  style = {{ marginLeft: "30%"}}>
                         <Image
                             style = {{ marginLeft:"20%" }}
                             width ={300}
-                            height = {300}
-                            src={resource1}
+                            height = {400}
+                            src={M2}
                             alt="First Slide"
                         />
-                        <Carousel.Caption >
-                            <h3 style = {{ marginLeft: "-10%"}}>First slide label</h3>
-                            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                        </Carousel.Caption>
+                       
                     </Carousel.Item>
-                    <Carousel.Item  style = {{ marginLeft: "30%"}}>
+                    {/*<Carousel.Item  style = {{ marginLeft: "30%"}}>
                         <Image
                         
                         style = {{ marginLeft:"20%" }}
@@ -87,11 +84,8 @@ const Outline = () => {
                         src={resource1}
                         alt="First Slide"
                         />
-                        <Carousel.Caption>
-                            <h3>First slide label</h3>
-                            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                        </Carousel.Caption>
-                    </Carousel.Item>
+                        
+                    </Carousel.Item>*/}
   </Carousel>
                 </div>
                 <div className = "col-sm-2">
