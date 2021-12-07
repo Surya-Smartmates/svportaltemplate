@@ -18,6 +18,8 @@ import { useRouter } from "next/router";
 
 // const ZOHO = window.ZOHO;
 const Home__Content = ({ quickLinks }) => {
+
+    
     const state = useTrackedStore();
     const router = useRouter();
     const profile =

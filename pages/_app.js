@@ -39,6 +39,7 @@ import "@madzadev/image-slider/dist/index.css";
 import "./agents/profile.css"
 import "./agents/resources.css"
 import "./agents/outline.css"
+import "../components/HomeStudent/SingleUserProfile.css"
 
 
 // Client-side cache, shared for the whole session of the user in the browser.

@@ -7,6 +7,7 @@ import student4 from "../../assets/mentors/img/student-4.jpg";
 import student5 from "../../assets/mentors/img/studernt-5.jpg";
 import student6 from "../../assets/mentors/img/student-6.jpg";
 import user from "../../assets/mentors/img/user-st.svg";
+import parents from "../../assets/img/parents.svg"
 import question from "../../assets/mentors/img/question.svg";
 import social from "../../assets/mentors/img/social-group.svg";
 import fb from "../../assets/img/facebook-fix-green.svg"
@@ -18,6 +19,9 @@ import book from "../../assets/mentors/img/book-2.jpg";
 
 import Image from "next/image";
 import MyCalendar from "../../components/Calendar/My__Calendar";
+
+import SingleUserProfile from "../../components/HomeStudent/SingleUserProfile";
+import MentorEvents from "../../components/HomeMentor/MentorEvents"
 
 //Smartmates add popup to Calendar
 import CalendarModal from "../../components/calendar-modal/calendar-modal";
@@ -224,7 +228,7 @@ const SupportHome = ({
 
   useEffect(()=>{
     state.setSvTasksResp(svTasksResp);
-
+    console.log(state?.studentSupportersResp?.[0])
   }, [])
   
   /*const CalEvents = (svTasksResp !== null && svTasksResp !== undefined) ? svTasksResp?.map((task) => { //Add avoidance to null value
@@ -301,6 +305,7 @@ const SupportHome = ({
   
 
   useEffect(()=>{
+    console.log("hello")
     console.log(events)
   })
 
@@ -312,123 +317,29 @@ const SupportHome = ({
         <div className="main-content">
         <ConfirmPopup CloseSVTask = {()=>{CloseSVTask()}} CurrentRecord = {specificTask} toggle = {()=>setShowPopup(false)} isOpen = {showPopup}/> 
           <div className="content-wrapper">
-            {/* hapaning-items */}
-            <div className="happening-wrapper">
-              <div className="content-title">
-                <h4>What’s Happening</h4>
-              </div>
-              <div className="happenig-items d-grid">
-                {/* single-happening-items */}
-                <div
-                  className="single-happen d-flex align-items-center justify-content-center"
-                  style={{
-                    backgroundImage: `url(${happen.src})`,
-                  }}
-                >
-                  <div className="happen-count-text">
-                    {state?.studentSupportersResp?.[0]?.New_Students_Assigned}
-                  </div>
-                  <div className="hapent-cotnet">
-                    <h4>NEW STUDENTS</h4>
-                    <p>Have been assigned to you</p>
-                  </div>
-                </div>
-                {/* single-happening-items */}
-                {/* single-happening-items */}
-                <div
-                  className="single-happen d-flex align-items-center justify-content-center"
-                  style={{
-                    backgroundImage: `url(${happen.src})`,
-                  }}
-                >
-                  <div className="happen-count-text">
-                    {state?.studentSupportersResp?.[0]?.Active_Students}
-                  </div>
-                  <div className="hapent-cotnet">
-                    <h4>STUDENTS</h4>
-                    <p>Are currently working with you.</p>
-                  </div>
-                </div>
-                {/* single-happening-items */}
-                {/* single-happening-items */}
-                <div
-                  className="single-happen d-flex align-items-center justify-content-center"
-                  style={{
-                    backgroundImage: `url(${happen.src})`,
-                  }}
-                >
-                  <div className="happen-count-text">
-                    {
-                      state?.studentSupportersResp?.[0]
-                        ?.Pending_Actions_This_Week
-                    }
-                  </div>
-                  <div className="hapent-cotnet">
-                    <h4>ACTIONS</h4>
-                    <p>Pending for this week.</p>
-                  </div>
-                </div>
-                {/* single-happening-items */}
-                {/* single-happening-items */}
-                <div
-                  className="single-happen d-flex align-items-center justify-content-center"
-                  style={{
-                    backgroundImage: `url(${happen.src})`,
-                  }}
-                >
-                  <div className="happen-count-text">
-                    {
-                      state?.studentSupportersResp?.[0]
-                        ?.Pending_Events_This_Week
-                    }
-                  </div>
-                  <div className="hapent-cotnet">
-                    <h4>EVENTS</h4>
-                    <p>Happening this week.</p>
-                  </div>
-                </div>
-                {/* single-happening-items */}
-              </div>
+          <div className = "row">
+            <div className = "col-md-6">
+              <SingleUserProfile
+              name ={state?.studentSupportersResp?.[0]?.Vendor_Name}
+              details = {"Your Student Supporter From " + state?.studentSupportersResp?.[0]?.Servicing_Students_From}
+              course = "This is Student Supporter Description"
+              defClass = "ment-single-profile single-profile d-flex align-items-center white-box"
+              />
             </div>
-            {/* hapaning-items */}
-            {/* calender-blok-area */}
+            <div className = "col-md-6">
+            <SingleUserProfile 
+              defClass = "ment-single-profile single-profile d-flex align-items-center white-box"
+            />  
+            </div>
+          </div>
+            
+            
             <div className="activitis-area">
               <div className="single-activities white-box">
-                <div className="calender-title">
-                  <h4>Your Calendar</h4>
-                  <span>Friday, October 17th</span>
-                  <MyCalendar formatDate ={formatDate} style = {{zIndex: 20}} events={CalEvents} />
-                  <div style = {{ marginBottom: "20px" }}>
-                  <div>Event Name: {hgEvent.title}</div>
-                  <div>Student's Name: {hgEvent.student_name}</div>
-                  <div>Start Date: {hgEvent.start}</div>
-                  <div>End Date: {hgEvent.end}</div>
-                  </div>
-                  <div className="calender-bottom mt-3 mt-lg-4">
-                  <CalendarModal EventTitle = {popupTitle} trigger = {showPopup}/>
-                    <div className="activits-text">
-                      <h5>
-                        Next Up:{/*nextEvent?.Task*/} with {/*nextEvent?.Student_Name*/}
-                      </h5>
-                      {/* <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua. Ut enim ad minim veniam, quis nostrud
-                        exercitation ullamco laboris nisi ut aliquip ex ea
-                        commodo consequat.
-                      </p> */}
-                      <Link href="mentors/calendar">
-                        <a href className="btn">
-                          Go To Your Calendar
-                        </a>
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="your-students white-box">
-                <h4>Your Students</h4>
+              <MentorEvents  imgCol = "col-lg-6" textCol = "col-lg-6" events = {state?.svTasksResp?.[0]}/>
+              <h4>Your Students</h4>
                 <div className="studetnt-list">
+                
                   {(state?.studentsResp !== undefined || state?.studentsResp !== null) ? state?.studentsResp?.map((student, index) => {
                     return ( student.Stage !== "Closed Won" ? 
                       <div
@@ -484,12 +395,71 @@ const SupportHome = ({
                   {/* single-student-list */}
                 </div>
               </div>
+              <div className="your-students white-box">
+              <div className="calender-title">
+                  <h4>Your Calendar</h4>
+                  <span>Friday, October 17th</span>
+                  <MyCalendar formatDate ={formatDate} style = {{zIndex: 20}} events={CalEvents} />
+                  <div style = {{ marginBottom: "20px" }}>
+                  <div>Event Name: {hgEvent.title}</div>
+                  <div>Student's Name: {hgEvent.student_name}</div>
+                  <div>Start Date: {hgEvent.start}</div>
+                  <div>End Date: {hgEvent.end}</div>
+                  </div>
+                  <div className="calender-bottom mt-3 mt-lg-4">
+                  <CalendarModal EventTitle = {popupTitle} trigger = {showPopup}/>
+                    <div className="activits-text">
+                      <h5>
+                        Next Up:{/*nextEvent?.Task*/} with {/*nextEvent?.Student_Name*/}
+                      </h5>
+                      {/* <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                        sed do eiusmod tempor incididunt ut labore et dolore
+                        magna aliqua. Ut enim ad minim veniam, quis nostrud
+                        exercitation ullamco laboris nisi ut aliquip ex ea
+                        commodo consequat.
+                      </p> */}
+                      <Link href="mentors/calendar">
+                        <a href className="btn">
+                          Go To Your Calendar
+                        </a>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+                
+              </div>
             </div>
-            <div>
+            <div className = "row">
+                <div className = "col-lg-8"  style ={{ marginTop: "2%" }}>
+                <MentorEvents imgCol = "col-lg-4" textCol = "col-lg-8" events = {state?.svTasksResp?.[0]}/>
+                </div>
+                <div className = "col-lg-4" style ={{ marginTop: "5%" }} >
+                <h4>Next Up: {state?.svTasksResp?.[0]?.Task}</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+
+            </div>
                   <div>
                   <SsTaskMonitor disButton = {enableCloseTask}  CheckTask = {()=>{OpenTaskPopup()}} TaskDetails = {specificTask} />
                      
                   </div>
+            <div className = "single-card-block white box">
+                      <h4>Core Happy, Healthy, Wise Program</h4>
+                      <div className = "row">
+                        <div className = "col-lg-4">
+                          <Image width = {300} height = {300} src={parents} alt="parents image"/>
+                        </div>
+                        <div className = "col-lg-4">
+                          <Image width = {300} height = {300} src={parents} alt="parents image"/>
+                        </div>
+                        <div className = "col-lg-4">
+                          <Image width = {300} height = {300} src={parents} alt="parents image"/>
+                        </div>
+                        <div className = "col-lg-4">
+                          <Image width = {300} height = {300} src={parents} alt="parents image"/>
+                        </div>
+                      </div>
             </div>
             {/* calender-blok-area */}
             {/* CARD-ITEMS */}

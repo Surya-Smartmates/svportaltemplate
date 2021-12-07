@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -10,17 +10,31 @@ const SingleUserProfile = ({
     university,
     btnName = "View Details",
     btnLink,
+    defClass = "single-profile d-flex align-items-center white-box"
 }) => {
+    useEffect(()=>{
+        if(imgSrc === undefined){
+            console.log("imgSrc is undefined")
+        }
+        else{
+            console.log("imgSrc value is" + imgSrc)
+        }
+        console.log(imgSrc)
+    },[])
+
+    const checkImg = imgSrc !== undefined
     return (
-        <div className='single-profile d-flex align-items-center white-box'>
+        <div className={defClass}>
             <div className='user-profile-img'>
-                <Image width={100} height={100} src={imgSrc} alt='' />
+            {/**/}
+                { checkImg ? <Image width={100} height={100} src={imgSrc} alt='' /> :<></>}
             </div>
             <div className='user-profile-content'>
                 <h4>{name}</h4>
-                <span>{details}</span>
+                <strong>{course}</strong>
                 <p>
-                    <strong>{course}</strong> <br />
+                <br />
+                <span>{details}</span>
                 </p>
                 <p>{university}</p>
                 {/* <Link href={btnLink} className='btn profile-btn'>

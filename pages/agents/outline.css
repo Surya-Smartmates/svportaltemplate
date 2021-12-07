@@ -6,3 +6,6 @@
     border-radius: 30px;
     padding: 20px;
 }
+.carousel-indicators {
+    display: none;
+}
