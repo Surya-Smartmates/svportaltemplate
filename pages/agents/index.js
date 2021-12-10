@@ -17,7 +17,7 @@ import ig from "../../assets/img/instagram-fix-green.svg"
 import lkin from "../../assets/img/linkedin-fix-green.svg"
 import feedback from "../../assets/agents/img/feedback.svg";
 
-import book from "../../assets/agents/img/resolve-page2.JPG";
+import book from "../../assets/agents/img/resolve-page2.jpg";
 
 import Image from "next/image";
 import { useRouter } from "next/router";
