@@ -10,6 +10,11 @@ import resource5 from "../../assets/agents/img/resorce-5.jpg";
 
 import Carousel from 'react-bootstrap/Carousel'
 
+
+import watch1 from "../../assets/agents/img/watch1.JPG"
+import sleft from '../../assets/img/slider/slider-left.svg'
+import sright from '../../assets/img/slider/slider-right.svg'
+
 import M1 from '../../assets/img/M1-Settling-In.png'
 import M2 from '../../assets/img/M2-Consolidating-Studies.png'
 import M3 from '../../assets/img/M3-Tracking-Progressp1.png'
@@ -45,6 +50,8 @@ const Outline = () => {
     setProfName(state?.agentsResp?.[0]?.Agency_Name)
   }, [])
 
+  const arrowLeft = <span><Image width ={200} height = {200} src={sleft}/></span>
+  const arrowRight = <span><Image width ={200} height = {200} src={sright}/></span>
   return (
     <>
       <Navbar profileUserName={profName} topbarLinks={topbarLinks} />
@@ -63,7 +70,7 @@ const Outline = () => {
 
                 </div>
                 <div className = "col-sm-8">
-                <Carousel prevIcon={<span className="carousel-control-prev-icon bg-dark"></span>} nextIcon = {<span className = "carousel-control-next-icon bg-dark"></span>} style={{ height: "40vh", marginTop: "10%", marginBottom: "15%" }}>
+                <Carousel prevIcon={arrowLeft} nextIcon = {arrowRight} style={{ height: "40vh", marginTop: "10%", marginBottom: "20%" }}>
                     <Carousel.Item style = {{ marginLeft: "30%"}}>
                     <div className = "row">
                       <div className = "col-sm-12">
@@ -78,7 +85,7 @@ const Outline = () => {
                         </a>
                       </div>
                       <div className = "col-sm-12">
-                      <button className = "btn btn-primary" style = {{ zIndex: 1, marginLeft: "5%"}}>Watch Instructional Video</button>
+                      <a style = {{ zIndex: 1}}><Image width={300} height={35} src={watch1}/></a>
                       </div>
                     </div>
                     </Carousel.Item>
@@ -92,6 +99,9 @@ const Outline = () => {
                             alt="First Slide"
                         />
                        </a>
+                       <div className = "col-sm-12">
+                       <a style = {{ zIndex: 1}}><Image width={300} height={35} src={watch1}/></a>
+                       </div>
                     </Carousel.Item>
                     <Carousel.Item style = {{ marginLeft: "30%"}}>
                     <div className = "row">
@@ -107,7 +117,7 @@ const Outline = () => {
                         </a>
                       </div>
                       <div className = "col-sm-12">
-                      <button className = "btn btn-primary" style = {{ zIndex: 1, marginLeft: "5%"}}>Watch Instructional Video</button>
+                      <a style = {{ zIndex: 1}}><Image width={300} height={35} src={watch1}/></a>
                       </div>
                     </div>
                     </Carousel.Item>
@@ -125,7 +135,7 @@ const Outline = () => {
                         </a>
                       </div>
                       <div className = "col-sm-12">
-                      <button className = "btn btn-primary" style = {{ zIndex: 1, marginLeft: "5%"}}>Watch Instructional Video</button>
+                      <a style = {{ zIndex: 1}}><Image width={300} height={35} src={watch1}/></a>
                       </div>
                     </div>
                     </Carousel.Item>
@@ -143,7 +153,7 @@ const Outline = () => {
                         </a>
                       </div>
                       <div className = "col-sm-12">
-                      <button className = "btn btn-primary" style = {{ zIndex: 1, marginLeft: "5%"}}>Watch Instructional Video</button>
+                      <a style = {{ zIndex: 1}}><Image width={300} height={35} src={watch1}/></a>
                       </div>
                     </div>
                     </Carousel.Item>
@@ -161,7 +171,7 @@ const Outline = () => {
                         </a>
                       </div>
                       <div className = "col-sm-12">
-                      <button className = "btn btn-primary" style = {{ zIndex: 1, marginLeft: "5%"}}>Watch Instructional Video</button>
+                      <a style = {{ zIndex: 1}}><Image width={300} height={35} src={watch1}/></a>
                       </div>
                     </div>
                     </Carousel.Item>
@@ -179,7 +189,7 @@ const Outline = () => {
                         </a>
                       </div>
                       <div className = "col-sm-12">
-                      <button className = "btn btn-primary" style = {{ zIndex: 1, marginLeft: "5%"}}>Watch Instructional Video</button>
+                      <a style = {{ zIndex: 1}}><Image width={300} height={35} src={watch1}/></a>
                       </div>
                     </div>
                     </Carousel.Item>
@@ -197,7 +207,7 @@ const Outline = () => {
                         </a>
                       </div>
                       <div className = "col-sm-12">
-                      <button className = "btn btn-primary" style = {{ zIndex: 1, marginLeft: "5%"}}>Watch Instructional Video</button>
+                      <a style = {{ zIndex: 1}}><Image width={300} height={35} src={watch1}/></a>
                       </div>
                     </div>
                     </Carousel.Item>
@@ -215,7 +225,7 @@ const Outline = () => {
                         </a>
                       </div>
                       <div className = "col-sm-12">
-                      <button className = "btn btn-primary" style = {{ zIndex: 1, marginLeft: "5%"}}>Watch Instructional Video</button>
+                      <a style = {{ zIndex: 1}}><Image width={300} height={35} src={watch1}/></a>
                       </div>
                     </div>
                     </Carousel.Item>
@@ -233,7 +243,7 @@ const Outline = () => {
                         </a>
                       </div>
                       <div className = "col-sm-12">
-                      <button className = "btn btn-primary" style = {{ zIndex: 1, marginLeft: "5%"}}>Watch Instructional Video</button>
+                      <a style = {{ zIndex: 1}}><Image width={300} height={35} src={watch1}/></a>
                       </div>
                     </div>
                     </Carousel.Item>
@@ -251,7 +261,7 @@ const Outline = () => {
                         </a>
                       </div>
                       <div className = "col-sm-12">
-                      <button className = "btn btn-primary" style = {{ zIndex: 1, marginLeft: "5%"}}>Watch Instructional Video</button>
+                      <a style = {{ zIndex: 1}}><Image width={300} height={35} src={watch1}/></a>
                       </div>
                     </div>
                     </Carousel.Item>
@@ -269,7 +279,7 @@ const Outline = () => {
                         </a>
                       </div>
                       <div className = "col-sm-12">
-                      <button className = "btn btn-primary" style = {{ zIndex: 1, marginLeft: "5%"}}>Watch Instructional Video</button>
+                      <a style = {{ zIndex: 1}}><Image width={300} height={35} src={watch1}/></a>
                       </div>
                     </div>
                     </Carousel.Item>
@@ -287,7 +297,7 @@ const Outline = () => {
                         </a>
                       </div>
                       <div className = "col-sm-12">
-                      <button className = "btn btn-primary" style = {{ zIndex: 1, marginLeft: "5%"}}>Watch Instructional Video</button>
+                      <a style = {{ zIndex: 1}}><Image width={300} height={35} src={watch1}/></a>
                       </div>
                     </div>
                     </Carousel.Item>
@@ -305,7 +315,7 @@ const Outline = () => {
                         </a>
                       </div>
                       <div className = "col-sm-12">
-                      <button className = "btn btn-primary" style = {{ zIndex: 1, marginLeft: "5%"}}>Watch Instructional Video</button>
+                      <a style = {{ zIndex: 1}}><Image width={300} height={35} src={watch1}/></a>
                       </div>
                     </div>
 

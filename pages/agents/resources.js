@@ -51,7 +51,7 @@ const Resources = () => {
             <div className="marketing-res white-box">
             <h4>StudyVillage Representatives Promotional Resources</h4>
 
-            <p>The following material will assist you to promote StudyVillage programs and build your business</p>
+            <p>The resources below will assist you understand and promote StudyVillage programs and build your business</p>
             <div className = "col-sm-10">
             <table className = "table-res table table-striped table-bordered">
             <colgroup>
@@ -74,7 +74,7 @@ const Resources = () => {
                         </tr>
                         <tr>
                         <td  style = {{ width: "35%" }}>Parents Video Explainer<br/><i>Video format for sharing with parents</i></td>
-                        <td>StudyVillage Student Guide<br/><i>Everything a student needs to know about their StudyVillage Program –  A handy reference in PDF format</i></td>
+                        <td>StudyVillage Student Guide<br/><i>Everything a student needs to know about their StudyVillage Program –  A handy reference in PDF format</i></td>
                         <td>Agent FAQs<br/><i>Questions you may have about working with us answered</i></td>
                         </tr>
                         <tr>
@@ -93,17 +93,17 @@ const Resources = () => {
                         <td></td>
                         </tr>
                         <tr>
-                        <td  style = {{ width: "35%" }}>UK PREP<br/><i>Free Pre-departure coursewarefor your UK-bound student</i></td>
+                        <td  style = {{ width: "35%" }}>UK PREP<br/><i>Free Pre-departure courseware for your UK-bound student</i></td>
                         <td>Self-surveys<br/><i>A quick video explainer</i></td>
                         <td></td>
                         </tr>
                         <tr >
-                        <td  style = {{ width: "35%" }}>Canada PREP<br/><i>Free Pre-departure coursewarefor your Canada-bound student</i></td>
+                        <td  style = {{ width: "35%" }}>Canada PREP<br/><i>Free Pre-departure courseware for your Canada-bound student</i></td>
                         <td>Settling In<br/><i>A quick video explainer</i></td>
                         <td></td>
                         </tr>
                         <tr>
-                        <td  style = {{ width: "35%" }}>StudyVillage Banner<br/><i>Free Pre-departure coursewarefor your Australia-bound student</i></td>
+                        <td  style = {{ width: "35%" }}>StudyVillage Banner<br/><i>Free Pre-departure courseware for your Australia-bound student</i></td>
                         <td>Consolidating Studies<br/><i>A quick video explainer</i></td>
                         <td></td>
                         </tr>
@@ -170,47 +170,7 @@ const Resources = () => {
                         </tbody>   
                   </table>
             </div>
-            <Carousel style = {{width: "50%"}} prevIcon={<span className="carousel-control-prev-icon bg-dark"></span>} nextIcon = {<span className = "carousel-control-next-icon bg-dark"></span>}>
-          <Carousel.Item style = {{ marginLeft:"20%" }}>
-    <Image
-      
-      width ={300}
-      height = {300}
-      src={resource1}
-      alt="First Slide"
-    />
-    <Carousel.Caption style = {{ position: "absolute", textAlign: "center" }}>
-      <h3>First slide label</h3>
-      <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-    </Carousel.Caption>
-  </Carousel.Item>
-  <Carousel.Item style = {{ marginLeft:"30%" }}>
-    <Image
-    className = "d-block w-100"
-      width ={300}
-      height = {300}
-      src={resource1}
-      alt="First Slide"
-    />
-    <Carousel.Caption>
-      <h3>First slide label</h3>
-      <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-    </Carousel.Caption>
-  </Carousel.Item>
-  <Carousel.Item style = {{ marginLeft:"30%" }}>
-    <Image
-    className = "d-block w-100"
-      width ={300}
-      height = {300}
-      src={resource1}
-      alt="First Slide"
-    />
-    <Carousel.Caption>
-      <h3>First slide label</h3>
-      <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-    </Carousel.Caption>
-  </Carousel.Item>
-  </Carousel>
+          
               {/* resources-title */}
               {/*<div className="res-title pb-lg-4 pb-3">
                 <h4>Marketing Resources</h4>

@@ -104,13 +104,13 @@ const store = (set) => ({
       },
        {
            href: "/profile",
-           label: "Representatives",
+           label: "Profile",
            imgSrc: user,
            selectedImgSrc: userSelected,
        },
        {
         href: "/outline",
-        label: "Outlines",
+        label: "Modules",
         imgSrc: file,
         selectedImgSrc: fileSelected,
     },

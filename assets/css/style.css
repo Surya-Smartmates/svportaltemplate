@@ -49,7 +49,6 @@ h4,
 h5,
 h6 {
     margin: 0 0 15px;
-    font-weight: 800;
     line-height: 1.2;
     color: #000000;
 }
@@ -89,7 +88,7 @@ ul {
     list-style: none;
 }
 .btn {
-    background: #121f28;
+    /*background: #121f28;*/
     color: #fff;
     font-size: 12px;
     font-weight: 600;
@@ -98,7 +97,7 @@ ul {
     transition: 0.3s;
 }
 .btn:hover {
-    background: #182935;
+    /*background: #182935;*/
     color: #fff;
 }
 .btn:focus {

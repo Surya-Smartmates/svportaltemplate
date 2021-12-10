@@ -12,6 +12,8 @@ import { useRouter } from "next/router";
 import useTrackedStore from "../../store/useTrackedStore";
 import _ from "lodash";
 
+import editdet from "../../assets/agents/img/edit-details.jpg"
+
 import Navbar from "../../components/Shared/Navbar/Navbar";
 import Sidebar from "../../components/Shared/Sidebar/Sidebar";
 
@@ -283,59 +285,13 @@ useEffect(()=>{
         <div className="main-content">
           <div className="content-wrapper">
             <div className="row">
+            <div className = "col-lg-12">
+              <h4>Study Village Representatives Profile/Key Contacts Page</h4>
+              <p style = {{ marginTop: "2%",}}>Please ensure your Company contact details are up-to-date, as well as your key contact staff for each Country you send you students to.</p>
+            </div>
               <div className="col-lg-6">
-                <div className="user-content-page-wrapper">
-                  {/*<form action className="is-readonly">*/}
-                  
-                    {/* user-iamge-area */}
-                    {/*<div className="user-cover-image position-relative">*/}
-                      {/*<div className="cover-photo-wrapper position-relative">*/}
-                        {/*<div className="photo-edit-btn">
-                          <input
-                            type="file"
-                            id="imageUpload"
-                            accept=".png, .jpg, .jpeg"
-                            disabled
-                          />
-                          <label htmlFor="imageUpload">
-                            <FontAwesomeIcon icon={faPencilAlt} />
-                          </label>
-                        </div>*/}
-                        {/*<div className="cover-photo-wrap">
-                          <div
-                            id="imagePreview"
-                            style={{
-                              backgroundImage: `url(${tortoise.src})`,
-                            }}
-                          />
-                        </div>*/}
-                      {/*</div>*/}
-                      {/*<div
-                        className="profile-img-area"
-                        id="imagePreviewTwo"
-                        style={{
-                          backgroundImage: `url(${agent.src})`,
-                        }}
-                      >
-                        <input type="file" id="profile-img" disabled />
-                        <label htmlFor="profile-img">
-                          <i className="fas fa-pencil" />
-                        </label>
-                      </div>*/}
-                    {/*</div>*/}
-                    {/* user-iamge-area */}
-                    <div className="user-content-text-wrapper">
-                    {/*state?.agentsResp?.[0]?.Name*/}
-                    
-                      <h4>Study Village Representative Contact Page</h4>
-                      <p style = {{ marginTop: "2%", fontWeight: 750 }}>The following materials allow you to keep your Company details up to date</p>
-                      {/*<input
-                        type="text"
-                        defaultValue={state?.agentsResp?.[0]?.Title}
-                        disabled
-                      />*/}
                       <div className="user-details-wrapper">
-                      <div className = "col-md-10">
+
                       <table className = "table table-striped table-bordered">
                         <thead>
                           <tr className = "table-dark">
@@ -345,95 +301,66 @@ useEffect(()=>{
                         </thead>
                         <tbody>
                         <tr  className = "table-secondary">
-                            <td>Company Principal</td>
+                            <td>Company Principal:</td>
                             <td><input className = "input-cell" id = "Managing_Principal" onChange={updateProfile} style = {{ border: 0 }} disabled = {editContacts ? "" : "disabled"} value = {/*state?.agentsResp?.[0]?*/agentDetails.Managing_Principal}/></td>
                         </tr>
                         <tr  className = "table-secondary">
-                            <td>Referral ID</td>
+                            <td>Referral ID:</td>
                             <td>{state?.agentsResp?.[0]?.Crm_ID}</td>
                         </tr>
                         <tr style = {{ backgroundColor: "#aaaaaa" }}>
-                            <td>Key Contact</td>
+                            <td>Key Contact:</td>
                             <td><input className = "input-cell" id = "Key_Contact1" onChange={updateProfile} style = {{ border: 0 }} disabled = {editContacts ? "" : "disabled"} value = {/*state?.agentsResp?.[0]?*/agentDetails.Key_Contact1}/></td>
                         </tr>
                         <tr  className = "table-secondary">
-                            <td>Key Contact Email Address</td>
+                            <td>Key Contact Email Address:</td>
                             <td><input className = "input-cell" id = "Email" onChange={updateProfile} style = {{ border: 0 }} disabled = {editContacts ? "" : "disabled"} value = {/*state?.agentsResp?.[0]?*/agentDetails.Email}/></td>
                         </tr>
                         <tr style = {{ backgroundColor: "#aaaaaa" }}>
-                            <td>Company Address</td>
+                            <td>Company Address:</td>
                             <td><input className = "input-cell" id = "Street_Address" onChange={updateProfile} style = {{ border: 0 }} disabled = {editContacts ? "" : "disabled"} value = {/*state?.agentsResp?.[0]?*/agentDetails.Street_Address}/>,<input id = "City" onChange={updateProfile} style = {{ border: 0 }} disabled = {editContacts ? "" : "disabled"} value = {/*state?.agentsResp?.[0]?*/agentDetails.City}/></td>
                         </tr>
                         <tr className = "table-secondary">
-                            <td>Phone Number</td>
+                            <td>Phone Number:</td>
                             <td><input className = "input-cell" onChange={updateProfile} style = {{ border: 0 }} disabled = {editContacts ? "" : "disabled"} value = {/*state?.agentsResp?.[0]?*/agentDetails.Phone}/></td>
                         </tr>
                         <tr style = {{ backgroundColor: "#aaaaaa" }}>
-                            <td>Website</td>
+                            <td>Website:</td>
                             <td><input className = "input-cell" id = "Company_Website" onChange={updateProfile} style = {{ border: 0 }} disabled = {editContacts ? "" : "disabled"} value = {/*state?.agentsResp?.[0]?*/agentDetails.Company_Website}/></td>
                         </tr>
                         <tr  className = "table-secondary">
-                            <td>Branch Office Address</td>
+                            <td>Branch Office Address:</td>
                             <td>{BranchOffice[0]?.Address}</td>
                         </tr>
                         <tr style = {{ backgroundColor: "#aaaaaa" }}>
-                            <td>Branch Office Phone Number</td>
+                            <td>Branch Office Phone Number:</td>
                             <td>{BranchOffice[0]?.Phone_Number}</td>
                         </tr>
                         <tr  className = "table-secondary">
-                            <td>Key Contact at Branch Office</td>
+                            <td>Key Contact at Branch Office:</td>
                             <td>{BranchOffice[0]?.Person_managing_this_branch}</td>
                         </tr>
                         <tr style = {{ backgroundColor: "#aaaaaa" }}>
-                            <td>Key Contact at Branch Office Email</td>
+                            <td>Key Contact at Branch Office Email:</td>
                             <td>{BranchOffice[0]?.Email}</td>
                         </tr>
                         </tbody>   
                   </table>
-                      </div>
                       
-                  <button className = "btn btn-primary" onClick = {()=>{editToggle()}}>{actionButton}</button>
-                        {/* user-single-details-wrapper */}
+                      
+                  <a style = {{ marginTop: "2%" }}><Image width= {150} height={35} src={editdet}/></a>
                         
-                        {/* user-single-details-wrapper */}
-                        {/* user-single-details-wrapper */}
                         
-                        {/* user-single-details-wrapper */}
-                        {/* user-single-details-wrapper */}
+
                         
-                        {/* user-single-details-wrapper */}
-                        <hr />
-                        {/* user-single-details-wrapper */}
-                        
-                        {/* user-single-details-wrapper */}
-                        <hr />
-                        {/* user-single-details-wrapper */}
-                        <div className="user-single-details about-input">
-                          
-                          
-                          
-                        </div>
-                        {/* user-single-details-wrapper */}
-                        <div className="edit-btn-area mt-4 mt-lg-5">
-                          
-                          {/*<a
-                            href="javascript:void(0)"
-                            className="btn btn-save js-save"
-                          >
-                            Save Your Profile Info
-                          </a>*/}
-                        </div>
-                      </div>
-                    </div>
-                  {/*</form>*/}
-                </div>
+                      </div>                
               </div>
               <div className="col-lg-6">
-                <div className="user-page-sidebar">
-                {/* single-sidebar contact-widget*/}
-                  <div style= {{ boxShadow: "0px 3px 3px rgba(0, 0, 0, 0.1)", padding: "30px", paddingTop: "110px"}} className="">
+                <div className="col-lg-12">
+                <div className="user-details-wrapper">
+                
+                  <div style= {{ boxShadow: "0px 3px 3px rgba(0, 0, 0, 0.1)"}} className="">
                     <div className="contact-items">
-                      {/*<form action className="is-readonly">*/}
                       <table className = "table table-striped table-bordered">
                         <thead>
                           <tr className = "table-dark">
@@ -443,62 +370,62 @@ useEffect(()=>{
                         </thead>
                         <tbody>
                         <tr  className = "table-secondary">
-                            <td>Counsellor Name</td>
+                            <td>Counsellor Name:</td>
                             <td><input className = "input-cell" id = "First_Name_AU" onChange={updateProfile} style = {{ border: 0 }} disabled = {editAUManager ? "" : "disabled"} value = {/*state?.agentsResp?.[0]?*/agentDetails.First_Name_AU}/>
                             <input className = "input-cell" id = "Last_Name_AU" onChange={updateProfile} style = {{ border: 0 }} disabled = {editAUManager ? "" : "disabled"} value = {/*state?.agentsResp?.[0]?*/agentDetails.Last_Name_AU}/></td>
                         </tr>
                         <tr style = {{ backgroundColor: "#aaaaaa" }}>
-                            <td>Counsellor Email</td>
+                            <td>Counsellor Email:</td>
                             <td><input className = "input-cell" id = "Email_AU" onChange={updateProfile} style = {{ border: 0 }} disabled = {editAUManager ? "" : "disabled"} value = {/*state?.agentsResp?.[0]?*/agentDetails.Email_AU}/></td>
                         </tr>
                         <tr  className = "table-secondary">
-                            <td>Counsellor Phone Number/Whatsapp</td>
+                            <td>Counsellor Phone Number/Whatsapp:</td>
                             <td><input className = "input-cell" id = "Phone_AU" onChange={updateProfile} style = {{ border: 0 }} disabled = {editAUManager ? "" : "disabled"} value = {/*state?.agentsResp?.[0]?*/agentDetails.Phone_AU}/></td>
                         </tr>
                         <tr style = {{ backgroundColor: "#aaaaaa" }}>
-                            <td>LinkedIn Profile</td>
+                            <td>LinkedIn Profile:</td>
                             <td><input className = "input-cell" id = "LinkedIN_Profile_AU" onChange={updateProfile} style = {{ border: 0 }} disabled = {editAUManager ? "" : "disabled"} value = {/*state?.agentsResp?.[0]?*/agentDetails.LinkedIN_Profile_AU}/></td>
                         </tr>
                         <tr className = "table-secondary">
-                            <td>Photo</td>
+                            <td>Photo:</td>
                             <td></td>
                         </tr>
-                        <button className = "btn btn-primary" onClick = {()=>{setEditAUManager(true)}}>EDIT</button>
                         </tbody>   
                   </table>
-                  <table className = "table table-striped table-bordered">
+                  <a  style = {{ marginTop: "2%", marginBottom: "2%"}}onClick = {()=>{editToggle()}}><Image width= {150} height={35} src={editdet}/></a>
+                  <table style ={{marginTop: "2%"}} className = "table table-striped table-bordered">
                         <thead>
                           <tr className = "table-dark">
                             <td style = {{ width: "50%" }}>UK Manager</td>
-                            <td>Details</td>
+                            <td>Details:</td>
                           </tr>
                         </thead>
                         <tbody>
                         <tr  className = "table-secondary">
-                            <td>Counsellor Name</td>
+                            <td>Counsellor Name:</td>
                             <td><input className = "input-cell" id = "First_Name_UK" onChange={updateProfile} style = {{ border: 0 }} disabled = {editUKManager ? "" : "disabled"} value = {/*state?.agentsResp?.[0]?*/agentDetails.First_Name_UK}/>
                             <input className = "input-cell" id = "Last_Name_UK" onChange={updateProfile} style = {{ border: 0 }} disabled = {editUKManager ? "" : "disabled"} value = {/*state?.agentsResp?.[0]?*/agentDetails.Last_Name_UK}/></td>
                         </tr>
                         <tr style = {{ backgroundColor: "#aaaaaa" }}>
-                            <td>Counsellor Email</td>
+                            <td>Counsellor Email:</td>
                             <td><input className = "input-cell" id = "Email_UK" onChange={updateProfile} style = {{ border: 0 }} disabled = {editUKManager ? "" : "disabled"} value = {/*state?.agentsResp?.[0]?*/agentDetails.Email_UK}/></td>
                         </tr>
                         <tr  className = "table-secondary">
-                            <td>Counsellor Phone Number/Whatsapp</td>
+                            <td>Counsellor Phone Number/Whatsapp:</td>
                             <td><input className = "input-cell" id = "Phone_UK" onChange={updateProfile} style = {{ border: 0 }} disabled = {editUKManager ? "" : "disabled"} value = {/*state?.agentsResp?.[0]?*/agentDetails.Phone_UK}/></td>
                         </tr>
                         <tr style = {{ backgroundColor: "#aaaaaa" }}>
-                            <td>LinkedIn Profile</td>
+                            <td>LinkedIn Profile:</td>
                             <td><input className = "input-cell" id = "LinkedIN_Profile_UK" onChange={updateProfile} style = {{ border: 0 }} disabled = {editUKManager ? "" : "disabled"} value = {/*state?.agentsResp?.[0]?*/agentDetails.LinkedIN_Profile_UK}/></td>
                         </tr>
                         <tr className = "table-secondary">
-                            <td>Photo</td>
+                            <td>Photo:</td>
                             <td></td>
                         </tr>
                         </tbody>   
                   </table>
-                  <button className = "btn btn-primary" onClick = {()=>{setEditUKManager(true)}}>EDIT</button>
-                  <table className = "table table-striped table-bordered">
+                  <a style ={{ marginBottom: "2%"}} onClick = {()=>{editToggle()}}><Image width= {150} height={40} src={editdet}/></a>
+                  <table style ={{marginTop: "2%"}} className = "table table-striped table-bordered">
                         <thead>
                           <tr className = "table-dark">
                             <td style = {{ width: "50%" }}>Canada Manager</td>
@@ -507,85 +434,32 @@ useEffect(()=>{
                         </thead>
                         <tbody>
                         <tr  className = "table-secondary">
-                            <td>Counsellor Name</td>
+                            <td>Counsellor Name:</td>
                             <td><input className = "input-cell" id = "First_Name_CA" onChange={updateProfile} style = {{ border: 0 }} disabled = {editCAManager ? "" : "disabled"} value = {/*state?.agentsResp?.[0]?*/agentDetails.First_Name_CA}/>
                             <input className = "input-cell" id = "Last_Name_CA" onChange={updateProfile} style = {{ border: 0 }} disabled = {editCAManager ? "" : "disabled"} value = {/*state?.agentsResp?.[0]?*/agentDetails.Last_Name_CA}/></td>
                         </tr>
                         <tr style = {{ backgroundColor: "#aaaaaa" }}>
-                            <td>Counsellor Email</td>
+                            <td>Counsellor Email:</td>
                             <td><input className = "input-cell" id = "Email_CA" onChange={updateProfile} style = {{ border: 0 }} disabled = {editCAManager ? "" : "disabled"} value = {/*state?.agentsResp?.[0]?*/agentDetails.Email_CA}/></td>
                         </tr>
                         <tr  className = "table-secondary">
-                            <td>Counsellor Phone Number/Whatsapp</td>
+                            <td>Counsellor Phone Number/Whatsapp:</td>
                             <td><input className = "input-cell" id = "Phone_CA" onChange={updateProfile} style = {{ border: 0 }} disabled = {editCAManager ? "" : "disabled"} value = {/*state?.agentsResp?.[0]?*/agentDetails.Phone_CA}/></td>
                         </tr>
                         <tr style = {{ backgroundColor: "#aaaaaa" }}>
-                            <td>LinkedIn Profile</td>
+                            <td>LinkedIn Profile:</td>
                             <td><input className = "input-cell" id = "LinkedIN_Profile_CA" onChange={updateProfile} style = {{ border: 0 }} disabled = {editCAManager ? "" : "disabled"} value = {/*state?.agentsResp?.[0]?*/agentDetails.LinkedIN_Profile_CA}/></td>
                         </tr>
                         <tr className = "table-secondary">
-                            <td>Photo</td>
+                            <td>Photo:</td>
                             <td></td>
                         </tr>
                         </tbody>   
                   </table>
-                  <button className = "btn btn-primary" onClick = {()=>{setEditCAManager(true)}}>EDIT</button>
+                  <a  style ={{ marginBottom: "5%"}} onClick = {()=>{editToggle()}}><Image width= {150} height={40} src={editdet}/></a>
                         <div className="single-contact-item d-flex align-items-center">
                         </div>
-                        {/*<div className="single-contact-item d-flex align-items-center">
-                          <div className="contact-icon">
-                            <Image
-                              width={50}
-                              height={50}
-                              src={laptop}
-                              alt="icon"
-                            />
-                          </div>
-                          <div className="contact-id">
-                            <span>Email:</span>
-                            <input
-                              type="text"
-                              defaultValue={state?.agentsResp?.[0]?.Email}
-                              disabled
-                            />
-                          </div>
-                        </div>*/}
-                        {/*<div className="single-contact-item d-flex align-items-center">
-                          <div className="contact-icon">
-                            <Image
-                              width={50}
-                              height={50}
-                              src={messanger}
-                              alt="icon"
-                            />
-                          </div>
-                          <div className="contact-id">
-                            <span>Messenger (preferred):</span>
-                            <input
-                              type="text"
-                              defaultValue={state?.agentsResp?.[0]?.Messenger}
-                              disabled
-                            />
-                          </div>
-                        </div>*/}
-                        {/*<div className="single-contact-item d-flex align-items-center">
-                          <div className="contact-icon">
-                            <Image
-                              width={50}
-                              height={50}
-                              src={skype}
-                              alt="icon"
-                            />
-                          </div>
-                          <div className="contact-id">
-                            <span>Skyper:</span>
-                            <input
-                              type="text"
-                              defaultValue={state?.agentsResp?.[0]?.Skype}
-                              disabled
-                            />
-                          </div>
-                        </div>*/}
+                        
                         <div className="edit-btn-area mt-3 mt-lg-4">
                           <a
                             href="javascript:void(0)"
@@ -604,6 +478,8 @@ useEffect(()=>{
                     </div>
                   </div>
                 </div>
+                </div>
+               
               </div>
             </div>
           </div>

@@ -89,7 +89,7 @@ ul {
     list-style: none;
 }
 .btn {
-    background: #121f28;
+    /*background: #121f28;*/
     color: #fff;
     font-size: 12px;
     font-weight: 600;
@@ -98,7 +98,7 @@ ul {
     transition: 0.3s;
 }
 .btn:hover {
-    background: #182935;
+    /*background: #182935;*/
     color: #fff;
 }
 .btn:focus {

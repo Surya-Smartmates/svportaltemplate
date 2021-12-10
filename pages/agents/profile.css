@@ -13,4 +13,8 @@
 
 .input-cell{
     background-color: rgba(0,0,0,0.1);
+    width: 100%
+}
+.table-secondary{
+    font-size: 0.9em
 }

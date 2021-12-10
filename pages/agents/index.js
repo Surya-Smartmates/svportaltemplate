@@ -7,16 +7,8 @@ import Sidebar from "../../components/Shared/Sidebar/Sidebar";
 // import "./responsive.css";
 // import happenbg from "../../assets/img/happen-bg.png";
 
-import happenbg from "../../assets/agents/img/happen-bg.jpg";
-import men from "../../assets/agents/img/men-black.svg";
-import trash from "../../assets/agents/img/trash.svg";
-import xlfile from "../../assets/agents/img/xl.svg";
-import question from "../../assets/agents/img/question.svg";
 
-import filegreen from "../../assets/img/file-green.svg"
-
-import apply from "../../assets/img/apply-icon.png"
-import applyimg from "../../assets/img/agent-apply-img.png"
+import applybtn from "../../assets/agents/img/just-blue.png"
 
 import social from "../../assets/agents/img/social-group.svg";
 import fb from "../../assets/img/facebook-fix-green.svg"
@@ -180,48 +172,38 @@ useEffect(()=>{
 
             {/* Apply Studies-items */}
             <div className="content-title">
-              <h4>Launch a StudyVillage Application</h4>
+              <h4 className = "home-title">Welcome to your StudyVillage Portal</h4>
             </div>
             <div className = "row" style = {{ marginTop:"5%" }}>
-              <div className = "col-md-4">
-              <Image
-                    style = {{ position: "relative" }}
-                    width={350}
-                    height={350}
-                    src={applyimg}
-                    alt="file-white icon"
-                  />
+              <div className = "col-md-4 apply-section">
+                <div style = {{ paddingTop: "20%" }} className="card-text">
+                  {/*<h4 className = "stu-app ">STUDENT APPLICATION</h4>
+                      <strong><i className = "stu-app-sub">
+                      Click here to launch application on behalf of your student
+                      </i></strong>*/}
+                      <a 
+                        href="https://forms.zohopublic.com/studyvillage/form/C1StudyVillageprogramapplicationforAgentPortal/formperma/avLZwfvjgtvfVp_2V4H7S9qlY2W2IGwI4OwlVVStMfs" 
+                        target = "_blank" 
+                        rel="noreferrer noopener" 
+                        className=" contact-btn">
+                       <Image width = {400} height={50} src={applybtn}/>
+                    </a>
+                </div>
                   
-              </div><div className = "col-md-6">
-              <h4>
-              StudyVillage News Feed
-            </h4>
-            <p>
-            <b>December 2021</b><br/>
-            StudyVillage is expanding beyond its pilot group of agents and now has representatives in 9 countries throughout the world.  
-            We are working with a number of institutional partners, including the Sri Lankan government, to drastically improve the international student experience.
-            Watch this space, your portal will be regularly updated with a series of new tools to improve the student experience.  We'll inform of you of key updates via email.  
-            </p>
               </div>
-              <div style={{ zIndex: 1}} className = "bg-gradation">
-                
-                <div style = {{positon: "absolute", zIndex: 1, marginTop:"-21%"}} className="card-text">
-                  <h4 style = {{ marginLeft: "6.5%"}}>Apply</h4>
-                  <p style = {{ width: "20%", textAlign: "center", marginLeft: "0%"}}>
-                    Click on the button bellow to access the StudyVillage
-                    Application Form
+                <div className = "col-md-6">
+                  <h4>
+                  StudyVillage News Feed
+                  </h4>
+                  <p>
+                    <b>December 2021</b><br/>
+                  StudyVillage is expanding beyond its pilot group of agents and now has representatives in 9 countries throughout the world.  
+                  We are working with a number of institutional partners, including the Sri Lankan government, to drastically improve the international student experience.
+                  Watch this space, your portal will be regularly updated with a series of new tools to improve the student experience.  We'll inform of you of key updates via email.  
                   </p>
                 </div>
-                <a style = {{ marginTop: "-20px", marginLeft: "2%"}} 
-                href="https://forms.zohopublic.com/studyvillage/form/C1StudyVillageprogramapplicationforAgentPortal/formperma/avLZwfvjgtvfVp_2V4H7S9qlY2W2IGwI4OwlVVStMfs" 
-                target = "_blank" 
-                rel="noreferrer noopener" 
-                className="btn contact-btn">
-                  Apply
-                </a>
-            </div>
+              </div>
               
-            </div>
             <div className="card-block-area">
            
               {/* single-card */}
@@ -359,7 +341,7 @@ useEffect(()=>{
                             <td>University</td>
                             <td>Start Date</td>
                             <td>End Date</td>
-                            <td>Total Semesters</td>
+                            <td style = {{ textAlign: "center" }}>Total Semesters</td>
                             <td>Email Address</td>
                             <td>Contact Number</td>
                           </tr>
@@ -374,7 +356,7 @@ useEffect(()=>{
                             <td>{student.Institution}</td>
                             <td>{student.Institution_Semester_start_date}</td>
                             <td></td>
-                            <td>{student.How_many_total_semesters_will_this_course_take_to}</td>
+                            <td style = {{ width: "40px", textAlign: "center" }}>{student.How_many_total_semesters_will_this_course_take_to}</td>
                             <td>{student.Email}</td>
                             <td>{student.Phone}</td>
                         </tr>
@@ -423,7 +405,7 @@ useEffect(()=>{
                     overseas, in an accessible, practical and light-hearted way.
                   </p>
                 </div>
-                <a href="https://workdrive.zohoexternal.com/external/458badae3822df664be86e1bbed71af95c7f747cca5db3573c84177c846407d0" target="_blank" rel="noreferrer noopener" className="btn contact-btn">
+                <a href="https://workdrive.zohoexternal.com/external/458badae3822df664be86e1bbed71af95c7f747cca5db3573c84177c846407d0" target="_blank" rel="noreferrer noopener" className="nu-btn btn-primary">
                   Read
                 </a>
               </div>

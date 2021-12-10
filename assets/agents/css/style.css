@@ -89,7 +89,7 @@ ul {
     list-style: none;
 }
 .btn {
-    background: #2b3744;
+    /*background: #2b3744;*/
     color: #fff;
     font-size: 12px;
     font-weight: 600;
@@ -98,7 +98,7 @@ ul {
     transition: 0.3s;
 }
 .btn:hover {
-    background: #182935;
+    /*background: #182935;*/
     color: #fff;
 }
 .btn:focus {
@@ -248,7 +248,7 @@ textarea:focus {
     color: #c8c8c8;
 }
 .user-menu {
-    background: #2b3744;
+    /*background: #2b3744;*/
     padding: 10px 15px;
 }
 .user-menu ul li a {

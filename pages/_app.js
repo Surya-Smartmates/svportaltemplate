@@ -39,6 +39,7 @@ import "@madzadev/image-slider/dist/index.css";
 import "./agents/profile.css"
 import "./agents/resources.css"
 import "./agents/outline.css"
+import "./agents/index.css"
 import "../components/HomeStudent/SingleUserProfile.css"
 
 

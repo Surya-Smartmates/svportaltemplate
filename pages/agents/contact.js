@@ -87,7 +87,7 @@ const AgentContact = () => {
                     </div>
                     <div className="contact-text">
                       <div className="contact-heade">
-                        <h4>Your Agency Contact Details</h4>
+                        <h4>Your Local Manager Contact</h4>
                         <p>
                           {`${state?.agentsResp?.[0]?.Agency_Name}`} <br />{" "}
                           {`${state?.agentsResp?.[0]?.City} in ${state?.agentsResp?.[0]?.Country} `}
