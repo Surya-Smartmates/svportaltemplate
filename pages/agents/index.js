@@ -17,7 +17,7 @@ import ig from "../../assets/img/instagram-fix-green.svg"
 import lkin from "../../assets/img/linkedin-fix-green.svg"
 import feedback from "../../assets/agents/img/feedback.svg";
 
-import book from "../../assets/mentors/img/book-2.jpg";
+import book from "../../assets/agents/img/resolve-page2.JPG";
 
 import Image from "next/image";
 import { useRouter } from "next/router";
@@ -392,8 +392,8 @@ useEffect(()=>{
               <div className="single-card-block white-box text-center">
                 <div className="card-icon">
                   <Image
-                    width={150}
-                    height={150}
+                    width={200}
+                    height={200}
                     src={book}
                     alt="resolve icon"
                   />
@@ -405,34 +405,11 @@ useEffect(()=>{
                     overseas, in an accessible, practical and light-hearted way.
                   </p>
                 </div>
-                <a href="https://workdrive.zohoexternal.com/external/458badae3822df664be86e1bbed71af95c7f747cca5db3573c84177c846407d0" target="_blank" rel="noreferrer noopener" className="nu-btn btn-primary">
+                <a href="https://workdrive.zohoexternal.com/external/458badae3822df664be86e1bbed71af95c7f747cca5db3573c84177c846407d0" target="_blank" rel="noreferrer noopener" className="btn btn-primary">
                   Read
                 </a>
               </div>
-              {/* single-card */}
-              {/* single-card */}
-              {/* <div className="single-card-block white-box text-center">
-                <div className="card-icon">
-                  <Image
-                    width={150}
-                    height={150}
-                    src={feedback}
-                    alt="feedback icon"
-                  />
-                </div>
-                <div className="card-text">
-                  <h4>Feedback?</h4>
-                  <p>
-                    Do you have any feedback on StudyVillage services? Let us
-                    know so we can continue to improve.{" "}
-                  </p>
-                </div>
-                <a href="page-5.html" className="btn contact-btn">
-                  Feedback
-                </a>
-              </div>
-               */}
-              {/* single-card */}
+             
             </div>
           </div>
         </div>

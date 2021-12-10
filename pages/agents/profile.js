@@ -359,8 +359,8 @@ useEffect(()=>{
                 <div className="col-lg-12">
                 <div className="user-details-wrapper">
                 
-                  <div style= {{ boxShadow: "0px 3px 3px rgba(0, 0, 0, 0.1)"}} className="">
-                    <div className="contact-items">
+                  <div>
+                    <div >
                       <table className = "table table-striped table-bordered">
                         <thead>
                           <tr className = "table-dark">
@@ -371,20 +371,20 @@ useEffect(()=>{
                         <tbody>
                         <tr  className = "table-secondary">
                             <td>Counsellor Name:</td>
-                            <td><input className = "input-cell" id = "First_Name_AU" onChange={updateProfile} style = {{ border: 0 }} disabled = {editAUManager ? "" : "disabled"} value = {/*state?.agentsResp?.[0]?*/agentDetails.First_Name_AU}/>
-                            <input className = "input-cell" id = "Last_Name_AU" onChange={updateProfile} style = {{ border: 0 }} disabled = {editAUManager ? "" : "disabled"} value = {/*state?.agentsResp?.[0]?*/agentDetails.Last_Name_AU}/></td>
+                            <td><input className = "input-cell" id = "First_Name_AU" onChange={updateProfile} style = {{ border: 0 }} readOnly = {editAUManager} value = {/*state?.agentsResp?.[0]?*/agentDetails.First_Name_AU}/>
+                            <input className = "input-cell" id = "Last_Name_AU" onChange={updateProfile} style = {{ border: 0 }} readOnly = {editAUManager} value = {/*state?.agentsResp?.[0]?*/agentDetails.Last_Name_AU}/></td>
                         </tr>
                         <tr style = {{ backgroundColor: "#aaaaaa" }}>
                             <td>Counsellor Email:</td>
-                            <td><input className = "input-cell" id = "Email_AU" onChange={updateProfile} style = {{ border: 0 }} disabled = {editAUManager ? "" : "disabled"} value = {/*state?.agentsResp?.[0]?*/agentDetails.Email_AU}/></td>
+                            <td><input className = "input-cell" id = "Email_AU" onChange={updateProfile} style = {{ border: 0 }} readOnly = {editAUManager} value = {/*state?.agentsResp?.[0]?*/agentDetails.Email_AU}/></td>
                         </tr>
                         <tr  className = "table-secondary">
                             <td>Counsellor Phone Number/Whatsapp:</td>
-                            <td><input className = "input-cell" id = "Phone_AU" onChange={updateProfile} style = {{ border: 0 }} disabled = {editAUManager ? "" : "disabled"} value = {/*state?.agentsResp?.[0]?*/agentDetails.Phone_AU}/></td>
+                            <td><input className = "input-cell" id = "Phone_AU" onChange={updateProfile} style = {{ border: 0 }} readOnly = {editAUManager} value = {/*state?.agentsResp?.[0]?*/agentDetails.Phone_AU}/></td>
                         </tr>
                         <tr style = {{ backgroundColor: "#aaaaaa" }}>
                             <td>LinkedIn Profile:</td>
-                            <td><input className = "input-cell" id = "LinkedIN_Profile_AU" onChange={updateProfile} style = {{ border: 0 }} disabled = {editAUManager ? "" : "disabled"} value = {/*state?.agentsResp?.[0]?*/agentDetails.LinkedIN_Profile_AU}/></td>
+                            <td><input className = "input-cell" id = "LinkedIN_Profile_AU" onChange={updateProfile} style = {{ border: 0 }} readOnly = {editAUManager} value = {/*state?.agentsResp?.[0]?*/agentDetails.LinkedIN_Profile_AU}/></td>
                         </tr>
                         <tr className = "table-secondary">
                             <td>Photo:</td>
@@ -392,7 +392,7 @@ useEffect(()=>{
                         </tr>
                         </tbody>   
                   </table>
-                  <a  style = {{ marginTop: "2%", marginBottom: "2%"}}onClick = {()=>{editToggle()}}><Image width= {150} height={35} src={editdet}/></a>
+                  <a  style = {{ marginTop: "2%", marginBottom: "2%"}}onClick = {()=>{setEditAUManager(true)}}><Image width= {150} height={35} src={editdet}/></a>
                   <table style ={{marginTop: "2%"}} className = "table table-striped table-bordered">
                         <thead>
                           <tr className = "table-dark">
@@ -403,7 +403,7 @@ useEffect(()=>{
                         <tbody>
                         <tr  className = "table-secondary">
                             <td>Counsellor Name:</td>
-                            <td><input className = "input-cell" id = "First_Name_UK" onChange={updateProfile} style = {{ border: 0 }} disabled = {editUKManager ? "" : "disabled"} value = {/*state?.agentsResp?.[0]?*/agentDetails.First_Name_UK}/>
+                            <td><input className = "input-cell" id = "First_Name_UK" onChange={updateProfile} style = {{ border: 0 }} readOnly = {editUKManager ? "" : "disabled"} value = {/*state?.agentsResp?.[0]?*/agentDetails.First_Name_UK}/>
                             <input className = "input-cell" id = "Last_Name_UK" onChange={updateProfile} style = {{ border: 0 }} disabled = {editUKManager ? "" : "disabled"} value = {/*state?.agentsResp?.[0]?*/agentDetails.Last_Name_UK}/></td>
                         </tr>
                         <tr style = {{ backgroundColor: "#aaaaaa" }}>
@@ -424,7 +424,7 @@ useEffect(()=>{
                         </tr>
                         </tbody>   
                   </table>
-                  <a style ={{ marginBottom: "2%"}} onClick = {()=>{editToggle()}}><Image width= {150} height={40} src={editdet}/></a>
+                  <a style ={{ marginBottom: "2%"}} onClick = {()=>{setEditUKManager(true)}}><Image width= {150} height={40} src={editdet}/></a>
                   <table style ={{marginTop: "2%"}} className = "table table-striped table-bordered">
                         <thead>
                           <tr className = "table-dark">
@@ -456,25 +456,9 @@ useEffect(()=>{
                         </tr>
                         </tbody>   
                   </table>
-                  <a  style ={{ marginBottom: "5%"}} onClick = {()=>{editToggle()}}><Image width= {150} height={40} src={editdet}/></a>
+                  <a  style ={{ marginBottom: "5%"}} onClick = {()=>{setEditCAManager(true)}}><Image width= {150} height={40} src={editdet}/></a>
                         <div className="single-contact-item d-flex align-items-center">
                         </div>
-                        
-                        <div className="edit-btn-area mt-3 mt-lg-4">
-                          <a
-                            href="javascript:void(0)"
-                            className="btn btn-edit js-edit"
-                          >
-                            Edit Your Contact Details
-                          </a>
-                          <a
-                            href="javascript:void(0)"
-                            className="btn btn-save js-save"
-                          >
-                            Save Your Contact Details
-                          </a>
-                        </div>
-                      {/*</form>*/}
                     </div>
                   </div>
                 </div>
