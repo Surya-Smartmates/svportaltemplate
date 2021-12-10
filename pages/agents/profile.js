@@ -12,7 +12,7 @@ import { useRouter } from "next/router";
 import useTrackedStore from "../../store/useTrackedStore";
 import _ from "lodash";
 
-import editdet from "../../assets/agents/img/edit-details.jpg"
+import editdet from "../../assets/agents/img/edit-details.png"
 
 import Navbar from "../../components/Shared/Navbar/Navbar";
 import Sidebar from "../../components/Shared/Sidebar/Sidebar";
@@ -294,7 +294,7 @@ useEffect(()=>{
 
                       <table className = "table table-striped table-bordered">
                         <thead>
-                          <tr className = "table-dark">
+                          <tr className = "table-sv">
                             <td style = {{ width: "50%" }}>{state?.agentsResp?.[0]?.Agency_Name}</td>
                             <td>Details</td>
                           </tr>

@@ -15,6 +15,14 @@
     background-color: rgba(0,0,0,0.1);
     width: 100%
 }
-.table-secondary{
-    font-size: 0.9em
+
+.table-sv{
+    background-color: #121f28;
+    color: white;
+    font-size: 0.85em;
+    text-align: center
+}
+
+tr{
+    font-size: 0.8em;
 }

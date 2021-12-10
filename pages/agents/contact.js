@@ -36,8 +36,8 @@ const AgentContact = () => {
           <div className="content-wrapper">
             <div className="contact-box-wrapper">
               <div className="row">
-                <div className="col-lg-5 col-md-12">
-                  <div className="contact-box white-box theme-box d-flex">
+                <div className="col-lg-5 col-md-12" >
+                  <div style={{ minHeight: '50vh' }} className="contact-box white-box theme-box d-flex">
                     <div className="contact-img">
                       <Image
                         width={150}
@@ -75,8 +75,8 @@ const AgentContact = () => {
                     </div>
                   </div>
                 </div>
-                <div className="col-lg-5 col-md-12 pt-4 pt-md-4 pt-lg-0">
-                  <div className="contact-box white-box d-flex theme-box">
+                <div className="col-lg-5 col-md-12">
+                  <div style={{ minHeight: '50vh' }} className="contact-box white-box d-flex theme-box">
                     <div className="contact-img">
                       <Image
                         width={150}
@@ -176,54 +176,7 @@ const AgentContact = () => {
               </div>*/}
             </div>
 
-            <div className="feedback-area">
-              {/*<div className="row">
-                <div className="col-lg-6">
-                  <div className="feedback-content-wrapper white-box">
-                    <h4>Contact StudyVillage Head Office</h4>
-                    <span>
-                      We endeavour to answer all enquiries within 24 hours on
-                      business days
-                    </span>
-                    <form action>
-                      <div className="single-input-wrap">
-                        <label htmlFor>Name and Surname</label>
-                        <div className="single-input">
-                          <input type="text" />
-                        </div>
-                      </div>
-                      <div className="single-input-wrap">
-                        <label htmlFor>Preferred Contact</label>
-                        <div className="single-input">
-                          <input type="text" />
-                        </div>
-                      </div>
-                      <div className="single-input-wrap">
-                        <label htmlFor>Subject</label>
-                        <div className="single-input">
-                          <input type="text" />
-                        </div>
-                      </div>
-                      <div className="single-input-wrap">
-                        <label htmlFor>Message</label>
-                        <div className="single-input">
-                          <textarea
-                            name
-                            id
-                            cols={30}
-                            rows={10}
-                            defaultValue={""}
-                          />
-                        </div>
-                      </div>
-                      <button className="btn" type="submit">
-                        Submit
-                      </button>
-                    </form>
-                  </div>
-                </div>
-              </div>*/}
-            </div>
+            
           </div>
         </div>
       </div>

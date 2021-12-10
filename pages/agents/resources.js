@@ -60,7 +60,7 @@ const Resources = () => {
               <col span="1" style = {{ width: "30%" }}></col>
             </colgroup>
                         <thead>
-                          <tr className = "table-dark">
+                          <tr className = "table-sv">
                             <td style = {{ width: "35%" }}>Promotional Tools</td>
                             <td>Instructional Guides for Students & Agents</td>
                             <td>Agent Resources</td>

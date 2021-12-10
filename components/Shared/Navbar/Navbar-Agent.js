@@ -11,7 +11,7 @@ import useTrackedStore from "../../../store/useTrackedStore";
 import { signOut } from "next-auth/client";
 import { useRouter } from "next/router";
 
-const Navbar = ({ profileUserName, topbarLinks, imgSrc, agentID }) => {
+const NavbarAgent = ({ profileUserName, topbarLinks, imgSrc, agentID }) => {
     //console.log({ imgSrc });
     const state = useTrackedStore();
     const router = useRouter();
@@ -34,7 +34,7 @@ const Navbar = ({ profileUserName, topbarLinks, imgSrc, agentID }) => {
                     </Link>
                 </div>
                 <div className='header-right-area d-flex align-items-center'>
-                
+                {agentID}
                     {/* <!-- search-area --> */}
                     {/* <div className='search-area position-relative'>
                         <input type='text' placeholder='Search' />
@@ -61,16 +61,16 @@ const Navbar = ({ profileUserName, topbarLinks, imgSrc, agentID }) => {
                             id='dropdownMenuButton1'
                             data-bs-toggle='dropdown'
                             aria-expanded='false'>
-                            <div className='user-img'>
+                            <div>
                                 <Image
-                                    width={50}
-                                    height={50}
+                                    width={200}
+                                    height={"85%"}
                                     src={user}
                                     alt=''
                                 />
                             </div>
                             <div className='user-btn-text'>
-                                {`${profileUserName}`}
+
                                 <span>
                                     <i className='fas fa-angle-down'></i>
                                 </span>
@@ -134,4 +134,4 @@ const Navbar = ({ profileUserName, topbarLinks, imgSrc, agentID }) => {
     );
 };
 
-export default Navbar;
+export default NavbarAgent;

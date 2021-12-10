@@ -52,6 +52,156 @@ const Outline = () => {
 
   const arrowLeft = <span><Image width ={200} height = {200} src={sleft}/></span>
   const arrowRight = <span><Image width ={200} height = {200} src={sright}/></span>
+
+  const pdfWidth = 350
+  const pdfHeight = 500
+
+  const buttonWidth = 350
+  const buttonHeight = 45
+
+  const SliderContent = [
+    {
+      src: M1,
+      link: "https://workdrive.zohoexternal.com/external/5e86ac8a93dc4c4205dd2ce191085bff86b46bb41278a20739640c5496c52789",
+      width: pdfWidth,
+      height: pdfHeight,
+      bWidth: buttonWidth,
+      bHeight: buttonHeight,
+      btSrc: watch1
+
+    },
+    {
+      src: M2,
+      link: "https://workdrive.zohoexternal.com/external/5e86ac8a93dc4c4205dd2ce191085bff86b46bb41278a20739640c5496c52789",
+      width: pdfWidth,
+      height: pdfHeight,
+      bWidth: buttonWidth,
+      bHeight: buttonHeight,
+      btSrc: watch1
+
+    },
+    {
+      src: M3,
+      link: "https://workdrive.zohoexternal.com/external/c08c50f847d9edcd568788efad21eaa6b2b6b6f2f0a824a550c54c4d22eee999",
+      width: pdfWidth,
+      height: pdfHeight,
+      bWidth: buttonWidth,
+      bHeight: buttonHeight,
+      btSrc: watch1
+
+    },
+    {
+      src: M4,
+      link: "https://workdrive.zohoexternal.com/external/c965db67b2b9ec30cd69de4267088de60503c6d89333153cd80e38af793b8e66",
+      width: pdfWidth,
+      height: pdfHeight,
+      bWidth: buttonWidth,
+      bHeight: buttonHeight,
+      btSrc: watch1
+
+    },
+    {
+      src: M5,
+      link: "https://workdrive.zohoexternal.com/external/1377b0ffb383d319e27082f9316f789da84febf6d85723107704548368e6f759",
+      width: pdfWidth,
+      height: pdfHeight,
+      bWidth: buttonWidth,
+      bHeight: buttonHeight,
+      btSrc: watch1
+
+    },
+    {
+      src: M6,
+      link: "https://workdrive.zohoexternal.com/external/8f3b6fae0f00a457ceee5b39a985cf07765122903f2d783ba30cd097f42dc4af",
+      width: pdfWidth,
+      height: pdfHeight,
+      bWidth: buttonWidth,
+      bHeight: buttonHeight,
+      btSrc: watch1
+
+    },
+    {
+      src: M7,
+      link: "https://workdrive.zohoexternal.com/external/703c3dc7e7a3cce5b3cf5db14a64e3be2162d91d6164e6dd1fab9e27c6236a22",
+      width: pdfWidth,
+      height: pdfHeight,
+      bWidth: buttonWidth,
+      bHeight: buttonHeight,
+      btSrc: watch1
+
+    },
+    {
+      src: M8,
+      link: "https://workdrive.zohoexternal.com/external/402381873032717a332176ba345fe8f0a7d8c14bc4294c9c4c52f289afbac962",
+      width: pdfWidth,
+      height: pdfHeight,
+      bWidth: buttonWidth,
+      bHeight: buttonHeight,
+      btSrc: watch1
+
+    },
+    {
+      src: M9,
+      link: "https://workdrive.zohoexternal.com/external/7f9aef9bce9bafbc7fd8e1d2219682040e6e063ebb85eee8aa172566c139cb4e",
+      width: pdfWidth,
+      height: pdfHeight,
+      bWidth: buttonWidth,
+      bHeight: buttonHeight,
+      btSrc: watch1
+
+    },
+    {
+      src: ELIA,
+      link: "https://workdrive.zohoexternal.com/external/93dcd27c59c6b6306470a98e669d13528af98ad8882c3225a4e69ec4028b5971",
+      width: pdfWidth,
+      height: pdfHeight,
+      bWidth: buttonWidth,
+      bHeight: buttonHeight,
+      btSrc: watch1
+
+    },
+    {
+      src: ELIB,
+      link: "https://workdrive.zohoexternal.com/external/58a274fbffc16dbd6239c614286593d13b87a85578d27a02c1787eeb4a0f0e3f",
+      width: pdfWidth,
+      height: pdfHeight,
+      bWidth: buttonWidth,
+      bHeight: buttonHeight,
+      btSrc: watch1
+
+    },
+    {
+      src: ELIC,
+      link: "https://workdrive.zohoexternal.com/external/dfda9aba7389124831ee0281e2f2e0c8278f4595f0011d3b7a0c399d47ab3689",
+      width: pdfWidth,
+      height: pdfHeight,
+      bWidth: buttonWidth,
+      bHeight: buttonHeight,
+      btSrc: watch1
+
+    },
+    {
+      src: ELID,
+      link: "https://workdrive.zohoexternal.com/external/6149fbdfe678da332f657f58da90cd754416bd4a6df8a392b6abec9ddda1d969",
+      width: pdfWidth,
+      height: pdfHeight,
+      bWidth: buttonWidth,
+      bHeight: buttonHeight,
+      btSrc: watch1
+
+    },
+    {
+      src: ELIE,
+      link: "https://workdrive.zohoexternal.com/external/8afe8d42af547f1fa8df3979326ae58137b20a073815554e7df68c14d9d1dc89",
+      width: pdfWidth,
+      height: pdfHeight,
+      bWidth: buttonWidth,
+      bHeight: buttonHeight,
+      btSrc: watch1
+
+    }
+    
+  ]
   return (
     <>
       <Navbar profileUserName={profName} topbarLinks={topbarLinks} />
@@ -70,268 +220,33 @@ const Outline = () => {
 
                 </div>
                 <div className = "col-sm-8">
-                <Carousel prevIcon={arrowLeft} nextIcon = {arrowRight} style={{ height: "40vh", marginTop: "10%", marginBottom: "20%" }}>
-                    <Carousel.Item style = {{ marginLeft: "30%"}}>
-                    <div className = "row">
-                      <div className = "col-sm-12">
-                      <a target="_blank" rel="noreferrer noopener" href = "https://workdrive.zohoexternal.com/external/5e86ac8a93dc4c4205dd2ce191085bff86b46bb41278a20739640c5496c52789">
-                      <Image
-                        style = {{zIndex: 300, marginLeft:"20%" }}
-                        width ={300}
-                        height = {400}
-                        src={M1}
-                        alt="First Slide"
-                        />
-                        </a>
-                      </div>
-                      <div className = "col-sm-12">
-                      <a style = {{ zIndex: 1}}><Image width={300} height={35} src={watch1}/></a>
-                      </div>
-                    </div>
+                <Carousel prevIcon={arrowLeft} nextIcon = {arrowRight} style={{ height: "40vh", marginTop: "10%", marginBottom: "50%" }}>
+                {
+                  SliderContent.map((slides)=>{
+                    return(
+                      <Carousel.Item style = {{ marginLeft: "25%"}}>
+                        <div className = "row">
+                          <div className = "col-sm-12">
+                            <a target="_blank" rel="noreferrer noopener" href = {slides.link}>
+                              <Image
+                               
+                                width ={slides.width}
+                                height = {slides.height}
+                                src={slides.src}
+                                alt="First Slide"
+                                />
+                            </a>
+                          </div>
+                          <div className = "col-sm-12">
+                          <a style = {{ width: "100%"}}><Image width={slides.bWidth} height={slides.bHeight} src={watch1}/></a>
+                          </div>
+                        </div>
                     </Carousel.Item>
-                    <Carousel.Item  style = {{ marginLeft: "30%"}}>
-                    <a target="_blank" rel="noreferrer noopener" href = "https://workdrive.zohoexternal.com/external/462d563dc5174a52959d68923eae653f5955333332c4d82e726656bd9f90392d">
-                        <Image
-                            style = {{ marginLeft:"20%" }}
-                            width ={300}
-                            height = {400}
-                            src={M2}
-                            alt="First Slide"
-                        />
-                       </a>
-                       <div className = "col-sm-12">
-                       <a style = {{ zIndex: 1}}><Image width={300} height={35} src={watch1}/></a>
-                       </div>
-                    </Carousel.Item>
-                    <Carousel.Item style = {{ marginLeft: "30%"}}>
-                    <div className = "row">
-                      <div className = "col-sm-12">
-                      <a target="_blank" rel="noreferrer noopener" href = "https://workdrive.zohoexternal.com/external/c08c50f847d9edcd568788efad21eaa6b2b6b6f2f0a824a550c54c4d22eee999">
-                      <Image
-                        style = {{zIndex: 300, marginLeft:"20%" }}
-                        width ={300}
-                        height = {400}
-                        src={M3}
-                        alt="First Slide"
-                        />
-                        </a>
-                      </div>
-                      <div className = "col-sm-12">
-                      <a style = {{ zIndex: 1}}><Image width={300} height={35} src={watch1}/></a>
-                      </div>
-                    </div>
-                    </Carousel.Item>
-                    <Carousel.Item style = {{ marginLeft: "30%"}}>
-                    <div className = "row">
-                      <div className = "col-sm-12">
-                      <a target="_blank" rel="noreferrer noopener" href = "https://workdrive.zohoexternal.com/external/c965db67b2b9ec30cd69de4267088de60503c6d89333153cd80e38af793b8e66">
-                      <Image
-                        style = {{zIndex: 300, marginLeft:"20%" }}
-                        width ={300}
-                        height = {400}
-                        src={M4}
-                        alt="First Slide"
-                        />
-                        </a>
-                      </div>
-                      <div className = "col-sm-12">
-                      <a style = {{ zIndex: 1}}><Image width={300} height={35} src={watch1}/></a>
-                      </div>
-                    </div>
-                    </Carousel.Item>
-                    <Carousel.Item style = {{ marginLeft: "30%"}}>
-                    <div className = "row">
-                      <div className = "col-sm-12">
-                      <a target="_blank" rel="noreferrer noopener" href = "https://workdrive.zohoexternal.com/external/1377b0ffb383d319e27082f9316f789da84febf6d85723107704548368e6f759">
-                      <Image
-                        style = {{zIndex: 300, marginLeft:"20%" }}
-                        width ={300}
-                        height = {400}
-                        src={M5}
-                        alt="First Slide"
-                        />
-                        </a>
-                      </div>
-                      <div className = "col-sm-12">
-                      <a style = {{ zIndex: 1}}><Image width={300} height={35} src={watch1}/></a>
-                      </div>
-                    </div>
-                    </Carousel.Item>
-                    <Carousel.Item style = {{ marginLeft: "30%"}}>
-                    <div className = "row">
-                      <div className = "col-sm-12">
-                      <a target="_blank" rel="noreferrer noopener" href = "https://workdrive.zohoexternal.com/external/8f3b6fae0f00a457ceee5b39a985cf07765122903f2d783ba30cd097f42dc4af">
-                      <Image
-                        style = {{zIndex: 300, marginLeft:"20%" }}
-                        width ={300}
-                        height = {400}
-                        src={M6}
-                        alt="First Slide"
-                        />
-                        </a>
-                      </div>
-                      <div className = "col-sm-12">
-                      <a style = {{ zIndex: 1}}><Image width={300} height={35} src={watch1}/></a>
-                      </div>
-                    </div>
-                    </Carousel.Item>
-                    <Carousel.Item style = {{ marginLeft: "30%"}}>
-                    <div className = "row">
-                      <div className = "col-sm-12">
-                      <a target="_blank" rel="noreferrer noopener" href = "https://workdrive.zohoexternal.com/external/703c3dc7e7a3cce5b3cf5db14a64e3be2162d91d6164e6dd1fab9e27c6236a22">
-                      <Image
-                        style = {{zIndex: 300, marginLeft:"20%" }}
-                        width ={300}
-                        height = {400}
-                        src={M7}
-                        alt="First Slide"
-                        />
-                        </a>
-                      </div>
-                      <div className = "col-sm-12">
-                      <a style = {{ zIndex: 1}}><Image width={300} height={35} src={watch1}/></a>
-                      </div>
-                    </div>
-                    </Carousel.Item>
-                    <Carousel.Item style = {{ marginLeft: "30%"}}>
-                    <div className = "row">
-                      <div className = "col-sm-12">
-                      <a target="_blank" rel="noreferrer noopener" href = "https://workdrive.zohoexternal.com/external/402381873032717a332176ba345fe8f0a7d8c14bc4294c9c4c52f289afbac962">
-                      <Image
-                        style = {{zIndex: 300, marginLeft:"20%" }}
-                        width ={300}
-                        height = {400}
-                        src={M8}
-                        alt="First Slide"
-                        />
-                        </a>
-                      </div>
-                      <div className = "col-sm-12">
-                      <a style = {{ zIndex: 1}}><Image width={300} height={35} src={watch1}/></a>
-                      </div>
-                    </div>
-                    </Carousel.Item>
-                    <Carousel.Item style = {{ marginLeft: "30%"}}>
-                    <div className = "row">
-                      <div className = "col-sm-12">
-                      <a target="_blank" rel="noreferrer noopener" href = "https://workdrive.zohoexternal.com/external/7f9aef9bce9bafbc7fd8e1d2219682040e6e063ebb85eee8aa172566c139cb4e">
-                      <Image
-                        style = {{zIndex: 300, marginLeft:"20%" }}
-                        width ={300}
-                        height = {400}
-                        src={M9}
-                        alt="First Slide"
-                        />
-                        </a>
-                      </div>
-                      <div className = "col-sm-12">
-                      <a style = {{ zIndex: 1}}><Image width={300} height={35} src={watch1}/></a>
-                      </div>
-                    </div>
-                    </Carousel.Item>
-                    <Carousel.Item style = {{ marginLeft: "30%"}}>
-                    <div className = "row">
-                      <div className = "col-sm-12">
-                      <a target="_blank" rel="noreferrer noopener" href = "https://workdrive.zohoexternal.com/external/93dcd27c59c6b6306470a98e669d13528af98ad8882c3225a4e69ec4028b5971">
-                      <Image
-                        style = {{zIndex: 300, marginLeft:"20%" }}
-                        width ={300}
-                        height = {400}
-                        src={ELIA}
-                        alt="First Slide"
-                        />
-                        </a>
-                      </div>
-                      <div className = "col-sm-12">
-                      <a style = {{ zIndex: 1}}><Image width={300} height={35} src={watch1}/></a>
-                      </div>
-                    </div>
-                    </Carousel.Item>
-                    <Carousel.Item style = {{ marginLeft: "30%"}}>
-                    <div className = "row">
-                      <div className = "col-sm-12">
-                      <a target="_blank" rel="noreferrer noopener" href = "https://workdrive.zohoexternal.com/external/58a274fbffc16dbd6239c614286593d13b87a85578d27a02c1787eeb4a0f0e3f">
-                      <Image
-                        style = {{zIndex: 300, marginLeft:"20%" }}
-                        width ={300}
-                        height = {400}
-                        src={ELIB}
-                        alt="First Slide"
-                        />
-                        </a>
-                      </div>
-                      <div className = "col-sm-12">
-                      <a style = {{ zIndex: 1}}><Image width={300} height={35} src={watch1}/></a>
-                      </div>
-                    </div>
-                    </Carousel.Item>
-                    <Carousel.Item style = {{ marginLeft: "30%"}}>
-                    <div className = "row">
-                      <div className = "col-sm-12">
-                      <a target="_blank" rel="noreferrer noopener" href = "https://workdrive.zohoexternal.com/external/dfda9aba7389124831ee0281e2f2e0c8278f4595f0011d3b7a0c399d47ab3689">
-                      <Image
-                        style = {{zIndex: 300, marginLeft:"20%" }}
-                        width ={300}
-                        height = {400}
-                        src={ELIC}
-                        alt="First Slide"
-                        />
-                        </a>
-                      </div>
-                      <div className = "col-sm-12">
-                      <a style = {{ zIndex: 1}}><Image width={300} height={35} src={watch1}/></a>
-                      </div>
-                    </div>
-                    </Carousel.Item>
-                    <Carousel.Item style = {{ marginLeft: "30%"}}>
-                    <div className = "row">
-                      <div className = "col-sm-12">
-                      <a target="_blank" rel="noreferrer noopener" href = "https://workdrive.zohoexternal.com/external/6149fbdfe678da332f657f58da90cd754416bd4a6df8a392b6abec9ddda1d969">
-                      <Image
-                        style = {{zIndex: 300, marginLeft:"20%" }}
-                        width ={300}
-                        height = {400}
-                        src={ELID}
-                        alt="First Slide"
-                        />
-                        </a>
-                      </div>
-                      <div className = "col-sm-12">
-                      <a style = {{ zIndex: 1}}><Image width={300} height={35} src={watch1}/></a>
-                      </div>
-                    </div>
-                    </Carousel.Item>
-                    <Carousel.Item style = {{ marginLeft: "30%"}}>
-                    <div className = "row">
-                      <div className = "col-sm-12">
-                      <a target="_blank" rel="noreferrer noopener" href = "https://workdrive.zohoexternal.com/external/8afe8d42af547f1fa8df3979326ae58137b20a073815554e7df68c14d9d1dc89">
-                      <Image
-                        style = {{zIndex: 300, marginLeft:"20%" }}
-                        width ={300}
-                        height = {400}
-                        src={ELIE}
-                        alt="First Slide"
-                        />
-                        </a>
-                      </div>
-                      <div className = "col-sm-12">
-                      <a style = {{ zIndex: 1}}><Image width={300} height={35} src={watch1}/></a>
-                      </div>
-                    </div>
-
-                    </Carousel.Item>
-                    {/*<Carousel.Item  style = {{ marginLeft: "30%"}}>
-                        <Image
-                        
-                        style = {{ marginLeft:"20%" }}
-                        width ={300}
-                        height = {300}
-                        src={resource1}
-                        alt="First Slide"
-                        />
-                        
-                    </Carousel.Item>*/}
-  </Carousel>
+                    )
+                  })
+                }
+                    
+                  </Carousel>
                 </div>
                 <div className = "col-sm-2">
                     

@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
 import dynamic from "next/dynamic";
 // import AgentHome from "./components/AgentHome/AgentHome";
-import Navbar from "../../components/Shared/Navbar/Navbar";
+import NavbarAgent from "../../components/Shared/Navbar/Navbar-Agent";
 import Sidebar from "../../components/Shared/Sidebar/Sidebar";
 // import "./style.css";
 // import "./responsive.css";
@@ -17,7 +17,7 @@ import ig from "../../assets/img/instagram-fix-green.svg"
 import lkin from "../../assets/img/linkedin-fix-green.svg"
 import feedback from "../../assets/agents/img/feedback.svg";
 
-import book from "../../assets/agents/img/resoerce-3.jpg";
+import book from "../../assets/agents/img/resolve-page2.png";
 
 import Image from "next/image";
 import { useRouter } from "next/router";
@@ -58,6 +58,7 @@ const AgentDashboard = ({
 //Smartmates Code
 
 useEffect(()=>{
+  console.log(state?.agentsResp?.[0]?.id)
   console.log(state.studentsResp)
 },[])
   async function submitNewRecord (data){
@@ -78,9 +79,10 @@ useEffect(()=>{
     data.preventDefault()
   }
   const profileUserName = `${state?.agentsResp?.[0]?.Agency_Name || ""}`;
+  const agentID = `${state?.agentsResp?.[0]?.id || ""}`
   return (
     <>
-      <Navbar profileUserName={profileUserName} topbarLinks={topbarLinks} />
+      <NavbarAgent agentID = {agentID} profileUserName={profileUserName} topbarLinks={topbarLinks} />
       <div class="main-root">
         <Sidebar />
         <div className="main-content">
@@ -332,10 +334,10 @@ useEffect(()=>{
              */}
             </div>
             
-             <h4>Current Students</h4>
+             <h4 style = {{ fontSize: "0.9em" }}> Your StudyVillage Students</h4>
             <table className = "table table-striped table-bordered">
                         <thead>
-                          <tr className = "table-dark">
+                          <tr className = "table-sv">
                             <td>Name</td>
                             <td>Country</td>
                             <td>University</td>
@@ -390,10 +392,10 @@ useEffect(()=>{
                 </div>
               </div>
               <div className="single-card-block white-box text-center">
-                <div className="card-icon">
+                <div >
                   <Image
                     width={200}
-                    height={200}
+                    height={180}
                     src={book}
                     alt="resolve icon"
                   />
