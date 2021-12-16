@@ -7,7 +7,7 @@ module.exports ={
     domains: ["i.ibb.co", "workdrive.zohoexternal.com"],
   },
   env:{
-    NEXTAUTH_URL:'http://localhost:3000'
+    NEXTAUTH_URL:'https://svportaltemplate.vercel.app'
   }
   ,
    webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
