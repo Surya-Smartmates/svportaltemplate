@@ -59,7 +59,7 @@ const AgentDashboard = ({
 
 useEffect(()=>{
   console.log(state?.agentsResp?.[0]?.id)
-  console.log(state.studentsResp)
+  console.log(state?.studentsResp)
 },[])
   async function submitNewRecord (data){
     const submittedData = {

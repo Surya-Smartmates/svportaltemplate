@@ -2,12 +2,9 @@ import React from "react";
 import Navbar from "../../components/Shared/Navbar/Navbar";
 import Sidebar from "../../components/Shared/Sidebar/Sidebar";
 import infined from "../../assets/agents/img/Infined.jpg";
-import student1 from "../../assets/agents/img/student-1.jpg";
-import student2 from "../../assets/agents/img/student-2.jpg";
-import student3 from "../../assets/agents/img/student-3.jpg";
-import student4 from "../../assets/agents/img/student-4.jpg";
-import student5 from "../../assets/agents/img/studernt-5.jpg";
-import student6 from "../../assets/agents/img/student-6.jpg";
+
+import NavbarAgent from "../../components/Shared/Navbar/Navbar-Agent";
+
 import Image from "next/image";
 import { useRouter } from "next/router";
 import useTrackedStore from "../../store/useTrackedStore";
@@ -29,7 +26,7 @@ const AgentContact = () => {
   const profileUserName = `${state?.agentsResp?.[0]?.Agency_Name || ""}`;
   return (
     <>
-      <Navbar profileUserName={profileUserName} topbarLinks={topbarLinks} />
+      <NavbarAgent agentID = {agentID} imgSrc = {state?.agentsResp?.[0]?.Image_URL} profileUserName={profileUserName} topbarLinks={topbarLinks} />
       <div class="main-root">
         <Sidebar />
         <div className="main-content">
