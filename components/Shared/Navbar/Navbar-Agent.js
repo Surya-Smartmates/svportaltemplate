@@ -68,7 +68,7 @@ const NavbarAgent = ({ profileUserName, topbarLinks, imgSrc, agentID }) => {
                             aria-expanded='false'>
                             <div>
                             <div style = {{ width: "50%" }}>
-                            <img style = {{ width: 150, overflow: "hidden" }} className = "comp-logo" src={profileImage}/>
+                            {/*<img style = {{ width: 150, overflow: "hidden" }} className = "comp-logo" src={profileImage}/>*/}
                             </div>
                             
                                 {/*!!profileImage ? <></> : <div>
