@@ -350,7 +350,7 @@ useEffect(()=>{
                         </thead>
                         <tbody>
                         {
-                          state?.studentsResp.map((student)=>{
+                          state?.studentsResp?.map((student)=>{
                             return(
                               <tr className = "table-secondary">
                             <td>{student.Full_Name}</td>
