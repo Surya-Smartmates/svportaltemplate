@@ -44,14 +44,19 @@ const AgentDashboard = ({
   state.setStudentsResp(studentsResp);
   
 //Smartmates Code
-
-useEffect(()=>{
+const assignStudentsList = async () =>{
   console.log("test check studentsupporter")
   console.log(state?.studentsResp)
   let studentsBuffer = [...studentsList]
   studentsBuffer = state?.studentsResp
-  setStudentsList(studentsBuffer)
+  await setStudentsList(studentsBuffer)
+}
+
+useEffect(()=>{
+  assignStudentsList()
 },[])
+
+
 
 
 const [studentsList, setStudentsList] = useState([])
@@ -117,21 +122,22 @@ const [studentsList, setStudentsList] = useState([])
                           </tr>
                         </thead>
                         <tbody>
-                        { studentsList.length > 0 ? 
+                        { /*studentsList.length > 0 ? 
                           <tr>
+                            <td>{studentsList.length}</td>
                             <td></td>
                             <td></td>
                             <td></td>
                             <td></td>
                             <td></td>
-                            <td style = {{ textAlign: "center" }}></td>
                             <td></td>
                             <td></td>
                           </tr>
-                          :
-                           studentsList.map((student)=>{
+                          :*/
+                           studentsList?.map((student)=>{
                             return(
                               <tr className = "table-secondary">
+                              
                             <td style = {{ textAlign: "center" }}>{student.Full_Name}</td>
                             <td style = {{ textAlign: "center" }}>{student.Nationality}</td>
                             <td style = {{ textAlign: "center" }}>{student.Institution}</td>
