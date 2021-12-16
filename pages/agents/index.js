@@ -117,19 +117,29 @@ const [studentsList, setStudentsList] = useState([])
                           </tr>
                         </thead>
                         <tbody>
-                        {
-                          
+                        { studentsList.length > 0 ? 
+                          <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td style = {{ textAlign: "center" }}></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          :
                            studentsList.map((student)=>{
                             return(
                               <tr className = "table-secondary">
-                            <td>{student.Full_Name}</td>
-                            <td></td>
-                            <td>{student.Institution}</td>
-                            <td>{student.Institution_Semester_start_date}</td>
-                            <td></td>
+                            <td style = {{ textAlign: "center" }}>{student.Full_Name}</td>
+                            <td style = {{ textAlign: "center" }}>{student.Nationality}</td>
+                            <td style = {{ textAlign: "center" }}>{student.Institution}</td>
+                            <td style = {{ textAlign: "center" }}>{student.Institution_Semester_start_date}</td>
+                            <td style = {{ textAlign: "center" }}>{student.Estimated_Completion_Date}</td>
                             <td style = {{ width: "40px", textAlign: "center" }}>{student.How_many_total_semesters_will_this_course_take_to}</td>
-                            <td>{student.Email}</td>
-                            <td>{student.Phone}</td>
+                            <td style = {{ textAlign: "center" }}>{student.Email}</td>
+                            <td style = {{ textAlign: "center" }}>{student.Phone}</td>
                         </tr>
                             )
                           })

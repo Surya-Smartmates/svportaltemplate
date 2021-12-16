@@ -605,7 +605,7 @@ import NavbarAgent from "../../components/Shared/Navbar/Navbar-Agent";
                           </tr>
                           <tr className = "table-secondary">
                               <td>Photo:</td>
-                              <td></td>
+                              <td><a href={agentDetails.Australia_Counsellor_Image_URL} target="_blank" rel="noreferrer noopener">Click Here to view image</a></td>
                           </tr>
                           </tbody>   
                     </table>
@@ -642,7 +642,7 @@ import NavbarAgent from "../../components/Shared/Navbar/Navbar-Agent";
                           </tr>
                           <tr className = "table-secondary">
                               <td>Photo:</td>
-                              <td></td>
+                              <td><a href={agentDetails.UK_Counsellor_Image_URL} target="_blank" rel="noreferrer noopener">Click Here to view image</a></td>
                           </tr>
                           </tbody>   
                     </table>
@@ -679,7 +679,7 @@ import NavbarAgent from "../../components/Shared/Navbar/Navbar-Agent";
                           </tr>
                           <tr className = "table-secondary">
                               <td>Photo:</td>
-                              <td></td>
+                              <td><a href={agentDetails.Canada_Counsellor_Image_URL} target="_blank" rel="noreferrer noopener">Click Here to view image</a></td>
                           </tr>
                           </tbody>   
                     </table>
