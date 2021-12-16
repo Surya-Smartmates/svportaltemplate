@@ -82,7 +82,7 @@ useEffect(()=>{
   const agentID = `${state?.agentsResp?.[0]?.id || ""}`
   return (
     <>
-      <NavbarAgent agentID = {agentID} profileUserName={profileUserName} topbarLinks={topbarLinks} />
+      <NavbarAgent agentID = {agentID} imgSrc = {state?.agentsResp?.[0]?.Image_URL} profileUserName={profileUserName} topbarLinks={topbarLinks} />
       <div class="main-root">
         <Sidebar />
         <div className="main-content">

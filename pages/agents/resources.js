@@ -14,6 +14,10 @@ import xlfile from "../../assets/agents/img/xl.svg";
 import Carousel from 'react-bootstrap/Carousel'
 
 import Image from "next/image";
+
+
+import NavbarAgent from "../../components/Shared/Navbar/Navbar-Agent";
+
 import { useRouter } from "next/router";
 import useTrackedStore from "../../store/useTrackedStore";
 
@@ -41,7 +45,7 @@ const Resources = () => {
   const profileUserName = `${state?.agentsResp?.[0]?.Agency_Name || ""}`;
   return (
     <>
-      <Navbar profileUserName={profName} topbarLinks={topbarLinks} />
+      <NavbarAgent agentID = {state?.agentsResp?.[0]?.Crm_ID} imgSrc= {state?.agentsResp?.[0]?.Image_URL} profileUserName={profileUserName} topbarLinks={topbarLinks} />
       <div class="main-root">
         <Sidebar />
         <div className="main-content">

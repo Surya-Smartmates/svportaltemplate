@@ -107,7 +107,7 @@ export default NextAuth({
 			// Initial sign in
 			if (account && user) {
 				if (user.remember == "false" && account.type == "credentials") {
-					token.expire = Date.now() + 2 * 10000
+					token.expire = Date.now() + 1*24*60*60*1000
 					// token.credentials = true
 					token.remember = false
 					token.record_id = parseInt(user.record_id)

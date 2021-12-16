@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 // import "../../../assets/css/style.css";
 import logo from "../../../assets/img/SVLogo.svg";
 import user from "../../../assets/img/user.jpg";
@@ -12,7 +12,10 @@ import { signOut } from "next-auth/client";
 import { useRouter } from "next/router";
 
 const NavbarAgent = ({ profileUserName, topbarLinks, imgSrc, agentID }) => {
-    //console.log({ imgSrc });
+
+    const [profileImage, setProfileImage] = useState("")
+
+
     const state = useTrackedStore();
     const router = useRouter();
     const profile =
@@ -20,9 +23,11 @@ const NavbarAgent = ({ profileUserName, topbarLinks, imgSrc, agentID }) => {
         state?.portalUserResp?.User_Type?.toLowerCase() ||
         "";
     useEffect(()=>{
-        console.log(profileUserName)
-        console.log(agentID)
-    },[])
+        setProfileImage(state?.agentsResp?.[0]?.Image_URL)
+        console.log(profileImage)
+    },[profileImage])
+
+
         return (
         <header className='header-area'>
             <div className='header-wrapper d-flex align-items-center justify-content-between'>
@@ -34,7 +39,7 @@ const NavbarAgent = ({ profileUserName, topbarLinks, imgSrc, agentID }) => {
                     </Link>
                 </div>
                 <div className='header-right-area d-flex align-items-center'>
-                {agentID}
+                <div className = "comp-test">{agentID}</div>
                     {/* <!-- search-area --> */}
                     {/* <div className='search-area position-relative'>
                         <input type='text' placeholder='Search' />
@@ -62,12 +67,22 @@ const NavbarAgent = ({ profileUserName, topbarLinks, imgSrc, agentID }) => {
                             data-bs-toggle='dropdown'
                             aria-expanded='false'>
                             <div>
+                            <div style = {{ width: "50%" }}>
+                            <img style = {{ width: 150, overflow: "hidden" }} className = "comp-logo" src={profileImage}/>
+                            </div>
+                            
+                                {/*!!profileImage ? <></> : <div>
                                 <Image
                                     width={200}
-                                    height={"85%"}
-                                    src={user}
+                                    height={"70%"}
+                                    src={profileImage}
                                     alt=''
                                 />
+                                </div>*/}
+                                                             
+                            
+                                
+
                             </div>
                             <div className='user-btn-text'>
 
@@ -135,3 +150,4 @@ const NavbarAgent = ({ profileUserName, topbarLinks, imgSrc, agentID }) => {
 };
 
 export default NavbarAgent;
+

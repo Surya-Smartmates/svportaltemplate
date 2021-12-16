@@ -42,6 +42,8 @@ import "./agents/outline.css"
 import "./agents/index.css"
 import "../components/HomeStudent/SingleUserProfile.css"
 
+import "../components/Shared/Navbar/Navbar-Agent.css"
+
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();

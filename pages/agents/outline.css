@@ -1,6 +1,6 @@
 .carousel-control-prev-icon{
-    border-radius: 30px;
     padding: 20px;
+    margin-bottom: 10%
 }
 .carousel-control-next-icon{
     border-radius: 30px;
@@ -8,4 +8,11 @@
 }
 .carousel-indicators {
     display: none;
+}
+.carousel-control-prev{
+    margin-top: 20%;
+}
+
+.carousel-control-next{
+    margin-top: 20%;
 }

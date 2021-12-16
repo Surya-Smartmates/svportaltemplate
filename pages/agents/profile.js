@@ -14,6 +14,9 @@
 
   import editdet from "../../assets/agents/img/edit-details.png"
 
+  
+import NavbarAgent from "../../components/Shared/Navbar/Navbar-Agent";
+
   import Router from "next/router"
 
   import saveimg from "../../assets/agents/img/saveimg.png"
@@ -163,38 +166,112 @@
     let updateBuffer = [...updatedBranchVal]
     let dupeId = updateBuffer.map((data)=>{return data.id})
     let newBranchData = {}
+    let splitId = e.target.id.split(" ")
 
-
-    switch (e.target.id){
+    switch (splitId[0]){
       case "Branch_Address":
-        updateBuffer.splice(dupeId.indexOf(e.target.id), 1)
-        console.log(updateBuffer)
+        if(dupeId.indexOf(splitId[1]) !== -1){
+
+          newBranchData = await updateBuffer[dupeId.indexOf(splitId[1])]
+          updateBuffer.splice(dupeId.indexOf(splitId[1]), 1)
+
+          newBranchData.Address = e.target.value
+          updateBuffer.push(newBranchData)
+          setUpdatedBranchVal(updateBuffer)
+        }else{
+          newBranchData.Address = e.target.value
+          newBranchData.id= splitId[1]
+          updateBuffer.push(newBranchData)
+          setUpdatedBranchVal(updateBuffer)
+
+        }
+        
        /** newBranchData.id = e.target.id
         newBranchData.Address = e.target.value
         
-        updateBuffer.push(newBranchData)
+        
         
         */
-        await setUpdatedBranchVal(updateBuffer) 
-
+        //await setUpdatedBranchVal(updateBuffer) 
+        break
         case "Branch_Phone_Number":
-        newBranchData.id = e.target.id
-        newBranchData.Phone_Number = e.target.value
-        updateBuffer.push(newBranchData)
+          if(dupeId.indexOf(splitId[1]) !== -1){
+            let formatSubmit = {...updatedValue}
+            newBranchData = await updateBuffer[dupeId.indexOf(splitId[1])]
+            updateBuffer.splice(dupeId.indexOf(splitId[1]), 1)
+  
+            newBranchData.Phone_Number = e.target.value
+            updateBuffer.push(newBranchData)
+            setUpdatedBranchVal(updateBuffer)
+
+            formatSubmit.Branch_Office = updatedBranchVal
+            setUpdatedValue(formatSubmit)
+            
+          }else{
+            let formatSubmit = {...updatedValue}
+            newBranchData.Phone_Number = e.target.value
+            
+            newBranchData.id= splitId[1]
+            updateBuffer.push(newBranchData)
+            setUpdatedBranchVal(updateBuffer)
+
+            formatSubmit.Branch_Office = updatedBranchVal
+            setUpdatedValue(formatSubmit)
+            
+          }
         break;
-        await setUpdatedBranchVal(updateBuffer) 
         case "Person_managing_this_branch":
-        newBranchData.id = e.target.id
-        newBranchData.Person_managing_this_branch = e.target.value
-        updateBuffer.push(newBranchData)
-        await setUpdatedBranchVal(updateBuffer) 
+          if(dupeId.indexOf(splitId[1]) !== -1){
+            let formatSubmit = {...updatedValue}
+            newBranchData = await updateBuffer[dupeId.indexOf(splitId[1])]
+            updateBuffer.splice(dupeId.indexOf(splitId[1]), 1)
+  
+            newBranchData.Person_managing_this_branch = e.target.value
+            updateBuffer.push(newBranchData)
+            setUpdatedBranchVal(updateBuffer)
+
+            formatSubmit.Branch_Office = updatedBranchVal
+            setUpdatedValue(formatSubmit)
+          }else{
+            let formatSubmit = {...updatedValue}
+            newBranchData.Person_managing_this_branch = e.target.value
+            newBranchData.id= splitId[1]
+            updateBuffer.push(newBranchData)
+            setUpdatedBranchVal(updateBuffer)
+
+            formatSubmit.Branch_Office = updatedBranchVal
+            setUpdatedValue(formatSubmit)
+  
+          }
         break;
         case "Branch_Email":
-        newBranchData.id = e.target.id
-        newBranchData.Email = e.target.value
-        updateBuffer.push(newBranchData)
-        await setUpdatedBranchVal(updateBuffer) 
+          if(dupeId.indexOf(splitId[1]) !== -1){
+            let formatSubmit = {...updatedValue}
+
+            newBranchData = await updateBuffer[dupeId.indexOf(splitId[1])]
+            updateBuffer.splice(dupeId.indexOf(splitId[1]), 1)
+  
+            newBranchData.Email = e.target.value
+            updateBuffer.push(newBranchData)
+            setUpdatedBranchVal(updateBuffer)
+
+            formatSubmit.Branch_Office = updatedBranchVal
+            setUpdatedValue(formatSubmit)
+          }else{
+            let formatSubmit = {...updatedValue}
+
+            newBranchData.Phone_Number = e.target.value
+            newBranchData.id= splitId[1]
+            updateBuffer.push(newBranchData)
+            setUpdatedBranchVal(updateBuffer)
+
+            formatSubmit.Branch_Office = updatedBranchVal
+            setUpdatedValue(formatSubmit)
+  
+          }
         break; 
+        default:
+          console.log("nope")
     }
   }
 
@@ -316,9 +393,13 @@
         console.log("nope")
     }
   }
-
+  const updateBranchCRM = async () =>{
+    let newBuffer = {...updatedValue}
+    newBuffer.Branch_Office = updatedBranchVal
+    setUpdatedValue(newBuffer)
+  }
   const updateAgentsCRM = async () =>{
-    const updateTaskinCRM = await axios.put(`/api/updateRecord`, {
+    const updateCRMAgent = await axios.put(`/api/updateRecord`, {
       moduleName : "Agents1",
       updated_data : {
         "data": [
@@ -326,8 +407,7 @@
         ]
       }
     })
-
-    console.log(updateTaskinCRM) 
+    console.log(updateCRMAgent)
     router.push("/")
   }
   useEffect(()=>{
@@ -363,8 +443,8 @@
 
     const profileUserName = `${state?.agentsResp?.[0]?.Agency_Name || ""}`;
     return (
-      <>
-        <Navbar profileUserName={profileUserName} topbarLinks={topbarLinks} />
+      <>     
+       <NavbarAgent agentID = {state?.agentsResp?.[0]?.Crm_ID} profileUserName={profileUserName} topbarLinks={topbarLinks} />
         <div class="main-root">
           <Sidebar />
           <div className="main-content">
@@ -411,19 +491,73 @@
                           </tr>
                           <tr  className = "table-secondary">
                               <td>Branch Office Address:</td>
-                              <td>{!editContacts ? BranchOffice[0]?.Address  : <input onChange = {updatingBranch} id = "Branch_Address" style = {{width: "100%"}} defaultValue = {BranchOffice[0]?.Address} />}</td>
+                              <td>
+                              {!editContacts ? BranchOffice.map((list)=>{
+                                return (
+                                  <div>
+                                  {list.Address}<br/>
+                                  </div>)
+                              })  : BranchOffice.map((list) =>{
+                                return(
+                                  <div><br/>
+                                  <input onChange = {updatingBranch} id={`Branch_Address ${list.id}`} style = {{width: "100%"}} defaultValue = {list.Address} />
+                                  </div>
+                                )
+                              })}
+                              </td>
                           </tr>
                           <tr style = {{ backgroundColor: "#aaaaaa" }}>
                               <td>Branch Office Phone Number:</td>
-                              <td>{!editContacts ? BranchOffice[0]?.Phone_Number  : <input onChange = {updatingBranch} id = "Branch_Phone_Number" style = {{width: "100%"}} defaultValue = {BranchOffice[0]?.Phone_Number} />}</td>
+                              <td>
+                              {!editContacts ? BranchOffice.map((list)=>{
+                                return (
+                                  <div>
+                                  {list.Phone_Number}<br/>
+                                  </div>)
+                              })  : BranchOffice.map((list)=>{
+                                  return(
+                                    <div>
+                                    <input onChange = {updatingBranch} id = {`Branch_Phone_Number ${list.id}`} style = {{width: "100%"}} defaultValue = {list.Phone_Number} />
+                                    </div>
+                                    
+                                  )
+                              })}
+                              </td>
                           </tr>
                           <tr  className = "table-secondary">
                               <td>Key Contact at Branch Office:</td>
-                              <td>{!editContacts ? BranchOffice[0]?.Person_managing_this_branch  : <input onChange = {updatingBranch} id = "Person_managing_this_branch" style = {{width: "100%"}} defaultValue = {BranchOffice[0]?.Person_managing_this_branch} />}</td>
+                              <td>
+                              {!editContacts ? BranchOffice.map((list)=>{
+                                return(
+                                  <div>
+                                  {list.Person_managing_this_branch}<br/>
+                                  </div>
+                                )
+                              })  : BranchOffice.map((list)=>{
+                                return(
+                                  <div>
+                                  <input onChange = {updatingBranch} id = {`Person_managing_this_branch ${list.id}`} style = {{width: "100%"}} defaultValue = {list.Person_managing_this_branch} />
+                                  </div>
+                                )
+                                
+                              })}</td>
                           </tr>
                           <tr style = {{ backgroundColor: "#aaaaaa" }}>
                               <td>Key Contact at Branch Office Email:</td>
-                              <td>{!editContacts ? BranchOffice[0]?.Email  : <input onChange = {updatingBranch} id = "Branch_Email" style = {{width: "100%"}} defaultValue = {BranchOffice[0]?.Email} />}</td>
+                              <td>{!editContacts ?
+                              BranchOffice.map((list)=>{
+                                return(
+                                  <div>
+                                  {list.Email}<br/>
+                                  </div>
+                                )
+                              })   : BranchOffice.map((list)=>{
+                                return(
+                                  <div>
+                                  <input onChange = {updatingBranch} id = {`Branch_Email ${list.id}` }style = {{width: "100%"}} defaultValue = {list.Email} />
+                                  </div>
+                                )
+                              })}</td>
                           </tr>
                           </tbody>   
                     </table>

@@ -11,9 +11,11 @@ import resource5 from "../../assets/agents/img/resorce-5.jpg";
 import Carousel from 'react-bootstrap/Carousel'
 
 
+import NavbarAgent from "../../components/Shared/Navbar/Navbar-Agent";
+
 import watch1 from "../../assets/agents/img/watch1.JPG"
-import sleft from '../../assets/img/slider/slider-left.svg'
-import sright from '../../assets/img/slider/slider-right.svg'
+import sleft from '../../assets/agents/img/leftthick.png'
+import sright from '../../assets/agents/img/rightthick.png'
 
 import M1 from '../../assets/img/M1-Settling-In.png'
 import M2 from '../../assets/img/M2-Consolidating-Studies.png'
@@ -50,8 +52,8 @@ const Outline = () => {
     setProfName(state?.agentsResp?.[0]?.Agency_Name)
   }, [])
 
-  const arrowLeft = <span><Image width ={200} height = {200} src={sleft}/></span>
-  const arrowRight = <span><Image width ={200} height = {200} src={sright}/></span>
+  const arrowLeft = <span ><Image width ={"70%"} height = {"70%"} src={sleft}/></span>
+  const arrowRight = <span ><Image width ={"70%"} height = {"70%"} src={sright}/></span>
 
   const pdfWidth = 350
   const pdfHeight = 500
@@ -202,9 +204,10 @@ const Outline = () => {
     }
     
   ]
+  const profileUserName = `${state?.agentsResp?.[0]?.Agency_Name || ""}`;
   return (
     <>
-      <Navbar profileUserName={profName} topbarLinks={topbarLinks} />
+      <NavbarAgent agentID = {state?.agentsResp?.[0]?.Crm_ID} imgSrc={state?.agentsResp?.[0]?.Image_URL} profileUserName={profileUserName} topbarLinks={topbarLinks} />
       <div class="main-root">
         <Sidebar />
         <div className="main-content">

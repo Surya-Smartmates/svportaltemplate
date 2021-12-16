@@ -4,7 +4,7 @@ const withTM = require("next-transpile-modules")(["@madzadev/image-slider"]);
 module.exports ={
   reactStrictMode: true,
   images: {
-    domains: ["i.ibb.co"],
+    domains: ["i.ibb.co", "workdrive.zohoexternal.com"],
   },
   env:{
     NEXTAUTH_URL:'https://svportaltemplate.vercel.app'
