@@ -59,7 +59,7 @@ useEffect(()=>{
 
 
 
-const [studentsList, setStudentsList] = useState([])
+const [studentsList, setStudentsList] = useState([{Full_Name:"", Nationality:"", Institution:"",Institution_Semester_start_date:"", Estimated_Completion_Date:"",How_many_total_semesters_will_this_course_take_to:"", Email:"", Phone:"" }])
   
   const profileUserName = `${state?.agentsResp?.[0]?.Agency_Name || ""}`;
   const agentID = `${state?.agentsResp?.[0]?.id || ""}`
