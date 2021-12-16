@@ -26,7 +26,7 @@ const AgentContact = () => {
   const profileUserName = `${state?.agentsResp?.[0]?.Agency_Name || ""}`;
   return (
     <>
-      <NavbarAgent agentID = {agentID} imgSrc = {state?.agentsResp?.[0]?.Image_URL} profileUserName={profileUserName} topbarLinks={topbarLinks} />
+      <NavbarAgent agentID = {state?.agentsResp?.[0]?.Crm_ID} imgSrc = {state?.agentsResp?.[0]?.Image_URL} profileUserName={profileUserName} topbarLinks={topbarLinks} />
       <div class="main-root">
         <Sidebar />
         <div className="main-content">
