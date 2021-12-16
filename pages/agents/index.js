@@ -53,9 +53,6 @@ useEffect(()=>{
   setStudentsList(studentsBuffer)
 },[])
 
-useEffect(()=>{
-  console.log(studentsList)
-},[studentsList])
 
 const [studentsList, setStudentsList] = useState([])
   

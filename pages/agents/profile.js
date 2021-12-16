@@ -577,7 +577,7 @@ import NavbarAgent from "../../components/Shared/Navbar/Navbar-Agent";
                   {/*TABLE FOR AU MANAGER */}
                         <table className = "table table-striped table-bordered">
                           <thead>
-                            <tr className = "table-dark">
+                            <tr className = "table-sv">
                               <td style = {{ width: "50%" }}>Australian Manager</td>
                               <td>Details</td>
                             </tr>
@@ -614,7 +614,7 @@ import NavbarAgent from "../../components/Shared/Navbar/Navbar-Agent";
                     {/*UK MANAGER TABLE */}
                     <table style ={{marginTop: "2%"}} className = "table table-striped table-bordered">
                           <thead>
-                            <tr className = "table-dark">
+                            <tr className = "table-sv">
                               <td style = {{ width: "50%" }}>UK Manager</td>
                               <td>Details:</td>
                             </tr>
@@ -651,7 +651,7 @@ import NavbarAgent from "../../components/Shared/Navbar/Navbar-Agent";
                     {/*TABLE MANAGER CA */}
                     <table style ={{marginTop: "2%"}} className = "table table-striped table-bordered">
                           <thead>
-                            <tr className = "table-dark">
+                            <tr className = "table-sv">
                               <td style = {{ width: "50%" }}>Canada Manager</td>
                               <td>Details</td>
                             </tr>
