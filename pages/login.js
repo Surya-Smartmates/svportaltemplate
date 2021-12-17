@@ -265,18 +265,7 @@ const Login = () => {
                           {error && error.message}
                         </Typography>
                       </>
-                      // <CustomTextField
-                      //   id="password"
-                      //   type="password"
-                      //   variant="outlined"
-                      //   fullWidth
-                      //   sx={{
-                      //     mb: 3,
-                      //   }}
-                      //   error={!!error}
-                      //   onChange={onChange}
-                      //   helperText={error ? error.message : null}
-                      // />
+                     
                     )}
                   />
 

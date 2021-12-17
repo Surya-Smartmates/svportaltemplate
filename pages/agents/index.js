@@ -45,8 +45,6 @@ const AgentDashboard = ({
   
 //Smartmates Code
 const assignStudentsList = async () =>{
-  console.log("test check studentsupporter")
-  console.log(state?.studentsResp)
   let studentsBuffer = [...studentsList]
   studentsBuffer = state?.studentsResp
   await setStudentsList(studentsBuffer)
@@ -54,6 +52,7 @@ const assignStudentsList = async () =>{
 
 useEffect(()=>{
   assignStudentsList()
+  console.log(portalUserResp)
 },[])
 
 
@@ -122,19 +121,7 @@ const [studentsList, setStudentsList] = useState([{Full_Name:"", Nationality:"",
                           </tr>
                         </thead>
                         <tbody>
-                        { /*studentsList.length > 0 ? 
-                          <tr>
-                            <td>{studentsList.length}</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                          </tr>
-                          :*/
-                           studentsList?.map((student)=>{
+                        {/*studentsList?.map((student)=>{
                             return(
                               <tr className = "table-secondary">
                               
@@ -149,7 +136,7 @@ const [studentsList, setStudentsList] = useState([{Full_Name:"", Nationality:"",
                         </tr>
                             )
                           })
-                        }
+                        */}
                         
                         </tbody>   
                   </table>
@@ -251,17 +238,8 @@ export async function getServerSideProps(context) {
   }
   //* Everyting is now OK, do your additional Code Here
   let portalUserResp = {};
-  let parentsResp = [];
   let studentsResp = [];
-  let enrolmentsResp = [];
-  let surveysResp = [];
-  let svTasksResp = [];
-  let studentSupportersResp = [];
   let agentsResp = [];
-  let portalAssets = [];
-  let parentsMeetingDescriptions = [];
-  let lifecycleDetails = [];
-  let allAssets = [];
   let leadsResp = [];
   const {
     data: { access_token: accessToken },
@@ -286,17 +264,6 @@ export async function getServerSideProps(context) {
     }
   );
   agentsResp = agentResp?.data;
-  // // //todo Fetching Leads for that Agent
-  // const { data: leadResp } = await axios.post(
-  //     `${process.env.NEXTAUTH_URL}/api/getZohoData`,
-  //     {
-  //         moduleApiName: "Leads",
-  //         criteria: `(Agent:equals:${agentsResp?.[0]?.id})`,
-  //     }
-  // );
-  // leadsResp = leadResp?.data;
-
-  // //todo Fetching Agent's Students Details
  
   const { data: stuResp } = await axios.post(
     `${process.env.NEXTAUTH_URL}/api/getZohoData`,
