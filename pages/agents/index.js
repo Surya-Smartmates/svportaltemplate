@@ -46,12 +46,12 @@ const AgentDashboard = ({
 //Smartmates Code
 const assignStudentsList = async () =>{
   let studentsBuffer = [...studentsList]
-  studentsBuffer = state?.studentsResp
+  state?.studentsResp !== null || state?.studentsResp !== undefined ? studentsBuffer = state?.studentsResp : studentsBuffer = [{Full_Name:"", Nationality:"", Institution:"",Institution_Semester_start_date:"", Estimated_Completion_Date:"",How_many_total_semesters_will_this_course_take_to:"", Email:"", Phone:"" }]
   await setStudentsList(studentsBuffer)
 }
 
 useEffect(()=>{
-  assignStudentsList()
+  //assignStudentsList()
   console.log(portalUserResp)
 },[])
 
@@ -121,21 +121,27 @@ const [studentsList, setStudentsList] = useState([{Full_Name:"", Nationality:"",
                           </tr>
                         </thead>
                         <tbody>
-                        {studentsList?.map((student)=>{
-                            return(
-                              <tr className = "table-secondary">
-                              
-                            <td style = {{ textAlign: "center" }}>{student.Full_Name}</td>
-                            <td style = {{ textAlign: "center" }}>{student.Nationality}</td>
-                            <td style = {{ textAlign: "center" }}>{student.Institution}</td>
-                            <td style = {{ textAlign: "center" }}>{student.Institution_Semester_start_date}</td>
-                            <td style = {{ textAlign: "center" }}>{student.Estimated_Completion_Date}</td>
-                            <td style = {{ width: "40px", textAlign: "center" }}>{student.How_many_total_semesters_will_this_course_take_to}</td>
-                            <td style = {{ textAlign: "center" }}>{student.Email}</td>
-                            <td style = {{ textAlign: "center" }}>{student.Phone}</td>
-                        </tr>
-                            )
-                          })
+                        {state?.studentsResp.length === 0 ?
+                          <div>
+                          You currently don't have any students registered
+                          </div>:
+                            state?.studentsResp?.map((students)=>{
+                              return(
+                                
+                                <tr>
+                                <td style = {{ textAlign: "center" }}>{students.Full_Name}</td>
+                                <td style = {{ textAlign: "center" }}>{students.Nationality}</td>
+                                <td style = {{ textAlign: "center" }}>{students.Institution}</td>
+                                <td style = {{ textAlign: "center" }}>{students.Institution_Semester_start_date}</td>
+                                <td style = {{ textAlign: "center" }}>{students.Estimated_Completion_Date}</td>
+                                <td style = {{ width: "40px", textAlign: "center" }}>{students.How_many_total_semesters_will_this_course_take_to}</td>
+                                <td style = {{ textAlign: "center" }}>{students.Email}</td>
+                                <td style = {{ textAlign: "center" }}>{students.Phone}</td>
+                                </tr>
+                            
+                              )
+                            })
+                            
                         }
                         
                         </tbody>   
@@ -272,7 +278,7 @@ export async function getServerSideProps(context) {
       criteria: `(Agent_Name:equals:${agentsResp?.[0]?.id})`,
     }
   );
-  studentsResp = stuResp?.data;
+  studentsResp = stuResp?.data !== undefined ? stuResp?.data : [];
   console.log({ studentsResp });
 
   return {
