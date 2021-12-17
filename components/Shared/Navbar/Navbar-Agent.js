@@ -40,26 +40,7 @@ const NavbarAgent = ({ profileUserName, topbarLinks, imgSrc, agentID }) => {
                 </div>
                 <div className='header-right-area d-flex align-items-center'>
                 <div className = "comp-test">{agentID}</div>
-                    {/* <!-- search-area --> */}
-                    {/* <div className='search-area position-relative'>
-                        <input type='text' placeholder='Search' />
-                        <span>
-                            <FontAwesomeIcon icon={faSearch} />
-                        </span>
-                    </div> */}
-                    {/* <div className='mobo-bar d-md-none'>
-                        <div className='bar'>
-                            <span className='border-bar'></span>
-                            <span className='border-bar hide-bar'></span>
-                            <span className='border-bar'></span>
-                        </div>
-                    </div> */}
-                    {/* <div className='notifiation-area'>
-                        <div className='notification-icon'>
-                            <FontAwesomeIcon className='fas' icon={faBell} />
-                            <span>2</span>
-                        </div>
-                    </div> */}
+                   
                     <div className='user-btn-area dropdown'>
                         <div
                             className='user-btn-wrapper d-flex align-items-center dropdown-toggle'
@@ -68,17 +49,17 @@ const NavbarAgent = ({ profileUserName, topbarLinks, imgSrc, agentID }) => {
                             aria-expanded='false'>
                             <div>
                             <div style = {{ width: "50%" }}>
-                            <img style = {{ width: 150, overflow: "hidden" }} className = "comp-logo" src={profileImage}/>
+                            {/*<img className = "comp-logo"  src={state?.agentsResp?.[0]?.Image_URL}/>*/}
                             </div>
                             
-                                {/*!!profileImage ? <></> : <div>
+                                 <div>
                                 <Image
                                     width={200}
-                                    height={"70%"}
-                                    src={profileImage}
+                                    height={"85%"}
+                                    src={state?.agentsResp?.[0]?.Image_URL}
                                     alt=''
                                 />
-                                </div>*/}
+                                </div>
                                                              
                             
                                 

@@ -1,7 +1,9 @@
 .comp-logo{
-    object-fit: cover;
+    width: 130;
+     overflow: "hidden";
+      object-fit: "contain"
 }
 
 .comp-test{
-    font-weight: bold
+    font-weight: 100
 }
