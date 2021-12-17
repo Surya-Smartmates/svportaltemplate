@@ -121,7 +121,7 @@ const [studentsList, setStudentsList] = useState([{Full_Name:"", Nationality:"",
                           </tr>
                         </thead>
                         <tbody>
-                        {/*studentsList?.map((student)=>{
+                        {studentsList?.map((student)=>{
                             return(
                               <tr className = "table-secondary">
                               
@@ -136,7 +136,7 @@ const [studentsList, setStudentsList] = useState([{Full_Name:"", Nationality:"",
                         </tr>
                             )
                           })
-                        */}
+                        }
                         
                         </tbody>   
                   </table>
