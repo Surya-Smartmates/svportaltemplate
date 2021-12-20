@@ -22,6 +22,8 @@ import * as cookie from "cookie";
 import axios from "axios";
 import _ from "lodash";
 
+import AgentProfile from "./profile"
+import Outline from "./outline"
 
 // console.log({ Chart });
 const AgentDashboard = ({
@@ -55,19 +57,26 @@ useEffect(()=>{
   console.log(portalUserResp)
 },[])
 
-
+const changeMainView = () =>{
+  setMainView(<Outline/>)
+}
 
 
 const [studentsList, setStudentsList] = useState([{Full_Name:"", Nationality:"", Institution:"",Institution_Semester_start_date:"", Estimated_Completion_Date:"",How_many_total_semesters_will_this_course_take_to:"", Email:"", Phone:"" }])
-  
+
+const [mainView, setMainView] = useState(<AgentProfile/>)
   const profileUserName = `${state?.agentsResp?.[0]?.Agency_Name || ""}`;
   const agentID = `${state?.agentsResp?.[0]?.id || ""}`
   return (
     <>
       <NavbarAgent agentID = {state?.agentsResp?.[0]?.Crm_ID} imgSrc = {state?.agentsResp?.[0]?.Image_URL} profileUserName={profileUserName} topbarLinks={topbarLinks} />
       <div class="main-root">
+      
         <Sidebar />
-        <div className="main-content">
+        
+        {mainView}
+        <button className = "btn btn-primary" onClick={()=>{changeMainView()}}>TEST CHANGE MAINVIEW</button>
+        {/*<div className="main-content">
           <div className="content-wrapper">
             
             <div className="content-title">
@@ -121,7 +130,7 @@ const [studentsList, setStudentsList] = useState([{Full_Name:"", Nationality:"",
                           </tr>
                         </thead>
                         <tbody>
-                        {state?.studentsResp.length === 0 ?
+                        {state?.studentsResp?.length === 0 ?
                           <div>
                           You currently don't have any students registered
                           </div>:
@@ -146,15 +155,9 @@ const [studentsList, setStudentsList] = useState([{Full_Name:"", Nationality:"",
                         
                         </tbody>   
                   </table>
-            {/* register-area_End */}
             <div className="card-block-area">
-              {/* single-card */}
-              
-              {/* single-card */}
-              {/* single-card */}
               <div className="single-card-block white-box text-center">
               <div className= 'student-card-icon'>
-                    {/*<Image width={100} height={100} src={social} alt='' width={20} height={20}/>*/}
                     <a href = "https://www.facebook.com/105113841330878" target = "_blank" rel="noreferrer noopener"><Image className = "socmed-image"  src={fb} alt=''/></a>
                     <a href = "https://www.youtube.com/channel/UCbzNF9F-uZDotmUWL_p8vhQ" target = "_blank" rel="noreferrer noopener"><Image className = "socmed-image-yt" src={yt} alt=''/></a>
                     <a href = "https://www.linkedin.com/company/69714823" target = "_blank" rel="noreferrer noopener"><Image  className = "socmed-image" src={lkin} alt=''/></a>
@@ -191,7 +194,7 @@ const [studentsList, setStudentsList] = useState([{Full_Name:"", Nationality:"",
              
             </div>
           </div>
-        </div>
+        </div>*/}
       </div>
     </>
   );
