@@ -11,21 +11,53 @@ import useTrackedStore from "../../../store/useTrackedStore";
 import { signOut } from "next-auth/client";
 import { useRouter } from "next/router";
 
-const NavbarAgent = ({ profileUserName, topbarLinks, imgSrc, agentID }) => {
+//base64 converter
+import imageToBase64 from 'image-to-base64/browser'
 
-    const [profileImage, setProfileImage] = useState("")
+const NavbarAgent = ({ profileUserName, topbarLinks, imgSrc, agentID }) => {
 
 
     const state = useTrackedStore();
     const router = useRouter();
+
+    const [blurBase64, setBlurBase64] = useState('')
+    const [agentImg, setAgentImg] = useState(<Image
+        width={200}
+        height={'85%'}
+        src="/images/users/welcome.jpg"
+        alt=''
+        
+    />)
+
     const profile =
         router.pathname.split("/")?.[1] ||
         state?.portalUserResp?.User_Type?.toLowerCase() ||
         "";
-    useEffect(()=>{
-        setProfileImage(state?.agentsResp?.[0]?.Image_URL)
-        console.log(profileImage)
-    },[profileImage])
+
+async function convertTo64 (){
+    await imageToBase64('/images/users/welcome.jpg').then((res)=>{
+        setBlurBase64(res)
+    }).catch((error)=>{
+        console.log(error)
+    })
+}
+
+
+useEffect(()=>{
+    convertTo64()
+    console.log(state?.agentsResp?.[0]?.New_Agent_Image_URL)
+
+    if(state?.agentsResp?.[0]?.New_Agent_Image_URL !== null || state?.agentsResp?.[0]?.New_Agent_Image_URL !== undefined){
+        setAgentImg(<Image
+            width={200}
+            height={'85%'}
+            src={state?.agentsResp?.[0]?.New_Agent_Image_URL}
+            alt=''
+            
+        />)
+    }
+},[])
+
 
 
         return (
@@ -49,16 +81,15 @@ const NavbarAgent = ({ profileUserName, topbarLinks, imgSrc, agentID }) => {
                             aria-expanded='false'>
                             <div>
                             <div style = {{ width: "50%" }}>
-                            {/*<img className = "comp-logo"  src={state?.agentsResp?.[0]?.Image_URL}/>*/}
+                            {/*<img className = "comp-logo"
+                                '/images/users/welcome.jpg'
+                             src={state?.agentsResp?.[0]?.New_Agent_Image_URL}/>
+                            https://workdrive.zohoexternal.com/external/fd1fd0f17974ef90…81f222a5ba6f79faaacf9681e54ce66768cf0ea7?directDownload=true
+                            {state?.agentsResp?.[0]?.New_Agent_Image_URL}*/}
                             </div>
                             
                                  <div>
-                                <Image
-                                    width={200}
-                                    height={"85%"}
-                                    src={state?.agentsResp?.[0]?.Image_URL}
-                                    alt=''
-                                />
+                                {agentImg}
                                 </div>
                                                              
                             

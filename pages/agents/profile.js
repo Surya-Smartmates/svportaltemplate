@@ -21,6 +21,8 @@ import NavbarAgent from "../../components/Shared/Navbar/Navbar-Agent";
 
   import saveimg from "../../assets/agents/img/saveimg.png"
 
+  import cancel from "../../assets/agents/img/cancel.png"
+
   import Navbar from "../../components/Shared/Navbar/Navbar";
   import Sidebar from "../../components/Shared/Sidebar/Sidebar";
 
@@ -460,37 +462,37 @@ import NavbarAgent from "../../components/Shared/Navbar/Navbar-Agent";
                         <table className = "table table-striped table-bordered">
                           <thead>
                             <tr className = "table-sv">
-                              <td style = {{ width: "50%" }}>{state?.agentsResp?.[0]?.Agency_Name}</td>
+                              <td style = {{ width: "40%" }}>{state?.agentsResp?.[0]?.Agency_Name}</td>
                               <td>Details</td>
                             </tr>
                           </thead>
                           <tbody>
                           <tr  className = "table-secondary">
-                              <td>Company Principal:</td>
+                              <td  className = "table-kn">Company Principal:</td>
                               <td>{!editContacts ? agentDetails.Managing_Principal : <input id = "Managing_Principal" style = {{width: "100%"}} onChange= {updatingContacts} defaultValue = {agentDetails.Managing_Principal} />}</td>
                           </tr>
                           <tr  className = "table-secondary">
-                              <td>Referral ID:</td>
+                              <td  className = "table-kn">Referral ID:</td>
                               <td>{state?.agentsResp?.[0]?.Crm_ID}</td>
                           </tr>
                           <tr  className = "table-secondary">
-                              <td>Key Contact Email Address:</td>
+                              <td  className = "table-kn">Key Contact Email Address:</td>
                               <td>{!editContacts ? agentDetails.Email : <input id = "Email" style = {{width: "100%"}} onChange= {updatingContacts} defaultValue = {agentDetails.Email} />}</td>
                           </tr>
                           <tr style = {{ backgroundColor: "#aaaaaa" }}>
-                              <td>Company Address:</td>
+                              <td  className = "table-kn">Company Address:</td>
                               <td>{!editContacts ? agentDetails.Street_Address : <input id = "Street_Address" style = {{width: "100%"}} onChange= {updatingContacts} defaultValue = {agentDetails.Street_Address} />}</td>
                           </tr>
                           <tr className = "table-secondary">
-                              <td>Phone Number:</td>
+                              <td  className = "table-kn">Phone Number:</td>
                               <td>{!editContacts ? agentDetails.Phone : <input id="Phone" style = {{width: "100%"}} onChange= {updatingContacts} defaultValue = {agentDetails.Phone} />}</td>
                           </tr>
                           <tr style = {{ backgroundColor: "#aaaaaa" }}>
-                              <td>Website:</td>
+                              <td  className = "table-kn">Website:</td>
                               <td>{!editContacts ? agentDetails.Company_Website  : <input id="Company_Website" onChange= {updatingContacts} style = {{width: "100%"}} defaultValue = {agentDetails.Company_Website} />}</td>
                           </tr>
                           <tr  className = "table-secondary">
-                              <td>Branch Office Address:</td>
+                              <td  className = "table-kn">Branch Office Address:</td>
                               <td>
                               {!editContacts ? BranchOffice.map((list)=>{
                                 return (
@@ -507,7 +509,7 @@ import NavbarAgent from "../../components/Shared/Navbar/Navbar-Agent";
                               </td>
                           </tr>
                           <tr style = {{ backgroundColor: "#aaaaaa" }}>
-                              <td>Branch Office Phone Number:</td>
+                              <td  className = "table-kn">Branch Office Phone Number:</td>
                               <td>
                               {!editContacts ? BranchOffice.map((list)=>{
                                 return (
@@ -525,7 +527,7 @@ import NavbarAgent from "../../components/Shared/Navbar/Navbar-Agent";
                               </td>
                           </tr>
                           <tr  className = "table-secondary">
-                              <td>Key Contact at Branch Office:</td>
+                              <td className = "table-kn">Key Contact at Branch Office:</td>
                               <td>
                               {!editContacts ? BranchOffice.map((list)=>{
                                 return(
@@ -543,7 +545,7 @@ import NavbarAgent from "../../components/Shared/Navbar/Navbar-Agent";
                               })}</td>
                           </tr>
                           <tr style = {{ backgroundColor: "#aaaaaa" }}>
-                              <td>Key Contact at Branch Office Email:</td>
+                              <td  className = "table-kn">Key Contact at Branch Office Email:</td>
                               <td>{!editContacts ?
                               BranchOffice.map((list)=>{
                                 return(
@@ -563,7 +565,7 @@ import NavbarAgent from "../../components/Shared/Navbar/Navbar-Agent";
                     </table>
                         
                         
-                    <a style = {{ marginTop: "2%" }} onClick={()=>{setEditContacts(!editContacts)}}><Image width= {150} height={35} src={editdet}/></a>
+                    <a  style = {{ marginTop: "2%", marginBottom: "2%"}} onClick = {()=>{setEditAUManager(!editAUManager)}}><Image width= {150} height={35} src={editdet}/></a> <a  style = {{ marginTop: "2%", marginBottom: "2%", marginLeft: "1%"}}><Image width= {150} height={35} src={cancel}/></a><a  style = {{ marginTop: "2%", marginBottom: "2%", marginLeft: "2%"}}><Image width= {150} height={35} src={saveimg}/></a>
                           
                           
 
@@ -584,7 +586,7 @@ import NavbarAgent from "../../components/Shared/Navbar/Navbar-Agent";
                           </thead>
                           <tbody>
                           <tr  className = "table-secondary">
-                              <td>Counsellor Name:</td>
+                              <td  className = "table-kn">Counsellor Name:</td>
                               <td>{!editAUManager ? (agentDetails.First_Name_AU ? agentDetails.First_Name_AU : "")+ " " + (agentDetails.Last_Name_AU ? agentDetails.Last_Name_AU : "") : 
                               <div>
                               <label>First Name</label><input onChange={updateAUManager} id = "First_Name_AU" style = {{width: "70%", marginLeft: "5%"}} defaultValue = {agentDetails.First_Name_AU} /><br/>
@@ -592,36 +594,36 @@ import NavbarAgent from "../../components/Shared/Navbar/Navbar-Agent";
                               </div>}</td>
                           </tr>
                           <tr style = {{ backgroundColor: "#aaaaaa" }}>
-                              <td>Counsellor Email:</td>
+                              <td  className = "table-kn">Counsellor Email:</td>
                               <td>{!editAUManager ? agentDetails.Email_AU : <input onChange={updateAUManager} type = "email" id = "Email_AU" style = {{width: "100%"}} defaultValue = {agentDetails.Email_AU} />}</td>
                           </tr>
                           <tr  className = "table-secondary">
-                              <td>Counsellor Phone Number/Whatsapp:</td>
+                              <td  className = "table-kn">Counsellor Phone Number/Whatsapp:</td>
                               <td>{!editAUManager ? agentDetails.Phone_AU : <input onChange={updateAUManager} id="Phone_AU" style = {{width: "100%"}} defaultValue = {agentDetails.Phone_AU} />}</td>
                           </tr>
                           <tr style = {{ backgroundColor: "#aaaaaa" }}>
-                              <td>LinkedIn Profile:</td>
+                              <td  className = "table-kn">LinkedIn Profile:</td>
                               <td>{!editAUManager ? agentDetails.LinkedIN_Profile_AU : <input onChange={updateAUManager} id = "LinkedIN_Profile_AU" style = {{width: "100%"}} defaultValue = {agentDetails.LinkedIN_Profile_AU} />}</td>
                           </tr>
                           <tr className = "table-secondary">
-                              <td>Photo:</td>
+                              <td  className = "table-kn">Photo:</td>
                               <td><a href={agentDetails.Australia_Counsellor_Image_URL} target="_blank" rel="noreferrer noopener">Click Here to view image</a></td>
                           </tr>
                           </tbody>   
                     </table>
-                    <a  style = {{ marginTop: "2%", marginBottom: "2%"}} onClick = {()=>{setEditAUManager(!editAUManager)}}><Image width= {150} height={35} src={editdet}/></a>
+                    <a  style = {{ marginTop: "2%", marginBottom: "2%"}} onClick = {()=>{setEditAUManager(!editAUManager)}}><Image width= {150} height={35} src={editdet}/></a> <a  style = {{ marginTop: "2%", marginBottom: "2%", marginLeft: "1%"}}><Image width= {150} height={35} src={cancel}/></a><a  style = {{ marginTop: "2%", marginBottom: "2%", marginLeft: "2%"}}><Image width= {150} height={35} src={saveimg}/></a>
                   
                     {/*UK MANAGER TABLE */}
                     <table style ={{marginTop: "2%"}} className = "table table-striped table-bordered">
                           <thead>
                             <tr className = "table-sv">
-                              <td style = {{ width: "50%" }}>UK Manager</td>
+                              <td  className = "table-kn" style = {{ width: "50%" }}>UK Manager</td>
                               <td>Details:</td>
                             </tr>
                           </thead>
                           <tbody>
                           <tr  className = "table-secondary">
-                              <td>Counsellor Name:</td>
+                              <td  className = "table-kn">Counsellor Name:</td>
                               <td>{!editUKManager ? (agentDetails.First_Name_UK ? agentDetails.First_Name_UK : "")+ " " + (agentDetails.Last_Name_UK ? agentDetails.Last_Name_UK : "") : 
                               <div>
                               <label>First Name</label><input id="First_Name_UK" onChange={updateUKManager} style = {{width: "70%", marginLeft: "5%"}} defaultValue = {agentDetails.First_Name_UK} /><br/>
@@ -629,36 +631,36 @@ import NavbarAgent from "../../components/Shared/Navbar/Navbar-Agent";
                               </div>}</td>
                           </tr>
                           <tr style = {{ backgroundColor: "#aaaaaa" }}>
-                              <td>Counsellor Email:</td>
+                              <td  className = "table-kn">Counsellor Email:</td>
                               <td>{!editUKManager ? agentDetails.Email_UK : <input id="Email_UK" type = "email" onChange={updateUKManager} style = {{width: "100%"}} defaultValue = {agentDetails.Email_UK} />}</td>
                           </tr>
                           <tr  className = "table-secondary">
-                              <td>Counsellor Phone Number/Whatsapp:</td>
+                              <td  className = "table-kn">Counsellor Phone Number/Whatsapp:</td>
                               <td>{!editUKManager ? agentDetails.Phone_UK : <input id = "Phone_UK" onChange={updateUKManager} style = {{width: "100%"}} defaultValue = {agentDetails.Phone_UK} />}</td>
                           </tr>
                           <tr style = {{ backgroundColor: "#aaaaaa" }}>
-                              <td>LinkedIn Profile:</td>
+                              <td  className = "table-kn">LinkedIn Profile:</td>
                               <td>{!editUKManager ? agentDetails.LinkedIN_Profile_UK : <input id = "LinkedIN_Profile_UK" onChange={updateUKManager} style = {{width: "100%"}} defaultValue = {agentDetails.LinkedIN_Profile_UK} />}</td>
                           </tr>
                           <tr className = "table-secondary">
-                              <td>Photo:</td>
+                              <td  className = "table-kn">Photo:</td>
                               <td><a href={agentDetails.UK_Counsellor_Image_URL} target="_blank" rel="noreferrer noopener">Click Here to view image</a></td>
                           </tr>
                           </tbody>   
                     </table>
-                    <a style ={{ marginBottom: "2%"}} onClick = {()=>{setEditUKManager(!editUKManager)}}><Image width= {150} height={40} src={editdet}/></a>
+                    <a  style = {{ marginTop: "2%", marginBottom: "2%"}} onClick = {()=>{setEditUKManager(!editUKManager)}}><Image width= {150} height={35} src={editdet}/></a> <a  style = {{ marginTop: "2%", marginBottom: "2%", marginLeft: "1%"}}><Image width= {150} height={35} src={cancel}/></a><a  style = {{ marginTop: "2%", marginBottom: "2%", marginLeft: "2%"}}><Image width= {150} height={35} src={saveimg}/></a>
                     
                     {/*TABLE MANAGER CA */}
                     <table style ={{marginTop: "2%"}} className = "table table-striped table-bordered">
                           <thead>
                             <tr className = "table-sv">
-                              <td style = {{ width: "50%" }}>Canada Manager</td>
+                              <td className = "table-kn" style = {{ width: "50%" }}>Canada Manager</td>
                               <td>Details</td>
                             </tr>
                           </thead>
                           <tbody>
                           <tr  className = "table-secondary">
-                              <td>Counsellor Name:</td>
+                              <td className = "table-kn">Counsellor Name:</td>
                               <td>{!editCAManager ? (agentDetails.First_Name_CA ? agentDetails.First_Name_CA : "")+ " " + (agentDetails.Last_Name_CA ? agentDetails.Last_Name_CA : "") : 
                               <div>
                               <label>First Name</label><input id = "First_Name_CA" onChange={updateCAManager} style = {{width: "70%", marginLeft: "5%"}} defaultValue = {agentDetails.First_Name_CA} /><br/>
@@ -666,24 +668,24 @@ import NavbarAgent from "../../components/Shared/Navbar/Navbar-Agent";
                               </div>}</td>
                           </tr>
                           <tr style = {{ backgroundColor: "#aaaaaa" }}>
-                              <td>Counsellor Email:</td>
+                              <td className = "table-kn">Counsellor Email:</td>
                               <td>{!editCAManager ? agentDetails.Email_CA : <input onChange={updateCAManager} type = "email" id = "Email_CA" style = {{width: "100%"}} defaultValue = {agentDetails.Email_CA} />}</td>
                           </tr>
                           <tr  className = "table-secondary">
-                              <td>Counsellor Phone Number/Whatsapp:</td>
+                              <td className = "table-kn">Counsellor Phone Number/Whatsapp:</td>
                               <td>{!editCAManager ? agentDetails.Phone_CA : <input onChange={updateCAManager} id = "Phone_CA" style = {{width: "100%"}} defaultValue = {agentDetails.Phone_CA} />}</td>
                           </tr>
                           <tr style = {{ backgroundColor: "#aaaaaa" }}>
-                              <td>LinkedIn Profile:</td>
+                              <td className = "table-kn">LinkedIn Profile:</td>
                               <td>{!editCAManager ? agentDetails.LinkedIN_Profile_CA : <input onChange={updateCAManager} id = "LinkedIN_Profile_CA" style = {{width: "100%"}} defaultValue = {agentDetails.LinkedIN_Profile_CA} />}</td>
                           </tr>
                           <tr className = "table-secondary">
-                              <td>Photo:</td>
+                              <td className = "table-kn">Photo:</td>
                               <td><a href={agentDetails.Canada_Counsellor_Image_URL} target="_blank" rel="noreferrer noopener">Click Here to view image</a></td>
                           </tr>
                           </tbody>   
                     </table>
-                    <a  style ={{ marginBottom: "5%"}} onClick = {()=>{setEditCAManager(!editCAManager)}}><Image width= {150} height={40} src={editdet}/></a>
+                    <a  style = {{ marginTop: "2%", marginBottom: "2%"}} onClick = {()=>{setEditCAManager(!editCAManager)}}><Image width= {150} height={35} src={editdet}/></a> <a  style = {{ marginTop: "2%", marginBottom: "2%", marginLeft: "1%"}}><Image width= {150} height={35} src={cancel}/></a><a  style = {{ marginTop: "2%", marginBottom: "2%", marginLeft: "2%"}}><Image width= {150} height={35} src={saveimg}/></a>
                           <div className="single-contact-item d-flex align-items-center">
                           </div>
                   </div>

@@ -55,7 +55,7 @@ const Resources = () => {
             <div className="marketing-res white-box">
             <h4>StudyVillage Representatives Promotional Resources</h4>
 
-            <p>The resources below will assist you understand and promote StudyVillage programs and build your business</p>
+            <p>The resources below will assist you understand and promote StudyVillage programs and build your business. The Sales Kit and FAQ Guide also helps explain how use each resource.  You’ll note, most of the explainer videos are available to our agents and enrolled students and their parents.  ‘The Guide’ is a comprehensive description to the Happy, Healthy & Wise program.  We will continue to add new resources to this page. </p>
             <div className = "col-sm-10">
             <table className = "table-res table table-striped table-bordered">
             <colgroup>
@@ -89,30 +89,30 @@ const Resources = () => {
                         <tr>
                         <td  style = {{ width: "35%" }}>Resolve Magazine<br/><i>PDF format for sharing with student & parents</i></td>
                         <td>Open Hours<br/><i>A quick video explainer</i></td>
-                        <td >Meeting the Family<br/><i>A training video explaining the Meeting the Family component to each module</i></td>
+                        <td >Portal Intro and Meeting Family Instructions<br/><i>A training video explaining the Meeting the Family component to each module</i></td>
                         </tr>
                         <tr>
-                        <td  style = {{ width: "35%" }}>Australia PREP<br/><i>Free Pre-departure courseware for your Australia-bound student</i></td>
+                        <td  style = {{ width: "35%" }}><a href="https://studyvillage.org/register-aus-prep/" target="_blank" rel="noreferrer noopener">Australia PREP</a><br/><i>Free Pre-departure courseware for your Australia-bound student</i></td>
                         <td>Connectivity & Independence<br/><i>A quick video explainer</i></td>
                         <td></td>
                         </tr>
                         <tr>
-                        <td  style = {{ width: "35%" }}>UK PREP<br/><i>Free Pre-departure courseware for your UK-bound student</i></td>
+                        <td  style = {{ width: "35%" }}><a href="https://studyvillage.org/register-for-uk-prep/" target="_blank" rel="noreferrer noopener">UK PREP</a><br/><i>Free Pre-departure courseware for your UK-bound student</i></td>
                         <td>Self-surveys<br/><i>A quick video explainer</i></td>
                         <td></td>
                         </tr>
                         <tr >
-                        <td  style = {{ width: "35%" }}>Canada PREP<br/><i>Free Pre-departure courseware for your Canada-bound student</i></td>
+                        <td  style = {{ width: "35%" }}><a href="https://studyvillage.org/register-ca-prep/" target="_blank" rel="noreferrer noopener">Canada PREP</a><br/><i>Free Pre-departure courseware for your Canada-bound student</i></td>
                         <td>Settling In<br/><i>A quick video explainer</i></td>
                         <td></td>
                         </tr>
                         <tr>
-                        <td  style = {{ width: "35%" }}>StudyVillage Banner<br/><i>Free Pre-departure courseware for your Australia-bound student</i></td>
+                        <td  style = {{ width: "35%" }}></td>
                         <td>Consolidating Studies<br/><i>A quick video explainer</i></td>
                         <td></td>
                         </tr>
                         <tr>
-                        <td  style = {{ width: "35%" }}>StudyVillage Poster<br/><i>PDF format for printing</i></td>
+                        <td  style = {{ width: "35%" }}></td>
                         <td>Tracking Progress<br/><i>A quick video explainer</i></td>
                         <td></td>
                         </tr>
@@ -127,12 +127,16 @@ const Resources = () => {
                         <td></td>
                         </tr>
                         <tr>
-                        <td  style = {{ width: "35%" }}>The “Why File” <br/><i>A new model to deal with an enduring challenge – a quick explainer</i></td>
+                        <td  style = {{ width: "35%" }}> <a href="studyvillage.org/why
+" rel="noreferrer noopener" target="_blank">The “Why File” </a><br/><i>A new model to deal with an enduring challenge –a quick explainer</i>
+                        
+                        </td>
                         <td>Goaltracking<br/><i>A quick video explainer</i></td>
                         <td></td>
                         </tr>
                         <tr>
-                        <td  style = {{ width: "35%" }}>The StudyVillage Backstory<br/><i>How we came to be</i></td>
+                        <td  style = {{ width: "35%" }}><a href="studyvillage.org/story
+" rel="noreferrer noopener" target="_blank">The StudyVillage Backstory<br/></a><i>How we came to be</i></td>
                         <td>Transition<br/><i>A quick video explainer</i></td>
                         <td></td>
                         </tr>

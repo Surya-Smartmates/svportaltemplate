@@ -40,6 +40,7 @@
         "form-data": "^4.0.0",
         "formidable": "^1.2.2",
         "got": "^11.8.2",
+        "image-to-base64": "^2.2.0",
         "immer": "^9.0.5",
         "js-cookie": "^3.0.0",
         "keen-slider": "^5.5.1",

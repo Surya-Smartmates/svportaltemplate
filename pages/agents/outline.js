@@ -215,9 +215,10 @@ const Outline = () => {
           
             {/* marketing-resources */}
             <div className="marketing-res white-box">
-            <h4>Your Modules Outlines</h4>
+            <h4>Happy Healthy & Wise sample modules</h4>
 
-            <p>The following material will assist you to promote StudyVillage programs and build your business</p>
+            <p>Each of the Following modules form part of a student’s Happy, Healthy & Wise outline. Remember, program length – counted in semesters - determines the number and sequence of modules.  These are described in detail the Resources information. Click on the image to see the relevant module in more detail, or click the button below to watch an explainer video.  There’s much more information available in the Resources section of this portal, and these resources are explained in the StudyVillage Selling Kit and FAQs. 
+</p>
             <div className = "row">
                 <div className = "col-sm-2">
 

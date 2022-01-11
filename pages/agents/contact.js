@@ -47,7 +47,7 @@ const AgentContact = () => {
                       <div className="contact-heade">
                         <h4>Contact StudyVillage</h4>
                         <p>
-                          Sam Winch <br></br> Your StudyVillage Area Manager in
+                          Glen Meehan <br></br> Your StudyVillage Operation Manager in
                           Australia
                         </p>
                       </div>
@@ -55,7 +55,7 @@ const AgentContact = () => {
                         <ul>
                           <li>
                             Mobile and WhatsApp:{" "}
-                            <a href="tel:0329123456">+30 0329123456</a>
+                            <a>+61 411251 535</a>
                           </li>
                           <li>
                             Email:{" "}
@@ -63,17 +63,13 @@ const AgentContact = () => {
                               samwinch@studyvillage.org
                             </a>
                           </li>
-                          <li>
-                            Messenger: <a href>Sam Winch</a>
-                          </li>
-                          <li>Skype: Sam Winch SV</li>
                         </ul>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div className="col-lg-5 col-md-12">
-                  <div style={{ minHeight: '50vh' }} className="contact-box white-box d-flex theme-box">
+                  {/*<div style={{ minHeight: '50vh' }} className="contact-box white-box d-flex theme-box">
                     <div className="contact-img">
                       <Image
                         width={150}
@@ -112,7 +108,7 @@ const AgentContact = () => {
                         </ul>
                       </div>
                     </div>
-                  </div>
+                  </div>*/}
                 </div>
               </div>
             </div>
