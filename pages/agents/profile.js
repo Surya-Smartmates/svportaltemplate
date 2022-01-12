@@ -27,6 +27,7 @@ import NavbarAgent from "../../components/Shared/Navbar/Navbar-Agent";
   import Sidebar from "../../components/Shared/Sidebar/Sidebar";
 
   import axios from 'axios';
+import { addBasePath } from "next/dist/next-server/lib/router/router";
 
   const AgentProfile = () => {
     const router = useRouter();
@@ -46,10 +47,10 @@ import NavbarAgent from "../../components/Shared/Navbar/Navbar-Agent";
     )
 
     const [branchDetails, setBranchDetails] = useState({
-      Address:"",
-      Phone_Number:"",
+      Branch_Address:"",
+      Branch_Phone_Number:"",
       Person_managing_this_branch:"",
-      Email:""
+      Branch_Email:""
     })
 
     const [UKProfile, setUKProfile] = useState({
@@ -81,6 +82,7 @@ import NavbarAgent from "../../components/Shared/Navbar/Navbar-Agent";
     })
     
     const [updatedBranchVal, setUpdatedBranchVal] = useState([])
+    
     //Main Table Edit Enabler
     const [editContacts, setEditContacts] = useState(false)
     //Branch Table Edit Enabler
@@ -135,6 +137,7 @@ import NavbarAgent from "../../components/Shared/Navbar/Navbar-Agent";
     }
 
     agDetBuffer.Agency_Name = state?.agentsResp?.[0]?.Agency_Name,
+    agDetBuffer.Name = state?.agentsResp?.[0]?.Name,
     agDetBuffer.Managing_Principal = state?.agentsResp?.[0]?.Managing_Principal,
     agDetBuffer.Key_Contact1 = state?.agentsResp?.[0]?.Key_Contact1,
     agDetBuffer.Street_Address= state?.agentsResp?.[0]?.Street_Address,
@@ -162,6 +165,34 @@ import NavbarAgent from "../../components/Shared/Navbar/Navbar-Agent";
     await setAgentDetails(agDetBuffer)
 
     await setBranchOffice(branchOfficeList)
+  }
+
+  const addNewBranch = async (e) =>{
+    let newBranch = {...branchDetails}
+    inputID = e.target.id
+    
+    switch(inputID){
+      case "Branch_Address":
+        newBranch.Branch_Address = e.target.value
+        setBranchDetails(newBranch)
+        break
+      case "Branch_Phone_Number":
+        newBranch.Branch_Phone_Number = e.target.value
+        setBranchDetails(newBranch)
+        break
+      case "Person_managing_this_branch":
+        newBranch.Person_managing_this_branch = e.target.value
+        setBranchDetails(newBranch)
+        break
+      case "Branch_Email":
+        newBranch.Branch_Email = e.target.value
+        setBranchDetails(newBranch)
+        break
+      default:
+        console.log("no value to read")
+    }
+
+
   }
 
   const updatingBranch = async (e)=>{
@@ -273,7 +304,7 @@ import NavbarAgent from "../../components/Shared/Navbar/Navbar-Agent";
           }
         break; 
         default:
-          console.log("nope")
+          console.log("no value to read")
     }
   }
 
@@ -297,7 +328,6 @@ import NavbarAgent from "../../components/Shared/Navbar/Navbar-Agent";
         updateBuffer.Phone = e.target.value
         await setUpdatedValue(updateBuffer)  
         break
-      
       case "Company_Website":
         updateBuffer.Company_Website = e.target.value
         await setUpdatedValue(updateBuffer)  
@@ -417,6 +447,7 @@ import NavbarAgent from "../../components/Shared/Navbar/Navbar-Agent";
   },[updatedValue])
 
   useEffect(()=>{
+    console.log("check Branch Office")
     console.log(updatedBranchVal)
   },[updatedBranchVal])
 
@@ -499,13 +530,13 @@ import NavbarAgent from "../../components/Shared/Navbar/Navbar-Agent";
                                   <div>
                                   {list.Address}<br/>
                                   </div>)
-                              })  : BranchOffice.map((list) =>{
+                              })  : BranchOffice.length !== 0 ? BranchOffice.map((list) =>{
                                 return(
                                   <div><br/>
                                   <input onChange = {updatingBranch} id={`Branch_Address ${list.id}`} style = {{width: "100%"}} defaultValue = {list.Address} />
                                   </div>
                                 )
-                              })}
+                              }) : <input onChange = {addNewBranch} id = {'Branch_Address'} style = {{width: "100%"}} />}
                               </td>
                           </tr>
                           <tr style = {{ backgroundColor: "#aaaaaa" }}>
@@ -516,14 +547,14 @@ import NavbarAgent from "../../components/Shared/Navbar/Navbar-Agent";
                                   <div>
                                   {list.Phone_Number}<br/>
                                   </div>)
-                              })  : BranchOffice.map((list)=>{
+                              })  : BranchOffice.length !== 0 ? BranchOffice.map((list)=>{
                                   return(
                                     <div>
                                     <input onChange = {updatingBranch} id = {`Branch_Phone_Number ${list.id}`} style = {{width: "100%"}} defaultValue = {list.Phone_Number} />
                                     </div>
                                     
                                   )
-                              })}
+                              }) : <input onChange = {addNewBranch} id = {'Branch_Phone_Number'} style = {{width: "100%"}}/>}
                               </td>
                           </tr>
                           <tr  className = "table-secondary">
@@ -535,14 +566,14 @@ import NavbarAgent from "../../components/Shared/Navbar/Navbar-Agent";
                                   {list.Person_managing_this_branch}<br/>
                                   </div>
                                 )
-                              })  : BranchOffice.map((list)=>{
+                              })  : BranchOffice.length !== 0 ? BranchOffice.map((list)=>{
                                 return(
                                   <div>
                                   <input onChange = {updatingBranch} id = {`Person_managing_this_branch ${list.id}`} style = {{width: "100%"}} defaultValue = {list.Person_managing_this_branch} />
                                   </div>
                                 )
                                 
-                              })}</td>
+                              }) : <input onChange = {addNewBranch} id = {'Person_managing_this_branch'} style = {{width: "100%"}} />}</td>
                           </tr>
                           <tr style = {{ backgroundColor: "#aaaaaa" }}>
                               <td  className = "table-kn">Key Contact at Branch Office Email:</td>
@@ -553,19 +584,19 @@ import NavbarAgent from "../../components/Shared/Navbar/Navbar-Agent";
                                   {list.Email}<br/>
                                   </div>
                                 )
-                              })   : BranchOffice.map((list)=>{
+                              })   : BranchOffice.length !== 0 ? BranchOffice.map((list)=>{
                                 return(
                                   <div>
                                   <input onChange = {updatingBranch} id = {`Branch_Email ${list.id}` }style = {{width: "100%"}} defaultValue = {list.Email} />
                                   </div>
                                 )
-                              })}</td>
+                              }): <input onChange = {addNewBranch} id = {'Branch_Email' }style = {{width: "100%"}} />}</td>
                           </tr>
                           </tbody>   
                     </table>
+                        {/**onClick = {()=>{setEditContacts(true)}} */}
                         
-                        
-                    <a  style = {{ marginTop: "2%", marginBottom: "2%"}} onClick = {()=>{setEditAUManager(!editAUManager)}}><Image width= {150} height={35} src={editdet}/></a> <a  style = {{ marginTop: "2%", marginBottom: "2%", marginLeft: "1%"}}><Image width= {150} height={35} src={cancel}/></a><a  style = {{ marginTop: "2%", marginBottom: "2%", marginLeft: "2%"}}><Image width= {150} height={35} src={saveimg}/></a>
+                    <a  style = {{ marginTop: "2%", marginBottom: "2%"}} href={`https://zfrmz.com/7cL2jO8aq1yjY2SZcrCi?id=${state?.agentsResp?.[0]?.id}&key_contact=${state?.agentsResp?.[0]?.Name}&cp=${state?.agentsResp?.[0]?.Managing_Principal}&kcea=${state?.agentsResp?.[0]?.Email}&addr=${state?.agentsResp?.[0]?.Street_Address}&phone=${state?.agentsResp?.[0]?.Phone}&site=${state?.agentsResp?.[0]?.Company_Website}`}><Image width= {150} height={35} src={editdet}/></a> <a  style = {{ marginTop: "2%", marginBottom: "2%", marginLeft: "1%"}}><Image onClick = {()=>{setEditContacts(false)}} width= {150} height={35} src={cancel}/></a><a  style = {{ marginTop: "2%", marginBottom: "2%", marginLeft: "2%"}}><Image width= {150} height={35} src={saveimg}/></a>
                           
                           
 
@@ -611,7 +642,7 @@ import NavbarAgent from "../../components/Shared/Navbar/Navbar-Agent";
                           </tr>
                           </tbody>   
                     </table>
-                    <a  style = {{ marginTop: "2%", marginBottom: "2%"}} onClick = {()=>{setEditAUManager(!editAUManager)}}><Image width= {150} height={35} src={editdet}/></a> <a  style = {{ marginTop: "2%", marginBottom: "2%", marginLeft: "1%"}}><Image width= {150} height={35} src={cancel}/></a><a  style = {{ marginTop: "2%", marginBottom: "2%", marginLeft: "2%"}}><Image width= {150} height={35} src={saveimg}/></a>
+                    <a  style = {{ marginTop: "2%", marginBottom: "2%"}} target="_blank" rel="noreferrer noopener" href = {`https://zfrmz.com/po3D45D4jf2Ubi2xoGMH?id=${state?.agentsResp?.[0]?.id}&email=${state?.agentsResp?.[0]?.Email}&ce=${state?.agentsResp?.[0]?.Email_AU}&cp=${state?.agentsResp?.[0]?.Phone_AU}&lp=${state?.agentsResp?.[0]?.LinkedIN_Profile_AU}&cfn=${state?.agentsResp?.[0]?.First_Name_AU}&cln=${state?.agentsResp?.[0]?.Last_Name_AU}&key_contact=${state?.agentsResp?.[0]?.Name}&img_url=${state?.agentsResp?.[0]?.New_Australia_Counsellor_Image_URL}`}><Image  width= {150} height={35} src={editdet}/></a> <a  onClick = {()=>{setEditAUManager(false)}} style = {{ marginTop: "2%", marginBottom: "2%", marginLeft: "1%"}}><Image width= {150} height={35} src={cancel}/></a><a  style = {{ marginTop: "2%", marginBottom: "2%", marginLeft: "2%"}}><Image width= {150} height={35} src={saveimg}/></a>
                   
                     {/*UK MANAGER TABLE */}
                     <table style ={{marginTop: "2%"}} className = "table table-striped table-bordered">
@@ -648,7 +679,7 @@ import NavbarAgent from "../../components/Shared/Navbar/Navbar-Agent";
                           </tr>
                           </tbody>   
                     </table>
-                    <a  style = {{ marginTop: "2%", marginBottom: "2%"}} onClick = {()=>{setEditUKManager(!editUKManager)}}><Image width= {150} height={35} src={editdet}/></a> <a  style = {{ marginTop: "2%", marginBottom: "2%", marginLeft: "1%"}}><Image width= {150} height={35} src={cancel}/></a><a  style = {{ marginTop: "2%", marginBottom: "2%", marginLeft: "2%"}}><Image width= {150} height={35} src={saveimg}/></a>
+                    <a  style = {{ marginTop: "2%", marginBottom: "2%"}} target="_blank" rel = "noreferrer noopener"  href={`https://zfrmz.com/fAqflKsPJSyEfgFwWhu9?id=${state?.agentsResp?.[0]?.id}&email=${state?.agentsResp?.[0]?.Email}&ce=${state?.agentsResp?.[0]?.Email_UK}&cp=${state?.agentsResp?.[0]?.Phone_UK}&lp=${state?.agentsResp?.[0]?.LinkedIN_Profile_UK}&cfn=${state?.agentsResp?.[0]?.First_Name_UK}&cln=${state?.agentsResp?.[0]?.Last_Name_UK}&key_contact=${state?.agentsResp?.[0]?.Name}&img_url=${state?.agentsResp?.[0]?.New_UK_Counsellor_Image_URL}`}><Image width= {150} height={35} src={editdet}/></a> <a  onClick = {()=>{setEditUKManager(false)}}style = {{ marginTop: "2%", marginBottom: "2%", marginLeft: "1%"}}><Image width= {150} height={35} src={cancel}/></a><a  style = {{ marginTop: "2%", marginBottom: "2%", marginLeft: "2%"}}><Image width= {150} height={35} src={saveimg}/></a>
                     
                     {/*TABLE MANAGER CA */}
                     <table style ={{marginTop: "2%"}} className = "table table-striped table-bordered">
@@ -659,6 +690,8 @@ import NavbarAgent from "../../components/Shared/Navbar/Navbar-Agent";
                             </tr>
                           </thead>
                           <tbody>
+                          {/*add this when you want to do direct edit feature in portal
+                          */}
                           <tr  className = "table-secondary">
                               <td className = "table-kn">Counsellor Name:</td>
                               <td>{!editCAManager ? (agentDetails.First_Name_CA ? agentDetails.First_Name_CA : "")+ " " + (agentDetails.Last_Name_CA ? agentDetails.Last_Name_CA : "") : 
@@ -685,13 +718,13 @@ import NavbarAgent from "../../components/Shared/Navbar/Navbar-Agent";
                           </tr>
                           </tbody>   
                     </table>
-                    <a  style = {{ marginTop: "2%", marginBottom: "2%"}} onClick = {()=>{setEditCAManager(!editCAManager)}}><Image width= {150} height={35} src={editdet}/></a> <a  style = {{ marginTop: "2%", marginBottom: "2%", marginLeft: "1%"}}><Image width= {150} height={35} src={cancel}/></a><a  style = {{ marginTop: "2%", marginBottom: "2%", marginLeft: "2%"}}><Image width= {150} height={35} src={saveimg}/></a>
+                    <a  style = {{ marginTop: "2%", marginBottom: "2%"}} target="_blank" rel="noreferrer noopener" href={`https://zfrmz.com/hQ8cvkWwWRHFKmwXV6rJ?id=${state?.agentsResp?.[0]?.id}&email=${state?.agentsResp?.[0]?.Email}&ce=${state?.agentsResp?.[0]?.Email_CA}&cp=${state?.agentsResp?.[0]?.Phone_CA}&lp=${state?.agentsResp?.[0]?.LinkedIN_Profile_CA}&cfn=${state?.agentsResp?.[0]?.First_Name_CA}&cln=${state?.agentsResp?.[0]?.Last_Name_CA}&key_contact=${state?.agentsResp?.[0]?.Name}&img_url=${state?.agentsResp?.[0]?.New_CA_Counsellor_Image_URL}`}><Image width= {150} height={35} src={editdet}/></a> 
+                    <a  style = {{ marginTop: "2%", marginBottom: "2%", marginLeft: "1%"}}><Image width= {150} height={35} src={cancel}/></a><a  style = {{ marginTop: "2%", marginBottom: "2%", marginLeft: "2%"}}><Image width= {150} height={35} src={saveimg}/></a>
                           <div className="single-contact-item d-flex align-items-center">
                           </div>
                   </div>
                   </div>
                 </div>
-                <a style ={{ marginTop: "10%", textAlign: "center"}} onClick = {()=>{updateAgentsCRM()}}><Image width= {150} height={40} src={saveimg}/></a>
 
               </div>
             </div>

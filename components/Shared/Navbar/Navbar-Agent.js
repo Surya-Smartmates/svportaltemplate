@@ -71,7 +71,7 @@ useEffect(()=>{
                     </Link>
                 </div>
                 <div className='header-right-area d-flex align-items-center'>
-                <div className = "comp-test">{agentID}</div>
+                
                    
                     <div className='user-btn-area dropdown'>
                         <div
@@ -127,22 +127,7 @@ useEffect(()=>{
                                         </li>
                                     );
                                 })}
-                                {/* <li>
-                  <Link
-                    href={`/${profile}/parents`}
-                    className="dropdown-menu-item"
-                  >
-                    View Your Profile
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href={`/${profile}/student`}
-                    className="dropdown-menu-item"
-                  >
-                    View Angelica's Profile
-                  </Link>
-                </li> */}
+                               
                                 <li>
                                     <button
                                         type='button'
@@ -155,6 +140,7 @@ useEffect(()=>{
                             </ul>
                         </div>
                     </div>
+                    <div className = "comp-test">{agentID}</div>
                 </div>
             </div>
         </header>

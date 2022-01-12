@@ -55,12 +55,12 @@ const AgentContact = () => {
                         <ul>
                           <li>
                             Mobile and WhatsApp:{" "}
-                            <a>+61 411251 535</a>
+                            <a>+61 411 251 535</a>
                           </li>
                           <li>
                             Email:{" "}
                             <a href="mailto:samwinch@studyvillage.org">
-                              samwinch@studyvillage.org
+                              glenmeehan@studyvillage.org
                             </a>
                           </li>
                         </ul>
