@@ -107,36 +107,35 @@ const Resources = () => {
                         <td></td>
                         </tr>
                         <tr>
-                        <td  style = {{ width: "35%" }}></td>
+                        <td  style = {{ width: "35%" }}>StudyVillage Slidedeck<br/><i>Powerpoint Slides for Student/Parents</i></td>
                         <td>Consolidating Studies<br/><i>A quick video explainer</i></td>
                         <td></td>
                         </tr>
                         <tr>
-                        <td  style = {{ width: "35%" }}></td>
+                        <td  style = {{ width: "35%" }}>Sample Modules<br/><i>Consolidating studies explained in a 5 minute video</i></td>
                         <td>Tracking Progress<br/><i>A quick video explainer</i></td>
                         <td></td>
                         </tr>
                         <tr>
-                        <td  style = {{ width: "35%" }}>StudyVillage Slidedeck<br/><i>Powerpoint Slides for Student/Parents</i></td>
+                        <td  style = {{ width: "35%" }}><a href="studyvillage.org/why
+" rel="noreferrer noopener" target="_blank">The “Why File” </a><br/><i>A new model to deal with an enduring challenge –a quick explainer</i></td>
                         <td>Goal Setting<br/><i>A quick video explainer</i></td>
-                        <td></td>
-                        </tr>
-                        <tr>
-                        <td  style = {{ width: "35%" }}>Sample Modules<br/><i>Consolidating studies explained in a 5 minute video</i></td>
-                        <td>Goal Setting B<br/><i>A quick video explainer</i></td>
-                        <td></td>
-                        </tr>
-                        <tr>
-                        <td  style = {{ width: "35%" }}> <a href="studyvillage.org/why
-" rel="noreferrer noopener" target="_blank">The “Why File” </a><br/><i>A new model to deal with an enduring challenge –a quick explainer</i>
-                        
-                        </td>
-                        <td>Goaltracking<br/><i>A quick video explainer</i></td>
                         <td></td>
                         </tr>
                         <tr>
                         <td  style = {{ width: "35%" }}><a href="studyvillage.org/story
 " rel="noreferrer noopener" target="_blank">The StudyVillage Backstory<br/></a><i>How we came to be</i></td>
+                        <td>Goal Setting B<br/><i>A quick video explainer</i></td>
+                        <td></td>
+                        </tr>
+                        <tr>
+                        <td  style = {{ width: "35%" }}>
+                        </td>
+                        <td>Goaltracking<br/><i>A quick video explainer</i></td>
+                        <td></td>
+                        </tr>
+                        <tr>
+                        <td  style = {{ width: "35%" }}></td>
                         <td>Transition<br/><i>A quick video explainer</i></td>
                         <td></td>
                         </tr>
