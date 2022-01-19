@@ -121,7 +121,7 @@ const [studentsList, setStudentsList] = useState([{Full_Name:"", Nationality:"",
                           </tr>
                         </thead>
                         <tbody>
-                        {state?.studentsResp.length === 0 ?
+                        {/*state?.studentsResp.length === 0 ?
                           <div>
                           You currently don't have any students registered
                           </div>:
@@ -142,7 +142,7 @@ const [studentsList, setStudentsList] = useState([{Full_Name:"", Nationality:"",
                               )
                             })
                             
-                        }
+                        */}
                         
                         </tbody>   
                   </table>
