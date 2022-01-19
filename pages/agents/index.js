@@ -122,7 +122,7 @@ const [studentsList, setStudentsList] = useState([{Full_Name:"", Nationality:"",
                         </thead>
                         <tbody>
                           {console.log(`studentResp val: ${studentsResp}`)/** for testing purpose */}; 
-                        {state?.studentsResp.length === 0 ?
+                        {state?.studentsResp.length === 0 || state?.studentsResp === "Request failed with status code 401" ?
                           <div>
                           You currently don't have any students registered
                           </div>:
