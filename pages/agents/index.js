@@ -121,6 +121,7 @@ const [studentsList, setStudentsList] = useState([{Full_Name:"", Nationality:"",
                           </tr>
                         </thead>
                         <tbody>
+                          {console.log(`studentResp val: ${studentsResp}`)/** for testing purpose */}; 
                         {state?.studentsResp.length === 0 ?
                           <div>
                           You currently don't have any students registered
