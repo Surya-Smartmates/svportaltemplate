@@ -117,14 +117,12 @@ const Resources = () => {
                         <td></td>
                         </tr>
                         <tr>
-                        <td  style = {{ width: "35%" }}><a href="studyvillage.org/why
-" rel="noreferrer noopener" target="_blank">The “Why File” </a><br/><i>A new model to deal with an enduring challenge –a quick explainer</i></td>
+                        <td  style = {{ width: "35%" }}><a href="https://studyvillage.org/why" rel="noreferrer noopener" target="_blank">The “Why File” </a><br/><i>A new model to deal with an enduring challenge –a quick explainer</i></td>
                         <td>Goal Setting<br/><i>A quick video explainer</i></td>
                         <td></td>
                         </tr>
                         <tr>
-                        <td  style = {{ width: "35%" }}><a href="studyvillage.org/story
-" rel="noreferrer noopener" target="_blank">The StudyVillage Backstory<br/></a><i>How we came to be</i></td>
+                        <td  style = {{ width: "35%" }}><a href="https://studyvillage.org/story" rel="noreferrer noopener" target="_blank">The StudyVillage Backstory<br/></a><i>How we came to be</i></td>
                         <td>Goal Setting B<br/><i>A quick video explainer</i></td>
                         <td></td>
                         </tr>
