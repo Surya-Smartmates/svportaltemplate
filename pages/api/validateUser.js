@@ -2,26 +2,28 @@ import axios from "axios";
 import bcrypt from "bcrypt";
 
 import * as cookie from "cookie";
+import {getAccessTokenFromLocal} from "./util/getAccessTokenFromLocal";
 
 export default async function handler(req, res) {
     try {
-        const response = await axios.get(process.env.ACCESSTOKEN_URL);
+        let resultAccessToken = await getAccessTokenFromLocal(0)
+        // const response = await axios.get(process.env.ACCESSTOKEN_URL);
         const { email, password } = req.body;
 
         // if response doesn't contain accesstoken then return null
-        if (!response.data.access_token) {
+        if (!resultAccessToken.access_token) {
             await res.status(401).json({
                 ok: false,
                 error: "Access token not found",
             });
             return;
         }
-        console.log("ACCESS TOKEN", response.data.access_token);
+        console.log("ACCESS TOKEN", resultAccessToken.access_token);
         const userFound = await axios.get(
             `https://www.zohoapis.com/crm/v2/Portal_Users/search?criteria=(Email:equals:${email})`,
             {
                 headers: {
-                    Authorization: response.data.access_token,
+                    Authorization: "Zoho-oauthtoken " + resultAccessToken.access_token,
                 },
             }
         );
