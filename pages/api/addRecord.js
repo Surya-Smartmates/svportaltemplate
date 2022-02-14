@@ -1,5 +1,6 @@
 import axios from "axios";
 import formidable from "formidable";
+import {getAccessTokenFromLocal} from "./util/getAccessTokenFromLocal";
 
 // you might want to use regular 'fs' and not a promise one
 var fs = require("fs");
@@ -16,7 +17,7 @@ export const config = {
 export default async function (req, res) {
   try {
     //Access token
-    const getAccessToken = await axios.get(process.env.ACCESSTOKEN_URL);
+    let resultAccessToken = await getAccessTokenFromLocal(0)
     //this is required for multipart data
     const promise = new Promise((resolve, reject) => {
       const form = new formidable.IncomingForm();
@@ -39,7 +40,7 @@ export default async function (req, res) {
         headers: {
           ...form.getHeaders(),
           "Content-Type": "multipart/form-data",
-          Authorization: getAccessToken.data.access_token,
+          Authorization: "Zoho-oauthtoken " + resultAccessToken.access_token 
         },
       }
     );

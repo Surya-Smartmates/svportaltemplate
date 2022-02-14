@@ -1,9 +1,10 @@
 import axios from "axios";
+
+import {getAccessTokenFromLocal} from "./util/getAccessTokenFromLocal";
 export default async function handler(req, res) {
     try {
-        const {
-            data: { access_token: accessToken },
-        } = await axios.get(process.env.ACCESSTOKEN_URL);
+        
+        let resultAccessToken = await getAccessTokenFromLocal(0)
         const { moduleApiName = "", criteria = "", fields = "" } = req.body;
         console.log(req.body.moduleApiName);
         if (moduleApiName === "") {
@@ -19,7 +20,7 @@ export default async function handler(req, res) {
             url = `${url}/search?criteria=${criteria}`;
         }
         const headers = {
-            headers: { Authorization: accessToken },
+            headers: { Authorization: "Zoho-oauthtoken " + resultAccessToken.access_token },
         };
 
         try {

@@ -1,12 +1,13 @@
 import axios from "axios";
 import bcrypt from "bcrypt";
+import {getAccessTokenFromLocal} from "./util/getAccessTokenFromLocal";
 
 import * as cookie from "cookie";
 import Cookies from "js-cookie";
 
 export default async function handler(req, res) {
   try {
-    const getAccessToken = await axios.get(process.env.ACCESSTOKEN_URL);
+    let resultAccessToken = await getAccessTokenFromLocal(0)
 
     // Get password and password_repeat from request body
     const { password, password_repeat, record_id } = req.body;
@@ -29,7 +30,7 @@ export default async function handler(req, res) {
       data,
       {
         headers: {
-          Authorization: getAccessToken.data.access_token,
+          Authorization: "Zoho-oauthtoken " + resultAccessToken.access_token,
         },
       }
     );

@@ -1,13 +1,14 @@
 import axios from "axios";
+import {getAccessTokenFromLocal} from "./util/getAccessTokenFromLocal";
 
 export default async function handler(req, res) {
   try {
     //Access token
-    const getAccessToken = await axios.get(process.env.ACCESSTOKEN_URL);
+    let resultAccessToken = await getAccessTokenFromLocal(0)
     const { moduleName, record_id, updated_data } = req.body;
 
     console.log(
-      getAccessToken.data.access_token,
+      resultAccessToken.access_token,
       moduleName,//SV_Tasks
       record_id,
       updated_data
@@ -18,7 +19,7 @@ export default async function handler(req, res) {
       updated_data,
       {
         headers: {
-          Authorization: getAccessToken.data.access_token,
+          Authorization: "Zoho-oauthtoken " + resultAccessToken.access_token,
         },
       }
     );
