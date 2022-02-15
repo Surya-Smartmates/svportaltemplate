@@ -1,5 +1,7 @@
 import axios from "axios";
 import fs from "fs";
+const path = require("path");
+const configDirectory = path.resolve(process.cwd());
 
 const config = [
     {
@@ -17,7 +19,7 @@ const config = [
 const getAccessTokenFromLocal =
     async (index) =>
         new Promise((resolve, reject) => {
-            fs.readFile(config[index].file_name, 'utf-8', (err, data) => {
+            fs.readFile(path.join(configDirectory, config[index].file_name), 'utf-8', (err, data) => {
                 if (err) {
                     console.log(process.cwd())
                     reject(err)
@@ -62,7 +64,7 @@ const refreshAccessToken = async (index, refresh_token) => new Promise((resolve,
                 } else {
                     res.data.expired_date = (new Date()).getTime() + res.data.expires_in * 1000
                     res.data.refresh_token = refresh_token
-                    fs.writeFile(config[index].file_name, JSON.stringify(res.data), 'utf8', function readFileCallback(err, data) {
+                    fs.writeFile(path.join(configDirectory, config[index].file_name), JSON.stringify(res.data), 'utf8', function readFileCallback(err, data) {
                         if (err) {
                             console.log(err)
                         } else {
@@ -124,7 +126,7 @@ const generateAccessToken = async function generateAccessToken(index, grantToken
                     // todo : error contoh : {"error":"invalid_code"} karna grant token expired
                 } else {
                     res.expired_date = (new Date()).getTime() + (res.expires_in * 1000)
-                    fs.writeFile(config[index].file_name, JSON.stringify(res.data), 'utf8', function readFileCallback(err, data) {
+                    fs.writeFile(path.join(configDirectory, config[index].file_name), JSON.stringify(res.data), 'utf8', function readFileCallback(err, data) {
                         if (err) {
                             console.log(err)
                         } else {
