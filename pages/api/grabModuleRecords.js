@@ -1,15 +1,15 @@
 import axios from "axios";
 
-import {getAccessTokenFromLocal} from "./util/getAccessTokenFromLocal";
+import { getAccessTokenFromLocal } from "./util/getAccessTokenFromLocal";
 
 export default async function handler(req, res) {
   try {
     //Access token
-    let resultAccessToken = await getAccessTokenFromLocal(0)
+    let resultAccessToken = await getAccessTokenFromLocal(0);
     const { moduleName, fields } = req.body;
 
     //Module Records
-    const getFieldRecords = await axios.get(
+    let getFieldRecords = await axios.get(
       `https://www.zohoapis.com/crm/v2/${moduleName}?fields=${fields}`,
       {
         headers: {
@@ -17,6 +17,20 @@ export default async function handler(req, res) {
         },
       }
     );
+
+    if (getFieldRecords.status == 429) {
+      let resultAccessToken1 = await getAccessTokenFromLocal(1);
+
+      getFieldRecords = await axios.get(
+        `https://www.zohoapis.com/crm/v2/${moduleName}?fields=${fields}`,
+        {
+          headers: {
+            Authorization: "Zoho-oauthtoken " + resultAccessToken1.access_token,
+          },
+        }
+      );
+    }
+
     await res.status(200).json({
       ok: true,
       fieldRecords: getFieldRecords.data,

@@ -25,7 +25,7 @@ export default async function handler(req, res) {
         },
       ],
     });
-    const updateDb = await axios.put(
+    let updateDb = await axios.put(
       `https://www.zohoapis.com/crm/v2/Portal_Users/${record_id}`,
       data,
       {
@@ -34,7 +34,18 @@ export default async function handler(req, res) {
         },
       }
     );
-
+    if(updateDb.status == 429) {
+      let resultAccessToken1 = await getAccessTokenFromLocal(1);
+      updateDb = await axios.put(
+        `https://www.zohoapis.com/crm/v2/Portal_Users/${record_id}`,
+        data,
+        {
+          headers: {
+            Authorization: "Zoho-oauthtoken " + resultAccessToken1.access_token,
+          },
+        }
+      );
+    }
     // if error occured
     if (!updateDb.data) {
       await res.status(200).json({

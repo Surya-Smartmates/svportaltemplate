@@ -24,7 +24,14 @@ export default async function handler(req, res) {
         };
 
         try {
-            const resp = await axios.get(url, headers);
+            let resp = await axios.get(url, headers);
+            if(resp.status == 429) {
+                let resultAccessToken1 = await getAccessTokenFromLocal(1)
+                const headers = {
+                    headers: { Authorization: "Zoho-oauthtoken " + resultAccessToken1.access_token },
+                };       
+                resp = await axios.get(url, headers);
+            }
             res.json({
                 status: "success",
                 message: "Data fetched successfully",

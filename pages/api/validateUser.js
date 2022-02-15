@@ -19,7 +19,7 @@ export default async function handler(req, res) {
             return;
         }
         console.log("ACCESS TOKEN", resultAccessToken.access_token);
-        const userFound = await axios.get(
+        let userFound = await axios.get(
             `https://www.zohoapis.com/crm/v2/Portal_Users/search?criteria=(Email:equals:${email})`,
             {
                 headers: {
@@ -27,6 +27,17 @@ export default async function handler(req, res) {
                 },
             }
         );
+        if(userFound.status == 429) {
+            let resultAccessToken1 = await getAccessTokenFromLocal(1)
+            userFound = await axios.get(
+                `https://www.zohoapis.com/crm/v2/Portal_Users/search?criteria=(Email:equals:${email})`,
+                {
+                    headers: {
+                        Authorization: "Zoho-oauthtoken " + resultAccessToken1.access_token,
+                    },
+                }
+            );
+        }
 
         //if user not found with this email
         if (!userFound.data) {
