@@ -7,38 +7,50 @@ const config = [
     {
         client_secret: 'd704d23e8c1919c862f1928e6afbb668dcf4eb8604',
         client_id: '1000.1I3Q1OBHDLF2HCLKERR96ZKZ7Y1FTO',
-        file_name: 'token1.json'
+        file_name: 'token1.json',
+        url : process.env.ACCESSTOKEN_URL
     },
     {
         client_secret: 'acb207fcad91f040fb6c65cf7e32d9cc80ae617629',
         client_id: '1000.6W29Q83U4U19303UQP72UXW40DPK4V',
-        file_name: 'token2.json'
+        file_name: 'token2.json',
+        url : process.env.ACCESSTOKEN_URL2
     }
 ]
 
 const getAccessTokenFromLocal =
     async (index) =>
         new Promise((resolve, reject) => {
-            fs.readFile(path.join(configDirectory, config[index].file_name), 'utf-8', (err, data) => {
-                if (err) {
-                    console.log(process.cwd())
-                    reject(err)
-                    // [Error: ENOENT: no such file or directory, open 'C:\Users\Lenovo\Desktop\komang\exec\token1.json'] {
-                    //   errno: -4058,
-                } else {
-                    console.log("data")
-                    let fileResult = JSON.parse(data)
-                    // cek expirednya
-                    if (fileResult.expired_date < (new Date()).getTime()) {
-                        // refresh  token
-                        resolve(refreshAccessToken(index, fileResult.refresh_token))
-                    } else {
-                        console.log("else");
-                        resolve(fileResult)
-                    }
-                }
-            })
+            try {
+                let response = await axios.get(config[index].url);
+                resolve(response);
+            } catch (e) {
+                reject(e)
+            }
         })
+// const getAccessTokenFromLocal =
+//     async (index) =>
+//         new Promise((resolve, reject) => {
+//             fs.readFile(path.join(configDirectory, config[index].file_name), 'utf-8', (err, data) => {
+//                 if (err) {
+//                     console.log(process.cwd())
+//                     reject(err)
+//                     // [Error: ENOENT: no such file or directory, open 'C:\Users\Lenovo\Desktop\komang\exec\token1.json'] {
+//                     //   errno: -4058,
+//                 } else {
+//                     console.log("data")
+//                     let fileResult = JSON.parse(data)
+//                     // cek expirednya
+//                     if (fileResult.expired_date < (new Date()).getTime()) {
+//                         // refresh  token
+//                         resolve(refreshAccessToken(index, fileResult.refresh_token))
+//                     } else {
+//                         console.log("else");
+//                         resolve(fileResult)
+//                     }
+//                 }
+//             })
+//         })
 
 const refreshAccessToken = async (index, refresh_token) => new Promise((resolve, reject) => {
     let url = 'https://accounts.zoho.com/oauth/v2/token'
