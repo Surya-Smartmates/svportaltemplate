@@ -45,9 +45,10 @@ async function convertTo64 (){
 
 useEffect(()=>{
     convertTo64()
+    console.log("state")
     console.log(state?.agentsResp?.[0]?.New_Agent_Image_URL)
 
-    if(state?.agentsResp?.[0]?.New_Agent_Image_URL !== null || state?.agentsResp?.[0]?.New_Agent_Image_URL !== undefined){
+    if(state?.agentsResp?.[0]?.New_Agent_Image_URL !== null && state?.agentsResp?.[0]?.New_Agent_Image_URL !== undefined){
         setAgentImg(<Image
             width={200}
             height={'85%'}
@@ -57,8 +58,6 @@ useEffect(()=>{
         />)
     }
 },[])
-
-
 
         return (
         <header className='header-area'>

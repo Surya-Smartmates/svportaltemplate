@@ -7,7 +7,7 @@ import {getAccessTokenFromLocal} from "./util/getAccessTokenFromLocal";
 export default async function handler(req, res) {
     try {
         let resultAccessToken = await getAccessTokenFromLocal(0)
-        // const response = await axios.get(process.env.ACCESSTOKEN_URL);
+        console.log(resultAccessToken);
         const { email, password } = req.body;
 
         // if response doesn't contain accesstoken then return null
@@ -84,4 +84,8 @@ export default async function handler(req, res) {
             error: err,
         });
     }
+}
+
+function response1(userFound) {
+
 }

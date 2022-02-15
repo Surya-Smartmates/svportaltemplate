@@ -52,6 +52,7 @@ const assignStudentsList = async () =>{
 
 useEffect(()=>{
   //assignStudentsList()
+  console.log("portalUserResp")
   console.log(portalUserResp)
 },[])
 
@@ -280,6 +281,7 @@ export async function getServerSideProps(context) {
     }
   );
   studentsResp = stuResp?.data !== undefined ? stuResp?.data : [];
+  console.log("ANTON DEBUGG")
   console.log({ studentsResp });
 
   return {
