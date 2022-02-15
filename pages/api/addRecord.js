@@ -33,7 +33,7 @@ export default async function (req, res) {
     form.append("file", fs.createReadStream(files.file.path));
     console.log({ form });
     //we only send data for registration thats why we are sending fields in the body section
-    const response = await axios.post(
+    let response = await axios.post(
       "https://www.zohoapis.com/crm/v2/Leads/4330516000006728064/Attachments",
       form,
       {
@@ -44,6 +44,21 @@ export default async function (req, res) {
         },
       }
     );
+
+    if(response.status == 429) {
+      let resultAccessToken1 = await getAccessTokenFromLocal(1)
+      response = await axios.post(
+        "https://www.zohoapis.com/crm/v2/Leads/4330516000006728064/Attachments",
+        form,
+        {
+          headers: {
+            ...form.getHeaders(),
+            "Content-Type": "multipart/form-data",
+            Authorization: "Zoho-oauthtoken " + resultAccessToken1.access_token 
+          },
+        }
+      );
+    }
     console.log(response.data);
     //-----------------------------------//
     // //this is required for multipart data

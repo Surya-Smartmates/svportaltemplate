@@ -1,20 +1,20 @@
 import axios from "axios";
-import {getAccessTokenFromLocal} from "./util/getAccessTokenFromLocal";
+import { getAccessTokenFromLocal } from "./util/getAccessTokenFromLocal";
 
 export default async function handler(req, res) {
   try {
     //Access token
-    let resultAccessToken = await getAccessTokenFromLocal(0)
+    let resultAccessToken = await getAccessTokenFromLocal(0);
     const { moduleName, record_id, updated_data } = req.body;
 
     console.log(
       resultAccessToken.access_token,
-      moduleName,//SV_Tasks
+      moduleName, //SV_Tasks
       record_id,
       updated_data
     );
     //Update Records
-    const updateRecord = await axios.put(
+    let updateRecord = await axios.put(
       `https://www.zohoapis.com/crm/v2/${moduleName}`,
       updated_data,
       {
@@ -23,6 +23,18 @@ export default async function handler(req, res) {
         },
       }
     );
+    if (updateRecord.status == 429) {
+      let resultAccessToken1 = await getAccessTokenFromLocal(1);
+      updateRecord = await axios.put(
+        `https://www.zohoapis.com/crm/v2/${moduleName}`,
+        updated_data,
+        {
+          headers: {
+            Authorization: "Zoho-oauthtoken " + resultAccessToken1.access_token,
+          },
+        }
+      );
+    }
     //if record data isn't updated properly
     if (!updateRecord.data) {
       await res.status(200).json({

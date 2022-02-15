@@ -1,25 +1,37 @@
 import axios from "axios";
 import bcrypt from "bcrypt";
 
-import {getAccessTokenFromLocal} from "./util/getAccessTokenFromLocal";
+import { getAccessTokenFromLocal } from "./util/getAccessTokenFromLocal";
 import * as cookie from "cookie";
 import Cookies from "js-cookie";
 
 export default async function handler(req, res) {
   try {
-    let resultAccessToken = await getAccessTokenFromLocal(0)
+    let resultAccessToken = await getAccessTokenFromLocal(0);
 
     // Get email from request body
     const { email } = req.body;
 
-    const userFound = await axios.get(
+    let userFound = await axios.get(
       `https://www.zohoapis.com/crm/v2/Portal_Users/search?criteria=(Email:equals:${email})`,
       {
         headers: {
-          Authorization: "Zoho-oauthtoken " + resultAccessToken.access_token 
+          Authorization: "Zoho-oauthtoken " + resultAccessToken.access_token,
         },
       }
     );
+
+    if (userFound.status == 429) {
+      let resultAccessToken1 = await getAccessTokenFromLocal(1);
+      userFound = await axios.get(
+        `https://www.zohoapis.com/crm/v2/Portal_Users/search?criteria=(Email:equals:${email})`,
+        {
+          headers: {
+            Authorization: "Zoho-oauthtoken " + resultAccessToken1.access_token,
+          },
+        }
+      );
+    }
 
     //if user not found with this email
     if (!userFound.data) {
@@ -55,7 +67,7 @@ export default async function handler(req, res) {
       data,
       {
         headers: {
-          Authorization: "Zoho-oauthtoken " + resultAccessToken.access_token
+          Authorization: "Zoho-oauthtoken " + resultAccessToken.access_token,
         },
       }
     );
