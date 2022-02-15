@@ -23,7 +23,7 @@ const getAccessTokenFromLocal = async (index) =>
     axios
       .get(config[index].url)
       .then(function (response) {
-        resolve(response);
+        resolve(response.data);
       })
       .catch(function (e) {
         reject(e);
