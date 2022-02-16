@@ -20,7 +20,7 @@ export default async function handler(req, res) {
             url = `${url}/search?criteria=${criteria}`;
         }
         const headers = {
-            headers: { Authorization: "Zoho-oauthtoken " + resultAccessToken.access_token },
+            headers: { Authorization: resultAccessToken.access_token },
         };
 
         try {
@@ -28,7 +28,7 @@ export default async function handler(req, res) {
             if(resp.status == 429) {
                 let resultAccessToken1 = await getAccessTokenFromLocal(1)
                 const headers = {
-                    headers: { Authorization: "Zoho-oauthtoken " + resultAccessToken1.access_token },
+                    headers: { Authorization: resultAccessToken1.access_token },
                 };       
                 resp = await axios.get(url, headers);
             }

@@ -103,7 +103,7 @@ const Login = () => {
           email: response.data.email,
           name: response.data.name,
           record_id: response.data.record_id,
-          remember: data.remember,
+          remember: data.remember
         });
         console.log("this is " + data.remember)
       }

@@ -16,7 +16,7 @@ export default async function handler(req, res) {
       `https://www.zohoapis.com/crm/v2/Portal_Users/search?criteria=(Email:equals:${email})`,
       {
         headers: {
-          Authorization: "Zoho-oauthtoken " + resultAccessToken.access_token,
+          Authorization: resultAccessToken.access_token,
         },
       }
     );
@@ -27,7 +27,7 @@ export default async function handler(req, res) {
         `https://www.zohoapis.com/crm/v2/Portal_Users/search?criteria=(Email:equals:${email})`,
         {
           headers: {
-            Authorization: "Zoho-oauthtoken " + resultAccessToken1.access_token,
+            Authorization: resultAccessToken1.access_token,
           },
         }
       );
@@ -67,7 +67,7 @@ export default async function handler(req, res) {
       data,
       {
         headers: {
-          Authorization: "Zoho-oauthtoken " + resultAccessToken.access_token,
+          Authorization: resultAccessToken.access_token,
         },
       }
     );

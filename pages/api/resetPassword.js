@@ -30,7 +30,7 @@ export default async function handler(req, res) {
       data,
       {
         headers: {
-          Authorization: "Zoho-oauthtoken " + resultAccessToken.access_token,
+          Authorization: resultAccessToken.access_token,
         },
       }
     );
@@ -41,7 +41,7 @@ export default async function handler(req, res) {
         data,
         {
           headers: {
-            Authorization: "Zoho-oauthtoken " + resultAccessToken1.access_token,
+            Authorization: resultAccessToken1.access_token,
           },
         }
       );
