@@ -638,7 +638,7 @@ import { addBasePath } from "next/dist/next-server/lib/router/router";
                           </tr>
                           <tr className = "table-secondary">
                               <td  className = "table-kn">Photo:</td>
-                              <td><a href={agentDetails.Australia_Counsellor_Image_URL} target="_blank" rel="noreferrer noopener">Click Here to view image</a></td>
+                              <td><a href={agentDetails.Australia_Counsellor_Image_URL} target="_blank" rel="noreferrer noopener">{agentDetails.Australia_Counsellor_Image_URL}</a></td>
                           </tr>
                           </tbody>   
                     </table>
@@ -675,7 +675,7 @@ import { addBasePath } from "next/dist/next-server/lib/router/router";
                           </tr>
                           <tr className = "table-secondary">
                               <td  className = "table-kn">Photo:</td>
-                              <td><a href={agentDetails.UK_Counsellor_Image_URL} target="_blank" rel="noreferrer noopener">Click Here to view image</a></td>
+                              <td><a href={agentDetails.UK_Counsellor_Image_URL} target="_blank" rel="noreferrer noopener">{agentDetails.UK_Counsellor_Image_URL}</a></td>
                           </tr>
                           </tbody>   
                     </table>
@@ -714,7 +714,7 @@ import { addBasePath } from "next/dist/next-server/lib/router/router";
                           </tr>
                           <tr className = "table-secondary">
                               <td className = "table-kn">Photo:</td>
-                              <td><a href={agentDetails.Canada_Counsellor_Image_URL} target="_blank" rel="noreferrer noopener">Click Here to view image</a></td>
+                              <td><a href={agentDetails.Canada_Counsellor_Image_URL} target="_blank" rel="noreferrer noopener">{agentDetails.Canada_Counsellor_Image_URL}</a></td>
                           </tr>
                           </tbody>   
                     </table>
