@@ -634,7 +634,7 @@ import { addBasePath } from "next/dist/next-server/lib/router/router";
                           </tr>
                           <tr style = {{ backgroundColor: "#aaaaaa" }}>
                               <td  className = "table-kn">LinkedIn Profile:</td>
-                              <td>{!editAUManager ? agentDetails.LinkedIN_Profile_AU : <input onChange={updateAUManager} id = "LinkedIN_Profile_AU" style = {{width: "100%"}} defaultValue = {agentDetails.LinkedIN_Profile_AU} />}</td>
+                              <td>{!editAUManager ? <a href={agentDetails.LinkedIN_Profile_AU} target="_blank" rel="noreferrer noopener">{agentDetails.LinkedIN_Profile_AU}</a> : <input onChange={updateAUManager} id = "LinkedIN_Profile_AU" style = {{width: "100%"}} defaultValue = {agentDetails.LinkedIN_Profile_AU} />}</td>
                           </tr>
                           <tr className = "table-secondary">
                               <td  className = "table-kn">Photo:</td>
@@ -671,7 +671,6 @@ import { addBasePath } from "next/dist/next-server/lib/router/router";
                           </tr>
                           <tr style = {{ backgroundColor: "#aaaaaa" }}>
                               <td  className = "table-kn">LinkedIn Profile:</td>
-                              {/* <td>{!editUKManager ? agentDetails.LinkedIN_Profile_UK : <input id = "LinkedIN_Profile_UK" onChange={updateUKManager} style = {{width: "100%"}} defaultValue = {agentDetails.LinkedIN_Profile_UK} />}</td> */}
                               <td>{!editUKManager ? <a href={agentDetails.LinkedIN_Profile_UK} target="_blank" rel="noreferrer noopener">{agentDetails.LinkedIN_Profile_UK}</a> : <input id = "LinkedIN_Profile_UK" onChange={updateUKManager} style = {{width: "100%"}} defaultValue = {agentDetails.LinkedIN_Profile_UK} />}</td>
                           </tr>
                           <tr className = "table-secondary">
@@ -711,7 +710,7 @@ import { addBasePath } from "next/dist/next-server/lib/router/router";
                           </tr>
                           <tr style = {{ backgroundColor: "#aaaaaa" }}>
                               <td className = "table-kn">LinkedIn Profile:</td>
-                              <td>{!editCAManager ? agentDetails.LinkedIN_Profile_CA : <input onChange={updateCAManager} id = "LinkedIN_Profile_CA" style = {{width: "100%"}} defaultValue = {agentDetails.LinkedIN_Profile_CA} />}</td>
+                              <td>{!editCAManager ? <a href={agentDetails.LinkedIN_Profile_CA} target="_blank" rel="noreferrer noopener">{agentDetails.LinkedIN_Profile_CA}</a> : <input onChange={updateCAManager} id = "LinkedIN_Profile_CA" style = {{width: "100%"}} defaultValue = {agentDetails.LinkedIN_Profile_CA} />}</td>
                           </tr>
                           <tr className = "table-secondary">
                               <td className = "table-kn">Photo:</td>
