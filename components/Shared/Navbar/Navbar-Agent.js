@@ -49,13 +49,13 @@ useEffect(()=>{
     console.log(state?.agentsResp?.[0]?.New_Agent_Image_URL)
 
     if(state?.agentsResp?.[0]?.New_Agent_Image_URL !== null && state?.agentsResp?.[0]?.New_Agent_Image_URL !== undefined){
-        setAgentImg(<Image
-            width={200}
-            height={'85%'}
-            src={state?.agentsResp?.[0]?.New_Agent_Image_URL}
-            alt=''
-            
-        />)
+        setAgentImg(
+            <Image
+                width={120}
+                height={'85%'}
+                src={state?.agentsResp?.[0]?.New_Agent_Image_URL}
+                alt='agent image' />
+        )
     }
 },[])
 

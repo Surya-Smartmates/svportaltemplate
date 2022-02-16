@@ -596,11 +596,7 @@ import { addBasePath } from "next/dist/next-server/lib/router/router";
                     </table>
                         {/**onClick = {()=>{setEditContacts(true)}} */}
                         
-                    <a  style = {{ marginTop: "2%", marginBottom: "2%"}} href={`https://zfrmz.com/7cL2jO8aq1yjY2SZcrCi?id=${state?.agentsResp?.[0]?.id}&key_contact=${state?.agentsResp?.[0]?.Name}&cp=${state?.agentsResp?.[0]?.Managing_Principal}&kcea=${state?.agentsResp?.[0]?.Email}&addr=${state?.agentsResp?.[0]?.Street_Address}&phone=${state?.agentsResp?.[0]?.Phone}&site=${state?.agentsResp?.[0]?.Company_Website}`}><Image width= {150} height={35} src={editdet}/></a>
-                          
-                          
-
-                          
+                    <a  style = {{ marginTop: "2%", marginBottom: "2%"}} rel="noreferrer noopener" target="_blank" href={`https://zfrmz.com/7cL2jO8aq1yjY2SZcrCi?id=${state?.agentsResp?.[0]?.id}&key_contact=${state?.agentsResp?.[0]?.Name}&cp=${state?.agentsResp?.[0]?.Managing_Principal}&kcea=${state?.agentsResp?.[0]?.Email}&addr=${state?.agentsResp?.[0]?.Street_Address}&phone=${state?.agentsResp?.[0]?.Phone}&site=${state?.agentsResp?.[0]?.Company_Website}`}><Image width= {150} height={35} src={editdet}/></a>
                         </div>                
                 </div>
                 <div className="col-lg-6">
