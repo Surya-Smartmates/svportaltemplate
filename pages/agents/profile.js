@@ -596,7 +596,7 @@ import { addBasePath } from "next/dist/next-server/lib/router/router";
                     </table>
                         {/**onClick = {()=>{setEditContacts(true)}} */}
                         
-                    <a  style = {{ marginTop: "2%", marginBottom: "2%"}} href={`https://zfrmz.com/7cL2jO8aq1yjY2SZcrCi?id=${state?.agentsResp?.[0]?.id}&key_contact=${state?.agentsResp?.[0]?.Name}&cp=${state?.agentsResp?.[0]?.Managing_Principal}&kcea=${state?.agentsResp?.[0]?.Email}&addr=${state?.agentsResp?.[0]?.Street_Address}&phone=${state?.agentsResp?.[0]?.Phone}&site=${state?.agentsResp?.[0]?.Company_Website}`}><Image width= {150} height={35} src={editdet}/></a> <a  style = {{ marginTop: "2%", marginBottom: "2%", marginLeft: "1%"}}><Image onClick = {()=>{setEditContacts(false)}} width= {150} height={35} src={cancel}/></a><a  style = {{ marginTop: "2%", marginBottom: "2%", marginLeft: "2%"}}><Image width= {150} height={35} src={saveimg}/></a>
+                    <a  style = {{ marginTop: "2%", marginBottom: "2%"}} href={`https://zfrmz.com/7cL2jO8aq1yjY2SZcrCi?id=${state?.agentsResp?.[0]?.id}&key_contact=${state?.agentsResp?.[0]?.Name}&cp=${state?.agentsResp?.[0]?.Managing_Principal}&kcea=${state?.agentsResp?.[0]?.Email}&addr=${state?.agentsResp?.[0]?.Street_Address}&phone=${state?.agentsResp?.[0]?.Phone}&site=${state?.agentsResp?.[0]?.Company_Website}`}><Image width= {150} height={35} src={editdet}/></a>
                           
                           
 
@@ -642,7 +642,7 @@ import { addBasePath } from "next/dist/next-server/lib/router/router";
                           </tr>
                           </tbody>   
                     </table>
-                    <a  style = {{ marginTop: "2%", marginBottom: "2%"}} target="_blank" rel="noreferrer noopener" href = {`https://zfrmz.com/po3D45D4jf2Ubi2xoGMH?id=${state?.agentsResp?.[0]?.id}&email=${state?.agentsResp?.[0]?.Email}&ce=${state?.agentsResp?.[0]?.Email_AU}&cp=${state?.agentsResp?.[0]?.Phone_AU}&lp=${state?.agentsResp?.[0]?.LinkedIN_Profile_AU}&cfn=${state?.agentsResp?.[0]?.First_Name_AU}&cln=${state?.agentsResp?.[0]?.Last_Name_AU}&key_contact=${state?.agentsResp?.[0]?.Name}&img_url=${state?.agentsResp?.[0]?.New_Australia_Counsellor_Image_URL}`}><Image  width= {150} height={35} src={editdet}/></a> <a  onClick = {()=>{setEditAUManager(false)}} style = {{ marginTop: "2%", marginBottom: "2%", marginLeft: "1%"}}><Image width= {150} height={35} src={cancel}/></a><a  style = {{ marginTop: "2%", marginBottom: "2%", marginLeft: "2%"}}><Image width= {150} height={35} src={saveimg}/></a>
+                    <a  style = {{ marginTop: "2%", marginBottom: "2%"}} target="_blank" rel="noreferrer noopener" href = {`https://zfrmz.com/po3D45D4jf2Ubi2xoGMH?id=${state?.agentsResp?.[0]?.id}&email=${state?.agentsResp?.[0]?.Email}&ce=${state?.agentsResp?.[0]?.Email_AU}&cp=${state?.agentsResp?.[0]?.Phone_AU}&lp=${state?.agentsResp?.[0]?.LinkedIN_Profile_AU}&cfn=${state?.agentsResp?.[0]?.First_Name_AU}&cln=${state?.agentsResp?.[0]?.Last_Name_AU}&key_contact=${state?.agentsResp?.[0]?.Name}&img_url=${state?.agentsResp?.[0]?.New_Australia_Counsellor_Image_URL}`}><Image  width= {150} height={35} src={editdet}/></a>
                   
                     {/*UK MANAGER TABLE */}
                     <table style ={{marginTop: "2%"}} className = "table table-striped table-bordered">
@@ -679,7 +679,7 @@ import { addBasePath } from "next/dist/next-server/lib/router/router";
                           </tr>
                           </tbody>   
                     </table>
-                    <a  style = {{ marginTop: "2%", marginBottom: "2%"}} target="_blank" rel = "noreferrer noopener"  href={`https://zfrmz.com/fAqflKsPJSyEfgFwWhu9?id=${state?.agentsResp?.[0]?.id}&email=${state?.agentsResp?.[0]?.Email}&ce=${state?.agentsResp?.[0]?.Email_UK}&cp=${state?.agentsResp?.[0]?.Phone_UK}&lp=${state?.agentsResp?.[0]?.LinkedIN_Profile_UK}&cfn=${state?.agentsResp?.[0]?.First_Name_UK}&cln=${state?.agentsResp?.[0]?.Last_Name_UK}&key_contact=${state?.agentsResp?.[0]?.Name}&img_url=${state?.agentsResp?.[0]?.New_UK_Counsellor_Image_URL}`}><Image width= {150} height={35} src={editdet}/></a> <a  onClick = {()=>{setEditUKManager(false)}}style = {{ marginTop: "2%", marginBottom: "2%", marginLeft: "1%"}}><Image width= {150} height={35} src={cancel}/></a><a  style = {{ marginTop: "2%", marginBottom: "2%", marginLeft: "2%"}}><Image width= {150} height={35} src={saveimg}/></a>
+                    <a  style = {{ marginTop: "2%", marginBottom: "2%"}} target="_blank" rel = "noreferrer noopener"  href={`https://zfrmz.com/fAqflKsPJSyEfgFwWhu9?id=${state?.agentsResp?.[0]?.id}&email=${state?.agentsResp?.[0]?.Email}&ce=${state?.agentsResp?.[0]?.Email_UK}&cp=${state?.agentsResp?.[0]?.Phone_UK}&lp=${state?.agentsResp?.[0]?.LinkedIN_Profile_UK}&cfn=${state?.agentsResp?.[0]?.First_Name_UK}&cln=${state?.agentsResp?.[0]?.Last_Name_UK}&key_contact=${state?.agentsResp?.[0]?.Name}&img_url=${state?.agentsResp?.[0]?.New_UK_Counsellor_Image_URL}`}><Image width= {150} height={35} src={editdet}/></a>
                     
                     {/*TABLE MANAGER CA */}
                     <table style ={{marginTop: "2%"}} className = "table table-striped table-bordered">
@@ -718,8 +718,7 @@ import { addBasePath } from "next/dist/next-server/lib/router/router";
                           </tr>
                           </tbody>   
                     </table>
-                    <a  style = {{ marginTop: "2%", marginBottom: "2%"}} target="_blank" rel="noreferrer noopener" href={`https://zfrmz.com/hQ8cvkWwWRHFKmwXV6rJ?id=${state?.agentsResp?.[0]?.id}&email=${state?.agentsResp?.[0]?.Email}&ce=${state?.agentsResp?.[0]?.Email_CA}&cp=${state?.agentsResp?.[0]?.Phone_CA}&lp=${state?.agentsResp?.[0]?.LinkedIN_Profile_CA}&cfn=${state?.agentsResp?.[0]?.First_Name_CA}&cln=${state?.agentsResp?.[0]?.Last_Name_CA}&key_contact=${state?.agentsResp?.[0]?.Name}&img_url=${state?.agentsResp?.[0]?.New_CA_Counsellor_Image_URL}`}><Image width= {150} height={35} src={editdet}/></a> 
-                    <a  style = {{ marginTop: "2%", marginBottom: "2%", marginLeft: "1%"}}><Image width= {150} height={35} src={cancel}/></a><a  style = {{ marginTop: "2%", marginBottom: "2%", marginLeft: "2%"}}><Image width= {150} height={35} src={saveimg}/></a>
+                    <a  style = {{ marginTop: "2%", marginBottom: "2%"}} target="_blank" rel="noreferrer noopener" href={`https://zfrmz.com/hQ8cvkWwWRHFKmwXV6rJ?id=${state?.agentsResp?.[0]?.id}&email=${state?.agentsResp?.[0]?.Email}&ce=${state?.agentsResp?.[0]?.Email_CA}&cp=${state?.agentsResp?.[0]?.Phone_CA}&lp=${state?.agentsResp?.[0]?.LinkedIN_Profile_CA}&cfn=${state?.agentsResp?.[0]?.First_Name_CA}&cln=${state?.agentsResp?.[0]?.Last_Name_CA}&key_contact=${state?.agentsResp?.[0]?.Name}&img_url=${state?.agentsResp?.[0]?.New_CA_Counsellor_Image_URL}`}><Image width= {150} height={35} src={editdet}/></a>
                           <div className="single-contact-item d-flex align-items-center">
                           </div>
                   </div>
