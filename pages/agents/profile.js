@@ -671,7 +671,8 @@ import { addBasePath } from "next/dist/next-server/lib/router/router";
                           </tr>
                           <tr style = {{ backgroundColor: "#aaaaaa" }}>
                               <td  className = "table-kn">LinkedIn Profile:</td>
-                              <td>{!editUKManager ? agentDetails.LinkedIN_Profile_UK : <input id = "LinkedIN_Profile_UK" onChange={updateUKManager} style = {{width: "100%"}} defaultValue = {agentDetails.LinkedIN_Profile_UK} />}</td>
+                              {/* <td>{!editUKManager ? agentDetails.LinkedIN_Profile_UK : <input id = "LinkedIN_Profile_UK" onChange={updateUKManager} style = {{width: "100%"}} defaultValue = {agentDetails.LinkedIN_Profile_UK} />}</td> */}
+                              <td>{!editUKManager ? <a href={agentDetails.LinkedIN_Profile_UK} target="_blank" rel="noreferrer noopener">{agentDetails.LinkedIN_Profile_UK}</a> : <input id = "LinkedIN_Profile_UK" onChange={updateUKManager} style = {{width: "100%"}} defaultValue = {agentDetails.LinkedIN_Profile_UK} />}</td>
                           </tr>
                           <tr className = "table-secondary">
                               <td  className = "table-kn">Photo:</td>
