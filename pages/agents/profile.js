@@ -699,7 +699,7 @@ import { addBasePath } from "next/dist/next-server/lib/router/router";
                             </tr>
                           </thead>
                           <tbody>
-                          {/*add this when you want to do direct edit feature in portal
+                        {/*add this when you want to do direct edit feature in portal
                           */}
                           <tr  className = "table-secondary">
                               <td className = "table-kn">Counsellor Name:</td>
