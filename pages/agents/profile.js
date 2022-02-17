@@ -639,7 +639,11 @@ import { addBasePath } from "next/dist/next-server/lib/router/router";
                           </tr>
                           <tr className = "table-secondary">
                               <td  className = "table-kn">Photo:</td>
-                              <td><a href={agentDetails.Australia_Counsellor_Image_URL} target="_blank" rel="noreferrer noopener">{agentDetails.Australia_Counsellor_Image_URL}</a></td>
+                              {agentDetails.Australia_Counsellor_Image_URL=""?
+                                <td><a href={agentDetails.Australia_Counsellor_Image_URL} target="_blank" rel="noreferrer noopener">{agentDetails.Australia_Counsellor_Image_URL}</a></td>:
+                                <td><a href={agentDetails.Australia_Counsellor_Image_URL} target="_blank" rel="noreferrer noopener">Click here to view image</a></td>
+                              }
+                              
                           </tr>
                           </tbody>   
                     </table>
@@ -675,8 +679,12 @@ import { addBasePath } from "next/dist/next-server/lib/router/router";
                               <td>{!editUKManager ? <a href={agentDetails.LinkedIN_Profile_UK} target="_blank" rel="noreferrer noopener">{agentDetails.LinkedIN_Profile_UK}</a> : <input id = "LinkedIN_Profile_UK" onChange={updateUKManager} style = {{width: "100%"}} defaultValue = {agentDetails.LinkedIN_Profile_UK} />}</td>
                           </tr>
                           <tr className = "table-secondary">
-                              <td  className = "table-kn">Photo:</td>
-                              <td><a href={agentDetails.UK_Counsellor_Image_URL} target="_blank" rel="noreferrer noopener">{agentDetails.UK_Counsellor_Image_URL}</a></td>
+                          <td  className = "table-kn">Photo:</td>
+                            {agentDetails.UK_Counsellor_Image_URL=""?
+                              <td><a href={agentDetails.UK_Counsellor_Image_URL} target="_blank" rel="noreferrer noopener">{agentDetails.UK_Counsellor_Image_URL}</a></td>:
+                              <td><a href={agentDetails.UK_Counsellor_Image_URL} target="_blank" rel="noreferrer noopener">Click here to view Image</a></td>
+                            }
+                              
                           </tr>
                           </tbody>   
                     </table>
@@ -715,7 +723,11 @@ import { addBasePath } from "next/dist/next-server/lib/router/router";
                           </tr>
                           <tr className = "table-secondary">
                               <td className = "table-kn">Photo:</td>
-                              <td><a href={agentDetails.Canada_Counsellor_Image_URL} target="_blank" rel="noreferrer noopener">{agentDetails.Canada_Counsellor_Image_URL}</a></td>
+                              {agentDetails.Canada_Counsellor_Image_URL=""?
+                                <td><a href={agentDetails.Canada_Counsellor_Image_URL} target="_blank" rel="noreferrer noopener">{agentDetails.Canada_Counsellor_Image_URL}</a></td>:
+                                <td><a href={agentDetails.Canada_Counsellor_Image_URL} target="_blank" rel="noreferrer noopener">Click here to view image</a></td>
+                              }
+                              
                           </tr>
                           </tbody>   
                     </table>
