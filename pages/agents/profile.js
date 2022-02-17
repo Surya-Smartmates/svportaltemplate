@@ -639,7 +639,7 @@ import { addBasePath } from "next/dist/next-server/lib/router/router";
                           </tr>
                           <tr className = "table-secondary">
                               <td  className = "table-kn">Photo:</td>
-                              {agentDetails.Australia_Counsellor_Image_URL=""?
+                              {agentDetails.Australia_Counsellor_Image_URL == "" ?
                                 <td><a href={agentDetails.Australia_Counsellor_Image_URL} target="_blank" rel="noreferrer noopener">{agentDetails.Australia_Counsellor_Image_URL}</a></td>:
                                 <td><a href={agentDetails.Australia_Counsellor_Image_URL} target="_blank" rel="noreferrer noopener">Click here to view image</a></td>
                               }
@@ -680,7 +680,7 @@ import { addBasePath } from "next/dist/next-server/lib/router/router";
                           </tr>
                           <tr className = "table-secondary">
                           <td  className = "table-kn">Photo:</td>
-                            {agentDetails.UK_Counsellor_Image_URL=""?
+                            {agentDetails.UK_Counsellor_Image_URL == "" ?
                               <td><a href={agentDetails.UK_Counsellor_Image_URL} target="_blank" rel="noreferrer noopener">{agentDetails.UK_Counsellor_Image_URL}</a></td>:
                               <td><a href={agentDetails.UK_Counsellor_Image_URL} target="_blank" rel="noreferrer noopener">Click here to view Image</a></td>
                             }
@@ -723,7 +723,8 @@ import { addBasePath } from "next/dist/next-server/lib/router/router";
                           </tr>
                           <tr className = "table-secondary">
                               <td className = "table-kn">Photo:</td>
-                              {agentDetails.Canada_Counsellor_Image_URL=""?
+                              {console.log(agentDetails.Canada_Counsellor_Image_URL)}
+                              {agentDetails.Canada_Counsellor_Image_URL == "" ?
                                 <td><a href={agentDetails.Canada_Counsellor_Image_URL} target="_blank" rel="noreferrer noopener">{agentDetails.Canada_Counsellor_Image_URL}</a></td>:
                                 <td><a href={agentDetails.Canada_Counsellor_Image_URL} target="_blank" rel="noreferrer noopener">Click here to view image</a></td>
                               }
