@@ -133,7 +133,9 @@ import { addBasePath } from "next/dist/next-server/lib/router/router";
       Email_CA:"",
       Phone_CA:"",
       LinkedIN_Profile_CA:"",
-
+      Australia_Counsellor_Image_URL: "",
+      UK_Counsellor_Image_URL: "",
+      Canada_Counsellor_Image_URL: ""
     }
 
     agDetBuffer.Agency_Name = state?.agentsResp?.[0]?.Agency_Name,
@@ -159,7 +161,10 @@ import { addBasePath } from "next/dist/next-server/lib/router/router";
     agDetBuffer.Last_Name_CA = state?.agentsResp?.[0]?.Last_Name_CA,
     agDetBuffer.Email_CA = state?.agentsResp?.[0]?.Email_CA,
     agDetBuffer.Phone_CA = state?.agentsResp?.[0]?.Phone_CA,
-    agDetBuffer.LinkedIN_Profile_CA = state?.agentsResp?.[0]?.LinkedIN_Profile_CA
+    agDetBuffer.LinkedIN_Profile_CA = state?.agentsResp?.[0]?.LinkedIN_Profile_CA,
+    agDetBuffer.Australia_Counsellor_Image_URL = state?.agentsResp?.[0]?.Australia_Counsellor_Image_URL,
+    agDetBuffer.UK_Counsellor_Image_URL = state?.agentsResp?.[0]?.UK_Counsellor_Image_URL,
+    agDetBuffer.Canada_Counsellor_Image_URL = state?.agentsResp?.[0]?.Canada_Counsellor_Image_URL
 
     
     await setAgentDetails(agDetBuffer)
