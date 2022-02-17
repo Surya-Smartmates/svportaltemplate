@@ -122,7 +122,6 @@ const [studentsList, setStudentsList] = useState([{Full_Name:"", Nationality:"",
                           </tr>
                         </thead>
                         <tbody>
-                          {console.log(`studentResp val: ${studentsResp}`)/** for testing purpose */}
                         {state?.studentsResp.length === 0 || state?.studentsResp === "Request failed with status code 401" ?
                           <div>
                           You currently don't have any students registered
@@ -135,7 +134,7 @@ const [studentsList, setStudentsList] = useState([{Full_Name:"", Nationality:"",
                                 <td style = {{ textAlign: "center" }}>{students.Nationality}</td>
                                 <td style = {{ textAlign: "center" }}>{students.Institution}</td>
                                 <td style = {{ textAlign: "center" }}>{students.Institution_Semester_start_date}</td>
-                                <td style = {{ textAlign: "center" }}>{students.Estimated_Completion_Date}</td>
+                                <td style = {{ textAlign: "center" }}>{students.Estimated_Completion_date}</td>
                                 <td style = {{ width: "40px", textAlign: "center" }}>{students.How_many_total_semesters_will_this_course_take_to}</td>
                                 <td style = {{ textAlign: "center" }}>{students.Email}</td>
                                 <td style = {{ textAlign: "center" }}>{students.Phone}</td>
@@ -282,7 +281,7 @@ export async function getServerSideProps(context) {
   );
   studentsResp = stuResp?.data !== undefined ? stuResp?.data : [];
   console.log("ANTON DEBUGG")
-  console.log({ studentsResp });
+  console.log(`studentresp value in console: ${studentsResp}`);
 
   return {
     props: {
