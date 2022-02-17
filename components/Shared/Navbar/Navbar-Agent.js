@@ -51,7 +51,7 @@ useEffect(()=>{
     if(state?.agentsResp?.[0]?.New_Agent_Image_URL !== null && state?.agentsResp?.[0]?.New_Agent_Image_URL !== undefined){
         setAgentImg(
             <Image
-                width={120}
+                width={90}
                 height={'85%'}
                 src={state?.agentsResp?.[0]?.New_Agent_Image_URL}
                 alt='agent image' />
