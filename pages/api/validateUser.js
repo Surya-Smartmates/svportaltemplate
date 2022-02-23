@@ -90,7 +90,7 @@ export default async function handler(req, res) {
     
         } else {
             console.log("USER HAS NO ACCESS TO PORTAL");
-            await res.status(403).json({
+            await res.status(200).json({
                 ok: false,
                 error: "No Access To Portal",
             });
