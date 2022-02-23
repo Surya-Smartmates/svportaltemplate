@@ -67,33 +67,40 @@ export default async function handler(req, res) {
             return;
         }
 
-        //if email,password matched and forced password true then go to the reset password page
-        if (userFound.data.data[0].Force_Password_Change) {
-            console.log("FORCED PASSWORD");
-            await res.status(200).json({
-                ok: true,
-                resetPassword: true,
-                email: userFound.data.data[0].Email,
-                record_id: userFound.data.data[0].id,
-                name: userFound.data.data[0].Last_Name,
+        if(userFound.data.data[0].Has_Portal_Access) {
+            //if email,password matched and forced password true then go to the reset password page
+            if (userFound.data.data[0].Force_Password_Change) {
+                console.log("FORCED PASSWORD");
+                await res.status(200).json({
+                    ok: true,
+                    resetPassword: true,
+                    email: userFound.data.data[0].Email,
+                    record_id: userFound.data.data[0].id,
+                    name: userFound.data.data[0].Last_Name,
+                });
+            } else { // if email and password matched but forced password false then go to the dashboard page
+                await res.status(200).json({
+                    ok: true,
+                    resetPassword: false,
+                    record_id: userFound.data.data[0].id,
+                    email: userFound.data.data[0].Email,
+                    name: userFound.data.data[0].Last_Name,
+                });
+            }
+    
+        } else {
+            console.log("USER HAS NO ACCESS TO PORTAL");
+            await res.status(403).json({
+                ok: false,
+                error: "No Access To Portal",
             });
-        } else { // if email and password matched but forced password false then go to the dashboard page
-            await res.status(200).json({
-                ok: true,
-                resetPassword: false,
-                record_id: userFound.data.data[0].id,
-                email: userFound.data.data[0].Email,
-                name: userFound.data.data[0].Last_Name,
-            });
+            return;
         }
-    } catch (err) {
+
+        } catch (err) {
         console.log("CATCH ERR", err);
         await res.status(400).json({
             error: err,
         });
     }
-}
-
-function response1(userFound) {
-
 }
