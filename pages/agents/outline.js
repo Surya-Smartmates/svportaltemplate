@@ -79,7 +79,8 @@ const Outline = () => {
       height: pdfHeight,
       bWidth: buttonWidth,
       bHeight: buttonHeight,
-      btSrc: watch1
+      btSrc: watch1,
+      linkVideo: "https://workdrive.zohoexternal.com/file/pgvxh6019d732109740a18398c60ef332945a"
 
     },
     {
@@ -89,7 +90,8 @@ const Outline = () => {
       height: pdfHeight,
       bWidth: buttonWidth,
       bHeight: buttonHeight,
-      btSrc: watch1
+      btSrc: watch1,
+      linkVideo: "https://workdrive.zohoexternal.com/file/pgvxh99d78d1537964cd7bd8ae69cc3584c70"
 
     },
     {
@@ -99,7 +101,8 @@ const Outline = () => {
       height: pdfHeight,
       bWidth: buttonWidth,
       bHeight: buttonHeight,
-      btSrc: watch1
+      btSrc: watch1,
+      linkVideo: "https://workdrive.zohoexternal.com/file/ls9ku5e068af3a9194b4e92cbd4f7554d72e2"
 
     },
     {
@@ -109,7 +112,8 @@ const Outline = () => {
       height: pdfHeight,
       bWidth: buttonWidth,
       bHeight: buttonHeight,
-      btSrc: watch1
+      btSrc: watch1,
+      linkVideo: "https://workdrive.zohoexternal.com/file/ls9kub40e617113574be49c5c7195b283db98"
 
     },
     {
@@ -119,7 +123,8 @@ const Outline = () => {
       height: pdfHeight,
       bWidth: buttonWidth,
       bHeight: buttonHeight,
-      btSrc: watch1
+      btSrc: watch1,
+      linkVideo: "https://workdrive.zohoexternal.com/file/ls9ku7e918a7dd55744b294c99f5d6bbdfa3f"
 
     },
     {
@@ -129,7 +134,8 @@ const Outline = () => {
       height: pdfHeight,
       bWidth: buttonWidth,
       bHeight: buttonHeight,
-      btSrc: watch1
+      btSrc: watch1,
+      linkVideo: "https://workdrive.zohoexternal.com/file/ls9ku382774a5d1e944e49954ccedf7cf3401"
 
     },
     {
@@ -149,7 +155,8 @@ const Outline = () => {
       height: pdfHeight,
       bWidth: buttonWidth,
       bHeight: buttonHeight,
-      btSrc: watch1
+      btSrc: watch1,
+      linkVideo: "https://workdrive.zohoexternal.com/file/pgvxhe3790b53d4d84885b84caaf2f8896937"
 
     },
     {
@@ -159,7 +166,8 @@ const Outline = () => {
       height: pdfHeight,
       bWidth: buttonWidth,
       bHeight: buttonHeight,
-      btSrc: watch1
+      btSrc: watch1,
+      linkVideo: "https://workdrive.zohoexternal.com/file/ls9ku309377a3b042455cb4c0f73f1f5a18ac"
 
     },
     {
@@ -169,7 +177,9 @@ const Outline = () => {
       height: pdfHeight,
       bWidth: buttonWidth,
       bHeight: buttonHeight,
-      btSrc: watch1
+      btSrc: watch1,
+      linkVideo: "https://workdrive.zohoexternal.com/file/ls9ku425c49897fde4110b7d429b801bffb01"
+
 
     },
     {
@@ -179,7 +189,9 @@ const Outline = () => {
       height: pdfHeight,
       bWidth: buttonWidth,
       bHeight: buttonHeight,
-      btSrc: watch1
+      btSrc: watch1,
+      linkVideo: ""
+
 
     },
     {
@@ -189,7 +201,9 @@ const Outline = () => {
       height: pdfHeight,
       bWidth: buttonWidth,
       bHeight: buttonHeight,
-      btSrc: watch1
+      btSrc: watch1,
+      linkVideo: ""
+
 
     },
     {
@@ -199,7 +213,9 @@ const Outline = () => {
       height: pdfHeight,
       bWidth: buttonWidth,
       bHeight: buttonHeight,
-      btSrc: watch1
+      btSrc: watch1,
+      linkVideo: ""
+
 
     }
     
@@ -242,7 +258,7 @@ const Outline = () => {
                             </a>
                           </div>
                           <div className = "col-sm-12">
-                          <a style = {{ width: "100%"}} href = {slides.linkVideo} ><Image width={slides.bWidth} height={slides.bHeight} src={watch1}/></a>
+                          <a style = {{ width: "100%"}} href = {slides.linkVideo} target="_blank" rel="noreferrer noopener" ><Image width={slides.bWidth} height={slides.bHeight} src={watch1}/></a>
                           </div>
                         </div>
                     </Carousel.Item>
