@@ -77,10 +77,7 @@ export default async function handler(req, res) {
                 record_id: userFound.data.data[0].id,
                 name: userFound.data.data[0].Last_Name,
             });
-        }
-
-        //if email and password matched but forced password false then go to the dashboard page
-        if (!userFound.data.data[0].Force_Password_Change) {
+        } else { // if email and password matched but forced password false then go to the dashboard page
             await res.status(200).json({
                 ok: true,
                 resetPassword: false,

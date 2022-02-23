@@ -69,8 +69,8 @@ const Outline = () => {
       height: pdfHeight,
       bWidth: buttonWidth,
       bHeight: buttonHeight,
-      btSrc: watch1
-
+      btSrc: watch1,
+      linkVideo: "https://workdrive.zohoexternal.com/file/ls9ku76939f6f09f84571b7457631ec93261e"
     },
     {
       src: M2,
@@ -225,6 +225,7 @@ const Outline = () => {
                 </div>
                 <div className = "col-sm-8">
                 <Carousel prevIcon={arrowLeft} nextIcon = {arrowRight} style={{ height: "40vh", marginTop: "10%", marginBottom: "50%" }}>
+                {console.log(SliderContent)}
                 {
                   SliderContent.map((slides)=>{
                     return(
@@ -233,7 +234,6 @@ const Outline = () => {
                           <div className = "col-sm-12">
                             <a target="_blank" rel="noreferrer noopener" href = {slides.link}>
                               <Image
-                               
                                 width ={slides.width}
                                 height = {slides.height}
                                 src={slides.src}
@@ -242,7 +242,7 @@ const Outline = () => {
                             </a>
                           </div>
                           <div className = "col-sm-12">
-                          <a style = {{ width: "100%"}}><Image width={slides.bWidth} height={slides.bHeight} src={watch1}/></a>
+                          <a style = {{ width: "100%"}} href = {slides.linkVideo} ><Image width={slides.bWidth} height={slides.bHeight} src={watch1}/></a>
                           </div>
                         </div>
                     </Carousel.Item>
