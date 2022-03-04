@@ -83,7 +83,7 @@ const Resources = () => {
                         </tr>
                         <tr>
                         <td  style = {{ width: "35%" }}>Sales Kit & FAQs<br/><i>Scripts and guides to talking about StudyVillage</i></td>
-                        <td><a href = "https://workdrive.zohoexternal.com/external/93b9476aeb3941cc12e45633c9fe37c274f0718a39aec1d311e5b1afb06e488f" target="_blank" rel="noreferrer noopener">Your Student Supporter</a><br/><i>A quick video explainer</i></td>
+                        <td><a href = "https://workdrive.zohoexternal.com/external/bcd0c2132dc49ddabb52108b34a99ff170372867be708429d9fba6aa327fcf05" target="_blank" rel="noreferrer noopener">Your Student Supporter</a><br/><i>A quick video explainer</i></td>
                         <td>Interacting with StudyVillage<br/><i>A quick guide to the portal and working with the team</i></td>
                         </tr>
                         <tr>
