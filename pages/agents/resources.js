@@ -79,10 +79,10 @@ const Resources = () => {
                         <tr>
                         <td  style = {{ width: "35%" }}><a href="https://workdrive.zohoexternal.com/external/2c64a613e7be273182689ddd14d6f266c4c147c1884136617104e8d144835a20" target="_blank" rel="noreferrer noopener">Parents Video Explainer</a><br/><i>Video format for sharing with parents</i></td>
                         <td><a href="https://workdrive.zohoexternal.com/external/e6ed5e8f928e8dee16ad0289ebbf0378533a63b5b6375cd03f767e55a10d7a55" target="_blank" rel="noreferrer noopener">StudyVillage Student Guide</a><br/><i>Everything a student needs to know about their StudyVillage Program –  A handy reference in PDF format</i></td>
-                        <td>Agent FAQs<br/><i>Questions you may have about working with us answered</i></td>
+                        <td><a href="https://workdrive.zohoexternal.com/external/878bbb7950079043a3649ffe04662085a4762f6f317db8650963b784cd5031ac" target="_blank" rel="noreferrer noopener">Parent FAQs</a><br/><i>Typical parent questions answered</i></td>
                         </tr>
                         <tr>
-                        <td  style = {{ width: "35%" }}>Sales Kit & FAQs<br/><i>Scripts and guides to talking about StudyVillage</i></td>
+                        <td  style = {{ width: "35%" }}><a href = "https://workdrive.zohoexternal.com/external/54321a0814823f6a7e0570356e7fb2183710fede08d0e574cff4d9ec189365d6" target="_blank" rel="noreferrer noopener">Sales Kit & FAQs</a><br/><i>Scripts and guides to talking about StudyVillage</i></td>
                         <td><a href = "https://workdrive.zohoexternal.com/external/bcd0c2132dc49ddabb52108b34a99ff170372867be708429d9fba6aa327fcf05" target="_blank" rel="noreferrer noopener">Your Student Supporter</a><br/><i>A quick video explainer</i></td>
                         <td>Interacting with StudyVillage<br/><i>A quick guide to the portal and working with the team</i></td>
                         </tr>
