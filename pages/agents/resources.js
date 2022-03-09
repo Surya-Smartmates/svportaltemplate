@@ -92,17 +92,17 @@ const Resources = () => {
                         <td><a href = "https://workdrive.zohoexternal.com/external/5e78a200d1c81e475307a19c36c7ce515da9edfed56ed6d39cbc0d70228e2901" target="_blank" rel="noreferrer noopener">Portal Intro and Meeting Family Instructions</a><br/><i>A training video explaining the Meeting the Family component to each module</i></td>
                         </tr>
                         <tr>
-                        <td  style = {{ width: "35%" }}><a href="https://studyvillage.org/register-aus-prep/" target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener">Australia PREP</a><br/><i>Free Pre-departure courseware for your Australia-bound student</i></td>
+                        <td  style = {{ width: "35%" }}><a href="https://studyvillage.org/register-aus-prep/" target="_blank" rel="noreferrer noopener">Australia PREP</a><br/><i>Free Pre-departure courseware for your Australia-bound student</i></td>
                         <td><a href="https://workdrive.zohoexternal.com/external/0dc7c2094014beb9fe7dc76a508de2a7473d33f577c22cb55a0dbf5a866c8d37" target="_blank" rel="noreferrer noopener">Connectivity & Independence</a><br/><i>A quick video explainer</i></td>
                         <td></td>
                         </tr>
                         <tr>
-                        <td  style = {{ width: "35%" }}><a href="https://studyvillage.org/register-for-uk-prep/" target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener">UK PREP</a><br/><i>Free Pre-departure courseware for your UK-bound student</i></td>
+                        <td  style = {{ width: "35%" }}><a href="https://studyvillage.org/register-for-uk-prep/" target="_blank" rel="noreferrer noopener">UK PREP</a><br/><i>Free Pre-departure courseware for your UK-bound student</i></td>
                         <td><a href="https://workdrive.zohoexternal.com/external/15a6a27003ca670b41f1bc36b92d1632e738266bc7f6a768def9911127fee71d" target="_blank" rel="noreferrer noopener">Self-surveys</a><br/><i>A quick video explainer</i></td>
                         <td></td>
                         </tr>
                         <tr >
-                        <td  style = {{ width: "35%" }}><a href="https://studyvillage.org/register-ca-prep/" target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener">Canada PREP</a><br/><i>Free Pre-departure courseware for your Canada-bound student</i></td>
+                        <td  style = {{ width: "35%" }}><a href="https://studyvillage.org/register-ca-prep/" target="_blank" rel="noreferrer noopener">Canada PREP</a><br/><i>Free Pre-departure courseware for your Canada-bound student</i></td>
                         <td><a href = "https://workdrive.zohoexternal.com/external/07ec9ad35dcf172ccc45f93519fbbbe80f6b680372cbb895ab01d0bce747a424" target="_blank" rel="noreferrer noopener"></a>Settling In<br/><i>A quick video explainer</i></td>
                         <td></td>
                         </tr>
