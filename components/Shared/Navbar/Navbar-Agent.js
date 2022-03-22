@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 // import "../../../assets/css/style.css";
 import logo from "../../../assets/img/SVLogo.svg";
 import user from "../../../assets/img/user.jpg";
@@ -26,7 +26,6 @@ const NavbarAgent = ({ profileUserName, topbarLinks, imgSrc, agentID }) => {
         height={'85%'}
         src="/images/users/welcome.jpg"
         alt=''
-        
     />)
 
     const profile =
@@ -34,66 +33,54 @@ const NavbarAgent = ({ profileUserName, topbarLinks, imgSrc, agentID }) => {
         state?.portalUserResp?.User_Type?.toLowerCase() ||
         "";
 
-async function convertTo64 (){
-    await imageToBase64('/images/users/welcome.jpg').then((res)=>{
-        setBlurBase64(res)
-    }).catch((error)=>{
-        console.log(error)
-    })
-}
-
-
-useEffect(()=>{
-    convertTo64()
-    console.log("state")
-    console.log(state?.agentsResp?.[0]?.New_Agent_Image_URL)
-
-    if(state?.agentsResp?.[0]?.New_Agent_Image_URL !== null && state?.agentsResp?.[0]?.New_Agent_Image_URL !== undefined){
-        setAgentImg(
-            <Image
-                width={90}
-                height={'85%'}
-                src={state?.agentsResp?.[0]?.New_Agent_Image_URL}
-                alt='agent image' />
-        )
+    async function convertTo64() {
+        await imageToBase64('/images/users/welcome.jpg').then((res) => {
+            setBlurBase64(res)
+        }).catch((error) => {
+            console.log(error)
+        })
     }
-},[])
 
-        return (
+
+
+    useEffect(() => {
+        convertTo64()
+        console.log("state")
+        console.log(state?.agentsResp?.[0]?.New_Agent_Image_URL)
+
+        if (state?.agentsResp?.[0]?.New_Agent_Image_URL !== null && state?.agentsResp?.[0]?.New_Agent_Image_URL !== undefined) {
+            setAgentImg(
+                <img
+                    src={state?.agentsResp?.[0]?.New_Agent_Image_URL}
+                    alt='agent image'
+                    style={{width: "100%", maxWidth: "100px", maxHeight: "60px"}}
+                />
+            )
+        }
+    }, [])
+
+    return (
         <header className='header-area'>
             <div className='header-wrapper d-flex align-items-center justify-content-between'>
-            
+
                 <div className='logo-area'>
-                
+
                     <Link href={`/${profile}`}>
                         <Image src={logo} alt='logo' width={200} height={200} />
                     </Link>
                 </div>
                 <div className='header-right-area d-flex align-items-center'>
-                
-                   
-                    <div className='user-btn-area dropdown'>
+
+                    <div className='user-btn-area dropdown' style={{ paddingRight: "2em" }}>
                         <div
                             className='user-btn-wrapper d-flex align-items-center dropdown-toggle'
                             id='dropdownMenuButton1'
                             data-bs-toggle='dropdown'
                             aria-expanded='false'>
                             <div>
-                            <div style = {{ width: "50%" }}>
-                            {/*<img className = "comp-logo"
-                                '/images/users/welcome.jpg'
-                             src={state?.agentsResp?.[0]?.New_Agent_Image_URL}/>
-                            https://workdrive.zohoexternal.com/external/fd1fd0f17974ef90…81f222a5ba6f79faaacf9681e54ce66768cf0ea7?directDownload=true
-                            {state?.agentsResp?.[0]?.New_Agent_Image_URL}*/}
-                            </div>
-                            
-                                 <div>
-                                {agentImg}
+                                <div>
+                                    {agentImg}
                                 </div>
-                                                             
-                            
-                                
-
                             </div>
                             <div className='user-btn-text'>
 
@@ -112,7 +99,7 @@ useEffect(()=>{
                         <div
                             className='user-menu dropdown-menu'
                             aria-labelledby='dropdownMenuButton1'
-                            //   style={{ left: "-100px" }}
+                        //   style={{ left: "-100px" }}
                         >
                             <ul>
                                 {topbarLinks?.map((topbarLink, index) => {
@@ -126,7 +113,7 @@ useEffect(()=>{
                                         </li>
                                     );
                                 })}
-                               
+
                                 <li>
                                     <button
                                         type='button'
@@ -139,7 +126,7 @@ useEffect(()=>{
                             </ul>
                         </div>
                     </div>
-                    <div className = "comp-test">{agentID}</div>
+                    {/* <div className="comp-test" style={{ visibility: "hidden" }}>{agentID}</div> */}
                 </div>
             </div>
         </header>
